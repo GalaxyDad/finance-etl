@@ -130,3 +130,28 @@
 2026-08-02 15:23:26,479 - root - INFO - ========================
 2026-08-02 15:23:26,481 - root - INFO - Success! Exported 521 rows to data/processed/consolidated_ledger_20260802_152326_ee8ee231.csv
 2026-08-02 15:23:26,481 - root - INFO - Cleaned up 1 old output file(s) in data/processed.
+2026-08-02 15:24:35,008 - root - INFO - Processing bank data...
+2026-08-02 15:24:35,033 - root - INFO - [DRY-RUN] Found 266 unique merchants. Skipping Gemini API call and export.
+2026-08-02 15:24:35,033 - root - INFO - [DRY-RUN] Total rows extracted: 521
+2026-08-02 15:24:35,034 - root - INFO - [DRY-RUN]   rogers_cc: 425 rows
+2026-08-02 15:24:35,034 - root - INFO - [DRY-RUN]   cibc: 5 rows
+2026-08-02 15:24:35,034 - root - INFO - [DRY-RUN]   wealthsimple_activities: 79 rows
+2026-08-02 15:24:35,034 - root - INFO - [DRY-RUN]   wealthsimple_credit: 12 rows
+2026-08-02 15:24:35,035 - root - INFO - [DRY-RUN] Merchant Cache Breakdown:
+2026-08-02 15:24:35,035 - root - INFO - [DRY-RUN]   Raw Unique Merchants: 266
+2026-08-02 15:24:35,035 - root - INFO - [DRY-RUN]   Normalized Unique Merchants: 162
+2026-08-02 15:24:35,035 - root - INFO - [DRY-RUN]   Merchants in Cache: 162
+2026-08-02 15:24:35,035 - root - INFO - [DRY-RUN]   API Calls Needed: 0
+2026-08-02 15:26:01,557 - root - INFO - Processing bank data...
+2026-08-02 15:26:01,581 - root - INFO - [DRY-RUN] Found 279 unique merchants. Skipping Gemini API call and export.
+2026-08-02 15:26:01,581 - root - INFO - [DRY-RUN] Total rows extracted: 551
+2026-08-02 15:26:01,582 - root - INFO - [DRY-RUN]   wealthsimple_credit: 12 rows
+2026-08-02 15:26:01,582 - root - INFO - [DRY-RUN]   wealthsimple_activities: 79 rows
+2026-08-02 15:26:01,582 - root - INFO - [DRY-RUN]   cibc: 5 rows
+2026-08-02 15:26:01,582 - root - INFO - [DRY-RUN]   simplii: 30 rows
+2026-08-02 15:26:01,582 - root - INFO - [DRY-RUN]   rogers_cc: 425 rows
+2026-08-02 15:26:01,583 - root - INFO - [DRY-RUN] Merchant Cache Breakdown:
+2026-08-02 15:26:01,583 - root - INFO - [DRY-RUN]   Raw Unique Merchants: 279
+2026-08-02 15:26:01,583 - root - INFO - [DRY-RUN]   Normalized Unique Merchants: 175
+2026-08-02 15:26:01,583 - root - INFO - [DRY-RUN]   Merchants in Cache: 175
+2026-08-02 15:26:01,583 - root - INFO - [DRY-RUN]   API Calls Needed: 0

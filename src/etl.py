@@ -120,11 +120,24 @@ BANK_PARSERS = [
     WSCreditParser()
 ]
 
+
+def _ci_glob(directory: str, pattern: str) -> list[str]:
+    """Case-insensitive glob within a directory."""
+    import fnmatch
+    if not os.path.isdir(directory):
+        return []
+    return sorted(
+        os.path.join(directory, f)
+        for f in os.listdir(directory)
+        if fnmatch.fnmatch(f.lower(), pattern.lower())
+    )
+
+
 def process_bank_data(raw_dir):
     dfs = []
     
     for parser in BANK_PARSERS:
-        files = glob.glob(os.path.join(raw_dir, parser.file_pattern))
+        files = _ci_glob(raw_dir, parser.file_pattern)
         for f in files:
             try:
                 df = parser.parse(f)
