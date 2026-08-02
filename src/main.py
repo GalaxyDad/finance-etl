@@ -4,7 +4,8 @@ import logging
 from datetime import datetime
 import argparse
 import uuid
-from src.etl import process_bank_data, call_gemini_categorization, format_output, validate_pipeline
+from src.etl import process_bank_data, call_gemini_categorization, format_output, validate_pipeline, normalize_merchant_name
+import json
 
 def setup_logger():
     logger = logging.getLogger()
@@ -53,6 +54,27 @@ def main():
         account_counts = df['Account'].value_counts()
         for row in account_counts.iter_rows(named=True):
             logger.info(f"[DRY-RUN]   {row['Account']}: {row['count']} rows")
+            
+        # Calculate actual API calls needed
+        normalized_merchants = {normalize_merchant_name(m) for m in unique_merchants}
+        
+        cache_path = os.path.join(reference_dir, 'merchant_cache.json')
+        cached_count = 0
+        if os.path.exists(cache_path):
+            try:
+                with open(cache_path, 'r') as f:
+                    merchant_cache = json.load(f)
+                cached_count = sum(1 for nm in normalized_merchants if nm in merchant_cache)
+            except Exception:
+                pass
+                
+        uncached_count = len(normalized_merchants) - cached_count
+        logger.info(f"[DRY-RUN] Merchant Cache Breakdown:")
+        logger.info(f"[DRY-RUN]   Raw Unique Merchants: {len(unique_merchants)}")
+        logger.info(f"[DRY-RUN]   Normalized Unique Merchants: {len(normalized_merchants)}")
+        logger.info(f"[DRY-RUN]   Merchants in Cache: {cached_count}")
+        logger.info(f"[DRY-RUN]   API Calls Needed: {uncached_count}")
+        
         return
         
     logger.info(f"Found {len(unique_merchants)} unique merchants. Calling Gemini for categorization...")
@@ -74,6 +96,7 @@ def main():
     unique_id = uuid.uuid4().hex[:8]
     filename = f"consolidated_ledger_{timestamp}_{unique_id}.csv"
     output_path = os.path.join(processed_dir, filename)
+    os.makedirs(processed_dir, exist_ok=True)
     output_df.write_csv(output_path)
     logger.info(f"Success! Exported {len(output_df)} rows to {output_path}")
 

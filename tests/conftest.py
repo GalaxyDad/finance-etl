@@ -14,18 +14,18 @@ def mock_data_dir():
         os.makedirs(reference_dir)
         
         # Mock Rogers CC Data
-        rogers_path = os.path.join(raw_dir, 'rogers_cc.csv')
+        rogers_path = os.path.join(raw_dir, 'rogers_transactions.csv')
         with open(rogers_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['Date', 'Transaction Date', 'Details', 'Amount', 'Rewards'])
-            writer.writerow(['2023-10-01', '2023-10-01', 'WALMART SUPERCENTER', '45.67', '0.45'])
-            writer.writerow(['2023-10-05', '2023-10-04', 'PAYMENT - THANK YOU', '-100.00', '0.00'])
+            writer.writerow(['Date', 'Activity Status', 'Merchant Name', 'Amount', 'Rewards', 'Reference Number', 'Card Number', 'Col8', 'Col9', 'Col10', 'Col11', 'Col12', 'Col13', 'Col14', 'Col15'])
+            writer.writerow(['2023-10-01', 'Posted', 'WALMART SUPERCENTER', '45.67', '0.45', 'REF1', 'CARD1', '8', '9', '10', '11', '12', '13', '14', '15'])
+            writer.writerow(['2023-10-05', 'Posted', 'PAYMENT - THANK YOU', '-100.00', '0.00', 'REF2', 'CARD1', '8', '9', '10', '11', '12', '13', '14', '15'])
 
         # Mock Simplii Data
         simplii_path = os.path.join(raw_dir, 'simplii.csv')
         with open(simplii_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['Date', 'Transaction Details', 'Funds Out', 'Funds In'])
+            writer.writerow([' Date', ' Transaction Details', ' Funds Out', ' Funds In '])
             writer.writerow(['10/02/2023', 'MCDONALDS RESTAURANT', '12.50', ''])
             writer.writerow(['10/15/2023', 'PAYROLL DEPOSIT', '', '2500.00'])
             

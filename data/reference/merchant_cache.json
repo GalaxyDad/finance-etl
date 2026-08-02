@@ -1672,5 +1672,533 @@
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
+    },
+    "KINDLE SVCS": {
+        "category": "Shopping: Books",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALDS 40168": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-03-25)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Bill Payment"
+    },
+    "CASHBACK / REMISES": {
+        "category": "_Income: Reimbursement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-05-27)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Bill Payment"
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-06-09)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-07-15)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Bill Payment"
+    },
+    "DAM FOODS LIMITED": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ULTRAMAR": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "THE HOME DEPOT": {
+        "category": "Home: Home Improvement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-06-27)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "PETRO-CANADA 35073": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "IRVING STATION": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "FOODLAND": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "EBAY O*27-14057-44962": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "A&W BOWMANVILLE": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-06-23)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Bill Payment"
+    },
+    "PRE-AUTHORIZED DEBIT": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALDS 23192": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ATM FEE REIMBURSEMENT": {
+        "category": "_Income: Reimbursement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "THE HOME DEPOT BOWMANVILLE, ON": {
+        "category": "Home: Home Improvement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-04-16)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "GOOGLE *GOOGLE ONE": {
+        "category": "Shopping: Electronics & Software",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "INTEREST": {
+        "category": "_Income: Interest Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CANADIAN TIRE": {
+        "category": "Home: Home Improvement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "INTERAC E-TRANSFER RECEIVE JENNIFER GORDON": {
+        "category": "_Income: Reimbursement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "BULK BARN BOWMANV": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMAZON.CA": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-05-29)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "REFERRAL BONUS (2026-03-10)": {
+        "category": "_Income: Bonus",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "INTEREST RECEIVED (EXECUTED AT 2026-07-01)": {
+        "category": "_Income: Interest Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "REFERRAL BONUS (2026-04-10)": {
+        "category": "_Income: Bonus",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "DEPOSIT": {
+        "category": "_Income: _Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-07-30)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-07-18)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Bill Payment"
+    },
+    "DIRECT DEPOSIT RECEIVED": {
+        "category": "_Income: Paycheck",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "EBAY O*23-14063-27238": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-05-14)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "AMAZON.CA PRIME MEMBER": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "INTEREST RECEIVED (EXECUTED AT 2026-05-01)": {
+        "category": "_Income: Interest Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-07-23)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Bill Payment"
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-04-21)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Bill Payment"
+    },
+    "TIM HORTONS": {
+        "category": "Food & Dining: Coffee Shops",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SQ /AUTOSTAR TX": {
+        "category": "Auto & Transport: Service & Parts",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SWISS CHALET": {
+        "category": "Food & Dining: Restaurants",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN MKTP CA": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "DAIRY QUEEN": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-06-08)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Bill Payment"
+    },
+    "PAYMENT": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "BURGER KING": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-05-11)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-06-12)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "MORTGAGE RMG MORTGAGE CORPORATION": {
+        "category": "Home: Mortgage & Rent",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-04-07)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "GIVEAWAY RECEIVED": {
+        "category": "_Income: Reimbursement",
+        "flag": "Unclear source of income",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MARK'S STORE": {
+        "category": "Shopping: Clothing",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "LOBLAWS": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-04-08)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "INTERAC E-TRANSFER\u00ae RECEIVED": {
+        "category": "_Income: Reimbursement",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "EBAY O*20-14037-34102": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CHIPOTLE": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-04-06)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-05-16)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "MCDONALDS 5707": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-07-06)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-04-29)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "ONLINE BILL PAYMENT (EXECUTED AT 2026-06-13)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "INTERAC E-TRANSFER\u00ae OUT": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "INTEREST RECEIVED (EXECUTED AT 2026-04-01)": {
+        "category": "_Income: Interest Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "EBAY O*03-14091-33992": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CREDIT CARD PAYMENT": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "MCDONALD'S": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "DOLLARAMA": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TRANSFER OUT": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "INTEREST RECEIVED (EXECUTED AT 2026-06-01)": {
+        "category": "_Income: Interest Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "FIDO MOBILE ******2669": {
+        "category": "Bills & Utilities: Mobile Phone",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALD'S Q04": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SPEND": {
+        "category": "Misc Expenses: Misc Expenses",
+        "flag": "Vague transaction description",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-07-14)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "INTEREST RECEIVED (EXECUTED AT 2026-08-01)": {
+        "category": "_Income: Interest Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CROWN MAINTENANCE INC": {
+        "category": "Home: Home Services",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "FRESHCO": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "INTERAC E-TRANSFER SEND JENN GORDON": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "MICHAELS": {
+        "category": "Shopping: Hobbies",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "WMT SUPRCTR": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "BASKIN ROBBINS-": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "INVESTMENT WEALTHSIMPLE INVESTMENTS INC. CHEQUE": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "CIRCLE K": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
     }
 }

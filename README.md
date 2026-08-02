@@ -8,9 +8,13 @@ This project is a local Python ETL (Extract, Transform, Load) pipeline designed 
    - Normalizes dates to the strict `YYYY-MM-DD` format.
    - Standardizes amounts (Income as positive floats, Expenses as negative floats).
    - Extracts unique merchants and queries the Gemini 3.6 Flash API to assign categories. This API call is contextualized heavily using a predefined allowed categories list (`Categories.csv`) and historical examples (`Mike Transaction Register.csv`).
-3. **Validates**: Automatically performs strict validation checks comparing the raw extracted data against the formatted output. It verifies that row counts and total balances match to ensure no transactions are dropped during formatting. Mismatches or dropped transactions are clearly flagged and displayed to the user.
-4. **Loads**: Joins the LLM categorization back to the main DataFrame, sorts the data chronologically by Date (and alphabetically by Account), and formats it into a strict 12-column output.
-5. **Logs**: Standard logs and error messages are written both to the console and to `pipeline.log` for easy troubleshooting.
+3. **Optimizes**: 
+   - Uses defensive CSV parsing to reliably ingest bank statements regardless of type-inference challenges or unexpected formats.
+   - Normalizes merchant names (e.g. stripping Amazon order hashes) to cut down redundant LLM categorization calls by up to 70%.
+   - Chunks Gemini API requests into batches of 50 with incremental cache saves to ensure fault tolerance.
+4. **Validates**: Automatically performs strict validation checks comparing the raw extracted data against the formatted output. It verifies that row counts and total balances match to ensure no transactions are dropped during formatting. Mismatches or dropped transactions are clearly flagged and displayed to the user.
+5. **Loads**: Joins the LLM categorization back to the main DataFrame, sorts the data chronologically by Date (and alphabetically by Account), and formats it into a strict 12-column output.
+6. **Logs**: Standard logs and error messages are written both to the console and to `pipeline.log` for easy troubleshooting.
 
 ## How to Use It
 

@@ -5,6 +5,7 @@ import google.generativeai as genai
 import json
 import random
 import logging
+import re
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -15,7 +16,7 @@ def process_bank_data(raw_dir):
     dfs = []
     
     # Process Rogers CC
-    rogers_files = glob.glob(os.path.join(raw_dir, 'rogers_*.csv'))
+    rogers_files = glob.glob(os.path.join(raw_dir, 'rogers*.csv'))
     for f in rogers_files:
         df = pl.read_csv(f, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
@@ -43,12 +44,12 @@ def process_bank_data(raw_dir):
                 break
                 
     if simplii_path and os.path.exists(simplii_path):
-        df = pl.read_csv(simplii_path, null_values=[""])
+        df = pl.read_csv(simplii_path, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
             pl.col('Date').str.strptime(pl.Date, "%m/%d/%Y", strict=False),
-            pl.col('Funds Out').fill_null(0.0),
-            pl.col('Funds In').fill_null(0.0)
+            pl.col('Funds Out').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).fill_null(0.0),
+            pl.col('Funds In').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).fill_null(0.0)
         )
         df = df.drop_nulls(subset=['Date'])
         df = df.with_columns(
@@ -62,7 +63,7 @@ def process_bank_data(raw_dir):
     cibc_path = os.path.join(raw_dir, 'cibc.csv')
     if os.path.exists(cibc_path):
         # Headerless: Date, Description, Debit, Credit, Card
-        df = pl.read_csv(cibc_path, has_header=False, null_values=[""])
+        df = pl.read_csv(cibc_path, has_header=False, null_values=[""], infer_schema_length=0)
         df = df.rename({
             "column_1": "Date", 
             "column_2": "Transaction Details", 
@@ -72,8 +73,8 @@ def process_bank_data(raw_dir):
         })
         df = df.with_columns(
             pl.col('Date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
-            pl.col('Debit').fill_null(0.0),
-            pl.col('Credit').fill_null(0.0)
+            pl.col('Debit').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).fill_null(0.0),
+            pl.col('Credit').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).fill_null(0.0)
         )
         df = df.drop_nulls(subset=['Date'])
         df = df.with_columns(
@@ -86,12 +87,12 @@ def process_bank_data(raw_dir):
     # Process WS Activities
     ws_act_files = glob.glob(os.path.join(raw_dir, 'ws_activities*.csv'))
     for f in ws_act_files:
-        df = pl.read_csv(f, null_values=[""])
+        df = pl.read_csv(f, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
             pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
             pl.lit('wealthsimple_activities').alias('Account'),
-            pl.col('net_cash_amount').cast(pl.Float64, strict=False).alias('Amount')
+            pl.col('net_cash_amount').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).alias('Amount')
         )
         df = df.drop_nulls(subset=['transaction_date'])
         df = df.rename({"description": "Transaction Details", "transaction_date": "Date"})
@@ -101,13 +102,13 @@ def process_bank_data(raw_dir):
     # Process WS Credit
     ws_cc_files = glob.glob(os.path.join(raw_dir, 'ws_credit-card*.csv'))
     for f in ws_cc_files:
-        df = pl.read_csv(f, null_values=[""])
+        df = pl.read_csv(f, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
             pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
             pl.lit('wealthsimple_credit').alias('Account'),
             pl.when(pl.col('merchant').is_null() | (pl.col('merchant') == "")).then(pl.col('transaction_type')).otherwise(pl.col('merchant')).alias('Transaction Details'),
-            pl.col('amount').cast(pl.Float64, strict=False).alias('Amount')
+            pl.col('amount').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).alias('Amount')
         )
         df = df.drop_nulls(subset=['transaction_date'])
         df = df.rename({"transaction_date": "Date"})
@@ -118,6 +119,21 @@ def process_bank_data(raw_dir):
         return pl.DataFrame()
         
     return pl.concat(dfs)
+
+
+def normalize_merchant_name(name: str) -> str:
+    """Normalize merchant name to reduce API calls by stripping unique hashes and extra spaces."""
+    if not isinstance(name, str) or not name:
+        return ""
+    
+    name = name.strip().upper()
+    # Remove Amazon order hashes (e.g. *7U9I78QL3)
+    name = re.sub(r'\*[A-Z0-9]{8,15}\b', '', name)
+    # Remove #1234 style IDs
+    name = re.sub(r'\#[0-9]{3,8}\b', '', name)
+    # Remove multiple spaces
+    name = re.sub(r'\s+', ' ', name).strip()
+    return name
 
 
 def call_gemini_categorization(unique_merchants, reference_dir):
@@ -133,12 +149,22 @@ def call_gemini_categorization(unique_merchants, reference_dir):
         except Exception as e:
             logger.warning(f"Error reading cache: {e}")
             
-    # Filter out already cached merchants
-    uncached_merchants = [m for m in unique_merchants if m not in merchant_cache]
+    # Filter out already cached merchants using normalized names
+    uncached_normalized = set()
+    original_to_normalized = {}
+    
+    for m in unique_merchants:
+        norm = normalize_merchant_name(m)
+        original_to_normalized[m] = norm
+        if norm not in merchant_cache:
+            uncached_normalized.add(norm)
+            
+    uncached_merchants = list(uncached_normalized)
     
     if not uncached_merchants:
         logger.info("All merchants found in cache. Skipping Gemini API call.")
-        return merchant_cache
+        result_mapping = {m: merchant_cache[norm] for m, norm in original_to_normalized.items() if norm in merchant_cache}
+        return result_mapping
     
     # 1. Read Allowed Categories
     categories = []
@@ -167,45 +193,53 @@ def call_gemini_categorization(unique_merchants, reference_dir):
 
     model = genai.GenerativeModel('gemini-3.6-flash')
     
-    prompt = f"""
-    Categorize the following list of bank transaction merchants.
-    
-    Allowed Categories:
-    {json.dumps(categories)}
-    
-    Historical Context (Examples of past mappings):
-    {json.dumps(history_context)}
-    
-    Return a JSON object where keys are the merchant names and values are objects containing:
-    - category (string): Must be one of the Allowed Categories.
-    - flag (string): If the category was difficult to determine, provide a brief 3 to 5 word explanation. Otherwise, leave blank "".
-    - suggested_filter (string): "Yes" if the transaction appears to be an internal transfer, credit card payment, ATM withdrawal, or declined/pending transaction. Otherwise, "No".
-    - filter_reason (string): If suggested_filter is "Yes", state why (e.g. "Credit Card Payment", "Internal Transfer", "Declined Transaction"). Otherwise, blank "".
-    
-    Merchants to categorize:
-    {json.dumps(uncached_merchants)}
-    """
-    
     generation_config = {
         "response_mime_type": "application/json",
         # "thinking_level": "LOW" # SDK throws Unknown field error
     }
     
-    try:
-        response = model.generate_content(prompt, generation_config=generation_config)
-        new_mappings = json.loads(response.text)
+    chunk_size = 50
+    for i in range(0, len(uncached_merchants), chunk_size):
+        chunk = uncached_merchants[i:i + chunk_size]
+        prompt = f"""
+        Categorize the following list of bank transaction merchants.
         
-        merchant_cache.update(new_mappings)
+        Allowed Categories:
+        {json.dumps(categories)}
+        
+        Historical Context (Examples of past mappings):
+        {json.dumps(history_context)}
+        
+        Return a JSON object where keys are the exact merchant names provided below and values are objects containing:
+        - category (string): Must be one of the Allowed Categories.
+        - flag (string): If the category was difficult to determine, provide a brief 3 to 5 word explanation. Otherwise, leave blank "".
+        - suggested_filter (string): "Yes" if the transaction appears to be an internal transfer, credit card payment, ATM withdrawal, or declined/pending transaction. Otherwise, "No".
+        - filter_reason (string): If suggested_filter is "Yes", state why (e.g. "Credit Card Payment", "Internal Transfer", "Declined Transaction"). Otherwise, blank "".
+        
+        Merchants to categorize:
+        {json.dumps(chunk)}
+        """
+        
         try:
-            with open(cache_path, 'w') as f:
-                json.dump(merchant_cache, f, indent=4)
-        except Exception as e:
-            logger.warning(f"Error writing cache: {e}")
+            response = model.generate_content(prompt, generation_config=generation_config)
+            new_mappings = json.loads(response.text)
             
-        return merchant_cache
-    except Exception as e:
-        logger.error(f"Error calling Gemini: {e}")
-        return merchant_cache
+            merchant_cache.update(new_mappings)
+            try:
+                with open(cache_path, 'w') as f:
+                    json.dump(merchant_cache, f, indent=4)
+            except Exception as e:
+                logger.warning(f"Error writing cache: {e}")
+        except Exception as e:
+            logger.error(f"Error calling Gemini for chunk {i}: {e}")
+
+    result_mapping = {}
+    for m in unique_merchants:
+        norm = original_to_normalized[m]
+        if norm in merchant_cache:
+            result_mapping[m] = merchant_cache[norm]
+            
+    return result_mapping
 
 
 def format_output(df, mapping):
