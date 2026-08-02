@@ -29,6 +29,7 @@ def setup_logger():
 def main():
     parser = argparse.ArgumentParser(description="Finance ETL Pipeline")
     parser.add_argument("--dry-run", action="store_true", help="Run extraction without calling Gemini or exporting data")
+    parser.add_argument("--no-cache", action="store_true", help="Ignore existing merchant cache and force recategorization")
     args = parser.parse_args()
 
     logger = setup_logger()
@@ -77,6 +78,12 @@ def main():
         
         return
         
+    if args.no_cache:
+        cache_path = os.path.join(reference_dir, 'merchant_cache.json')
+        if os.path.exists(cache_path):
+            os.remove(cache_path)
+            logger.info("Cleared existing merchant cache (--no-cache passed).")
+
     logger.info(f"Found {len(unique_merchants)} unique merchants. Calling Gemini for categorization...")
     
     mapping = call_gemini_categorization(unique_merchants, reference_dir)

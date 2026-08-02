@@ -42,10 +42,19 @@ To verify the logic safely without making API calls, run the test suite:
 pytest tests/ -v
 ```
 
-To run the pipeline and generate a uniquely timestamped output file in `data/processed/` (e.g. `consolidated_ledger_YYYYMMDD_HHMMSS_uuid.csv`):
+To execute the pipeline safely without making API calls or exporting data (useful to review cache hit rates or merchant extraction):
 ```bash
-source venv/bin/activate
+PYTHONPATH=. python src/main.py --dry-run
+```
+
+To run the pipeline and generate a uniquely timestamped output file in `data/processed/`:
+```bash
 PYTHONPATH=. python src/main.py
+```
+
+If you need to force a fresh recategorization by skipping the local cache, use:
+```bash
+PYTHONPATH=. python src/main.py --no-cache
 ```
 
 ## Testing

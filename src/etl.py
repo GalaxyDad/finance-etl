@@ -6,6 +6,7 @@ import json
 import random
 import logging
 import re
+import time
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -16,7 +17,7 @@ def process_bank_data(raw_dir):
     dfs = []
     
     # Process Rogers CC
-    rogers_files = glob.glob(os.path.join(raw_dir, 'rogers*.csv'))
+    rogers_files = glob.glob(os.path.join(raw_dir, 'rogers_transactions*.csv'))
     for f in rogers_files:
         df = pl.read_csv(f, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
@@ -152,18 +153,22 @@ def call_gemini_categorization(unique_merchants, reference_dir):
     # Filter out already cached merchants using normalized names
     uncached_normalized = set()
     original_to_normalized = {}
+    cache_hits = 0
     
     for m in unique_merchants:
         norm = normalize_merchant_name(m)
         original_to_normalized[m] = norm
         if norm not in merchant_cache:
             uncached_normalized.add(norm)
+        else:
+            cache_hits += 1
             
     uncached_merchants = list(uncached_normalized)
     
     if not uncached_merchants:
         logger.info("All merchants found in cache. Skipping Gemini API call.")
         result_mapping = {m: merchant_cache[norm] for m, norm in original_to_normalized.items() if norm in merchant_cache}
+        logger.info(f"Cache: {cache_hits} hits, 0 new lookups, {len(unique_merchants)} total merchants")
         return result_mapping
     
     # 1. Read Allowed Categories
@@ -220,18 +225,27 @@ def call_gemini_categorization(unique_merchants, reference_dir):
         {json.dumps(chunk)}
         """
         
-        try:
-            response = model.generate_content(prompt, generation_config=generation_config)
-            new_mappings = json.loads(response.text)
-            
-            merchant_cache.update(new_mappings)
+        max_retries = 3
+        backoff_times = [2, 4, 8]
+        
+        for attempt in range(max_retries):
             try:
-                with open(cache_path, 'w') as f:
-                    json.dump(merchant_cache, f, indent=4)
+                response = model.generate_content(prompt, generation_config=generation_config)
+                new_mappings = json.loads(response.text)
+                
+                merchant_cache.update(new_mappings)
+                try:
+                    with open(cache_path, 'w') as f:
+                        json.dump(merchant_cache, f, indent=4)
+                except Exception as e:
+                    logger.warning(f"Error writing cache: {e}")
+                break
             except Exception as e:
-                logger.warning(f"Error writing cache: {e}")
-        except Exception as e:
-            logger.error(f"Error calling Gemini for chunk {i}: {e}")
+                if attempt < max_retries - 1:
+                    logger.warning(f"Error calling Gemini for chunk {i}: {e}. Retrying in {backoff_times[attempt]}s...")
+                    time.sleep(backoff_times[attempt])
+                else:
+                    logger.error(f"Failed calling Gemini for chunk {i} after {max_retries} attempts: {e}")
 
     result_mapping = {}
     for m in unique_merchants:
@@ -239,6 +253,7 @@ def call_gemini_categorization(unique_merchants, reference_dir):
         if norm in merchant_cache:
             result_mapping[m] = merchant_cache[norm]
             
+    logger.info(f"Cache: {cache_hits} hits, {len(uncached_normalized)} new lookups, {len(unique_merchants)} total merchants")
     return result_mapping
 
 
