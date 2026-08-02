@@ -1,6 +1,6 @@
 import os
 import polars as pl
-from src.etl import process_bank_data, call_gemini_categorization, format_output
+from src.etl import process_bank_data, call_gemini_categorization, format_output, validate_pipeline
 
 def test_pipeline_end_to_end(mock_data_dir, monkeypatch):
     raw_dir = mock_data_dir['raw_dir']
@@ -76,3 +76,31 @@ def test_pipeline_end_to_end(mock_data_dir, monkeypatch):
     assert type(dates[0]) == str
     assert dates == sorted(dates)
     assert dates[0] == '2023-10-01'
+    
+    # 4. Validate Pipeline
+    is_valid, messages = validate_pipeline(df, output_df)
+    assert is_valid is True
+    assert "[SUCCESS]" in messages[-1]
+
+def test_validate_pipeline_failures():
+    # Create mock dataframes with mismatches
+    raw_df = pl.DataFrame({
+        "Date": ["2023-01-01", "2023-01-02"],
+        "Transaction Details": ["Merchant A", "Merchant B"],
+        "Amount": [10.0, -5.0],
+        "Account": ["acc1", "acc2"]
+    }).with_columns(pl.col("Date").str.strptime(pl.Date, "%Y-%m-%d"))
+    
+    # Drop a row and change amount
+    final_df = pl.DataFrame({
+        "Date": ["2023-01-01"],
+        "Transaction Details": ["Merchant A"],
+        "Amount": [10.0],
+        "Account": ["acc1"]
+    })
+    
+    is_valid, messages = validate_pipeline(raw_df, final_df)
+    assert is_valid is False
+    assert any("Row count mismatch" in msg for msg in messages)
+    assert any("Balance mismatch" in msg for msg in messages)
+    assert any("missing in the final output" in msg for msg in messages)

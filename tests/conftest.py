@@ -43,6 +43,7 @@ def mock_data_dir():
             writer = csv.writer(f)
             writer.writerow(['transaction_date', 'settlement_date', 'account_id', 'account_type', 'activity_type', 'activity_sub_type', 'description', 'direction', 'symbol', 'name', 'currency', 'quantity', 'unit_price', 'commission', 'net_cash_amount'])
             writer.writerow(['2023-10-25', '', 'WK75MLL', 'Chequing', 'MoneyMovement', 'EFT', 'Deposit', '', '', '', 'CAD', '5000', '', '', '5000'])
+            writer.writerow(['As of 2026-08-01 20:15 GMT-04:00', '', '', '', '', '', '', '', '', '', '', '', '', '', ''])
 
         # Mock WS Credit Card
         ws_cc_path = os.path.join(raw_dir, 'ws_credit-card-activities-2023.csv')
@@ -51,6 +52,7 @@ def mock_data_dir():
             writer.writerow(['transaction_date', 'transaction_type', 'status', 'merchant', 'amount', 'currency', 'notes', 'category'])
             writer.writerow(['2023-10-26', 'Purchase', 'Completed', 'Mcdonalds 23192', '-12.86', 'CAD', '', 'Restaurants'])
             writer.writerow(['2023-10-27', 'Payment', 'Completed', '', '200.00', 'CAD', '', 'Uncategorized'])
+            writer.writerow(['As of 2026-08-01 20:15 GMT-04:00', '', '', '', '', '', '', ''])
 
         # Mock Categories
         categories_path = os.path.join(reference_dir, 'Jenn Mike Finance Tracker - Categories.csv')

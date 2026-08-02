@@ -8,7 +8,9 @@ This project is a local Python ETL (Extract, Transform, Load) pipeline designed 
    - Normalizes dates to the strict `YYYY-MM-DD` format.
    - Standardizes amounts (Income as positive floats, Expenses as negative floats).
    - Extracts unique merchants and queries the Gemini 3.6 Flash API to assign categories. This API call is contextualized heavily using a predefined allowed categories list (`Categories.csv`) and historical examples (`Mike Transaction Register.csv`).
-3. **Loads**: Joins the LLM categorization back to the main DataFrame, sorts the data chronologically by Date (and alphabetically by Account), and formats it into a strict 12-column output.
+3. **Validates**: Automatically performs strict validation checks comparing the raw extracted data against the formatted output. It verifies that row counts and total balances match to ensure no transactions are dropped during formatting. Mismatches or dropped transactions are clearly flagged and displayed to the user.
+4. **Loads**: Joins the LLM categorization back to the main DataFrame, sorts the data chronologically by Date (and alphabetically by Account), and formats it into a strict 12-column output.
+5. **Logs**: Standard logs and error messages are written both to the console and to `pipeline.log` for easy troubleshooting.
 
 ## How to Use It
 
@@ -36,7 +38,7 @@ To verify the logic safely without making API calls, run the test suite:
 pytest tests/ -v
 ```
 
-To run the pipeline and generate `data/processed/consolidated_ledger.csv`:
+To run the pipeline and generate a uniquely timestamped output file in `data/processed/` (e.g. `consolidated_ledger_YYYYMMDD_HHMMSS_uuid.csv`):
 ```bash
 source venv/bin/activate
 PYTHONPATH=. python src/main.py
