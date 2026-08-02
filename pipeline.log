@@ -96,3 +96,16 @@
 2026-08-02 15:17:31,381 - root - INFO - ========================
 2026-08-02 15:17:31,383 - root - INFO - Success! Exported 551 rows to data/processed/consolidated_ledger_20260802_151731_7a53d271.csv
 2026-08-02 15:17:31,385 - root - INFO - Cleaned up 4 old output file(s) in data/processed.
+2026-08-02 15:18:52,127 - root - INFO - Processing bank data...
+2026-08-02 15:18:52,149 - root - INFO - [DRY-RUN] Found 279 unique merchants. Skipping Gemini API call and export.
+2026-08-02 15:18:52,149 - root - INFO - [DRY-RUN] Total rows extracted: 551
+2026-08-02 15:18:52,149 - root - INFO - [DRY-RUN]   wealthsimple_activities: 79 rows
+2026-08-02 15:18:52,149 - root - INFO - [DRY-RUN]   simplii: 30 rows
+2026-08-02 15:18:52,149 - root - INFO - [DRY-RUN]   wealthsimple_credit: 12 rows
+2026-08-02 15:18:52,149 - root - INFO - [DRY-RUN]   cibc: 5 rows
+2026-08-02 15:18:52,149 - root - INFO - [DRY-RUN]   rogers_cc: 425 rows
+2026-08-02 15:18:52,150 - root - INFO - [DRY-RUN] Merchant Cache Breakdown:
+2026-08-02 15:18:52,150 - root - INFO - [DRY-RUN]   Raw Unique Merchants: 279
+2026-08-02 15:18:52,150 - root - INFO - [DRY-RUN]   Normalized Unique Merchants: 175
+2026-08-02 15:18:52,150 - root - INFO - [DRY-RUN]   Merchants in Cache: 175
+2026-08-02 15:18:52,150 - root - INFO - [DRY-RUN]   API Calls Needed: 0
