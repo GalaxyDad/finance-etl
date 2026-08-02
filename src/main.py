@@ -1,6 +1,7 @@
 import os
 import sys
 import logging
+import polars as pl
 from datetime import datetime
 import argparse
 import uuid
@@ -32,6 +33,8 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Run extraction without calling Gemini or exporting data")
     parser.add_argument("--no-cache", action="store_true", help="Ignore existing merchant cache and force recategorization")
     parser.add_argument("--keep-last", type=int, default=3, help="Number of recent output files to keep in processed directory")
+    parser.add_argument("--date-from", type=str, help="Filter transactions starting from this date (YYYY-MM-DD)")
+    parser.add_argument("--date-to", type=str, help="Filter transactions up to this date (YYYY-MM-DD)")
     args = parser.parse_args()
 
     logger = setup_logger()
@@ -45,6 +48,17 @@ def main():
     
     if len(df) == 0:
         logger.info("No raw data found.")
+        return
+        
+    if args.date_from:
+        df = df.filter(pl.col('Date') >= pl.lit(args.date_from).str.strptime(pl.Date, "%Y-%m-%d"))
+        logger.info(f"Applied date-from filter: {args.date_from}. Rows remaining: {len(df)}")
+    if args.date_to:
+        df = df.filter(pl.col('Date') <= pl.lit(args.date_to).str.strptime(pl.Date, "%Y-%m-%d"))
+        logger.info(f"Applied date-to filter: {args.date_to}. Rows remaining: {len(df)}")
+        
+    if len(df) == 0:
+        logger.info("No data left after date filtering.")
         return
         
     unique_merchants = df['Transaction Details'].unique().to_list()
@@ -118,9 +132,12 @@ def main():
     logger.info(f"Flagged Merchants (Suggested Filter='Yes'): {flagged_merchants}")
     logger.info("Row Count by Account:")
     
-    account_counts = output_df['Account'].value_counts()
+    account_counts = output_df.group_by('Account').agg([
+        pl.col('Amount').count().alias('count'),
+        pl.col('Amount').sum().alias('total')
+    ])
     for row in account_counts.iter_rows(named=True):
-        logger.info(f"  {row['Account']}: {row['count']} rows")
+        logger.info(f"  {row['Account']}: {row['count']} rows, Net Total: ${row['total']:.2f}")
     logger.info("========================")
         
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")

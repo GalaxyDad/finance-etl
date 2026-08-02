@@ -96,7 +96,8 @@ def test_validate_pipeline_failures():
         "Date": ["2023-01-01"],
         "Transaction Details": ["Merchant A"],
         "Amount": [10.0],
-        "Account": ["acc1"]
+        "Account": ["acc1"],
+        "Category": ["UNCATEGORIZED"]
     })
     
     is_valid, messages = validate_pipeline(raw_df, final_df)
@@ -104,3 +105,41 @@ def test_validate_pipeline_failures():
     assert any("Row count mismatch" in msg for msg in messages)
     assert any("Balance mismatch" in msg for msg in messages)
     assert any("missing in the final output" in msg for msg in messages)
+
+import pytest
+import glob
+from src.etl import BANK_PARSERS
+
+@pytest.mark.parametrize("parser", BANK_PARSERS, ids=lambda p: p.__class__.__name__)
+def test_production_parser_drift(parser):
+    raw_dir = "data/raw"
+    import fnmatch
+    if not os.path.isdir(raw_dir):
+        pytest.skip(f"{raw_dir} does not exist.")
+        
+    files = sorted(
+        os.path.join(raw_dir, f)
+        for f in os.listdir(raw_dir)
+        if fnmatch.fnmatch(f.lower(), parser.file_pattern.lower())
+    )
+    if not files:
+        pytest.skip(f"No real files found for {parser.__class__.__name__}")
+        
+    filepath = files[0]
+    
+    import tempfile
+    
+    with open(filepath, 'r', encoding='utf-8', errors='replace') as f:
+        head_lines = [f.readline() for _ in range(5)]
+        
+    with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.csv') as tmp:
+        for line in head_lines:
+            if line:
+                tmp.write(line)
+        tmp_path = tmp.name
+        
+    try:
+        df = parser.parse(tmp_path)
+        assert set(df.columns) == {"Date", "Transaction Details", "Amount", "Account"}
+    finally:
+        os.remove(tmp_path)

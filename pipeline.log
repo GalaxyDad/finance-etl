@@ -155,3 +155,74 @@
 2026-08-02 15:26:01,583 - root - INFO - [DRY-RUN]   Normalized Unique Merchants: 175
 2026-08-02 15:26:01,583 - root - INFO - [DRY-RUN]   Merchants in Cache: 175
 2026-08-02 15:26:01,583 - root - INFO - [DRY-RUN]   API Calls Needed: 0
+2026-08-02 15:28:50,290 - root - INFO - Processing bank data...
+2026-08-02 15:28:50,316 - root - INFO - Found 279 unique merchants. Calling Gemini for categorization...
+2026-08-02 15:28:50,318 - src.etl - INFO - All merchants found in cache. Skipping Gemini API call.
+2026-08-02 15:28:50,318 - src.etl - INFO - Cache: 279 hits, 0 new lookups, 279 total merchants
+2026-08-02 15:28:50,318 - root - INFO - Formatting output...
+2026-08-02 15:28:50,321 - root - INFO - Running validation checks...
+2026-08-02 15:28:50,322 - root - INFO - [SUCCESS] Pipeline validation passed! Row counts and balances match.
+2026-08-02 15:28:50,324 - root - INFO - === POST-RUN SUMMARY ===
+2026-08-02 15:28:50,324 - root - INFO - Date Range: 2025-12-18 to 2026-08-01
+2026-08-02 15:28:50,324 - root - INFO - Total Income: $112140.67
+2026-08-02 15:28:50,324 - root - INFO - Total Expenses: $-114838.98
+2026-08-02 15:28:50,324 - root - INFO - Cache Hit Rate: 175/175 merchants cached
+2026-08-02 15:28:50,324 - root - INFO - Flagged Merchants (Suggested Filter='Yes'): 68
+2026-08-02 15:28:50,324 - root - INFO - Row Count by Account:
+2026-08-02 15:29:10,243 - root - INFO - Processing bank data...
+2026-08-02 15:29:10,328 - root - INFO - Found 279 unique merchants. Calling Gemini for categorization...
+2026-08-02 15:29:10,329 - src.etl - INFO - All merchants found in cache. Skipping Gemini API call.
+2026-08-02 15:29:10,329 - src.etl - INFO - Cache: 279 hits, 0 new lookups, 279 total merchants
+2026-08-02 15:29:10,329 - root - INFO - Formatting output...
+2026-08-02 15:29:10,338 - root - INFO - Running validation checks...
+2026-08-02 15:29:10,341 - root - INFO - [SUCCESS] Pipeline validation passed! Row counts and balances match.
+2026-08-02 15:29:10,343 - root - INFO - === POST-RUN SUMMARY ===
+2026-08-02 15:29:10,343 - root - INFO - Date Range: 2025-12-18 to 2026-08-01
+2026-08-02 15:29:10,343 - root - INFO - Total Income: $112140.67
+2026-08-02 15:29:10,343 - root - INFO - Total Expenses: $-114838.98
+2026-08-02 15:29:10,343 - root - INFO - Cache Hit Rate: 175/175 merchants cached
+2026-08-02 15:29:10,343 - root - INFO - Flagged Merchants (Suggested Filter='Yes'): 68
+2026-08-02 15:29:10,343 - root - INFO - Row Count by Account:
+2026-08-02 15:29:10,345 - root - INFO -   wealthsimple_credit: 12 rows, Net Total: $-1577.00
+2026-08-02 15:29:10,345 - root - INFO -   simplii: 30 rows, Net Total: $-13267.19
+2026-08-02 15:29:10,345 - root - INFO -   wealthsimple_activities: 79 rows, Net Total: $11623.14
+2026-08-02 15:29:10,345 - root - INFO -   cibc: 5 rows, Net Total: $16.60
+2026-08-02 15:29:10,345 - root - INFO -   rogers_cc: 425 rows, Net Total: $506.14
+2026-08-02 15:29:10,346 - root - INFO - ========================
+2026-08-02 15:29:10,347 - root - INFO - Success! Exported 551 rows to data/processed/consolidated_ledger_20260802_152910_a8f72c77.csv
+2026-08-02 15:29:10,348 - root - INFO - Cleaned up 1 old output file(s) in data/processed.
+2026-08-02 15:29:58,799 - root - INFO - Processing bank data...
+2026-08-02 15:29:58,822 - root - INFO - Found 279 unique merchants. Calling Gemini for categorization...
+2026-08-02 15:29:58,823 - src.etl - INFO - All merchants found in cache. Skipping Gemini API call.
+2026-08-02 15:29:58,823 - src.etl - INFO - Cache: 279 hits, 0 new lookups, 279 total merchants
+2026-08-02 15:29:58,823 - root - INFO - Formatting output...
+2026-08-02 15:29:58,824 - root - INFO - Running validation checks...
+2026-08-02 15:29:58,825 - root - INFO - [SUCCESS] Pipeline validation passed! Row counts and balances match.
+2026-08-02 15:29:58,827 - root - INFO - === POST-RUN SUMMARY ===
+2026-08-02 15:29:58,827 - root - INFO - Date Range: 2025-12-18 to 2026-08-01
+2026-08-02 15:29:58,827 - root - INFO - Total Income: $112140.67
+2026-08-02 15:29:58,827 - root - INFO - Total Expenses: $-114838.98
+2026-08-02 15:29:58,827 - root - INFO - Cache Hit Rate: 175/175 merchants cached
+2026-08-02 15:29:58,827 - root - INFO - Flagged Merchants (Suggested Filter='Yes'): 68
+2026-08-02 15:29:58,827 - root - INFO - Row Count by Account:
+2026-08-02 15:29:58,828 - root - INFO -   simplii: 30 rows, Net Total: $-13267.19
+2026-08-02 15:29:58,828 - root - INFO -   wealthsimple_credit: 12 rows, Net Total: $-1577.00
+2026-08-02 15:29:58,828 - root - INFO -   wealthsimple_activities: 79 rows, Net Total: $11623.14
+2026-08-02 15:29:58,828 - root - INFO -   cibc: 5 rows, Net Total: $16.60
+2026-08-02 15:29:58,828 - root - INFO -   rogers_cc: 425 rows, Net Total: $506.14
+2026-08-02 15:29:58,828 - root - INFO - ========================
+2026-08-02 15:29:58,828 - root - INFO - Success! Exported 551 rows to data/processed/consolidated_ledger_20260802_152958_a9f8d78d.csv
+2026-08-02 15:29:58,829 - root - INFO - Cleaned up 1 old output file(s) in data/processed.
+2026-08-02 15:30:43,459 - root - INFO - Processing bank data...
+2026-08-02 15:30:43,487 - root - INFO - [DRY-RUN] Found 279 unique merchants. Skipping Gemini API call and export.
+2026-08-02 15:30:43,487 - root - INFO - [DRY-RUN] Total rows extracted: 551
+2026-08-02 15:30:43,487 - root - INFO - [DRY-RUN]   wealthsimple_credit: 12 rows
+2026-08-02 15:30:43,487 - root - INFO - [DRY-RUN]   simplii: 30 rows
+2026-08-02 15:30:43,487 - root - INFO - [DRY-RUN]   wealthsimple_activities: 79 rows
+2026-08-02 15:30:43,487 - root - INFO - [DRY-RUN]   cibc: 5 rows
+2026-08-02 15:30:43,487 - root - INFO - [DRY-RUN]   rogers_cc: 425 rows
+2026-08-02 15:30:43,488 - root - INFO - [DRY-RUN] Merchant Cache Breakdown:
+2026-08-02 15:30:43,488 - root - INFO - [DRY-RUN]   Raw Unique Merchants: 279
+2026-08-02 15:30:43,488 - root - INFO - [DRY-RUN]   Normalized Unique Merchants: 175
+2026-08-02 15:30:43,488 - root - INFO - [DRY-RUN]   Merchants in Cache: 175
+2026-08-02 15:30:43,488 - root - INFO - [DRY-RUN]   API Calls Needed: 0

@@ -87,6 +87,10 @@ class WSActivitiesParser(BankParser):
     def parse(self, filepath: str) -> pl.DataFrame:
         df = pl.read_csv(filepath, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
+        df = df.filter(
+            ~pl.col('transaction_date').str.starts_with("As of") &
+            pl.col('transaction_date').str.contains(r"^\d{4}-\d{2}-\d{2}")
+        )
         df = df.with_columns(
             pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
             pl.lit('wealthsimple_activities').alias('Account'),
@@ -102,6 +106,10 @@ class WSCreditParser(BankParser):
     def parse(self, filepath: str) -> pl.DataFrame:
         df = pl.read_csv(filepath, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
+        df = df.filter(
+            ~pl.col('transaction_date').str.starts_with("As of") &
+            pl.col('transaction_date').str.contains(r"^\d{4}-\d{2}-\d{2}")
+        )
         df = df.with_columns(
             pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
             pl.lit('wealthsimple_credit').alias('Account'),
@@ -148,7 +156,15 @@ def process_bank_data(raw_dir):
     if not dfs:
         return pl.DataFrame()
         
-    return pl.concat(dfs)
+    df = pl.concat(dfs)
+    
+    initial_len = len(df)
+    df = df.unique(subset=["Date", "Transaction Details", "Amount", "Account"])
+    dropped = initial_len - len(df)
+    if dropped > 0:
+        logger.info(f"Dropped {dropped} duplicate transactions across bank files.")
+        
+    return df
 
 
 def normalize_merchant_name(name: str) -> str:
@@ -320,6 +336,17 @@ def format_output(df, mapping):
     
     df = df.join(mapping_df, on="Transaction Details", how="left")
     
+    null_cat_mask = pl.col("Category").is_null()
+    
+    missing_count = len(df.filter(null_cat_mask))
+    if missing_count > 0:
+        logger.warning(f"Found {missing_count} transactions with no category mapping. Defaulting to UNCATEGORIZED.")
+    
+    df = df.with_columns(
+        pl.when(null_cat_mask).then(pl.lit("UNCATEGORIZED")).otherwise(pl.col("Category")).alias("Category"),
+        pl.when(null_cat_mask).then(pl.lit("LLM Failure")).otherwise(pl.col("LLM Categorization Flag")).alias("LLM Categorization Flag")
+    )
+    
     # Sort chronologically by Date, then alphabetically by Account
     df = df.sort(["Date", "Account"])
     
@@ -350,6 +377,10 @@ def validate_pipeline(raw_df: pl.DataFrame, final_df: pl.DataFrame):
     
     is_valid = True
     messages = []
+    
+    uncategorized = final_df.filter(pl.col("Category") == "UNCATEGORIZED")
+    if len(uncategorized) > 0:
+        messages.append(f"[FLAG] {len(uncategorized)} transactions are missing LLM categorization (defaulted to UNCATEGORIZED).")
     
     if raw_count != final_count:
         messages.append(f"[FLAG] Row count mismatch! Expected {raw_count} rows, but got {final_count} rows.")
