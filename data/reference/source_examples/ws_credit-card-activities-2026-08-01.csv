@@ -1,0 +1,13 @@
+transaction_date,transaction_type,status,merchant,amount,currency,notes,category
+2026-07-31,Purchase,Completed,Petro-Canada 35073,-85.76,CAD,,"Gas, parking, and tolls"
+2026-07-30,Purchase,Completed,Sq *Roadgear/Autostar Tx,-1293.85,CAD,,Taxis and rideshares
+2026-07-26,Purchase,Completed,Mcdonalds 23192,-12.86,CAD,,Restaurants
+2026-07-26,Purchase,Completed,Pizzaiolo,-52.19,CAD,,Restaurants
+2026-07-26,Purchase,Completed,The Home Depot #7240,-19.14,CAD,,Home and auto
+2026-07-25,Purchase,Completed,Swisschalet #1206E,-53.46,CAD,,Restaurants
+2026-07-25,Purchase,Completed,Canadian Tire #170,-55.34,CAD,,Home and auto
+2026-07-25,Purchase,Completed,A30 Express,-4.40,CAD,,"Gas, parking, and tolls"
+2026-06-29,Payment,Completed,,200.00,CAD,,Uncategorized
+2026-06-17,Purchase,Completed,Bowmanville Foot & Ort,-200.00,CAD,,Medical
+2026-06-15,Payment,Completed,,9.14,CAD,,Uncategorized
+2026-06-03,Purchase,Completed,Dairy Queen #12207,-9.14,CAD,,Restaurants

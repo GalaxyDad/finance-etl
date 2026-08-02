@@ -1,0 +1,4 @@
+polars>=1.0.0
+pytest
+google-generativeai
+python-dotenv

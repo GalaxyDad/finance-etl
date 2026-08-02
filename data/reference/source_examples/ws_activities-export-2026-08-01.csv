@@ -1,0 +1,82 @@
+transaction_date,settlement_date,account_id,account_type,activity_type,activity_sub_type,description,direction,symbol,name,currency,quantity,unit_price,commission,net_cash_amount
+2026-03-10,,WK75MLL34CAD,Chequing,BonusPayment,REFER,Referral bonus (2026-03-10),,,,CAD,25,,,25
+2026-03-10,,WK75MLL34CAD,Chequing,MoneyMovement,EFT,Deposit,,,,CAD,5000,,,5000
+2026-03-13,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,3292.77,,,3292.77
+2026-03-25,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-03-25),,,,CAD,-1694.57,,,-1694.57
+2026-03-25,,WK75MLL34CAD,Chequing,MoneyMovement,EFT,Deposit,,,,CAD,5000,,,5000
+2026-03-30,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,3584.19,,,3584.19
+2026-03-30,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_OUT,Pre-authorized Debit,,,,CAD,-125.05,,,-125.05
+2026-04-01,,WK75MLL34CAD,Chequing,Interest,-,Interest received (executed at 2026-04-01),,,,CAD,11.38,,,11.38
+2026-04-02,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_OUT,Pre-authorized Debit,,,,CAD,-1185.7,,,-1185.7
+2026-04-04,,WK75MLL34CAD,Chequing,MoneyMovement,SPEND,Spend,,,,CAD,-104.5,,,-104.5
+2026-04-04,,WK75MLL34CAD,Chequing,BonusPayment,CASHBACK,ATM fee reimbursement,,,,CAD,4.5,,,4.5
+2026-04-06,,WK75MLL34CAD,Chequing,MoneyMovement,TRANSFER_TF,Money transfer out of the account (executed at 2026-04-06),,,,CAD,-1450,,,-1450
+2026-04-07,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-04-07),,,,CAD,-512.68,,,-512.68
+2026-04-08,,WK75MLL34CAD,Chequing,MoneyMovement,TRANSFER,Money transfer out of the account (executed at 2026-04-08),,,,CAD,-7000,,,-7000
+2026-04-08,,WK75MLL34CAD,Chequing,MoneyMovement,EFT,Deposit,,,,CAD,4728,,,4728
+2026-04-10,,WK75MLL34CAD,Chequing,BonusPayment,REFER,Referral bonus (2026-04-10),,,,CAD,1475,,,1475
+2026-04-13,,WK75MLL34CAD,Chequing,MoneyMovement,EFT,Deposit,,,,CAD,225.71,,,225.71
+2026-04-14,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,3292.77,,,3292.77
+2026-04-16,,WK75MLL34CAD,Chequing,MoneyMovement,TRANSFER_TF,Money transfer out of the account (executed at 2026-04-16),,,,CAD,-1450,,,-1450
+2026-04-21,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-04-21),,,,CAD,-3000,,,-3000
+2026-04-29,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-04-29),,,,CAD,-2853.66,,,-2853.66
+2026-04-29,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,8583.43,,,8583.43
+2026-04-29,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,4510.79,,,4510.79
+2026-05-01,,WK75MLL34CAD,Chequing,Interest,-,Interest received (executed at 2026-05-01),,,,CAD,22.92,,,22.92
+2026-05-01,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_OUT,Pre-authorized Debit,,,,CAD,-124.02,,,-124.02
+2026-05-05,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_OUT,Pre-authorized Debit,,,,CAD,-1185.7,,,-1185.7
+2026-05-11,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-05-11),,,,CAD,-1396.06,,,-1396.06
+2026-05-12,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,50,,,50
+2026-05-13,,WK75MLL34CAD,Chequing,MoneyMovement,E_TRFOUT,Interac e-Transfer® Out,,,,CAD,-17.51,,,-17.51
+2026-05-13,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,17.51,,,17.51
+2026-05-14,,WK75MLL34CAD,Chequing,MoneyMovement,TRANSFER_TF,Money transfer out of the account (executed at 2026-05-14),,,,CAD,-725,,,-725
+2026-05-14,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,3292.77,,,3292.77
+2026-05-16,,WK75MLL34CAD,Chequing,BonusPayment,GIVEAWAY,Giveaway received,,,,CAD,368.09,,,368.09
+2026-05-16,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-05-16),,,,CAD,-632.75,,,-632.75
+2026-05-20,,WK75MLL34CAD,Chequing,MoneyMovement,E_TRFIN,Interac e-Transfer® Received,,,,CAD,49.11,,,49.11
+2026-05-26,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,340,,,340
+2026-05-27,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-05-27),,,,CAD,-1500,,,-1500
+2026-05-27,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,50,,,50
+2026-05-29,,WK75MLL34CAD,Chequing,MoneyMovement,TRANSFER_TF,Money transfer out of the account (executed at 2026-05-29),,,,CAD,-725,,,-725
+2026-05-29,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,3660.6,,,3660.6
+2026-06-01,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,541.27,,,541.27
+2026-06-01,,WK75MLL34CAD,Chequing,Interest,-,Interest received (executed at 2026-06-01),,,,CAD,37.88,,,37.88
+2026-06-02,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_OUT,Pre-authorized Debit,,,,CAD,-59.45,,,-59.45
+2026-06-03,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_OUT,Pre-authorized Debit,,,,CAD,-1185.7,,,-1185.7
+2026-06-05,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,150,,,150
+2026-06-08,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-06-08),,,,CAD,-1559.2,,,-1559.2
+2026-06-09,,WK75MLL34CAD,Chequing,MoneyMovement,TRANSFER,Money transfer out of the account (executed at 2026-06-09),,,,CAD,-15000,,,-15000
+2026-06-12,,WK75MLL34CAD,Chequing,MoneyMovement,TRANSFER_TF,Money transfer out of the account (executed at 2026-06-12),,,,CAD,-725,,,-725
+2026-06-12,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,3365.04,,,3365.04
+2026-06-13,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-06-13),,,,CAD,-651.94,,,-651.94
+2026-06-15,,WK75MLL34CAD,Chequing,MoneyMovement,TRANSFER,Credit card payment,,,,CAD,-9.14,,,-9.14
+2026-06-16,,WK75MLL34CAD,Chequing,BonusPayment,GIVEAWAY,Giveaway received,,,,CAD,368.09,,,368.09
+2026-06-23,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-06-23),,,,CAD,-1155.89,,,-1155.89
+2026-06-24,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,150,,,150
+2026-06-27,,WK75MLL34CAD,Chequing,MoneyMovement,TRANSFER_TF,Money transfer out of the account (executed at 2026-06-27),,,,CAD,-725,,,-725
+2026-06-27,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,3660.6,,,3660.6
+2026-06-29,,WK75MLL34CAD,Chequing,MoneyMovement,TRANSFER,Credit card payment,,,,CAD,-200,,,-200
+2026-07-01,,WK75MLL34CAD,Chequing,Interest,-,Interest received (executed at 2026-07-01),,,,CAD,19.53,,,19.53
+2026-07-01,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_OUT,Pre-authorized Debit,,,,CAD,-193.45,,,-193.45
+2026-07-03,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,300,,,300
+2026-07-03,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_OUT,Pre-authorized Debit,,,,CAD,-1185.7,,,-1185.7
+2026-07-06,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-07-06),,,,CAD,-1450,,,-1450
+2026-07-07,,WK75MLL34CAD,Chequing,MoneyMovement,E_TRFOUT,Interac e-Transfer® Out,,,,CAD,-1000,,,-1000
+2026-07-07,,WK75MLL34CAD,Chequing,MoneyMovement,E_TRFIN,Interac e-Transfer® Received,,,,CAD,120,,,120
+2026-07-07,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,1000,,,1000
+2026-07-08,,WK75MLL34CAD,Chequing,MoneyMovement,E_TRFIN,Interac e-Transfer® Received,,,,CAD,250,,,250
+2026-07-09,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,57,,,57
+2026-07-09,,WK75MLL34CAD,Chequing,MoneyMovement,E_TRFOUT,Interac e-Transfer® Out,,,,CAD,-57,,,-57
+2026-07-14,,WK75MLL34CAD,Chequing,MoneyMovement,TRANSFER_TF,Money transfer out of the account (executed at 2026-07-14),,,,CAD,-725,,,-725
+2026-07-14,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,3365.04,,,3365.04
+2026-07-15,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-07-15),,,,CAD,-525,,,-525
+2026-07-16,,WK75MLL34CAD,Chequing,BonusPayment,GIVEAWAY,Giveaway received,,,,CAD,368.09,,,368.09
+2026-07-18,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-07-18),,,,CAD,-200,,,-200
+2026-07-20,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,541.27,,,541.27
+2026-07-23,,WK75MLL34CAD,Chequing,MoneyMovement,OBP_OUT,Online bill payment (executed at 2026-07-23),,,,CAD,-812.48,,,-812.48
+2026-07-30,,WK75MLL34CAD,Chequing,MoneyMovement,TRANSFER_TF,Money transfer out of the account (executed at 2026-07-30),,,,CAD,-725,,,-725
+2026-07-30,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_IN,Direct deposit received,,,,CAD,3719.88,,,3719.88
+2026-07-31,,WK75MLL34CAD,Chequing,MoneyMovement,AFT_OUT,Pre-authorized Debit,,,,CAD,-164.14,,,-164.14
+2026-08-01,,WK75MLL34CAD,Chequing,Interest,-,Interest received (executed at 2026-08-01),,,,CAD,16.2,,,16.2
+
+"As of 2026-08-01 20:15 GMT-04:00"
