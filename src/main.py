@@ -1,4 +1,5 @@
 import os
+import sys
 import logging
 from datetime import datetime
 import uuid
@@ -10,7 +11,7 @@ def setup_logger():
     
     # Create handlers
     file_handler = logging.FileHandler('pipeline.log')
-    console_handler = logging.StreamHandler()
+    console_handler = logging.StreamHandler(sys.stdout)
     
     # Create formatters and add it to handlers
     log_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
