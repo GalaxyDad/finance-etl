@@ -66,3 +66,33 @@
 2026-08-02 15:09:23,895 - root - INFO - Running validation checks...
 2026-08-02 15:09:23,898 - root - INFO - [SUCCESS] Pipeline validation passed! Row counts and balances match.
 2026-08-02 15:09:23,900 - root - INFO - Success! Exported 551 rows to data/processed/consolidated_ledger_20260802_150923_2c83fb5f.csv
+2026-08-02 15:13:27,388 - root - INFO - Processing bank data...
+2026-08-02 15:13:27,463 - root - INFO - Found 279 unique merchants. Calling Gemini for categorization...
+2026-08-02 15:13:27,464 - src.etl - INFO - All merchants found in cache. Skipping Gemini API call.
+2026-08-02 15:13:27,464 - src.etl - INFO - Cache: 279 hits, 0 new lookups, 279 total merchants
+2026-08-02 15:13:27,464 - root - INFO - Formatting output...
+2026-08-02 15:13:27,473 - root - INFO - Running validation checks...
+2026-08-02 15:13:27,477 - root - INFO - [SUCCESS] Pipeline validation passed! Row counts and balances match.
+2026-08-02 15:13:27,479 - root - INFO - Success! Exported 551 rows to data/processed/consolidated_ledger_20260802_151327_5a702c55.csv
+2026-08-02 15:17:31,346 - root - INFO - Processing bank data...
+2026-08-02 15:17:31,373 - root - INFO - Found 279 unique merchants. Calling Gemini for categorization...
+2026-08-02 15:17:31,374 - src.etl - INFO - All merchants found in cache. Skipping Gemini API call.
+2026-08-02 15:17:31,374 - src.etl - INFO - Cache: 279 hits, 0 new lookups, 279 total merchants
+2026-08-02 15:17:31,374 - root - INFO - Formatting output...
+2026-08-02 15:17:31,376 - root - INFO - Running validation checks...
+2026-08-02 15:17:31,378 - root - INFO - [SUCCESS] Pipeline validation passed! Row counts and balances match.
+2026-08-02 15:17:31,380 - root - INFO - === POST-RUN SUMMARY ===
+2026-08-02 15:17:31,380 - root - INFO - Date Range: 2025-12-18 to 2026-08-01
+2026-08-02 15:17:31,380 - root - INFO - Total Income: $112140.67
+2026-08-02 15:17:31,381 - root - INFO - Total Expenses: $-114838.98
+2026-08-02 15:17:31,381 - root - INFO - Cache Hit Rate: 175/175 merchants cached
+2026-08-02 15:17:31,381 - root - INFO - Flagged Merchants (Suggested Filter='Yes'): 68
+2026-08-02 15:17:31,381 - root - INFO - Row Count by Account:
+2026-08-02 15:17:31,381 - root - INFO -   wealthsimple_activities: 79 rows
+2026-08-02 15:17:31,381 - root - INFO -   cibc: 5 rows
+2026-08-02 15:17:31,381 - root - INFO -   wealthsimple_credit: 12 rows
+2026-08-02 15:17:31,381 - root - INFO -   rogers_cc: 425 rows
+2026-08-02 15:17:31,381 - root - INFO -   simplii: 30 rows
+2026-08-02 15:17:31,381 - root - INFO - ========================
+2026-08-02 15:17:31,383 - root - INFO - Success! Exported 551 rows to data/processed/consolidated_ledger_20260802_151731_7a53d271.csv
+2026-08-02 15:17:31,385 - root - INFO - Cleaned up 4 old output file(s) in data/processed.

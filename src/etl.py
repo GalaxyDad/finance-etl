@@ -37,15 +37,12 @@ def process_bank_data(raw_dir):
         dfs.append(df)
         
     # Process Simplii
-    simplii_path = None
+    simplii_files = []
     if os.path.exists(raw_dir):
-        for f in os.listdir(raw_dir):
-            if f.lower() == 'simplii.csv':
-                simplii_path = os.path.join(raw_dir, f)
-                break
+        simplii_files = [os.path.join(raw_dir, f) for f in os.listdir(raw_dir) if f.lower().startswith('simplii') and f.lower().endswith('.csv')]
                 
-    if simplii_path and os.path.exists(simplii_path):
-        df = pl.read_csv(simplii_path, null_values=[""], infer_schema_length=0)
+    for f in simplii_files:
+        df = pl.read_csv(f, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
             pl.col('Date').str.strptime(pl.Date, "%m/%d/%Y", strict=False),
@@ -61,10 +58,13 @@ def process_bank_data(raw_dir):
         dfs.append(df)
         
     # Process CIBC
-    cibc_path = os.path.join(raw_dir, 'cibc.csv')
-    if os.path.exists(cibc_path):
+    cibc_files = []
+    if os.path.exists(raw_dir):
+        cibc_files = [os.path.join(raw_dir, f) for f in os.listdir(raw_dir) if f.lower().startswith('cibc') and f.lower().endswith('.csv')]
+        
+    for f in cibc_files:
         # Headerless: Date, Description, Debit, Credit, Card
-        df = pl.read_csv(cibc_path, has_header=False, null_values=[""], infer_schema_length=0)
+        df = pl.read_csv(f, has_header=False, null_values=[""], infer_schema_length=0)
         df = df.rename({
             "column_1": "Date", 
             "column_2": "Transaction Details", 

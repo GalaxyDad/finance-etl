@@ -13,8 +13,8 @@ This project is a local Python ETL (Extract, Transform, Load) pipeline designed 
    - Normalizes merchant names (e.g. stripping Amazon order hashes) to cut down redundant LLM categorization calls by up to 70%.
    - Chunks Gemini API requests into batches of 50 with incremental cache saves to ensure fault tolerance.
 4. **Validates**: Automatically performs strict validation checks comparing the raw extracted data against the formatted output. It verifies that row counts and total balances match to ensure no transactions are dropped during formatting. Mismatches or dropped transactions are clearly flagged and displayed to the user.
-5. **Loads**: Joins the LLM categorization back to the main DataFrame, sorts the data chronologically by Date (and alphabetically by Account), and formats it into a strict 12-column output.
-6. **Logs**: Standard logs and error messages are written both to the console and to `pipeline.log` for easy troubleshooting.
+5. **Loads**: Joins the LLM categorization back to the main DataFrame, sorts the data chronologically by Date (and alphabetically by Account), and formats it into a strict 12-column output. The pipeline also automatically cleans up old processed files, keeping only the most recent runs.
+6. **Logs**: Standard logs and error messages are written both to the console and to `pipeline.log` for easy troubleshooting. At the end of every run, a helpful post-run summary report is output to provide an at-a-glance view of the processed data.
 
 ## How to Use It
 
@@ -50,6 +50,11 @@ PYTHONPATH=. python src/main.py --dry-run
 To run the pipeline and generate a uniquely timestamped output file in `data/processed/`:
 ```bash
 PYTHONPATH=. python src/main.py
+```
+
+By default, the script cleans up old output files and keeps the last 3 runs. To change this, pass `--keep-last N`:
+```bash
+PYTHONPATH=. python src/main.py --keep-last 5
 ```
 
 If you need to force a fresh recategorization by skipping the local cache, use:
