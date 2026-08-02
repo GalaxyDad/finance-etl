@@ -14,13 +14,16 @@ def test_pipeline_end_to_end(mock_data_dir, monkeypatch):
             'MCDONALDS RESTAURANT': {'category': 'Food & Dining: Fast Food', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
             'PAYROLL DEPOSIT': {'category': '_Income: Bonus', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
             'PAYMENT THANK YOU': {'category': 'Transfer', 'flag': '', 'suggested_filter': 'Yes', 'filter_reason': 'Credit card payment'},
-            'COSTCO WHOLESALE': {'category': 'Food & Dining: Groceries', 'flag': 'Unsure about bulk store', 'suggested_filter': 'No', 'filter_reason': ''}
+            'COSTCO WHOLESALE': {'category': 'Food & Dining: Groceries', 'flag': 'Unsure about bulk store', 'suggested_filter': 'No', 'filter_reason': ''},
+            'Deposit': {'category': 'Transfer', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
+            'Mcdonalds 23192': {'category': 'Food & Dining: Fast Food', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
+            'Payment': {'category': 'Transfer', 'flag': '', 'suggested_filter': 'Yes', 'filter_reason': 'Internal'}
         }
     
     # 1. Process Bank Data
     df = process_bank_data(raw_dir)
     
-    assert len(df) == 6
+    assert len(df) == 9
     assert df.schema['Date'] == pl.Date
     
     # Verify amounts
@@ -29,6 +32,18 @@ def test_pipeline_end_to_end(mock_data_dir, monkeypatch):
     
     payment = df.filter(pl.col('Transaction Details') == 'PAYMENT THANK YOU')
     assert payment['Amount'][0] == 200.00
+
+    ws_act = df.filter(pl.col('Transaction Details') == 'Deposit')
+    assert ws_act['Amount'][0] == 5000.0
+    assert ws_act['Account'][0] == 'wealthsimple_activities'
+
+    ws_cc = df.filter(pl.col('Transaction Details') == 'Mcdonalds 23192')
+    assert ws_cc['Amount'][0] == -12.86
+    assert ws_cc['Account'][0] == 'wealthsimple_credit'
+    
+    # Verify blank merchant fallback
+    ws_payment = df.filter(pl.col('Transaction Details') == 'Payment')
+    assert ws_payment['Amount'][0] == 200.00
     
     # 2. Extract unique merchants and call Gemini
     unique_merchants = df['Transaction Details'].unique().to_list()

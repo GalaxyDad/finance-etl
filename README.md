@@ -27,7 +27,7 @@ GEMINI_API_KEY=your_actual_key_here
 ```
 
 ### 3. Provide Data
-- Drop your raw bank statement CSVs into `data/raw/`. Supported banks are: Rogers, Simplii, and CIBC.
+- Drop your raw bank statement CSVs into `data/raw/`. Supported banks are: Rogers, Simplii, CIBC, and Wealthsimple (`ws_activities*.csv` and `ws_credit-card*.csv`).
 - Ensure your reference files (`Jenn Mike Finance Tracker - Categories.csv` and `Jenn Mike Finance Tracker - Mike Transaction Register.csv`) are located in `data/reference/`.
 
 ### 4. Verification & Execution

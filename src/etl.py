@@ -1,4 +1,5 @@
 import os
+import glob
 import polars as pl
 import google.generativeai as genai
 import json
@@ -61,6 +62,35 @@ def process_bank_data(raw_dir):
             (pl.col('Credit') - pl.col('Debit')).alias('Amount'),
             pl.lit('cibc').alias('Account')
         )
+        df = df.select(["Date", "Transaction Details", "Amount", "Account"])
+        dfs.append(df)
+        
+    # Process WS Activities
+    ws_act_files = glob.glob(os.path.join(raw_dir, 'ws_activities*.csv'))
+    for f in ws_act_files:
+        df = pl.read_csv(f, null_values=[""])
+        df = df.rename({col: col.strip() for col in df.columns})
+        df = df.with_columns(
+            pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d"),
+            pl.lit('wealthsimple_activities').alias('Account'),
+            pl.col('net_cash_amount').cast(pl.Float64).alias('Amount')
+        )
+        df = df.rename({"description": "Transaction Details", "transaction_date": "Date"})
+        df = df.select(["Date", "Transaction Details", "Amount", "Account"])
+        dfs.append(df)
+        
+    # Process WS Credit
+    ws_cc_files = glob.glob(os.path.join(raw_dir, 'ws_credit-card*.csv'))
+    for f in ws_cc_files:
+        df = pl.read_csv(f, null_values=[""])
+        df = df.rename({col: col.strip() for col in df.columns})
+        df = df.with_columns(
+            pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d"),
+            pl.lit('wealthsimple_credit').alias('Account'),
+            pl.when(pl.col('merchant').is_null() | (pl.col('merchant') == "")).then(pl.col('transaction_type')).otherwise(pl.col('merchant')).alias('Transaction Details'),
+            pl.col('amount').cast(pl.Float64).alias('Amount')
+        )
+        df = df.rename({"transaction_date": "Date"})
         df = df.select(["Date", "Transaction Details", "Amount", "Account"])
         dfs.append(df)
         
