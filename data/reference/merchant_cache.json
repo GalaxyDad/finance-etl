@@ -1,0 +1,1676 @@
+{
+    "PAYROLL DEPOSIT COMPUGEN INC.": {
+        "category": "_Income: Paycheck",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*BP2F19HQ2": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MGS-BUSINESS NAME REG/": {
+        "category": "Fees & Charges: Service Fee",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Referral bonus (2026-03-10)": {
+        "category": "_Income: Bonus",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*B163E8WF2": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Referral bonus (2026-04-10)": {
+        "category": "_Income: Bonus",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*B79BN0ZO0": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "DOLLARAMA # 739": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*BY2HT5461": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*FF64V6S23": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*QO5068743": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Online bill payment (executed at 2026-04-29)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "Amazon.ca*S48HG1PR3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*BS6KM8FJ2": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*BG4R74CF1": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PETRO-CANADA 30592": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Bowmanville Foot & Ort": {
+        "category": "Health & Fitness: Doctor",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PIZZAIOLO": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*XL3ON1YG3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*WJ1197MY3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MICHAELS #3949": {
+        "category": "Shopping: Hobbies",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*B95GU1X41": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CHARTERED PROFESSIONAL": {
+        "category": "Financial: Financial",
+        "flag": "Vague professional accounting services description",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MIKE'S NF OSHAWA 7532": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*DN6P66K13": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*UW0U99213": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Interest received (executed at 2026-05-01)": {
+        "category": "_Income: Interest Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Interest received (executed at 2026-07-01)": {
+        "category": "_Income: Interest Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Money transfer out of the account (executed at 2026-07-30)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "eBay O*03-14091-33992": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TICKETMASTER CANADA HO": {
+        "category": "Entertainment: Arts",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*BP09O3GU2": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SWISS CHALET 1139E": {
+        "category": "Food & Dining: Restaurants",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "APPLE.COM/BILL": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Online bill payment (executed at 2026-06-23)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "AMZN Mktp CA*2L2Y365Q3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*QY5CC3O83": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Credit card payment": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "Petro-Canada 35073": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MINDBEACON HEALTH INC.": {
+        "category": "Health & Fitness: Doctor",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MORTGAGE RMG Mortgage Corporation": {
+        "category": "Home: Mortgage & Rent",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ARCADIA/TAXEXPRESS": {
+        "category": "Taxes: Taxes",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "BURGER KING #10151": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*IC4LC2QF3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*1M9149CP3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*B745Q6TR1": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TALK OF THE TOWN": {
+        "category": "Food & Dining: Restaurants",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*BC9NU1A32": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "BURGER KING #18024": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*L21DB0SV3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*KN5L792T3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ONTARIO STREET POOLS": {
+        "category": "Home: Home Improvement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Money transfer out of the account (executed at 2026-06-09)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "RING SOLO PLAN": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Money transfer out of the account (executed at 2026-04-16)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "ENERCARE HOME SERVICES": {
+        "category": "Home: Home Services",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*BD3SV92V0": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "BASKIN ROBBINS- #36343": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*9W2NF10G3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*HJ1RO41O3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Online bill payment (executed at 2026-07-06)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "SQ *LEGENDS MUSIC LLC": {
+        "category": "Entertainment: Music",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    " TRANSFER OUT": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    " INTERAC E-TRANSFER RECEIVE JENNIFER GORDON": {
+        "category": "_Income: Reimbursement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AJ APPLIANCE REPAIR": {
+        "category": "Home: Home Services",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALD'S #40024 Q04": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*CN5R32I03": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "COSTCO WHOLESALE W1128": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*B79O24SV1": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "FOODLAND #6837": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "eBay O*23-14063-27238": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*BS9P67R42": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "BOWMANVILLE GUARDIAN P": {
+        "category": "Health & Fitness: Pharmacy",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    " INTEREST": {
+        "category": "_Income: Interest Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "UBER CANADA/UBEREATS": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "INTERNET BILL PAYMENT MASTERCARD ROGERS BANK": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "A STONE'S THROW PUB &": {
+        "category": "Food & Dining: Alcohol & Bars",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "UTILITY BILL PAYMENT ENBRIDGE CHEQUE": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*837X88IN3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "OWMANVILLE PROFESSIONA": {
+        "category": "Auto & Transport: Parking",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*V796U9ZK3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "FIDO Mobile ******2669": {
+        "category": "Bills & Utilities: Mobile Phone",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PIZZA PIZZA LIMITED": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AIR-SERV A AN01716": {
+        "category": "Auto & Transport: Service & Parts",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Interac e-Transfer\u00ae Out": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "Amazon.ca*XI8496SY3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "BOWMANVILLE PHARMACY": {
+        "category": "Health & Fitness: Pharmacy",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "COSTCO GAS W1128": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*7U9I78QL3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*W70HK7V83": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Giveaway received": {
+        "category": "_Income: Reimbursement",
+        "flag": "Unclear promotional or gift payment",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ST. CHRISTOPHER'S HOTE": {
+        "category": "Travel: Hotel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SQ *BREATHE WELL CPAP": {
+        "category": "Health & Fitness: Health & Fitness",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PETRO-CANADA 10533": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*1J9IB0I03": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "DAIRY QUEEN #12207": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Payment": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "MCDONALD'S #40764": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*VZ8IH6PM3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*XR2FV1EV3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "EVOLVEARTIST.COM": {
+        "category": "Entertainment: Arts",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONTE CARLO INN MARKHA": {
+        "category": "Travel: Hotel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "DOLLAR TREE CANADA #40": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*O43D757W3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ARMK CTC BANQUETS": {
+        "category": "Food & Dining: Restaurants",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MUNICIPALITY OF CLARIN": {
+        "category": "Taxes: Property Tax",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "GREAT WOLF LODGE NIAGA": {
+        "category": "Travel: Vacation",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Crown Maintenance Inc": {
+        "category": "Home: Home Services",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*BG1M39871": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*HL5VH1S53": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ROYAL ONTARIO MUSEUM": {
+        "category": "Entertainment: Arts",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PETRO-CANADA 04866": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*5H3T96V03": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "McDonalds 23192": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca Prime Member": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*BE0XT4Z72": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Swisschalet #1206E": {
+        "category": "Food & Dining: Restaurants",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Dairy Queen #12207": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "HARDWARE STORE 02131": {
+        "category": "Home: Home Improvement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ULTRAMAR #00763": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Kindle Svcs": {
+        "category": "Shopping: Books",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*WO1K325R3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*S77989TK3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "LOBLAWS #1064": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ABOVEGROUND ENTERPRISE": {
+        "category": "Entertainment: Entertainment",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "A30 Express": {
+        "category": "Auto & Transport: Tolls",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "McDonalds 5707": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ULTRAMAR #32527": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*DC8136W43": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*BE5IU2TA1": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "eBay O*27-14057-44962": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*B51DA86U0": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SP ROM COMMERCIAL": {
+        "category": "Entertainment: Arts",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*B97AF9UZ3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PITA PIT": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PAYMENT THANK YOU/PAIEMEN T MERCI": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "AMZN Mktp CA*2V1ML5FQ3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*BC1BV4TW1": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*3Z0TL6EG3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Spend": {
+        "category": "Misc Expenses: Misc Expenses",
+        "flag": "Generic term for generic expense",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SWISS CHALET 1268E": {
+        "category": "Food & Dining: Restaurants",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*BP3490LF0": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*IB7DR16O3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*B79UL0VB3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SEPHORA.CA": {
+        "category": "Personal Care: Personal Care",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*6E22B1XM3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*CJ6X99AW3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*B94C131B0": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "FRESHCO #3892": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*BD5MC2PY2": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*WA2750T43": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*C57UU9NQ3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MISCELLANEOUS PAYMENTS EQUITABLE BANK CHEQUE": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "Money transfer out of the account (executed at 2026-06-12)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "DICKEY'S BARBEQUE PIT": {
+        "category": "Food & Dining: Restaurants",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "14117689 CANADA INC.": {
+        "category": "Misc Expenses: Misc Expenses",
+        "flag": "Numbered corporation with unspecified business",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "THE HOME DEPOT #7240 BOWMANVILLE, ON": {
+        "category": "Home: Home Supplies",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Interest received (executed at 2026-08-01)": {
+        "category": "_Income: Interest Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Online bill payment (executed at 2026-04-07)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "CANADIAN TIRE #170": {
+        "category": "Home: Home Improvement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "The Home Depot #7240": {
+        "category": "Home: Home Supplies",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*U83YC7EI3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "GOOGLE *Google One": {
+        "category": "Bills & Utilities: Internet",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SWISSCHALET #1206E": {
+        "category": "Food & Dining: Restaurants",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Money transfer out of the account (executed at 2026-07-14)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "AMZN Mktp CA*N857L9XD3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Online bill payment (executed at 2026-05-11)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "PAYROLL DEPOSIT LENDING LOOP": {
+        "category": "_Income: Paycheck",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CIRCLE K #1810": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "eBay O*20-14037-34102": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "THE HOME DEPOT #7240": {
+        "category": "Home: Home Supplies",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "UDEMY: ONLINE COURSES": {
+        "category": "Shopping: Books",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Money transfer out of the account (executed at 2026-06-27)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "AMZN Mktp CA*7G5FL7NT3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*4134T3UB3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "VOIP.MS": {
+        "category": "Bills & Utilities: Home Phone",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PAYMENT THANK YOU": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "IKEA.CA ONLINE": {
+        "category": "Home: Furnishings",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Online bill payment (executed at 2026-05-27)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "SHOPPERS DRUG MART #14": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Online bill payment (executed at 2026-05-16)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "A&W #4994 BOWMANVILLE": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Online bill payment (executed at 2026-07-15)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "Sq *Roadgear/Autostar Tx": {
+        "category": "Auto & Transport: Service & Parts",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "BURGER KING #2065": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*4S5J09243": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PURCHASE INTEREST": {
+        "category": "Fees & Charges: Finance Charge",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Pizzaiolo": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "IRVING STATION #37215": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALD'S #29086": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Money transfer out of the account (executed at 2026-04-08)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "Online bill payment (executed at 2026-06-08)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "FROSTY JOHN'S PUB AND": {
+        "category": "Food & Dining: Alcohol & Bars",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*VA1Z90E63": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PETRO-CANADA 12575": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*SB6559OW3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*C87YC4Q03": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "EFT CREDIT MANULIFE": {
+        "category": "_Income: Reimbursement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "WMT SUPRCTR #1001": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Interest received (executed at 2026-06-01)": {
+        "category": "_Income: Interest Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*UY5J86C53": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*BG42B7BJ1": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ULTRAMAR #22440": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "INVESTMENT Wealthsimple Investments Inc. CHEQUE": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "Online bill payment (executed at 2026-03-25)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "DAM Foods Limited": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CashBack / Remises": {
+        "category": "_Income: Reimbursement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CANADIAN TIRE GAS BAR": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "BOWMANVILLE FOOT & ORT": {
+        "category": "Health & Fitness: Doctor",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SWISS CHALET #1206": {
+        "category": "Food & Dining: Restaurants",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*SC5R38YB3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Money transfer out of the account (executed at 2026-05-29)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "Canadian Tire #170": {
+        "category": "Home: Home Improvement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CRAVE IT'S FRIDAY": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "A30 EXPRESS": {
+        "category": "Auto & Transport: Tolls",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Mcdonalds 23192": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Online bill payment (executed at 2026-06-13)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "Amazon.ca*734888DK3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*BS9NC7QL1": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*IK9WZ7TT3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALD'S # 20796 Q04": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*4C2K39T93": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    " INTERAC E-TRANSFER SEND Jenn Gordon": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "ATM fee reimbursement": {
+        "category": "_Income: Reimbursement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*TK8YV9PD3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "INTEREST REVERSAL": {
+        "category": "Fees & Charges: Finance Charge",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*6I0FJ3VY3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MNR-FISH AND WILDLIFE": {
+        "category": "Shopping: Hobbies",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "STAPLES 429": {
+        "category": "Shopping: Electronics & Software",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SP NORTHERN FITNESS": {
+        "category": "Health & Fitness: Gym",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Online bill payment (executed at 2026-04-21)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "ZENNI OPTICAL INC CAD": {
+        "category": "Health & Fitness: Eyecare",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MOBIL@ 4242 GAS STN": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "DOLLARAMA #1386": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Online bill payment (executed at 2026-07-23)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "SP PERSONALIZEDPRESC": {
+        "category": "Health & Fitness: Pharmacy",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SWISS CHALET #1215E": {
+        "category": "Food & Dining: Restaurants",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "COSTCO WHOLESALE W1324 ST. JOHN'S, NL": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*IW91A8CN3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*B38ET36H3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "METRO 453": {
+        "category": "Food & Dining: Groceries",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PETRO-CANADA 14308": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*BY09R7110": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TAUNTON TACOS": {
+        "category": "Food & Dining: Restaurants",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "WWW.CANADIANTIRE.CA": {
+        "category": "Home: Home Improvement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "THE HOME DEPOT #7161": {
+        "category": "Home: Home Improvement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*K42WU4EH3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*YX9YB5MV3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALD'S #23192 Q04": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "EFT CREDIT EQUITABLE BANK": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "MANULIFE FINANCIAL": {
+        "category": "Health & Fitness: Health Insurance",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Money transfer out of the account (executed at 2026-04-06)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "AMZN Mktp CA*798T90ZE3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN Mktp CA*BS2G01651": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Direct deposit received": {
+        "category": "_Income: Paycheck",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CHIPOTLE #3100": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "McDonalds 40168": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Online bill payment (executed at 2026-07-18)": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "Amazon.ca*BS4IG6842": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Money transfer out of the account (executed at 2026-05-14)": {
+        "category": "Financial: Financial",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "BELL CANADA (OB)": {
+        "category": "Bills & Utilities: Mobile Phone",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "BULK BARN #521 BOWMANV": {
+        "category": "Food & Dining: Food & Dining",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Deposit": {
+        "category": "_Income: _Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*U989X26R3": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SQ *OPA'Z GREEK": {
+        "category": "Food & Dining: Restaurants",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TLF*VAN BELLE FLOWERS": {
+        "category": "Home: Lawn & Garden",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ROGERS ******4174": {
+        "category": "Bills & Utilities: Mobile Phone",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MARK'S STORE #579": {
+        "category": "Shopping: Clothing",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SP ECOBEE-CA": {
+        "category": "Home: Home Improvement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TIM HORTONS #8173": {
+        "category": "Food & Dining: Coffee Shops",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MICHAELS #3932": {
+        "category": "Shopping: Hobbies",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Interest received (executed at 2026-04-01)": {
+        "category": "_Income: Interest Income",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Interac e-Transfer\u00ae Received": {
+        "category": "_Income: Reimbursement",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Amazon.ca*JA0AV2G13": {
+        "category": "Shopping: Shopping",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALD'S #3211": {
+        "category": "Food & Dining: Fast Food",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "Pre-authorized Debit": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "VISSERS SOD FARM": {
+        "category": "Home: Lawn & Garden",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    }
+}

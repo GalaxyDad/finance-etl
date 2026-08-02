@@ -2,6 +2,7 @@ import os
 import sys
 import logging
 from datetime import datetime
+import argparse
 import uuid
 from src.etl import process_bank_data, call_gemini_categorization, format_output, validate_pipeline
 
@@ -25,6 +26,10 @@ def setup_logger():
     return logger
 
 def main():
+    parser = argparse.ArgumentParser(description="Finance ETL Pipeline")
+    parser.add_argument("--dry-run", action="store_true", help="Run extraction without calling Gemini or exporting data")
+    args = parser.parse_args()
+
     logger = setup_logger()
     
     raw_dir = "data/raw"
@@ -39,6 +44,17 @@ def main():
         return
         
     unique_merchants = df['Transaction Details'].unique().to_list()
+    
+    if args.dry_run:
+        logger.info(f"[DRY-RUN] Found {len(unique_merchants)} unique merchants. Skipping Gemini API call and export.")
+        logger.info(f"[DRY-RUN] Total rows extracted: {len(df)}")
+        
+        # Print breakdown by account
+        account_counts = df['Account'].value_counts()
+        for row in account_counts.iter_rows(named=True):
+            logger.info(f"[DRY-RUN]   {row['Account']}: {row['count']} rows")
+        return
+        
     logger.info(f"Found {len(unique_merchants)} unique merchants. Calling Gemini for categorization...")
     
     mapping = call_gemini_categorization(unique_merchants, reference_dir)

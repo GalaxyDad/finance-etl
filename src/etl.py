@@ -15,22 +15,34 @@ def process_bank_data(raw_dir):
     dfs = []
     
     # Process Rogers CC
-    rogers_path = os.path.join(raw_dir, 'rogers_cc.csv')
-    if os.path.exists(rogers_path):
-        df = pl.read_csv(rogers_path, null_values=[""])
+    rogers_files = glob.glob(os.path.join(raw_dir, 'rogers_*.csv'))
+    for f in rogers_files:
+        df = pl.read_csv(f, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
             pl.col('Date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
-            (pl.col('Amount') * -1).alias('Amount'),
+            (pl.col('Amount').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False) * -1).alias('Amount'),
             pl.lit('rogers_cc').alias('Account')
         )
         df = df.drop_nulls(subset=['Date'])
-        df = df.rename({"Details": "Transaction Details"}).select(["Date", "Transaction Details", "Amount", "Account"])
+        
+        if "Details" in df.columns:
+            df = df.rename({"Details": "Transaction Details"})
+        elif "Merchant Name" in df.columns:
+            df = df.rename({"Merchant Name": "Transaction Details"})
+            
+        df = df.select(["Date", "Transaction Details", "Amount", "Account"])
         dfs.append(df)
         
     # Process Simplii
-    simplii_path = os.path.join(raw_dir, 'simplii.csv')
-    if os.path.exists(simplii_path):
+    simplii_path = None
+    if os.path.exists(raw_dir):
+        for f in os.listdir(raw_dir):
+            if f.lower() == 'simplii.csv':
+                simplii_path = os.path.join(raw_dir, f)
+                break
+                
+    if simplii_path and os.path.exists(simplii_path):
         df = pl.read_csv(simplii_path, null_values=[""])
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
@@ -111,6 +123,23 @@ def process_bank_data(raw_dir):
 def call_gemini_categorization(unique_merchants, reference_dir):
     genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
     
+    # 0. Load Cache
+    cache_path = os.path.join(reference_dir, 'merchant_cache.json')
+    merchant_cache = {}
+    if os.path.exists(cache_path):
+        try:
+            with open(cache_path, 'r') as f:
+                merchant_cache = json.load(f)
+        except Exception as e:
+            logger.warning(f"Error reading cache: {e}")
+            
+    # Filter out already cached merchants
+    uncached_merchants = [m for m in unique_merchants if m not in merchant_cache]
+    
+    if not uncached_merchants:
+        logger.info("All merchants found in cache. Skipping Gemini API call.")
+        return merchant_cache
+    
     # 1. Read Allowed Categories
     categories = []
     cat_path = os.path.join(reference_dir, 'Jenn Mike Finance Tracker - Categories.csv')
@@ -154,7 +183,7 @@ def call_gemini_categorization(unique_merchants, reference_dir):
     - filter_reason (string): If suggested_filter is "Yes", state why (e.g. "Credit Card Payment", "Internal Transfer", "Declined Transaction"). Otherwise, blank "".
     
     Merchants to categorize:
-    {json.dumps(unique_merchants)}
+    {json.dumps(uncached_merchants)}
     """
     
     generation_config = {
@@ -164,10 +193,19 @@ def call_gemini_categorization(unique_merchants, reference_dir):
     
     try:
         response = model.generate_content(prompt, generation_config=generation_config)
-        return json.loads(response.text)
+        new_mappings = json.loads(response.text)
+        
+        merchant_cache.update(new_mappings)
+        try:
+            with open(cache_path, 'w') as f:
+                json.dump(merchant_cache, f, indent=4)
+        except Exception as e:
+            logger.warning(f"Error writing cache: {e}")
+            
+        return merchant_cache
     except Exception as e:
         logger.error(f"Error calling Gemini: {e}")
-        return {}
+        return merchant_cache
 
 
 def format_output(df, mapping):
