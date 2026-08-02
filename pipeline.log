@@ -109,3 +109,24 @@
 2026-08-02 15:18:52,150 - root - INFO - [DRY-RUN]   Normalized Unique Merchants: 175
 2026-08-02 15:18:52,150 - root - INFO - [DRY-RUN]   Merchants in Cache: 175
 2026-08-02 15:18:52,150 - root - INFO - [DRY-RUN]   API Calls Needed: 0
+2026-08-02 15:23:26,369 - root - INFO - Processing bank data...
+2026-08-02 15:23:26,461 - root - INFO - Found 266 unique merchants. Calling Gemini for categorization...
+2026-08-02 15:23:26,462 - src.etl - INFO - All merchants found in cache. Skipping Gemini API call.
+2026-08-02 15:23:26,462 - src.etl - INFO - Cache: 266 hits, 0 new lookups, 266 total merchants
+2026-08-02 15:23:26,462 - root - INFO - Formatting output...
+2026-08-02 15:23:26,473 - root - INFO - Running validation checks...
+2026-08-02 15:23:26,476 - root - INFO - [SUCCESS] Pipeline validation passed! Row counts and balances match.
+2026-08-02 15:23:26,478 - root - INFO - === POST-RUN SUMMARY ===
+2026-08-02 15:23:26,478 - root - INFO - Date Range: 2025-12-18 to 2026-08-01
+2026-08-02 15:23:26,478 - root - INFO - Total Income: $91803.11
+2026-08-02 15:23:26,478 - root - INFO - Total Expenses: $-81234.23
+2026-08-02 15:23:26,478 - root - INFO - Cache Hit Rate: 162/162 merchants cached
+2026-08-02 15:23:26,478 - root - INFO - Flagged Merchants (Suggested Filter='Yes'): 54
+2026-08-02 15:23:26,478 - root - INFO - Row Count by Account:
+2026-08-02 15:23:26,479 - root - INFO -   wealthsimple_credit: 12 rows
+2026-08-02 15:23:26,479 - root - INFO -   rogers_cc: 425 rows
+2026-08-02 15:23:26,479 - root - INFO -   wealthsimple_activities: 79 rows
+2026-08-02 15:23:26,479 - root - INFO -   cibc: 5 rows
+2026-08-02 15:23:26,479 - root - INFO - ========================
+2026-08-02 15:23:26,481 - root - INFO - Success! Exported 521 rows to data/processed/consolidated_ledger_20260802_152326_ee8ee231.csv
+2026-08-02 15:23:26,481 - root - INFO - Cleaned up 1 old output file(s) in data/processed.

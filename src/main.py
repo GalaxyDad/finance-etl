@@ -5,7 +5,7 @@ from datetime import datetime
 import argparse
 import uuid
 import glob
-from src.etl import process_bank_data, call_gemini_categorization, format_output, validate_pipeline, normalize_merchant_name
+from src.etl import process_bank_data, call_gemini_categorization, format_output, validate_pipeline, normalize_merchant_name, load_merchant_cache
 import json
 
 def setup_logger():
@@ -61,15 +61,8 @@ def main():
         # Calculate actual API calls needed
         normalized_merchants = {normalize_merchant_name(m) for m in unique_merchants}
         
-        cache_path = os.path.join(reference_dir, 'merchant_cache.json')
-        cached_count = 0
-        if os.path.exists(cache_path):
-            try:
-                with open(cache_path, 'r') as f:
-                    merchant_cache = json.load(f)
-                cached_count = sum(1 for nm in normalized_merchants if nm in merchant_cache)
-            except Exception:
-                pass
+        merchant_cache = load_merchant_cache(reference_dir)
+        cached_count = sum(1 for nm in normalized_merchants if nm in merchant_cache)
                 
         uncached_count = len(normalized_merchants) - cached_count
         logger.info(f"[DRY-RUN] Merchant Cache Breakdown:")
@@ -103,15 +96,8 @@ def main():
             
     # Calculate Cache Hit Rate
     normalized_merchants = {normalize_merchant_name(m) for m in unique_merchants}
-    cache_path = os.path.join(reference_dir, 'merchant_cache.json')
-    cached_count = 0
-    if os.path.exists(cache_path):
-        try:
-            with open(cache_path, 'r') as f:
-                merchant_cache = json.load(f)
-            cached_count = sum(1 for nm in normalized_merchants if nm in merchant_cache)
-        except Exception:
-            pass
+    merchant_cache = load_merchant_cache(reference_dir)
+    cached_count = sum(1 for nm in normalized_merchants if nm in merchant_cache)
             
     # Calculate summary metrics from output_df
     # output_df['Date'] is likely string "YYYY-MM-DD" per schema, but could be Date type. 
@@ -144,6 +130,24 @@ def main():
     os.makedirs(processed_dir, exist_ok=True)
     output_df.write_csv(output_path)
     logger.info(f"Success! Exported {len(output_df)} rows to {output_path}")
+
+    manifest = {
+        "timestamp": timestamp,
+        "input_files_total_rows": len(df),
+        "input_account_rows": {row['Account']: row['count'] for row in account_counts.iter_rows(named=True)},
+        "total_output_rows": len(output_df),
+        "cache_hits": cached_count,
+        "cache_misses": len(normalized_merchants) - cached_count,
+        "validation_passed": is_valid,
+        "output_filename": filename
+    }
+    
+    manifest_path = os.path.join(processed_dir, 'run_manifest.jsonl')
+    try:
+        with open(manifest_path, 'a') as f:
+            f.write(json.dumps(manifest) + '\n')
+    except Exception as e:
+        logger.error(f"Failed to write run manifest: {e}")
 
     # Cleanup old processed files
     processed_files = glob.glob(os.path.join(processed_dir, 'consolidated_ledger_*.csv'))

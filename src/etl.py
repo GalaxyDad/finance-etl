@@ -13,13 +13,17 @@ load_dotenv()
 
 logger = logging.getLogger(__name__)
 
-def process_bank_data(raw_dir):
-    dfs = []
+class BankParser:
+    file_pattern: str
     
-    # Process Rogers CC
-    rogers_files = glob.glob(os.path.join(raw_dir, 'rogers_transactions*.csv'))
-    for f in rogers_files:
-        df = pl.read_csv(f, null_values=[""], infer_schema_length=0)
+    def parse(self, filepath: str) -> pl.DataFrame:
+        raise NotImplementedError
+
+class RogersParser(BankParser):
+    file_pattern = 'rogers_transactions*.csv'
+    
+    def parse(self, filepath: str) -> pl.DataFrame:
+        df = pl.read_csv(filepath, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
             pl.col('Date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
@@ -33,16 +37,13 @@ def process_bank_data(raw_dir):
         elif "Merchant Name" in df.columns:
             df = df.rename({"Merchant Name": "Transaction Details"})
             
-        df = df.select(["Date", "Transaction Details", "Amount", "Account"])
-        dfs.append(df)
-        
-    # Process Simplii
-    simplii_files = []
-    if os.path.exists(raw_dir):
-        simplii_files = [os.path.join(raw_dir, f) for f in os.listdir(raw_dir) if f.lower().startswith('simplii') and f.lower().endswith('.csv')]
-                
-    for f in simplii_files:
-        df = pl.read_csv(f, null_values=[""], infer_schema_length=0)
+        return df.select(["Date", "Transaction Details", "Amount", "Account"])
+
+class SimpliiParser(BankParser):
+    file_pattern = 'simplii*.csv'
+    
+    def parse(self, filepath: str) -> pl.DataFrame:
+        df = pl.read_csv(filepath, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
             pl.col('Date').str.strptime(pl.Date, "%m/%d/%Y", strict=False),
@@ -54,17 +55,13 @@ def process_bank_data(raw_dir):
             (pl.col('Funds In') - pl.col('Funds Out')).alias('Amount'),
             pl.lit('simplii').alias('Account')
         )
-        df = df.select(["Date", "Transaction Details", "Amount", "Account"])
-        dfs.append(df)
-        
-    # Process CIBC
-    cibc_files = []
-    if os.path.exists(raw_dir):
-        cibc_files = [os.path.join(raw_dir, f) for f in os.listdir(raw_dir) if f.lower().startswith('cibc') and f.lower().endswith('.csv')]
-        
-    for f in cibc_files:
-        # Headerless: Date, Description, Debit, Credit, Card
-        df = pl.read_csv(f, has_header=False, null_values=[""], infer_schema_length=0)
+        return df.select(["Date", "Transaction Details", "Amount", "Account"])
+
+class CIBCParser(BankParser):
+    file_pattern = 'cibc*.csv'
+    
+    def parse(self, filepath: str) -> pl.DataFrame:
+        df = pl.read_csv(filepath, has_header=False, null_values=[""], infer_schema_length=0)
         df = df.rename({
             "column_1": "Date", 
             "column_2": "Transaction Details", 
@@ -82,13 +79,13 @@ def process_bank_data(raw_dir):
             (pl.col('Credit') - pl.col('Debit')).alias('Amount'),
             pl.lit('cibc').alias('Account')
         )
-        df = df.select(["Date", "Transaction Details", "Amount", "Account"])
-        dfs.append(df)
-        
-    # Process WS Activities
-    ws_act_files = glob.glob(os.path.join(raw_dir, 'ws_activities*.csv'))
-    for f in ws_act_files:
-        df = pl.read_csv(f, null_values=[""], infer_schema_length=0)
+        return df.select(["Date", "Transaction Details", "Amount", "Account"])
+
+class WSActivitiesParser(BankParser):
+    file_pattern = 'ws_activities*.csv'
+    
+    def parse(self, filepath: str) -> pl.DataFrame:
+        df = pl.read_csv(filepath, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
             pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
@@ -97,13 +94,13 @@ def process_bank_data(raw_dir):
         )
         df = df.drop_nulls(subset=['transaction_date'])
         df = df.rename({"description": "Transaction Details", "transaction_date": "Date"})
-        df = df.select(["Date", "Transaction Details", "Amount", "Account"])
-        dfs.append(df)
-        
-    # Process WS Credit
-    ws_cc_files = glob.glob(os.path.join(raw_dir, 'ws_credit-card*.csv'))
-    for f in ws_cc_files:
-        df = pl.read_csv(f, null_values=[""], infer_schema_length=0)
+        return df.select(["Date", "Transaction Details", "Amount", "Account"])
+
+class WSCreditParser(BankParser):
+    file_pattern = 'ws_credit-card*.csv'
+    
+    def parse(self, filepath: str) -> pl.DataFrame:
+        df = pl.read_csv(filepath, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
             pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
@@ -113,9 +110,28 @@ def process_bank_data(raw_dir):
         )
         df = df.drop_nulls(subset=['transaction_date'])
         df = df.rename({"transaction_date": "Date"})
-        df = df.select(["Date", "Transaction Details", "Amount", "Account"])
-        dfs.append(df)
-        
+        return df.select(["Date", "Transaction Details", "Amount", "Account"])
+
+BANK_PARSERS = [
+    RogersParser(),
+    SimpliiParser(),
+    CIBCParser(),
+    WSActivitiesParser(),
+    WSCreditParser()
+]
+
+def process_bank_data(raw_dir):
+    dfs = []
+    
+    for parser in BANK_PARSERS:
+        files = glob.glob(os.path.join(raw_dir, parser.file_pattern))
+        for f in files:
+            try:
+                df = parser.parse(f)
+                dfs.append(df)
+            except Exception as e:
+                logger.error(f"Error parsing file {f} with {parser.__class__.__name__}: {e}")
+                
     if not dfs:
         return pl.DataFrame()
         
@@ -137,18 +153,23 @@ def normalize_merchant_name(name: str) -> str:
     return name
 
 
+def load_merchant_cache(reference_dir: str) -> dict:
+    cache_path = os.path.join(reference_dir, 'merchant_cache.json')
+    if os.path.exists(cache_path):
+        try:
+            with open(cache_path, 'r') as f:
+                return json.load(f)
+        except Exception as e:
+            logger.warning(f"Error reading cache: {e}")
+    return {}
+
+
 def call_gemini_categorization(unique_merchants, reference_dir):
     genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
     
     # 0. Load Cache
     cache_path = os.path.join(reference_dir, 'merchant_cache.json')
-    merchant_cache = {}
-    if os.path.exists(cache_path):
-        try:
-            with open(cache_path, 'r') as f:
-                merchant_cache = json.load(f)
-        except Exception as e:
-            logger.warning(f"Error reading cache: {e}")
+    merchant_cache = load_merchant_cache(reference_dir)
             
     # Filter out already cached merchants using normalized names
     uncached_normalized = set()
