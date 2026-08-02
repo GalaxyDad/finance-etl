@@ -14,6 +14,7 @@ def process_bank_data(raw_dir):
     rogers_path = os.path.join(raw_dir, 'rogers_cc.csv')
     if os.path.exists(rogers_path):
         df = pl.read_csv(rogers_path, null_values=[""])
+        df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
             pl.col('Date').str.strptime(pl.Date, "%Y-%m-%d"),
             (pl.col('Amount') * -1).alias('Amount'),
@@ -26,6 +27,7 @@ def process_bank_data(raw_dir):
     simplii_path = os.path.join(raw_dir, 'simplii.csv')
     if os.path.exists(simplii_path):
         df = pl.read_csv(simplii_path, null_values=[""])
+        df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
             pl.col('Date').str.strptime(pl.Date, "%m/%d/%Y"),
             pl.col('Funds Out').fill_null(0.0),
@@ -119,7 +121,7 @@ def call_gemini_categorization(unique_merchants, reference_dir):
     
     generation_config = {
         "response_mime_type": "application/json",
-        "thinking_level": "LOW"
+        # "thinking_level": "LOW" # SDK throws Unknown field error
     }
     
     try:

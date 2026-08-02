@@ -36,7 +36,11 @@ To verify the logic safely without making API calls, run the test suite:
 pytest tests/ -v
 ```
 
-To run the pipeline and generate `data/processed/consolidated_ledger.csv`, you can import and run the pipeline functions from `src/etl.py`.
+To run the pipeline and generate `data/processed/consolidated_ledger.csv`:
+```bash
+source venv/bin/activate
+PYTHONPATH=. python src/main.py
+```
 
 ## Testing
 This project strictly follows Test-Driven Development (TDD). Tests are located in `tests/test_etl.py` and mock the API calls and raw data ingestion.
