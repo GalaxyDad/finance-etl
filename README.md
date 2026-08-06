@@ -7,16 +7,17 @@ This project is a local Python ETL (Extract, Transform, Load) pipeline designed 
 2. **Transforms**: 
    - Normalizes dates to the strict `YYYY-MM-DD` format.
    - Standardizes amounts (Income as positive floats, Expenses as negative floats).
-   - Reconciles generic Amazon bank transactions with detailed Amazon exports, automatically expanding them into individual product rows for precise tracking.
+   - Reconciles generic Amazon bank transactions with detailed Amazon exports, automatically expanding them into individual product rows for precise tracking. Itemized product descriptions are placed into the `Note` field while preserving the original bank transaction description in `Transaction Details`.
    - Extracts unique merchants and queries the Gemini 3.6 Flash API to assign categories. This API call is contextualized heavily using a predefined allowed categories list (`Categories.csv`) and historical examples (`Mike Transaction Register.csv`).
 3. **Optimizes**: 
-   - Uses defensive CSV parsing to reliably ingest bank statements regardless of type-inference challenges or unexpected formats.
+   - Uses defensive CSV parsing with multi-format date coalescing (`%Y-%m-%d`, `%m/%d/%Y`, `%Y/%m/%d`) across bank statement parsers and Amazon exports (`Order History.csv`, `Refund Details.csv`) to guarantee format resilience and prevent silent transaction drops.
    - Normalizes merchant names (e.g. stripping Amazon order hashes) to cut down redundant LLM categorization calls by up to 70%.
    - Chunks Gemini API requests into batches of 50 with incremental cache saves to ensure fault tolerance.
-4. **Soft-Filtering**: Automatically establishes a "Personal Items Profile" by identifying past Amazon shipments that were excluded from the historical register. It then leverages Gemini to recognize and flag similar personal purchases in new transactions, significantly reducing manual review.
-5. **Validates**: Automatically performs strict validation checks comparing the raw extracted data against the formatted output. It verifies that row counts and total balances match to ensure no transactions are dropped during formatting. Mismatches or dropped transactions are clearly flagged and displayed to the user.
-6. **Loads**: Joins the LLM categorization back to the main DataFrame, sorts the data chronologically by Date (and alphabetically by Account), and formats it into a strict 12-column output. The pipeline also automatically cleans up old processed files, keeping only the most recent runs.
-7. **Logs**: Standard logs and error messages are written both to the console and to `pipeline.log` for easy troubleshooting. At the end of every run, a helpful post-run summary report is output to provide an at-a-glance view of the processed data.
+4. **Soft-Filtering**: Automatically establishes a "Personal Items Profile" by identifying past Amazon shipments that were excluded from the historical register. It sorts and caps this context deterministically before leveraging Gemini to recognize and flag similar personal purchases in new transactions, significantly reducing manual review.
+5. **Validates**: Automatically performs strict multi-stage validation checks comparing the raw extracted data against post-expansion data and final formatted output. It verifies that raw vs. post-expansion balances match (within $0.05 to account for itemized tax rounding) and that post-expansion vs. final formatted row counts and balances match to ensure no transactions are dropped or corrupted. Mismatches or dropped transactions are clearly flagged and displayed to the user.
+6. **Deduplicates**: Preserves legitimate same-day identical transactions (e.g., buying two identical coffees on the same day) using file-scoped occurrence indexing, while using unique `Reference Number` fields where available (e.g. Rogers CC) to safely eliminate duplicate records across overlapping file exports.
+7. **Loads**: Joins the LLM categorization back to the main DataFrame, sorts the data chronologically by Date (and alphabetically by Account), and formats it into a strict 12-column output with guaranteed fallback schema defaults for unmapped items. The pipeline also automatically cleans up old processed files, keeping only the most recent runs.
+8. **Logs**: Standard logs and error messages are written both to the console and to `pipeline.log` for easy troubleshooting. At the end of every run, a helpful post-run summary report is output to provide an at-a-glance view of the processed data.
 
 ## How to Use It
 
@@ -51,8 +52,8 @@ The pipeline processes reference files dynamically from `data/reference/`:
 * **Updating Historical Register**: Periodically updating `Jenn Mike Finance Tracker - Mike Transaction Register.csv` allows the system to continuously learn. As new shared expenses are approved, the "Personal Items Profile" automatically updates to recognize personal vs. shared items more accurately.
 
 ### Amazon Reconciliation Process
-1. **Personal Profile Construction**: Reconciles `Order History.csv` shipments against `Mike Transaction Register.csv` within a `[-3, +7]` day window (`bank_date - ship_date`). Any product in `Order History.csv` that was *never* entered into the shared register is tagged as a **Personal Item**.
-2. **Transaction Expansion**: For incoming generic Amazon bank debits/credits (`data/raw/`), matches exact amounts to shipments/refunds within the `[-3, +7]` day window. Matched bank rows are expanded into individual product rows (e.g., `-$15.50 3x Item B`).
+1. **Personal Profile Construction**: Reconciles `Order History.csv` shipments against `Mike Transaction Register.csv` within a `[-3, +7]` day window (`bank_date - ship_date`). Any product in `Order History.csv` that was *never* entered into the shared register is tagged as a **Personal Item**. Items are sorted alphabetically and capped to 50 entries to ensure deterministic Gemini context injection across runs.
+2. **Transaction Expansion**: For incoming generic Amazon bank debits/credits (`data/raw/`), matches exact amounts to shipments/refunds within the `[-3, +7]` day window. Matched bank rows are expanded into individual product rows (e.g., `-$15.50 3x Item B`), and all Amazon transactions populate `"Amazon"` (or `"Amazon Refund"`) in the `Note` column to explicitly tag Amazon as the vendor.
 3. **LLM Soft-Filtering**: Enriched product descriptions are categorized by Gemini. If an item matches the Personal Items Profile, Gemini sets `Suggested Filter` to `"Yes"` and `Filter Reason` to `"Likely Personal Item"`.
 
 ### 4. Verification & Execution

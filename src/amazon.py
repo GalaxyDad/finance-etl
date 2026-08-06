@@ -26,7 +26,11 @@ class AmazonProcessor:
                 df = pl.read_csv(self.orders_path, null_values=["", "Not Available", "Not Applicable"], infer_schema_length=0)
                 df = df.rename({col: col.strip().lstrip('\ufeff') for col in df.columns})
                 df = df.with_columns(
-                    pl.col("Ship Date").str.slice(0, 10).str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+                    pl.coalesce([
+                        pl.col("Ship Date").str.slice(0, 10).str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+                        pl.col("Ship Date").str.slice(0, 10).str.strptime(pl.Date, "%m/%d/%Y", strict=False),
+                        pl.col("Ship Date").str.slice(0, 10).str.strptime(pl.Date, "%Y/%m/%d", strict=False)
+                    ]).alias("Ship Date"),
                     pl.col("Total Amount").str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False)
                 ).drop_nulls(subset=["Ship Date", "Total Amount"])
                 self.orders_df = df
@@ -39,7 +43,11 @@ class AmazonProcessor:
                 df = pl.read_csv(self.refunds_path, null_values=["", "Not Available", "Not Applicable"], infer_schema_length=0)
                 df = df.rename({col: col.strip().lstrip('\ufeff') for col in df.columns})
                 df = df.with_columns(
-                    pl.col("Refund Date").str.slice(0, 10).str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+                    pl.coalesce([
+                        pl.col("Refund Date").str.slice(0, 10).str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+                        pl.col("Refund Date").str.slice(0, 10).str.strptime(pl.Date, "%m/%d/%Y", strict=False),
+                        pl.col("Refund Date").str.slice(0, 10).str.strptime(pl.Date, "%Y/%m/%d", strict=False)
+                    ]).alias("Refund Date"),
                     pl.col("Refund Amount").str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False)
                 ).drop_nulls(subset=["Refund Date", "Refund Amount"])
                 self.refunds_df = df
@@ -75,7 +83,7 @@ class AmazonProcessor:
         used_register = set()
         
         if self.orders_df is not None and len(self.orders_df) > 0:
-            shipment_totals = self.orders_df.group_by(["Order ID", "Ship Date"]).agg(
+            shipment_totals = self.orders_df.group_by(["Order ID", "Ship Date", "Carrier Name & Tracking Number"]).agg(
                 pl.col("Total Amount").sum().alias("Shipment Total"),
                 pl.col("Product Name").alias("Products")
             )
@@ -96,7 +104,7 @@ class AmazonProcessor:
                     if reg["Date"] is None or reg["Amount"] is None:
                         continue
                         
-                    if abs(reg["Amount"] - total) < 0.01:
+                    if abs(abs(reg["Amount"]) - total) < 0.01:
                         days_diff = (reg["Date"] - ship_date).days
                         if -3 <= days_diff <= 7:
                             matched = True
@@ -114,7 +122,7 @@ class AmazonProcessor:
 
     def get_personal_items_profile(self) -> list[str]:
         # Cap the profile to 50 items to prevent LLM prompt bloat
-        return list(self.personal_items_profile)[:50]
+        return sorted(list(self.personal_items_profile))[:50]
 
     def process_transactions(self, bank_df: pl.DataFrame) -> pl.DataFrame:
         """
@@ -129,7 +137,7 @@ class AmazonProcessor:
             
         orders_grouped = None
         if self.orders_df is not None and len(self.orders_df) > 0:
-            orders_grouped = self.orders_df.group_by(["Order ID", "Ship Date"]).agg(
+            orders_grouped = self.orders_df.group_by(["Order ID", "Ship Date", "Carrier Name & Tracking Number"]).agg(
                 pl.col("Total Amount").sum().alias("Shipment Total"),
                 pl.col("Product Name"),
                 pl.col("Total Amount"),
@@ -176,7 +184,7 @@ class AmazonProcessor:
             
             if is_amazon and amount < 0 and orders_grouped is not None:
                 for ship_row in orders_grouped.iter_rows(named=True):
-                    ship_key = (ship_row["Order ID"], ship_row["Ship Date"])
+                    ship_key = (ship_row["Order ID"], ship_row["Ship Date"], ship_row["Carrier Name & Tracking Number"])
                     if ship_key in used_shipments:
                         continue
                         
@@ -201,6 +209,7 @@ class AmazonProcessor:
                                     prod_name = f"{qty}x {prod_name}"
                                 
                                 new_row["Transaction Details"] = prod_name if prod_name else merchant
+                                new_row["Note"] = "Amazon"
                                 new_row["Amount"] = -prod_amount
                                 new_rows.append(new_row)
                             matched = True
@@ -225,6 +234,7 @@ class AmazonProcessor:
                             for prod_name, prod_amount in zip(ref_row["Product Name"], ref_row["Refund Amount"]):
                                 new_row = dict(row)
                                 new_row["Transaction Details"] = f"Refund: {prod_name}" if prod_name else f"Refund: {merchant}"
+                                new_row["Note"] = "Amazon Refund"
                                 new_row["Amount"] = prod_amount
                                 new_rows.append(new_row)
                             matched = True
@@ -232,12 +242,19 @@ class AmazonProcessor:
                             break
                             
             if not matched:
-                new_rows.append(dict(row))
+                new_row = dict(row)
+                if is_amazon:
+                    new_row["Note"] = "Amazon Refund" if amount > 0 else "Amazon"
+                elif "Note" not in new_row:
+                    new_row["Note"] = ""
+                new_rows.append(new_row)
                 
         if not new_rows:
             return bank_df
             
         logger.info(f"Expanded {len(used_shipments)} Amazon shipments and {len(used_refunds)} refunds into {len(new_rows) - len(bank_df)} additional rows.")
             
-        schema = bank_df.schema
+        schema = dict(bank_df.schema)
+        if "Note" not in schema:
+            schema["Note"] = pl.Utf8
         return pl.DataFrame(new_rows, schema=schema)

@@ -20,8 +20,12 @@ def test_pipeline_end_to_end(mock_data_dir, monkeypatch):
             'Payment': {'category': 'Transfer', 'flag': '', 'suggested_filter': 'Yes', 'filter_reason': 'Internal'}
         }
     
+    from src.amazon import AmazonProcessor
     # 1. Process Bank Data
-    df, personal_items_profile = process_bank_data(raw_dir, reference_dir)
+    raw_df = process_bank_data(raw_dir)
+    amazon_processor = AmazonProcessor(reference_dir)
+    df = amazon_processor.process_transactions(raw_df)
+    personal_items_profile = amazon_processor.get_personal_items_profile()
     
     assert len(df) == 9
     assert df.schema['Date'] == pl.Date
@@ -78,7 +82,7 @@ def test_pipeline_end_to_end(mock_data_dir, monkeypatch):
     assert dates[0] == '2023-10-01'
     
     # 4. Validate Pipeline
-    is_valid, messages = validate_pipeline(df, output_df)
+    is_valid, messages = validate_pipeline(raw_df, df, output_df)
     assert is_valid is True
     assert "[SUCCESS]" in messages[-1]
 
@@ -100,7 +104,7 @@ def test_validate_pipeline_failures():
         "Category": ["UNCATEGORIZED"]
     })
     
-    is_valid, messages = validate_pipeline(raw_df, final_df)
+    is_valid, messages = validate_pipeline(raw_df, raw_df, final_df)
     assert is_valid is False
     assert any("Row count mismatch" in msg for msg in messages)
     assert any("Balance mismatch" in msg for msg in messages)
@@ -140,6 +144,122 @@ def test_production_parser_drift(parser):
         
     try:
         df = parser.parse(tmp_path)
-        assert set(df.columns) == {"Date", "Transaction Details", "Amount", "Account"}
+        assert set(df.columns) == {"Date", "Transaction Details", "Amount", "Account", "Reference Number"}
     finally:
         os.remove(tmp_path)
+
+
+def test_process_bank_data_empty_dir(tmp_path):
+    empty_raw = tmp_path / "raw"
+    empty_raw.mkdir()
+    df = process_bank_data(str(empty_raw))
+    assert isinstance(df, pl.DataFrame)
+    assert len(df) == 0
+
+
+def test_bank_parsers_date_format_resilience(tmp_path):
+    import datetime
+    from src.etl import RogersParser, SimpliiParser, CIBCParser
+
+    # Test Rogers parser with MM/DD/YYYY format
+    rogers_file = tmp_path / "rogers_transactions_alt.csv"
+    rogers_file.write_text("Date,Activity Status,Merchant Name,Amount\n10/05/2023,Posted,TEST MERCHANT,50.00\n")
+    rogers_df = RogersParser().parse(str(rogers_file))
+    assert len(rogers_df) == 1
+    assert rogers_df["Date"][0] == datetime.date(2023, 10, 5)
+
+    # Test Simplii parser with YYYY-MM-DD format
+    simplii_file = tmp_path / "simplii_alt.csv"
+    simplii_file.write_text("Date,Transaction Details,Funds Out,Funds In\n2023-10-06,TEST MERCHANT,25.00,\n")
+    simplii_df = SimpliiParser().parse(str(simplii_file))
+    assert len(simplii_df) == 1
+    assert simplii_df["Date"][0] == datetime.date(2023, 10, 6)
+
+    # Test CIBC parser with MM/DD/YYYY format
+    cibc_file = tmp_path / "cibc_alt.csv"
+    cibc_file.write_text("10/07/2023,TEST MERCHANT,15.00,,5223********3915\n")
+    cibc_df = CIBCParser().parse(str(cibc_file))
+    assert len(cibc_df) == 1
+    assert cibc_df["Date"][0] == datetime.date(2023, 10, 7)
+
+
+def test_format_output_unmapped_defaults():
+    import datetime
+    df = pl.DataFrame({
+        "Date": [datetime.date(2023, 10, 1)],
+        "Transaction Details": ["UNMAPPED MERCHANT"],
+        "Amount": [-10.0],
+        "Account": ["rogers_cc"]
+    })
+    mapping = {}
+    out = format_output(df, mapping)
+    assert out["Category"][0] == "UNCATEGORIZED"
+    assert out["LLM Categorization Flag"][0] == "LLM Failure"
+    assert out["Suggested Filter"][0] == "No"
+    assert out["Filter Reason"][0] == ""
+
+
+def test_format_output_preserves_existing_note():
+    import datetime
+    df = pl.DataFrame({
+        "Date": [datetime.date(2023, 10, 1)],
+        "Transaction Details": ["3x Item B"],
+        "Amount": [-15.50],
+        "Account": ["rogers_cc"],
+        "Note": ["Amazon"]
+    })
+    mapping = {
+        "3x Item B": {"category": "Shopping", "flag": "", "suggested_filter": "No", "filter_reason": ""}
+    }
+    out = format_output(df, mapping)
+    assert out["Transaction Details"][0] == "3x Item B"
+    assert out["Note"][0] == "Amazon"
+    assert out["Category"][0] == "Shopping"
+
+
+
+
+def test_same_day_identical_transactions_preserved(tmp_path):
+    simplii_file = tmp_path / "simplii_dups.csv"
+    simplii_file.write_text("Date,Transaction Details,Funds Out,Funds In\n10/02/2023,COFFEE SHOP,3.50,\n10/02/2023,COFFEE SHOP,3.50,\n")
+    df = process_bank_data(str(tmp_path))
+    assert len(df) == 2
+
+
+def test_rogers_reference_number_deduplication(tmp_path):
+    rogers_file1 = tmp_path / "rogers_transactions1.csv"
+    rogers_file1.write_text("Date,Merchant Name,Amount,Reference Number\n2023-10-01,STORE A,10.00,\"REF123\"\n2023-10-02,STORE B,20.00,\"REF124\"\n")
+    rogers_file2 = tmp_path / "rogers_transactions2.csv"
+    rogers_file2.write_text("Date,Merchant Name,Amount,Reference Number\n2023-10-02,STORE B,20.00,\"REF124\"\n2023-10-03,STORE C,30.00,\"REF125\"\n")
+    df = process_bank_data(str(tmp_path))
+    assert len(df) == 3
+
+
+def test_validate_pipeline_amazon_balance_mismatch():
+    raw_df = pl.DataFrame({
+        "Date": ["2023-01-01"],
+        "Transaction Details": ["Amazon"],
+        "Amount": [-100.0],
+        "Account": ["rogers_cc"]
+    }).with_columns(pl.col("Date").str.strptime(pl.Date, "%Y-%m-%d"))
+
+    post_expansion_df = pl.DataFrame({
+        "Date": ["2023-01-01"],
+        "Transaction Details": ["Item 1"],
+        "Amount": [-50.0],
+        "Account": ["rogers_cc"]
+    }).with_columns(pl.col("Date").str.strptime(pl.Date, "%Y-%m-%d"))
+
+    final_df = pl.DataFrame({
+        "Date": ["2023-01-01"],
+        "Transaction Details": ["Item 1"],
+        "Amount": [-50.0],
+        "Account": ["rogers_cc"],
+        "Category": ["Groceries"]
+    })
+
+    is_valid, messages = validate_pipeline(raw_df, post_expansion_df, final_df)
+    assert is_valid is False
+    assert any("Amazon expansion balance mismatch" in msg for msg in messages)
+
+

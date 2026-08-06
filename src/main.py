@@ -7,6 +7,7 @@ import argparse
 import uuid
 import glob
 from src.etl import process_bank_data, call_gemini_categorization, format_output, validate_pipeline, normalize_merchant_name, load_merchant_cache
+from src.amazon import AmazonProcessor
 import json
 
 def setup_logger():
@@ -35,6 +36,7 @@ def main():
     parser.add_argument("--keep-last", type=int, default=3, help="Number of recent output files to keep in processed directory")
     parser.add_argument("--date-from", type=str, help="Filter transactions starting from this date (YYYY-MM-DD)")
     parser.add_argument("--date-to", type=str, help="Filter transactions up to this date (YYYY-MM-DD)")
+    parser.add_argument("--abort-on-validation-failure", action="store_true", help="Abort export if pipeline validation fails")
     args = parser.parse_args()
 
     logger = setup_logger()
@@ -44,22 +46,26 @@ def main():
     processed_dir = "data/processed"
     
     logger.info("Processing bank data...")
-    df, personal_items_profile = process_bank_data(raw_dir, reference_dir)
+    raw_df = process_bank_data(raw_dir)
     
-    if len(df) == 0:
+    if len(raw_df) == 0:
         logger.info("No raw data found.")
         return
         
     if args.date_from:
-        df = df.filter(pl.col('Date') >= pl.lit(args.date_from).str.strptime(pl.Date, "%Y-%m-%d"))
-        logger.info(f"Applied date-from filter: {args.date_from}. Rows remaining: {len(df)}")
+        raw_df = raw_df.filter(pl.col('Date') >= pl.lit(args.date_from).str.strptime(pl.Date, "%Y-%m-%d"))
+        logger.info(f"Applied date-from filter: {args.date_from}. Rows remaining: {len(raw_df)}")
     if args.date_to:
-        df = df.filter(pl.col('Date') <= pl.lit(args.date_to).str.strptime(pl.Date, "%Y-%m-%d"))
-        logger.info(f"Applied date-to filter: {args.date_to}. Rows remaining: {len(df)}")
+        raw_df = raw_df.filter(pl.col('Date') <= pl.lit(args.date_to).str.strptime(pl.Date, "%Y-%m-%d"))
+        logger.info(f"Applied date-to filter: {args.date_to}. Rows remaining: {len(raw_df)}")
         
-    if len(df) == 0:
+    if len(raw_df) == 0:
         logger.info("No data left after date filtering.")
         return
+        
+    amazon_processor = AmazonProcessor(reference_dir)
+    df = amazon_processor.process_transactions(raw_df)
+    personal_items_profile = amazon_processor.get_personal_items_profile()
         
     unique_merchants = df['Transaction Details'].unique().to_list()
     
@@ -101,12 +107,16 @@ def main():
     output_df = format_output(df, mapping)
     
     logger.info("Running validation checks...")
-    is_valid, messages = validate_pipeline(df, output_df)
+    is_valid, messages = validate_pipeline(raw_df, df, output_df)
     for msg in messages:
         if "[FLAG]" in msg:
             logger.warning(msg)
         else:
             logger.info(msg)
+            
+    if args.abort_on_validation_failure and not is_valid:
+        logger.error("Validation failed and --abort-on-validation-failure is set. Aborting export.")
+        sys.exit(1)
             
     # Calculate Cache Hit Rate
     normalized_merchants = {normalize_merchant_name(m) for m in unique_merchants}

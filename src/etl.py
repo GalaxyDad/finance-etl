@@ -1,7 +1,7 @@
 import os
 import glob
 import polars as pl
-import google.generativeai as genai
+from google import genai
 import json
 import random
 import logging
@@ -27,7 +27,11 @@ class RogersParser(BankParser):
         df = pl.read_csv(filepath, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
-            pl.col('Date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+            pl.coalesce([
+                pl.col('Date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+                pl.col('Date').str.strptime(pl.Date, "%m/%d/%Y", strict=False),
+                pl.col('Date').str.strptime(pl.Date, "%Y/%m/%d", strict=False)
+            ]).alias('Date'),
             (pl.col('Amount').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False) * -1).alias('Amount'),
             pl.lit('rogers_cc').alias('Account')
         )
@@ -38,7 +42,12 @@ class RogersParser(BankParser):
         elif "Merchant Name" in df.columns:
             df = df.rename({"Merchant Name": "Transaction Details"})
             
-        return df.select(["Date", "Transaction Details", "Amount", "Account"])
+        if "Reference Number" in df.columns:
+            df = df.with_columns(pl.col("Reference Number").str.strip_chars('"').alias("Reference Number"))
+        else:
+            df = df.with_columns(pl.lit(None, dtype=pl.Utf8).alias("Reference Number"))
+            
+        return df.select(["Date", "Transaction Details", "Amount", "Account", "Reference Number"])
 
 class SimpliiParser(BankParser):
     file_pattern = 'simplii*.csv'
@@ -47,16 +56,21 @@ class SimpliiParser(BankParser):
         df = pl.read_csv(filepath, null_values=[""], infer_schema_length=0)
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.with_columns(
-            pl.col('Date').str.strptime(pl.Date, "%m/%d/%Y", strict=False),
+            pl.coalesce([
+                pl.col('Date').str.strptime(pl.Date, "%m/%d/%Y", strict=False),
+                pl.col('Date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+                pl.col('Date').str.strptime(pl.Date, "%Y/%m/%d", strict=False)
+            ]).alias('Date'),
             pl.col('Funds Out').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).fill_null(0.0),
             pl.col('Funds In').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).fill_null(0.0)
         )
         df = df.drop_nulls(subset=['Date'])
         df = df.with_columns(
             (pl.col('Funds In') - pl.col('Funds Out')).alias('Amount'),
-            pl.lit('simplii').alias('Account')
+            pl.lit('simplii').alias('Account'),
+            pl.lit(None, dtype=pl.Utf8).alias('Reference Number')
         )
-        return df.select(["Date", "Transaction Details", "Amount", "Account"])
+        return df.select(["Date", "Transaction Details", "Amount", "Account", "Reference Number"])
 
 class CIBCParser(BankParser):
     file_pattern = 'cibc*.csv'
@@ -71,16 +85,21 @@ class CIBCParser(BankParser):
             "column_5": "Card"
         })
         df = df.with_columns(
-            pl.col('Date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+            pl.coalesce([
+                pl.col('Date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+                pl.col('Date').str.strptime(pl.Date, "%m/%d/%Y", strict=False),
+                pl.col('Date').str.strptime(pl.Date, "%Y/%m/%d", strict=False)
+            ]).alias('Date'),
             pl.col('Debit').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).fill_null(0.0),
             pl.col('Credit').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).fill_null(0.0)
         )
         df = df.drop_nulls(subset=['Date'])
         df = df.with_columns(
             (pl.col('Credit') - pl.col('Debit')).alias('Amount'),
-            pl.lit('cibc').alias('Account')
+            pl.lit('cibc').alias('Account'),
+            pl.lit(None, dtype=pl.Utf8).alias('Reference Number')
         )
-        return df.select(["Date", "Transaction Details", "Amount", "Account"])
+        return df.select(["Date", "Transaction Details", "Amount", "Account", "Reference Number"])
 
 class WSActivitiesParser(BankParser):
     file_pattern = 'ws_activities*.csv'
@@ -90,16 +109,21 @@ class WSActivitiesParser(BankParser):
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.filter(
             ~pl.col('transaction_date').str.starts_with("As of") &
-            pl.col('transaction_date').str.contains(r"^\d{4}-\d{2}-\d{2}")
+            pl.col('transaction_date').str.contains(r"^\d{4}-\d{2}-\d{2}|\d{1,2}/\d{1,2}/\d{4}")
         )
         df = df.with_columns(
-            pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+            pl.coalesce([
+                pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+                pl.col('transaction_date').str.strptime(pl.Date, "%m/%d/%Y", strict=False),
+                pl.col('transaction_date').str.strptime(pl.Date, "%Y/%m/%d", strict=False)
+            ]).alias('transaction_date'),
             pl.lit('wealthsimple_activities').alias('Account'),
-            pl.col('net_cash_amount').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).alias('Amount')
+            pl.col('net_cash_amount').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).alias('Amount'),
+            pl.lit(None, dtype=pl.Utf8).alias('Reference Number')
         )
         df = df.drop_nulls(subset=['transaction_date'])
         df = df.rename({"description": "Transaction Details", "transaction_date": "Date"})
-        return df.select(["Date", "Transaction Details", "Amount", "Account"])
+        return df.select(["Date", "Transaction Details", "Amount", "Account", "Reference Number"])
 
 class WSCreditParser(BankParser):
     file_pattern = 'ws_credit-card*.csv'
@@ -109,17 +133,22 @@ class WSCreditParser(BankParser):
         df = df.rename({col: col.strip() for col in df.columns})
         df = df.filter(
             ~pl.col('transaction_date').str.starts_with("As of") &
-            pl.col('transaction_date').str.contains(r"^\d{4}-\d{2}-\d{2}")
+            pl.col('transaction_date').str.contains(r"^\d{4}-\d{2}-\d{2}|\d{1,2}/\d{1,2}/\d{4}")
         )
         df = df.with_columns(
-            pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+            pl.coalesce([
+                pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+                pl.col('transaction_date').str.strptime(pl.Date, "%m/%d/%Y", strict=False),
+                pl.col('transaction_date').str.strptime(pl.Date, "%Y/%m/%d", strict=False)
+            ]).alias('transaction_date'),
             pl.lit('wealthsimple_credit').alias('Account'),
             pl.when(pl.col('merchant').is_null() | (pl.col('merchant') == "")).then(pl.col('transaction_type')).otherwise(pl.col('merchant')).alias('Transaction Details'),
-            pl.col('amount').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).alias('Amount')
+            pl.col('amount').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).alias('Amount'),
+            pl.lit(None, dtype=pl.Utf8).alias('Reference Number')
         )
         df = df.drop_nulls(subset=['transaction_date'])
         df = df.rename({"transaction_date": "Date"})
-        return df.select(["Date", "Transaction Details", "Amount", "Account"])
+        return df.select(["Date", "Transaction Details", "Amount", "Account", "Reference Number"])
 
 BANK_PARSERS = [
     RogersParser(),
@@ -142,7 +171,7 @@ def _ci_glob(directory: str, pattern: str) -> list[str]:
     )
 
 
-def process_bank_data(raw_dir, reference_dir):
+def process_bank_data(raw_dir):
     dfs = []
     
     for parser in BANK_PARSERS:
@@ -150,26 +179,40 @@ def process_bank_data(raw_dir, reference_dir):
         for f in files:
             try:
                 df = parser.parse(f)
-                dfs.append(df)
+                if len(df) > 0:
+                    df = df.sort(["Date", "Transaction Details", "Amount", "Account"])
+                    df = df.with_columns(
+                        pl.col("Date").cum_count().over(["Date", "Transaction Details", "Amount", "Account"]).alias("_occur_idx")
+                    )
+                    dfs.append(df)
             except Exception as e:
                 logger.error(f"Error parsing file {f} with {parser.__class__.__name__}: {e}")
                 
     if not dfs:
-        return pl.DataFrame(), []
+        return pl.DataFrame(schema={"Date": pl.Date, "Transaction Details": pl.Utf8, "Amount": pl.Float64, "Account": pl.Utf8})
         
-    df = pl.concat(dfs)
+    combined = pl.concat(dfs)
+    initial_len = len(combined)
     
-    initial_len = len(df)
-    df = df.unique(subset=["Date", "Transaction Details", "Amount", "Account"])
-    dropped = initial_len - len(df)
+    has_ref_mask = pl.col("Reference Number").is_not_null() & (pl.col("Reference Number") != "")
+    has_ref = combined.filter(has_ref_mask)
+    no_ref = combined.filter(~has_ref_mask)
+    
+    deduped_parts = []
+    if len(has_ref) > 0:
+        deduped_has_ref = has_ref.unique(subset=["Account", "Reference Number"], keep="first")
+        deduped_parts.append(deduped_has_ref)
+        
+    if len(no_ref) > 0:
+        deduped_no_ref = no_ref.unique(subset=["Date", "Transaction Details", "Amount", "Account", "_occur_idx"], keep="first")
+        deduped_parts.append(deduped_no_ref)
+        
+    final_df = pl.concat(deduped_parts) if deduped_parts else pl.DataFrame()
+    dropped = initial_len - len(final_df)
     if dropped > 0:
         logger.info(f"Dropped {dropped} duplicate transactions across bank files.")
         
-    amazon_processor = AmazonProcessor(reference_dir)
-    df = amazon_processor.process_transactions(df)
-    personal_items_profile = amazon_processor.get_personal_items_profile()
-        
-    return df, personal_items_profile
+    return final_df.select(["Date", "Transaction Details", "Amount", "Account"])
 
 
 def normalize_merchant_name(name: str) -> str:
@@ -199,7 +242,7 @@ def load_merchant_cache(reference_dir: str) -> dict:
 
 
 def call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile=None):
-    genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
+    client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
     
     # 0. Load Cache
     cache_path = os.path.join(reference_dir, 'merchant_cache.json')
@@ -251,9 +294,7 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
             logger.warning(f"Error reading register: {e}")
             pass
 
-    model = genai.GenerativeModel('gemini-3.6-flash')
-    
-    generation_config = {
+    config = {
         "response_mime_type": "application/json",
         # "thinking_level": "LOW" # SDK throws Unknown field error
     }
@@ -288,8 +329,16 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
         
         for attempt in range(max_retries):
             try:
-                response = model.generate_content(prompt, generation_config=generation_config)
-                new_mappings = json.loads(response.text)
+                response = client.models.generate_content(
+                    model='gemini-3.6-flash',
+                    contents=prompt,
+                    config=config
+                )
+                resp_text = response.text.strip()
+                if resp_text.startswith("```"):
+                    resp_text = re.sub(r'^```(?:json)?\s*', '', resp_text)
+                    resp_text = re.sub(r'\s*```$', '', resp_text)
+                new_mappings = json.loads(resp_text)
                 
                 merchant_cache.update(new_mappings)
                 try:
@@ -352,17 +401,20 @@ def format_output(df, mapping):
     
     df = df.with_columns(
         pl.when(null_cat_mask).then(pl.lit("UNCATEGORIZED")).otherwise(pl.col("Category")).alias("Category"),
-        pl.when(null_cat_mask).then(pl.lit("LLM Failure")).otherwise(pl.col("LLM Categorization Flag")).alias("LLM Categorization Flag")
+        pl.when(null_cat_mask).then(pl.lit("LLM Failure")).otherwise(pl.col("LLM Categorization Flag")).alias("LLM Categorization Flag"),
+        pl.col("Suggested Filter").fill_null("No"),
+        pl.col("Filter Reason").fill_null("")
     )
     
     # Sort chronologically by Date, then alphabetically by Account
     df = df.sort(["Date", "Account"])
     
     # Add remaining columns and convert Date to YYYY-MM-DD string
+    note_col = pl.col("Note").fill_null("") if "Note" in df.columns else pl.lit("")
     df = df.with_columns(
         pl.lit("").alias("Year Month"),
         pl.col("Date").dt.strftime("%Y-%m-%d"),
-        pl.lit("").alias("Note"),
+        note_col.alias("Note"),
         pl.lit("").alias("Reporting Category"),
         pl.lit("").alias("Additional Row Notes")
     )
@@ -376,35 +428,45 @@ def format_output(df, mapping):
     return df.select(expected_columns)
 
 
-def validate_pipeline(raw_df: pl.DataFrame, final_df: pl.DataFrame):
-    raw_count = len(raw_df)
-    final_count = len(final_df)
-    
-    raw_balance = raw_df["Amount"].fill_null(0.0).sum()
-    final_balance = final_df["Amount"].fill_null(0.0).sum()
-    
+def validate_pipeline(raw_df: pl.DataFrame, post_expansion_df: pl.DataFrame, final_df: pl.DataFrame):
     is_valid = True
     messages = []
     
+    # Pre-expansion checks
+    raw_count = len(raw_df)
+    raw_balance = raw_df["Amount"].fill_null(0.0).sum()
+    messages.append(f"[INFO] Pre-expansion validation: {raw_count} raw rows extracted. Balance: ${raw_balance:.2f}")
+    
+    # Post-expansion checks
+    post_count = len(post_expansion_df)
+    final_count = len(final_df)
+    
+    post_balance = post_expansion_df["Amount"].fill_null(0.0).sum()
+    final_balance = final_df["Amount"].fill_null(0.0).sum()
+    
+    if abs(raw_balance - post_balance) > 0.05:
+        messages.append(f"[FLAG] Amazon expansion balance mismatch! Raw balance: ${raw_balance:.2f}, Post-expansion balance: ${post_balance:.2f}")
+        is_valid = False
+        
     uncategorized = final_df.filter(pl.col("Category") == "UNCATEGORIZED")
     if len(uncategorized) > 0:
         messages.append(f"[FLAG] {len(uncategorized)} transactions are missing LLM categorization (defaulted to UNCATEGORIZED).")
     
-    if raw_count != final_count:
-        messages.append(f"[FLAG] Row count mismatch! Expected {raw_count} rows, but got {final_count} rows.")
+    if post_count != final_count:
+        messages.append(f"[FLAG] Row count mismatch! Expected {post_count} rows (post-expansion), but got {final_count} rows.")
         is_valid = False
         
-    if abs(raw_balance - final_balance) > 0.01:
-        messages.append(f"[FLAG] Balance mismatch! Expected balance: {raw_balance:.2f}, Final balance: {final_balance:.2f}")
+    if abs(post_balance - final_balance) > 0.01:
+        messages.append(f"[FLAG] Balance mismatch! Expected post-expansion balance: {post_balance:.2f}, Final balance: {final_balance:.2f}")
         is_valid = False
         
-    raw_compare = raw_df.with_columns(pl.col("Date").dt.strftime("%Y-%m-%d"))
+    post_compare = post_expansion_df.with_columns(pl.col("Date").dt.strftime("%Y-%m-%d"))
     base_cols = ["Date", "Transaction Details", "Amount", "Account"]
     
     try:
-        missing_rows = raw_compare.join(final_df, on=base_cols, how="anti")
+        missing_rows = post_compare.join(final_df, on=base_cols, how="anti")
         if len(missing_rows) > 0:
-            messages.append(f"[FLAG] The following {len(missing_rows)} transactions from the raw data are missing in the final output:")
+            messages.append(f"[FLAG] The following {len(missing_rows)} transactions from the post-expansion data are missing in the final output:")
             messages.append(str(missing_rows))
             is_valid = False
     except Exception as e:
