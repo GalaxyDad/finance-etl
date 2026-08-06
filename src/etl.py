@@ -314,7 +314,7 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
         Return a JSON object where keys are the exact merchant names provided below and values are objects containing:
         - category (string): Must be one of the Allowed Categories.
         - flag (string): If the category was difficult to determine, provide a brief 3 to 5 word explanation. Otherwise, leave blank "".
-        - suggested_filter (string): "Yes" if the transaction appears to be an internal transfer, credit card payment, ATM withdrawal, or declined/pending transaction. ALSO set to "Yes" if the transaction closely matches an item in the Personal Items Profile below or contains any of the Personal Filtering Keywords below. Otherwise, "No".
+        - suggested_filter (string): "Yes" if the transaction appears to be an internal transfer, credit card payment, ATM withdrawal, or declined/pending transaction. ALSO set to "Yes" if the transaction closely matches an item in the Personal Items Profile below or semantically relates to any of the concepts or categories listed in the Personal Filtering Keywords below (e.g. if the keyword is "Art supplies", flag any transaction purchasing art supplies). Otherwise, "No".
         - filter_reason (string): If suggested_filter is "Yes", state why (e.g. "Credit Card Payment", "Likely Personal Item"). Otherwise, blank "".
         
         Personal Items Profile (Historically excluded personal purchases):
