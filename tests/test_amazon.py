@@ -7,10 +7,10 @@ def test_amazon_processor(mock_data_dir):
     ref_dir = mock_data_dir['reference_dir']
     
     # Write some mock data for AmazonProcessor
-    orders_data = """ASIN,Order ID,Ship Date,Total Amount,Product Name
-123,O-1,2023-10-01,10.00,Item A
-456,O-1,2023-10-01,15.50,Item B
-789,O-2,2023-10-15,50.00,Personal Item
+    orders_data = """ASIN,Order ID,Ship Date,Total Amount,Product Name,Original Quantity
+123,O-1,2023-10-01,10.00,Item A,1
+456,O-1,2023-10-01,15.50,Item B,3
+789,O-2,2023-10-15,50.00,Personal Item,1
 """
     with open(os.path.join(ref_dir, "Order History.csv"), 'w') as f:
         f.write(orders_data)
@@ -22,7 +22,7 @@ O-1,2023-10-05,10.00
         f.write(refunds_data)
         
     register_data = """Date,Amount,Transaction Details,Category
-2023-10-02,-25.50,Amazon.ca,Shopping
+2023-10-02,25.50,Amazon.ca,Shopping
 """
     with open(os.path.join(ref_dir, "Jenn Mike Finance Tracker - Mike Transaction Register.csv"), 'w') as f:
         f.write(register_data)
@@ -39,9 +39,10 @@ O-1,2023-10-05,10.00
     
     # Test transaction expansion
     bank_df = pl.DataFrame({
-        "Date": [date(2023, 10, 2), date(2023, 10, 16), date(2023, 10, 6), date(2023, 10, 20)],
+        "Date": [date(2023, 9, 30), date(2023, 10, 16), date(2023, 10, 6), date(2023, 10, 20)],
         "Transaction Details": ["AMAZON.CA", "AMAZON", "AMZN REFUND", "OTHER"],
-        "Amount": [-25.50, -50.00, 10.00, -100.00]
+        "Amount": [-25.50, -50.00, 10.00, -100.00],
+        "Account": ["Credit", "Credit", "Credit", "Debit"]
     })
     
     result = processor.process_transactions(bank_df)
@@ -51,7 +52,7 @@ O-1,2023-10-05,10.00
     # Check O-1 expansion
     item_a = result.filter(pl.col("Transaction Details") == "Item A")
     assert item_a["Amount"][0] == -10.00
-    item_b = result.filter(pl.col("Transaction Details") == "Item B")
+    item_b = result.filter(pl.col("Transaction Details") == "3x Item B")
     assert item_b["Amount"][0] == -15.50
     
     # Check O-2 expansion

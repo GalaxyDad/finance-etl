@@ -24,9 +24,9 @@ class AmazonProcessor:
         if os.path.exists(self.orders_path):
             try:
                 df = pl.read_csv(self.orders_path, null_values=["", "Not Available", "Not Applicable"], infer_schema_length=0)
-                df = df.rename({col: col.strip() for col in df.columns})
+                df = df.rename({col: col.strip().lstrip('\ufeff') for col in df.columns})
                 df = df.with_columns(
-                    pl.col("Ship Date").str.strptime(pl.Datetime, strict=False).dt.date(),
+                    pl.col("Ship Date").str.slice(0, 10).str.strptime(pl.Date, "%Y-%m-%d", strict=False),
                     pl.col("Total Amount").str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False)
                 ).drop_nulls(subset=["Ship Date", "Total Amount"])
                 self.orders_df = df
@@ -37,9 +37,9 @@ class AmazonProcessor:
         if os.path.exists(self.refunds_path):
             try:
                 df = pl.read_csv(self.refunds_path, null_values=["", "Not Available", "Not Applicable"], infer_schema_length=0)
-                df = df.rename({col: col.strip() for col in df.columns})
+                df = df.rename({col: col.strip().lstrip('\ufeff') for col in df.columns})
                 df = df.with_columns(
-                    pl.col("Refund Date").str.strptime(pl.Datetime, strict=False).dt.date(),
+                    pl.col("Refund Date").str.slice(0, 10).str.strptime(pl.Date, "%Y-%m-%d", strict=False),
                     pl.col("Refund Amount").str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False)
                 ).drop_nulls(subset=["Refund Date", "Refund Amount"])
                 self.refunds_df = df
@@ -50,7 +50,7 @@ class AmazonProcessor:
         if os.path.exists(self.register_path):
             try:
                 df = pl.read_csv(self.register_path, null_values=[""], infer_schema_length=0)
-                df = df.rename({col: col.strip() for col in df.columns})
+                df = df.rename({col: col.strip().lstrip('\ufeff') for col in df.columns})
                 
                 df = df.with_columns(
                     pl.coalesce([
@@ -67,9 +67,12 @@ class AmazonProcessor:
     def _build_profile(self):
         """Reconcile shipments against register to find personal items (delta)."""
         if self.register_df is None or len(self.register_df) == 0:
+            logger.info("Skipping personal items profile (no register data).")
             return
             
         register_records = self.register_df.select(["Date", "Amount"]).to_dicts()
+        
+        used_register = set()
         
         if self.orders_df is not None and len(self.orders_df) > 0:
             shipment_totals = self.orders_df.group_by(["Order ID", "Ship Date"]).agg(
@@ -82,26 +85,36 @@ class AmazonProcessor:
                 if ship_date is None:
                     continue
                     
-                total = -(row["Shipment Total"])
+                total = row["Shipment Total"]
                 products = row["Products"]
                 
                 matched = False
-                for reg in register_records:
+                for i, reg in enumerate(register_records):
+                    if i in used_register:
+                        continue
+                        
                     if reg["Date"] is None or reg["Amount"] is None:
                         continue
+                        
                     if abs(reg["Amount"] - total) < 0.01:
                         days_diff = (reg["Date"] - ship_date).days
-                        if 0 <= days_diff <= 7:
+                        if -3 <= days_diff <= 7:
                             matched = True
+                            used_register.add(i)
                             break
                             
                 if not matched:
                     for product in products:
                         if product:
+                            if len(product) > 60:
+                                product = product[:57] + "..."
                             self.personal_items_profile.add(product)
+                            
+            logger.info(f"Built personal items profile with {len(self.personal_items_profile)} items.")
 
     def get_personal_items_profile(self) -> list[str]:
-        return list(self.personal_items_profile)
+        # Cap the profile to 50 items to prevent LLM prompt bloat
+        return list(self.personal_items_profile)[:50]
 
     def process_transactions(self, bank_df: pl.DataFrame) -> pl.DataFrame:
         """
@@ -119,14 +132,27 @@ class AmazonProcessor:
             orders_grouped = self.orders_df.group_by(["Order ID", "Ship Date"]).agg(
                 pl.col("Total Amount").sum().alias("Shipment Total"),
                 pl.col("Product Name"),
-                pl.col("Total Amount")
-            )
+                pl.col("Total Amount"),
+                pl.col("Original Quantity")
+            ).sort("Ship Date")
             
         refunds_grouped = None
         if self.refunds_df is not None and len(self.refunds_df) > 0:
             if self.orders_df is not None:
-                order_products = self.orders_df.group_by("Order ID").agg(pl.col("Product Name").first())
-                refunds_joined = self.refunds_df.join(order_products, on="Order ID", how="left")
+                # First try to match the refund amount to a specific item in the order
+                refunds_joined = self.refunds_df.with_row_index("refund_idx").join(
+                    self.orders_df.select(["Order ID", "Product Name", "Total Amount"]),
+                    left_on=["Order ID", "Refund Amount"],
+                    right_on=["Order ID", "Total Amount"],
+                    how="left"
+                ).unique(subset=["refund_idx"], keep="first")
+                
+                # Fallback to the first item in the order if amount didn't match exactly
+                order_products_fallback = self.orders_df.group_by("Order ID").agg(pl.col("Product Name").first().alias("Fallback Product Name"))
+                refunds_joined = refunds_joined.join(order_products_fallback, on="Order ID", how="left")
+                refunds_joined = refunds_joined.with_columns(
+                    pl.coalesce(["Product Name", "Fallback Product Name"]).alias("Product Name")
+                )
             else:
                 refunds_joined = self.refunds_df.with_columns(pl.lit("Amazon Refund").alias("Product Name"))
                 
@@ -162,9 +188,18 @@ class AmazonProcessor:
                     
                     if abs(ship_total - amount) < 0.01:
                         days_diff = (date - ship_date).days
-                        if 0 <= days_diff <= 7:
-                            for prod_name, prod_amount in zip(ship_row["Product Name"], ship_row["Total Amount"]):
+                        if -3 <= days_diff <= 7:
+                            for prod_name, prod_amount, qty_str in zip(ship_row["Product Name"], ship_row["Total Amount"], ship_row["Original Quantity"]):
                                 new_row = dict(row)
+                                
+                                try:
+                                    qty = int(qty_str)
+                                except (ValueError, TypeError):
+                                    qty = 1
+                                    
+                                if qty > 1 and prod_name:
+                                    prod_name = f"{qty}x {prod_name}"
+                                
                                 new_row["Transaction Details"] = prod_name if prod_name else merchant
                                 new_row["Amount"] = -prod_amount
                                 new_rows.append(new_row)
@@ -186,7 +221,7 @@ class AmazonProcessor:
                     
                     if abs(ref_total - amount) < 0.01:
                         days_diff = (date - ref_date).days
-                        if 0 <= days_diff <= 7:
+                        if -3 <= days_diff <= 7:
                             for prod_name, prod_amount in zip(ref_row["Product Name"], ref_row["Refund Amount"]):
                                 new_row = dict(row)
                                 new_row["Transaction Details"] = f"Refund: {prod_name}" if prod_name else f"Refund: {merchant}"
@@ -201,6 +236,8 @@ class AmazonProcessor:
                 
         if not new_rows:
             return bank_df
+            
+        logger.info(f"Expanded {len(used_shipments)} Amazon shipments and {len(used_refunds)} refunds into {len(new_rows) - len(bank_df)} additional rows.")
             
         schema = bank_df.schema
         return pl.DataFrame(new_rows, schema=schema)

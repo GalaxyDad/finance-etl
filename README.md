@@ -36,7 +36,24 @@ GEMINI_API_KEY=your_actual_key_here
 
 ### 3. Provide Data
 - Drop your raw bank statement CSVs into `data/raw/`. Supported banks are: Rogers, Simplii, CIBC, and Wealthsimple (`ws_activities*.csv` and `ws_credit-card*.csv`).
-- Ensure your reference files (`Jenn Mike Finance Tracker - Categories.csv` and `Jenn Mike Finance Tracker - Mike Transaction Register.csv`) are located in `data/reference/`.
+- Ensure reference CSV files are placed in `data/reference/`:
+  - `Jenn Mike Finance Tracker - Categories.csv` (Allowed category taxonomy)
+  - `Jenn Mike Finance Tracker - Mike Transaction Register.csv` (Historical shared expense register)
+  - `Order History.csv` (Amazon purchases export)
+  - `Refund Details.csv` (Amazon returns export)
+
+## Amazon Data & Reference Files
+
+### Data Update Expectations & Workflow
+The pipeline processes reference files dynamically from `data/reference/`:
+* **Fresh Amazon Exports**: To expand new bank charges into itemized product descriptions, export fresh data from your Amazon account (*Accounts & Lists -> Request Your Information -> Orders*) and place/overwrite `Order History.csv` and `Refund Details.csv` in `data/reference/`.
+* **Fallback Behavior**: If you do not update the Amazon export files, the pipeline will not crash or fail. Any new Amazon bank charges will simply fail to match a shipment and will **safely remain generic** (e.g., `"AMZN Mktp CA"`), falling back to standard LLM categorization without line-item expansion.
+* **Updating Historical Register**: Periodically updating `Jenn Mike Finance Tracker - Mike Transaction Register.csv` allows the system to continuously learn. As new shared expenses are approved, the "Personal Items Profile" automatically updates to recognize personal vs. shared items more accurately.
+
+### Amazon Reconciliation Process
+1. **Personal Profile Construction**: Reconciles `Order History.csv` shipments against `Mike Transaction Register.csv` within a `[-3, +7]` day window (`bank_date - ship_date`). Any product in `Order History.csv` that was *never* entered into the shared register is tagged as a **Personal Item**.
+2. **Transaction Expansion**: For incoming generic Amazon bank debits/credits (`data/raw/`), matches exact amounts to shipments/refunds within the `[-3, +7]` day window. Matched bank rows are expanded into individual product rows (e.g., `-$15.50 3x Item B`).
+3. **LLM Soft-Filtering**: Enriched product descriptions are categorized by Gemini. If an item matches the Personal Items Profile, Gemini sets `Suggested Filter` to `"Yes"` and `Filter Reason` to `"Likely Personal Item"`.
 
 ### 4. Verification & Execution
 To verify the logic safely without making API calls, run the test suite:
@@ -64,5 +81,15 @@ If you need to force a fresh recategorization by skipping the local cache, use:
 PYTHONPATH=. python src/main.py --no-cache
 ```
 
+### 5. Post-Processing & Importing the Output File
+Once the pipeline runs, it outputs a timestamped CSV file in `data/processed/` (e.g., `processed_ledger_20260806_120000.csv`). Follow these steps to review and import your data:
+
+1. **Open the Output File**: Open the generated CSV in `data/processed/`.
+2. **Review Suggested Filters & Flags**:
+   * Filter by `Suggested Filter` = `"Yes"` to quickly identify internal transfers, credit card payments, or **personal Amazon items**.
+   * Review `LLM Categorization Flag` for any brief explanations where Gemini was uncertain about a categorization.
+3. **Import into Google Sheet**: Copy and paste the 12-column ledger rows directly into your shared **Jenn Mike Finance Tracker** Google Sheet register.
+4. **Update Reference Register (Optional)**: After reviewing and finalizing your transactions in the shared Google Sheet, export/copy the updated register back to `data/reference/Jenn Mike Finance Tracker - Mike Transaction Register.csv` to keep historical LLM context and the Personal Items Profile up to date.
+
 ## Testing
-This project strictly follows Test-Driven Development (TDD). Tests are located in `tests/test_etl.py` and mock the API calls and raw data ingestion.
+This project strictly follows Test-Driven Development (TDD). Tests are located in the `tests/` directory (e.g., `tests/test_etl.py`, `tests/test_amazon.py`) and mock the API calls and raw data ingestion.

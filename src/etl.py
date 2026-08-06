@@ -155,7 +155,7 @@ def process_bank_data(raw_dir, reference_dir):
                 logger.error(f"Error parsing file {f} with {parser.__class__.__name__}: {e}")
                 
     if not dfs:
-        return pl.DataFrame()
+        return pl.DataFrame(), []
         
     df = pl.concat(dfs)
     
