@@ -111,10 +111,10 @@ def main():
         logger.info("personal_keywords.txt not found. Creating a template.")
         try:
             with open(keywords_path, 'w') as f:
-                f.write("# Add personal keywords here, one per line.\n")
-                f.write("# The Gemini LLM will soft-filter any transactions containing these keywords.\n")
+                f.write("# Add personal keywords or concepts here, one per line.\n")
+                f.write("# The Gemini LLM will soft-filter any transactions semantically matching these concepts (e.g. 'Art supplies').\n")
                 f.write("# Example:\n")
-                f.write("# my_custom_keyword\n")
+                f.write("# Art supplies\n")
         except Exception as e:
             logger.warning(f"Failed to create personal_keywords.txt: {e}")
 
