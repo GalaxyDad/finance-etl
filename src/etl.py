@@ -241,7 +241,7 @@ def load_merchant_cache(reference_dir: str) -> dict:
     return {}
 
 
-def call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile=None):
+def call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile=None, personal_keywords=None):
     client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
     
     # 0. Load Cache
@@ -314,11 +314,14 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
         Return a JSON object where keys are the exact merchant names provided below and values are objects containing:
         - category (string): Must be one of the Allowed Categories.
         - flag (string): If the category was difficult to determine, provide a brief 3 to 5 word explanation. Otherwise, leave blank "".
-        - suggested_filter (string): "Yes" if the transaction appears to be an internal transfer, credit card payment, ATM withdrawal, or declined/pending transaction. ALSO set to "Yes" if the transaction closely matches an item in the Personal Items Profile below. Otherwise, "No".
+        - suggested_filter (string): "Yes" if the transaction appears to be an internal transfer, credit card payment, ATM withdrawal, or declined/pending transaction. ALSO set to "Yes" if the transaction closely matches an item in the Personal Items Profile below or contains any of the Personal Filtering Keywords below. Otherwise, "No".
         - filter_reason (string): If suggested_filter is "Yes", state why (e.g. "Credit Card Payment", "Likely Personal Item"). Otherwise, blank "".
         
         Personal Items Profile (Historically excluded personal purchases):
         {json.dumps(personal_items_profile) if personal_items_profile else "[]"}
+        
+        Personal Filtering Keywords:
+        {json.dumps(personal_keywords) if personal_keywords else "[]"}
         
         Merchants to categorize:
         {json.dumps(chunk)}

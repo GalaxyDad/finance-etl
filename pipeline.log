@@ -620,3 +620,40 @@
 2026-08-06 15:14:09,693 - root - INFO - ========================
 2026-08-06 15:14:09,694 - root - INFO - Success! Exported 554 rows to data/processed/consolidated_ledger_20260806_151409_abc7de41.csv
 2026-08-06 15:14:09,695 - root - INFO - Cleaned up 1 old output file(s) in data/processed.
+2026-08-06 17:00:06,995 - root - INFO - Processing bank data...
+2026-08-06 17:00:07,115 - src.amazon - INFO - Built personal items profile with 604 items.
+2026-08-06 17:00:07,203 - src.amazon - INFO - Expanded 87 Amazon shipments and 8 refunds into 3 additional rows.
+2026-08-06 17:00:07,207 - root - INFO - Cleared existing merchant cache (--no-cache passed).
+2026-08-06 17:00:07,207 - root - INFO - Found 286 unique merchants. Calling Gemini for categorization...
+2026-08-06 17:00:07,251 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-06 17:00:38,756 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-08-06 17:00:38,771 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-06 17:01:08,760 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-08-06 17:01:08,768 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-06 17:01:36,713 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-08-06 17:01:36,718 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-06 17:02:04,865 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-08-06 17:02:04,871 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-06 17:02:37,541 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-08-06 17:02:37,548 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-06 17:02:56,488 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-08-06 17:02:56,493 - src.etl - INFO - Cache: 0 hits, 269 new lookups, 286 total merchants
+2026-08-06 17:02:56,497 - root - INFO - Formatting output...
+2026-08-06 17:02:56,503 - root - INFO - Running validation checks...
+2026-08-06 17:02:56,507 - root - INFO - [INFO] Pre-expansion validation: 551 raw rows extracted. Balance: $-2698.31
+2026-08-06 17:02:56,507 - root - INFO - [SUCCESS] Pipeline validation passed! Row counts and balances match.
+2026-08-06 17:02:56,510 - root - INFO - === POST-RUN SUMMARY ===
+2026-08-06 17:02:56,510 - root - INFO - Date Range: 2025-12-18 to 2026-08-01
+2026-08-06 17:02:56,510 - root - INFO - Total Income: $112140.67
+2026-08-06 17:02:56,510 - root - INFO - Total Expenses: $-114838.98
+2026-08-06 17:02:56,510 - root - INFO - Cache Hit Rate: 269/269 merchants cached
+2026-08-06 17:02:56,510 - root - INFO - Flagged Merchants (Suggested Filter='Yes'): 136
+2026-08-06 17:02:56,510 - root - INFO - Row Count by Account:
+2026-08-06 17:02:56,511 - root - INFO -   wealthsimple_activities: 79 rows, Net Total: $11623.14
+2026-08-06 17:02:56,511 - root - INFO -   wealthsimple_credit: 12 rows, Net Total: $-1577.00
+2026-08-06 17:02:56,511 - root - INFO -   simplii: 30 rows, Net Total: $-13267.19
+2026-08-06 17:02:56,511 - root - INFO -   rogers_cc: 428 rows, Net Total: $506.14
+2026-08-06 17:02:56,511 - root - INFO -   cibc: 5 rows, Net Total: $16.60
+2026-08-06 17:02:56,511 - root - INFO - ========================
+2026-08-06 17:02:56,513 - root - INFO - Success! Exported 554 rows to data/processed/consolidated_ledger_20260806_170256_41f96f29.csv
+2026-08-06 17:02:56,514 - root - INFO - Cleaned up 1 old output file(s) in data/processed.

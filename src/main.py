@@ -99,9 +99,28 @@ def main():
             os.remove(cache_path)
             logger.info("Cleared existing merchant cache (--no-cache passed).")
 
+    personal_keywords = []
+    keywords_path = os.path.join(reference_dir, 'personal_keywords.txt')
+    if os.path.exists(keywords_path):
+        with open(keywords_path, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#'):
+                    personal_keywords.append(line)
+    else:
+        logger.info("personal_keywords.txt not found. Creating a template.")
+        try:
+            with open(keywords_path, 'w') as f:
+                f.write("# Add personal keywords here, one per line.\n")
+                f.write("# The Gemini LLM will soft-filter any transactions containing these keywords.\n")
+                f.write("# Example:\n")
+                f.write("# my_custom_keyword\n")
+        except Exception as e:
+            logger.warning(f"Failed to create personal_keywords.txt: {e}")
+
     logger.info(f"Found {len(unique_merchants)} unique merchants. Calling Gemini for categorization...")
     
-    mapping = call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile)
+    mapping = call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile, personal_keywords)
     
     logger.info("Formatting output...")
     output_df = format_output(df, mapping)

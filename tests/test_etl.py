@@ -262,4 +262,39 @@ def test_validate_pipeline_amazon_balance_mismatch():
     assert is_valid is False
     assert any("Amazon expansion balance mismatch" in msg for msg in messages)
 
-
+def test_call_gemini_categorization_personal_keywords(mock_data_dir, monkeypatch):
+    from unittest.mock import MagicMock
+    from src.etl import call_gemini_categorization
+    import os
+    
+    reference_dir = mock_data_dir['reference_dir']
+    
+    mock_client = MagicMock()
+    mock_response = MagicMock()
+    # Provide a dummy JSON response so the parser doesn't fail
+    mock_response.text = '{"TEST MERCHANT": {"category": "Transfer", "flag": "", "suggested_filter": "No", "filter_reason": ""}}'
+    mock_client.models.generate_content.return_value = mock_response
+    
+    # Mock genai.Client
+    mock_genai = MagicMock()
+    mock_genai.Client.return_value = mock_client
+    monkeypatch.setattr('src.etl.genai', mock_genai)
+    
+    unique_merchants = ['TEST MERCHANT']
+    personal_keywords = ['custom_word_1', 'custom_word_2']
+    
+    # Clear cache before running to force API call
+    cache_path = os.path.join(reference_dir, 'merchant_cache.json')
+    if os.path.exists(cache_path):
+        os.remove(cache_path)
+    
+    # Call function
+    call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile=[], personal_keywords=personal_keywords)
+    
+    # Extract the prompt used
+    call_args = mock_client.models.generate_content.call_args
+    prompt_used = call_args.kwargs['contents']
+    
+    assert "Personal Filtering Keywords:" in prompt_used
+    assert "custom_word_1" in prompt_used
+    assert "custom_word_2" in prompt_used

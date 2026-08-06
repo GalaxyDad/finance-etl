@@ -1,0 +1,4 @@
+# Add personal keywords here, one per line.
+# The Gemini LLM will soft-filter any transactions containing these keywords.
+# Example:
+# my_custom_keyword
