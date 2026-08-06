@@ -53,7 +53,7 @@ The pipeline processes reference files dynamically from `data/reference/`:
 
 ### Amazon Reconciliation Process
 1. **Personal Profile Construction**: Reconciles `Order History.csv` shipments against `Mike Transaction Register.csv` within a `[-3, +7]` day window (`bank_date - ship_date`). Any product in `Order History.csv` that was *never* entered into the shared register is tagged as a **Personal Item**. Items are sorted alphabetically and capped to 50 entries to ensure deterministic Gemini context injection across runs.
-2. **Transaction Expansion**: For incoming generic Amazon bank debits/credits (`data/raw/`), matches exact amounts to shipments/refunds within the `[-3, +7]` day window. Matched bank rows are expanded into individual product rows (e.g., `-$15.50 3x Item B`), and all Amazon transactions populate `"Amazon"` (or `"Amazon Refund"`) in the `Note` column to explicitly tag Amazon as the vendor.
+2. **Transaction Expansion**: For incoming generic Amazon bank debits/credits (`data/raw/`), matches exact amounts to shipments/refunds within the `[-3, +7]` day window. Matched bank rows are expanded into individual product rows (e.g., `-$15.50 3x Item B`), and all Amazon transactions populate `"Amazon"` (or `"Amazon Refund"`) in the `Note` column to explicitly tag Amazon as the vendor. Furthermore, if an expanded purchase is identified as having been later refunded, both the original purchase row and the refund row will be explicitly flagged for filtering.
 3. **LLM Soft-Filtering**: Enriched product descriptions are categorized by Gemini. If an item matches the Personal Items Profile, Gemini sets `Suggested Filter` to `"Yes"` and `Filter Reason` to `"Likely Personal Item"`.
 
 ### 4. Verification & Execution

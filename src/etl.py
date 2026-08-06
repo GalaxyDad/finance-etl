@@ -392,18 +392,34 @@ def format_output(df, mapping):
         mapping_df = pl.DataFrame(mapping_data)
     
     df = df.join(mapping_df, on="Transaction Details", how="left")
-    
+
     null_cat_mask = pl.col("Category").is_null()
     
     missing_count = len(df.filter(null_cat_mask))
     if missing_count > 0:
         logger.warning(f"Found {missing_count} transactions with no category mapping. Defaulting to UNCATEGORIZED.")
+
+    # If the df already had Suggested Filter and Filter Reason (e.g., from amazon.py)
+    # The left join with suffix "_llm" would rename the mapping columns to "Suggested Filter_llm", etc.
+    # Wait, the join above did not specify a suffix, so the default is "_right".
+    
+    if "Suggested Filter_right" in df.columns:
+        suggested_filter_col = pl.when(pl.col("Suggested Filter").is_not_null() & (pl.col("Suggested Filter") != "")).then(pl.col("Suggested Filter")).otherwise(pl.col("Suggested Filter_right")).fill_null("No")
+        filter_reason_col = pl.when(pl.col("Filter Reason").is_not_null() & (pl.col("Filter Reason") != "")).then(pl.col("Filter Reason")).otherwise(pl.col("Filter Reason_right")).fill_null("")
+        
+        df = df.with_columns(
+            suggested_filter_col.alias("Suggested Filter"),
+            filter_reason_col.alias("Filter Reason")
+        ).drop(["Suggested Filter_right", "Filter Reason_right"])
+    else:
+        df = df.with_columns(
+            pl.col("Suggested Filter").fill_null("No"),
+            pl.col("Filter Reason").fill_null("")
+        )
     
     df = df.with_columns(
         pl.when(null_cat_mask).then(pl.lit("UNCATEGORIZED")).otherwise(pl.col("Category")).alias("Category"),
-        pl.when(null_cat_mask).then(pl.lit("LLM Failure")).otherwise(pl.col("LLM Categorization Flag")).alias("LLM Categorization Flag"),
-        pl.col("Suggested Filter").fill_null("No"),
-        pl.col("Filter Reason").fill_null("")
+        pl.when(null_cat_mask).then(pl.lit("LLM Failure")).otherwise(pl.col("LLM Categorization Flag")).alias("LLM Categorization Flag")
     )
     
     # Sort chronologically by Date, then alphabetically by Account

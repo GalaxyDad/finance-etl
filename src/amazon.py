@@ -170,6 +170,14 @@ class AmazonProcessor:
                 pl.col("Refund Amount")
             )
 
+        refunded_items_keys = set()
+        if refunds_grouped is not None:
+            for ref_row in refunds_grouped.iter_rows(named=True):
+                order_id = ref_row["Order ID"]
+                for prod_name in ref_row["Product Name"]:
+                    if prod_name:
+                        refunded_items_keys.add((order_id, prod_name))
+
         new_rows = []
         used_shipments = set()
         used_refunds = set()
@@ -197,20 +205,28 @@ class AmazonProcessor:
                     if abs(ship_total - amount) < 0.01:
                         days_diff = (date - ship_date).days
                         if -3 <= days_diff <= 7:
-                            for prod_name, prod_amount, qty_str in zip(ship_row["Product Name"], ship_row["Total Amount"], ship_row["Original Quantity"]):
+                            for base_prod_name, prod_amount, qty_str in zip(ship_row["Product Name"], ship_row["Total Amount"], ship_row["Original Quantity"]):
                                 new_row = dict(row)
+                                
+                                is_refunded = (ship_row["Order ID"], base_prod_name) in refunded_items_keys
                                 
                                 try:
                                     qty = int(qty_str)
                                 except (ValueError, TypeError):
                                     qty = 1
                                     
-                                if qty > 1 and prod_name:
-                                    prod_name = f"{qty}x {prod_name}"
+                                prod_name_display = base_prod_name
+                                if qty > 1 and base_prod_name:
+                                    prod_name_display = f"{qty}x {base_prod_name}"
                                 
-                                new_row["Transaction Details"] = prod_name if prod_name else merchant
+                                new_row["Transaction Details"] = prod_name_display if prod_name_display else merchant
                                 new_row["Note"] = "Amazon"
                                 new_row["Amount"] = -prod_amount
+                                
+                                if is_refunded:
+                                    new_row["Suggested Filter"] = "Yes"
+                                    new_row["Filter Reason"] = "Refunded Item"
+                                    
                                 new_rows.append(new_row)
                             matched = True
                             used_shipments.add(ship_key)
@@ -236,6 +252,8 @@ class AmazonProcessor:
                                 new_row["Transaction Details"] = f"Refund: {prod_name}" if prod_name else f"Refund: {merchant}"
                                 new_row["Note"] = "Amazon Refund"
                                 new_row["Amount"] = prod_amount
+                                new_row["Suggested Filter"] = "Yes"
+                                new_row["Filter Reason"] = "Refunded Item"
                                 new_rows.append(new_row)
                             matched = True
                             used_refunds.add(ref_key)
@@ -257,4 +275,8 @@ class AmazonProcessor:
         schema = dict(bank_df.schema)
         if "Note" not in schema:
             schema["Note"] = pl.Utf8
+        if "Suggested Filter" not in schema:
+            schema["Suggested Filter"] = pl.Utf8
+        if "Filter Reason" not in schema:
+            schema["Filter Reason"] = pl.Utf8
         return pl.DataFrame(new_rows, schema=schema)

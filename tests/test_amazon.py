@@ -53,9 +53,13 @@ O-1,2023-10-05,10.00
     item_a = result.filter(pl.col("Transaction Details") == "Item A")
     assert item_a["Amount"][0] == -10.00
     assert item_a["Note"][0] == "Amazon"
+    assert item_a["Suggested Filter"][0] == "Yes"
+    assert item_a["Filter Reason"][0] == "Refunded Item"
+
     item_b = result.filter(pl.col("Transaction Details") == "3x Item B")
     assert item_b["Amount"][0] == -15.50
     assert item_b["Note"][0] == "Amazon"
+    assert item_b["Suggested Filter"][0] is None
     
     # Check O-2 expansion
     pers_item = result.filter(pl.col("Transaction Details") == "Personal Item")
@@ -66,6 +70,8 @@ O-1,2023-10-05,10.00
     refund = result.filter(pl.col("Transaction Details").str.contains("Refund"))
     assert refund["Amount"][0] == 10.00
     assert refund["Note"][0] == "Amazon Refund"
+    assert refund["Suggested Filter"][0] == "Yes"
+    assert refund["Filter Reason"][0] == "Refunded Item"
     
     # Check unrelated item
     other = result.filter(pl.col("Transaction Details") == "OTHER")

@@ -546,3 +546,77 @@
 2026-08-06 14:57:34,679 - root - INFO -   rogers_cc: 428 rows, Net Total: $506.14
 2026-08-06 14:57:34,679 - root - INFO - ========================
 2026-08-06 14:57:34,680 - root - INFO - Success! Exported 554 rows to data/processed/consolidated_ledger_20260806_145734_ca7aa0b8.csv
+2026-08-06 15:03:50,729 - root - INFO - Processing bank data...
+2026-08-06 15:03:50,831 - src.amazon - INFO - Built personal items profile with 604 items.
+2026-08-06 15:03:50,909 - src.amazon - INFO - Expanded 87 Amazon shipments and 8 refunds into 3 additional rows.
+2026-08-06 15:03:50,911 - root - INFO - Found 286 unique merchants. Calling Gemini for categorization...
+2026-08-06 15:03:50,944 - src.etl - INFO - All merchants found in cache. Skipping Gemini API call.
+2026-08-06 15:03:50,944 - src.etl - INFO - Cache: 286 hits, 0 new lookups, 286 total merchants
+2026-08-06 15:03:50,945 - root - INFO - Formatting output...
+2026-08-06 15:03:50,948 - root - INFO - Running validation checks...
+2026-08-06 15:03:50,950 - root - INFO - [INFO] Pre-expansion validation: 551 raw rows extracted. Balance: $-2698.31
+2026-08-06 15:03:50,950 - root - INFO - [SUCCESS] Pipeline validation passed! Row counts and balances match.
+2026-08-06 15:03:50,953 - root - INFO - === POST-RUN SUMMARY ===
+2026-08-06 15:03:50,953 - root - INFO - Date Range: 2025-12-18 to 2026-08-01
+2026-08-06 15:03:50,953 - root - INFO - Total Income: $112140.67
+2026-08-06 15:03:50,953 - root - INFO - Total Expenses: $-114838.98
+2026-08-06 15:03:50,953 - root - INFO - Cache Hit Rate: 269/269 merchants cached
+2026-08-06 15:03:50,953 - root - INFO - Flagged Merchants (Suggested Filter='Yes'): 80
+2026-08-06 15:03:50,953 - root - INFO - Row Count by Account:
+2026-08-06 15:03:50,954 - root - INFO -   simplii: 30 rows, Net Total: $-13267.19
+2026-08-06 15:03:50,954 - root - INFO -   cibc: 5 rows, Net Total: $16.60
+2026-08-06 15:03:50,954 - root - INFO -   rogers_cc: 428 rows, Net Total: $506.14
+2026-08-06 15:03:50,954 - root - INFO -   wealthsimple_credit: 12 rows, Net Total: $-1577.00
+2026-08-06 15:03:50,954 - root - INFO -   wealthsimple_activities: 79 rows, Net Total: $11623.14
+2026-08-06 15:03:50,954 - root - INFO - ========================
+2026-08-06 15:03:50,963 - root - INFO - Success! Exported 554 rows to data/processed/consolidated_ledger_20260806_150350_bd2d02b4.csv
+2026-08-06 15:10:37,281 - root - INFO - Processing bank data...
+2026-08-06 15:10:37,321 - src.amazon - INFO - Built personal items profile with 604 items.
+2026-08-06 15:10:37,425 - src.amazon - INFO - Expanded 87 Amazon shipments and 8 refunds into 3 additional rows.
+2026-08-06 15:10:37,426 - root - INFO - Found 286 unique merchants. Calling Gemini for categorization...
+2026-08-06 15:10:37,465 - src.etl - INFO - All merchants found in cache. Skipping Gemini API call.
+2026-08-06 15:10:37,466 - src.etl - INFO - Cache: 286 hits, 0 new lookups, 286 total merchants
+2026-08-06 15:10:37,467 - root - INFO - Formatting output...
+2026-08-06 15:10:37,470 - root - INFO - Running validation checks...
+2026-08-06 15:10:37,472 - root - INFO - [INFO] Pre-expansion validation: 551 raw rows extracted. Balance: $-2698.31
+2026-08-06 15:10:37,472 - root - INFO - [SUCCESS] Pipeline validation passed! Row counts and balances match.
+2026-08-06 15:10:37,476 - root - INFO - === POST-RUN SUMMARY ===
+2026-08-06 15:10:37,476 - root - INFO - Date Range: 2025-12-18 to 2026-08-01
+2026-08-06 15:10:37,476 - root - INFO - Total Income: $112140.67
+2026-08-06 15:10:37,476 - root - INFO - Total Expenses: $-114838.98
+2026-08-06 15:10:37,476 - root - INFO - Cache Hit Rate: 269/269 merchants cached
+2026-08-06 15:10:37,476 - root - INFO - Flagged Merchants (Suggested Filter='Yes'): 93
+2026-08-06 15:10:37,476 - root - INFO - Row Count by Account:
+2026-08-06 15:10:37,477 - root - INFO -   simplii: 30 rows, Net Total: $-13267.19
+2026-08-06 15:10:37,477 - root - INFO -   wealthsimple_activities: 79 rows, Net Total: $11623.14
+2026-08-06 15:10:37,477 - root - INFO -   rogers_cc: 428 rows, Net Total: $506.14
+2026-08-06 15:10:37,477 - root - INFO -   cibc: 5 rows, Net Total: $16.60
+2026-08-06 15:10:37,477 - root - INFO -   wealthsimple_credit: 12 rows, Net Total: $-1577.00
+2026-08-06 15:10:37,477 - root - INFO - ========================
+2026-08-06 15:10:37,490 - root - INFO - Success! Exported 554 rows to data/processed/consolidated_ledger_20260806_151037_7f41f1c6.csv
+2026-08-06 15:10:37,491 - root - INFO - Cleaned up 1 old output file(s) in data/processed.
+2026-08-06 15:14:09,544 - root - INFO - Processing bank data...
+2026-08-06 15:14:09,583 - src.amazon - INFO - Built personal items profile with 604 items.
+2026-08-06 15:14:09,657 - src.amazon - INFO - Expanded 87 Amazon shipments and 8 refunds into 3 additional rows.
+2026-08-06 15:14:09,658 - root - INFO - Found 286 unique merchants. Calling Gemini for categorization...
+2026-08-06 15:14:09,687 - src.etl - INFO - All merchants found in cache. Skipping Gemini API call.
+2026-08-06 15:14:09,687 - src.etl - INFO - Cache: 286 hits, 0 new lookups, 286 total merchants
+2026-08-06 15:14:09,688 - root - INFO - Formatting output...
+2026-08-06 15:14:09,690 - root - INFO - Running validation checks...
+2026-08-06 15:14:09,691 - root - INFO - [INFO] Pre-expansion validation: 551 raw rows extracted. Balance: $-2698.31
+2026-08-06 15:14:09,691 - root - INFO - [SUCCESS] Pipeline validation passed! Row counts and balances match.
+2026-08-06 15:14:09,693 - root - INFO - === POST-RUN SUMMARY ===
+2026-08-06 15:14:09,693 - root - INFO - Date Range: 2025-12-18 to 2026-08-01
+2026-08-06 15:14:09,693 - root - INFO - Total Income: $112140.67
+2026-08-06 15:14:09,693 - root - INFO - Total Expenses: $-114838.98
+2026-08-06 15:14:09,693 - root - INFO - Cache Hit Rate: 269/269 merchants cached
+2026-08-06 15:14:09,693 - root - INFO - Flagged Merchants (Suggested Filter='Yes'): 93
+2026-08-06 15:14:09,693 - root - INFO - Row Count by Account:
+2026-08-06 15:14:09,693 - root - INFO -   cibc: 5 rows, Net Total: $16.60
+2026-08-06 15:14:09,693 - root - INFO -   simplii: 30 rows, Net Total: $-13267.19
+2026-08-06 15:14:09,693 - root - INFO -   rogers_cc: 428 rows, Net Total: $506.14
+2026-08-06 15:14:09,693 - root - INFO -   wealthsimple_credit: 12 rows, Net Total: $-1577.00
+2026-08-06 15:14:09,693 - root - INFO -   wealthsimple_activities: 79 rows, Net Total: $11623.14
+2026-08-06 15:14:09,693 - root - INFO - ========================
+2026-08-06 15:14:09,694 - root - INFO - Success! Exported 554 rows to data/processed/consolidated_ledger_20260806_151409_abc7de41.csv
+2026-08-06 15:14:09,695 - root - INFO - Cleaned up 1 old output file(s) in data/processed.
