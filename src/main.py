@@ -44,7 +44,7 @@ def main():
     processed_dir = "data/processed"
     
     logger.info("Processing bank data...")
-    df = process_bank_data(raw_dir)
+    df, personal_items_profile = process_bank_data(raw_dir, reference_dir)
     
     if len(df) == 0:
         logger.info("No raw data found.")
@@ -95,7 +95,7 @@ def main():
 
     logger.info(f"Found {len(unique_merchants)} unique merchants. Calling Gemini for categorization...")
     
-    mapping = call_gemini_categorization(unique_merchants, reference_dir)
+    mapping = call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile)
     
     logger.info("Formatting output...")
     output_df = format_output(df, mapping)

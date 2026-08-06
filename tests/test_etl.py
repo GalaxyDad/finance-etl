@@ -21,7 +21,7 @@ def test_pipeline_end_to_end(mock_data_dir, monkeypatch):
         }
     
     # 1. Process Bank Data
-    df = process_bank_data(raw_dir)
+    df, personal_items_profile = process_bank_data(raw_dir, reference_dir)
     
     assert len(df) == 9
     assert df.schema['Date'] == pl.Date

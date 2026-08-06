@@ -1,0 +1,91 @@
+﻿"Creation Date",Currency,"Direct Debit Refund Amount","Disbursement Type","Order ID","Payment Status",Quantity,"Refund Amount","Refund Date","Reversal Amount State","Reversal Reason","Reversal Status",Website
+2023-01-31T15:30:03.650Z,CAD,0,Refund,702-9426635-8794666,Completed,1,22.59,2023-01-31T18:57:38.137Z,Final,"Customer return",Completed,Amazon.ca
+2024-04-26T14:47:40.329Z,CAD,0,Refund,702-5051805-5204222,Completed,1,112.91,2024-04-26T18:00:16.299Z,Final,"Customer return",Completed,Amazon.ca
+2024-07-14T01:29:47.662Z,CAD,0,Refund,702-1544700-0591415,Completed,1,6.19,2024-07-14T04:19:36.111Z,Final,"Export fee reduced",Completed,Amazon.ca
+2025-12-11T19:15:43.363Z,CAD,0,Refund,702-2015527-9007436,Completed,1,45.13,2025-12-11T22:20:42.890Z,Final,"Customer return",Completed,Amazon.ca
+2014-12-13T16:57:00Z,CAD,0,Refund,702-9625392-0595441,Completed,1,6.77,2014-12-13T20:00:12Z,Final,"Item not received",Completed,Amazon.ca
+2026-03-16T18:33:43.455Z,CAD,0,Refund,702-2471509-9764238,Completed,1,16.45,2026-03-16T21:29:55.790Z,Final,"Customer return",Completed,Amazon.ca
+2024-11-19T17:30:08.199Z,CAD,0,Refund,701-3747962-3653806,Completed,1,12.42,2024-11-19T20:55:58.535Z,Final,"Customer return",Completed,Amazon.ca
+2024-12-14T14:14:17.240Z,CAD,0,Refund,702-2202943-3397850,Completed,1,24,2024-12-14T17:12:15.240Z,Final,"Wrong item was sent",Completed,Amazon.ca
+2025-09-20T15:56:50.588Z,CAD,0,Refund,702-9183816-2091433,Completed,1,163.27,2025-09-20T18:59:56.376Z,Final,"Customer return",Completed,Amazon.ca
+2025-07-20T01:47:55.665Z,CAD,0,Refund,702-2487300-6973824,Completed,1,28.47,2025-07-20T03:49:07.870Z,Final,"Account adjustment",Completed,Amazon.ca
+2025-07-20T01:47:55.665Z,CAD,0,Refund,702-2487300-6973824,Completed,1,203.38,2025-07-14T00:50:26.698Z,Final,"Account adjustment",Completed,Amazon.ca
+2025-07-13T21:36:30.804Z,CAD,0,Refund,702-2487300-6973824,Completed,1,28.47,2025-07-20T03:49:07.870Z,Final,"Customer return",Completed,Amazon.ca
+2025-07-13T21:36:30.804Z,CAD,0,Refund,702-2487300-6973824,Completed,1,203.38,2025-07-14T00:50:26.698Z,Final,"Customer return",Completed,Amazon.ca
+2022-10-03T07:22:38.694Z,CAD,0,Refund,702-0403276-4878608,Completed,1,46.16,2022-10-03T08:44:43.254Z,Final,"Refused to accept delivery",Completed,Amazon.ca
+2026-02-24T17:01:02.971Z,CAD,0,Refund,702-5999115-3629057,Completed,2,51.82,2026-02-24T19:49:56.016Z,Final,"Customer return",Completed,Amazon.ca
+2016-11-04T01:11:31Z,CAD,0,Refund,701-4729886-7134619,Completed,1,19.53,2016-11-04T03:32:28Z,Final,"Account adjustment",Completed,Amazon.ca
+2024-12-31T23:57:27.361Z,CAD,0,Refund,702-2439483-6738648,Completed,1,169.49,2025-01-01T02:48:56.399Z,Final,"Customer return",Completed,Amazon.ca
+2019-01-11T08:06:14.825Z,CAD,0,Refund,702-1141718-9444233,Completed,1,20.94,2019-01-11T10:39:25.380Z,Final,"Customer return",Completed,Amazon.ca
+2023-12-27T16:54:58.183Z,CAD,0,Refund,702-8331299-7035435,Completed,1,20.31,2023-12-27T20:11:48.008Z,Final,"Customer return",Completed,Amazon.ca
+2011-08-28T22:36:33Z,USD,0,Refund,105-9803036-7086646,Completed,1,5.8,2011-08-29T01:30:33Z,Final,"Export fee reduced",Completed,Amazon.com
+2011-08-28T22:36:33Z,USD,0,Refund,105-9803036-7086646,Completed,1,15.25,2011-06-30T21:18:44Z,Final,"Export fee reduced",Completed,Amazon.com
+2011-06-30T18:26:30Z,USD,0,Refund,105-9803036-7086646,Completed,1,5.8,2011-08-29T01:30:33Z,Final,"Item arrived late",Completed,Amazon.com
+2011-06-30T18:26:30Z,USD,0,Refund,105-9803036-7086646,Completed,1,15.25,2011-06-30T21:18:44Z,Final,"Item arrived late",Completed,Amazon.com
+2024-08-24T17:32:03.663Z,CAD,0,Refund,701-2165084-8760204,Completed,1,101.69,2024-08-24T20:39:49.033Z,Final,"Customer return",Completed,Amazon.ca
+2025-04-21T15:14:39.651Z,CAD,0,Refund,702-8520552-6971432,Completed,1,82.73,2025-04-21T15:58:46.707Z,Final,"Customer return",Completed,Amazon.ca
+2024-02-01T23:37:58.248Z,CAD,0,Refund,702-7260560-7486657,Completed,1,31.49,2024-02-02T03:00:14.960Z,Final,"Customer return",Completed,Amazon.ca
+2024-04-30T15:43:30.789Z,CAD,0,Refund,702-8354079-7877840,Completed,1,53.1,2024-04-30T18:41:10.278Z,Final,"Customer return",Completed,Amazon.ca
+2019-02-19T18:24:41.304Z,CAD,0,Refund,702-8596318-5012237,Completed,1,31.95,2019-02-19T20:56:02.477Z,Final,"Customer return",Completed,Amazon.ca
+2023-08-24T17:11:26.437Z,CAD,0,Refund,701-1137898-0178646,Completed,1,13.89,2023-08-24T20:20:51.860Z,Final,"Customer return",Completed,Amazon.ca
+2025-05-29T18:37:00.835Z,CAD,0,Refund,702-4035454-2297817,Completed,1,44.95,2025-05-29T21:51:40.142Z,Final,"Account adjustment",Completed,Amazon.ca
+2024-09-07T16:50:18.204Z,CAD,0,Refund,702-5258885-7461029,Completed,1,112.99,2024-09-07T18:51:30.927Z,Final,"Customer return",Completed,Amazon.ca
+2026-03-02T03:54:01.189Z,CAD,0,Refund,702-6727945-6560249,Completed,1,26.97,2026-03-02T05:01:02.537Z,Final,"Shipping address is undeliverable",Completed,Amazon.ca
+2024-03-18T18:53:40.480Z,CAD,0,Refund,702-1596824-4397030,Completed,1,33.89,2024-03-18T21:51:25.903Z,Final,"Customer return",Completed,Amazon.ca
+2026-01-12T21:06:51.675Z,CAD,0,Refund,702-6365795-3285811,Completed,1,22.59,2026-01-13T00:09:24.249Z,Final,"Customer return",Completed,Amazon.ca
+2025-02-20T18:08:29.875Z,CAD,0,Refund,702-0218827-9920271,Completed,1,22.59,2025-02-20T21:20:50.192Z,Final,"Customer return",Completed,Amazon.ca
+2015-08-08T07:04:44Z,CAD,0,Refund,702-3030211-2486647,Completed,1,55.53,2015-08-08T09:53:42Z,Final,"Account adjustment",Completed,Amazon.ca
+2023-07-02T17:57:44.320Z,CAD,0,Refund,702-6551600-9749035,Completed,1,29.37,2023-07-02T20:56:10.224Z,Final,"Customer return",Completed,Amazon.ca
+2017-08-02T18:35:14Z,CAD,0,Refund,701-0722904-5318619,Completed,1,24.99,2017-08-02T21:41:35Z,Final,"Customer return",Completed,Amazon.ca
+2023-12-10T20:06:31.263Z,CAD,0,Refund,702-0363910-9461072,Completed,1,221.75,2023-12-10T21:00:58.662Z,Final,"Customer return",Completed,Amazon.ca
+2023-03-27T17:45:26.898Z,CAD,0,Refund,701-5407057-9714626,Completed,1,18.07,2023-03-27T21:18:08.214Z,Final,"Customer return",Completed,Amazon.ca
+2023-03-27T17:45:26.898Z,CAD,0,Refund,701-5407057-9714626,Completed,1,20.22,2023-03-23T16:36:24.511Z,Final,"Customer return",Completed,Amazon.ca
+2023-03-23T13:26:38.837Z,CAD,0,Refund,701-5407057-9714626,Completed,1,18.07,2023-03-27T21:18:08.214Z,Final,"Customer return",Completed,Amazon.ca
+2023-03-23T13:26:38.837Z,CAD,0,Refund,701-5407057-9714626,Completed,1,20.22,2023-03-23T16:36:24.511Z,Final,"Customer return",Completed,Amazon.ca
+2023-11-27T23:08:07.159Z,CAD,0,Refund,702-1981454-9174661,Completed,1,18.07,2023-11-28T02:33:08.985Z,Final,"Customer return",Completed,Amazon.ca
+2024-05-13T16:49:19.769Z,CAD,0,Refund,702-6149846-0806610,Completed,1,135.59,2024-05-13T17:37:52.862Z,Final,"Customer return",Completed,Amazon.ca
+2023-12-10T20:11:23.062Z,CAD,0,Refund,702-9199770-6182612,Completed,1,35.47,2023-12-10T23:10:43.585Z,Final,"Customer return",Completed,Amazon.ca
+2024-07-22T17:09:28.278Z,CAD,0,Refund,701-3304254-7521029,Completed,1,18.06,2024-07-22T20:11:48.986Z,Final,"Customer return",Completed,Amazon.ca
+2025-04-30T13:08:12.665Z,CAD,0,Refund,702-0322889-8152263,Completed,1,21.46,2025-04-30T18:20:58.573Z,Final,"Customer return",Completed,Amazon.ca
+2023-12-22T17:53:11.007Z,CAD,0,Refund,702-6416748-6591435,Completed,1,28.19,2023-12-22T22:09:34.865Z,Final,"Customer return",Completed,Amazon.ca
+2023-12-22T17:53:11.007Z,CAD,0,Refund,702-6416748-6591435,Completed,1,28.19,2023-12-22T21:01:55.698Z,Final,"Customer return",Completed,Amazon.ca
+2023-12-22T17:50:42.508Z,CAD,0,Refund,702-6416748-6591435,Completed,1,28.19,2023-12-22T22:09:34.865Z,Final,"Customer return",Completed,Amazon.ca
+2023-12-22T17:50:42.508Z,CAD,0,Refund,702-6416748-6591435,Completed,1,28.19,2023-12-22T21:01:55.698Z,Final,"Customer return",Completed,Amazon.ca
+2023-08-15T15:28:07.837Z,CAD,0,Refund,701-0351713-9305871,Completed,1,28.24,2023-08-15T18:21:00.252Z,Final,"Customer return",Completed,Amazon.ca
+2024-01-21T13:36:27.147Z,CAD,0,Refund,701-0941227-5298604,Completed,1,50.16,2024-01-21T13:42:38.698Z,Final,"Shipping address is undeliverable",Completed,Amazon.ca
+2025-08-18T17:18:27.023Z,CAD,0,Refund,702-6255537-2253017,Completed,1,14.23,2025-08-18T20:12:11.325Z,Final,"Customer return",Completed,Amazon.ca
+2019-12-30T16:46:07.303Z,CAD,0,Refund,701-3980139-9017832,Completed,1,87.02,2019-12-30T17:51:35.587Z,Final,"Customer return",Completed,Amazon.ca
+2025-03-21T17:38:49.558Z,CAD,0,Refund,702-1497470-7036227,Completed,1,15.81,2025-03-21T20:50:19.134Z,Final,"Customer return",Completed,Amazon.ca
+2024-08-22T18:49:06.205Z,CAD,0,Refund,701-0321449-7332273,Completed,1,27.11,2024-08-22T21:40:19.401Z,Final,"Customer return",Completed,Amazon.ca
+2023-11-15T18:21:01.444Z,CAD,0,Refund,702-6337194-9277068,Completed,1,45.19,2023-11-15T21:24:05.985Z,Final,"Customer return",Completed,Amazon.ca
+2024-05-13T16:45:06.857Z,CAD,0,Refund,702-0744495-1896268,Completed,1,28.24,2024-05-13T20:03:06.320Z,Final,"Customer return",Completed,Amazon.ca
+2025-02-17T02:22:31.839Z,CAD,0,Refund,702-3126474-0230661,Completed,1,19.59,2025-02-17T04:44:24.096Z,Final,"Shipping address is undeliverable",Completed,Amazon.ca
+2025-05-21T17:15:08.267Z,CAD,0,Refund,702-8698633-6706605,Completed,1,17.28,2025-05-21T20:11:16.308Z,Final,"Customer return",Completed,Amazon.ca
+2017-04-25T12:49:49Z,CAD,0,Refund,701-2312352-1911418,Completed,1,105.11,2017-04-25T15:29:03Z,Final,"Item shipped late",Completed,Amazon.ca
+2026-03-19T19:58:52.459Z,CAD,0,Refund,702-3879330-9761059,Completed,1,21.94,2026-03-19T23:10:11.231Z,Final,"Customer return",Completed,Amazon.ca
+2013-01-15T23:28:42Z,USD,0,Refund,106-3689892-6527461,Completed,1,4.99,2013-01-16T02:27:20Z,Final,"Export fee reduced",Completed,Amazon.com
+2013-01-15T23:28:42Z,USD,0,Refund,106-3689892-6527461,Completed,1,15.53,2013-01-16T02:26:59Z,Final,"Export fee reduced",Completed,Amazon.com
+2013-01-15T23:28:41Z,USD,0,Refund,106-3689892-6527461,Completed,1,4.99,2013-01-16T02:27:20Z,Final,"Export fee reduced",Completed,Amazon.com
+2013-01-15T23:28:41Z,USD,0,Refund,106-3689892-6527461,Completed,1,15.53,2013-01-16T02:26:59Z,Final,"Export fee reduced",Completed,Amazon.com
+2026-02-10T16:52:38.418Z,CAD,0,Refund,702-0024129-4247458,Completed,1,40.67,2026-02-10T19:49:32.912Z,Final,"Customer return",Completed,Amazon.ca
+2026-04-05T20:17:45.413Z,CAD,0,Refund,702-8021693-6473032,Completed,1,12.2,2026-04-05T23:21:41.667Z,Final,"Customer return",Completed,Amazon.ca
+2024-05-09T21:10:33.650Z,CAD,0,Refund,702-0828023-0118642,Completed,1,6.15,2024-05-09T23:48:52.926Z,Final,"Export fee reduced",Completed,Amazon.ca
+2018-04-17T15:32:39Z,CAD,0,Refund,702-6993986-9492242,Completed,1,49.72,2018-04-17T16:40:24Z,Final,"Customer return",Completed,Amazon.ca
+2018-04-17T15:32:39Z,CAD,0,Refund,702-6993986-9492242,Completed,1,78.29,2018-04-17T16:25:33Z,Final,"Customer return",Completed,Amazon.ca
+2018-04-17T15:32:36Z,CAD,0,Refund,702-6993986-9492242,Completed,1,49.72,2018-04-17T16:40:24Z,Final,"Customer return",Completed,Amazon.ca
+2018-04-17T15:32:36Z,CAD,0,Refund,702-6993986-9492242,Completed,1,78.29,2018-04-17T16:25:33Z,Final,"Customer return",Completed,Amazon.ca
+2024-11-19T17:34:25.472Z,CAD,0,Refund,701-5584473-4157850,Completed,1,90.39,2024-11-19T20:53:41.640Z,Final,"Customer return",Completed,Amazon.ca
+2024-06-02T15:49:49.157Z,CAD,0,Refund,702-7652835-6216202,Completed,1,38.41,2024-06-02T18:37:50.677Z,Final,"Customer return",Completed,Amazon.ca
+2022-08-02T16:47:32.874Z,CAD,0,Refund,702-4528183-4200213,Completed,1,82.13,2022-08-02T20:12:11.599Z,Final,"Order cancelled by merchant",Completed,Amazon.ca
+2024-06-05T00:02:59.827Z,CAD,0,Refund,702-5845229-2503403,Completed,1,677.89,2024-06-05T00:59:32.520Z,Final,"Refused to accept delivery",Completed,Amazon.ca
+2025-12-31T21:16:24.666Z,CAD,0,Refund,702-3626262-8047442,Completed,1,50.79,2026-01-01T00:00:06.974Z,Final,"Customer return",Completed,Amazon.ca
+2017-10-03T11:52:03Z,CAD,0,Refund,701-9655053-9543415,Completed,1,18.99,2017-10-03T15:00:23Z,Final,"Customer return",Completed,Amazon.ca
+2022-09-22T07:14:22.401Z,CAD,0,Refund,702-5561830-7504221,Completed,1,107.34,2022-09-22T08:44:16.299Z,Final,"Customer return",Completed,Amazon.ca
+2024-11-04T18:36:17.764Z,CAD,0,Refund,702-9682895-7353011,Completed,2,29.84,2024-11-04T21:49:38.523Z,Final,"Customer return",Completed,Amazon.ca
+2018-01-27T17:35:55Z,CAD,0,Refund,701-3645183-4575465,Completed,1,11.99,2018-01-27T20:42:09Z,Final,"Customer return",Completed,Amazon.ca
+2017-04-06T01:14:32Z,CAD,0,Refund,702-2924510-0989813,Completed,1,113.4,2017-05-29T12:27:30Z,Final,"Customer return",Completed,Amazon.ca
+2019-05-24T19:53:07.697Z,CAD,0,Refund,702-2430143-9461867,Completed,1,69.98,2019-05-24T23:29:55.513Z,Final,"Customer return",Completed,Amazon.ca
+2025-07-28T16:13:53.680Z,CAD,0,Refund,702-8353688-1944263,Completed,1,45.19,2025-07-28T19:19:12.013Z,Final,"Customer return",Completed,Amazon.ca
+2024-07-08T16:58:15.369Z,CAD,0,Refund,702-6413541-4961024,Completed,1,13.53,2024-07-08T17:06:29.082Z,Final,"Customer return",Completed,Amazon.ca
+2018-03-24T19:30:04Z,CAD,0,Refund,702-0030627-3115412,Completed,1,70.29,2018-03-24T20:23:25Z,Final,"Customer return",Completed,Amazon.ca
+2018-10-31T04:34:58.802Z,CAD,0,Refund,702-0381711-3789807,Completed,1,49.99,2018-10-31T08:05:00.351Z,Final,"Customer return",Completed,Amazon.ca
