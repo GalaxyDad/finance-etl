@@ -2,16 +2,16 @@
 
 1. **Test-Driven Development (TDD) & Unit Verification**: Always update and run the test suite (e.g. `PYTHONPATH=. pytest tests/`) after any code changes and ensure it runs properly and passes cleanly with the new code before finalizing changes. Ensure mock data correctly simulates the raw data inputs.
 2. **Data Processing Framework**: Always use `polars` for efficient data transformations.
-3. **Strict Output Schema**: Any changes to the final output must adhere to the 13-column consolidated ledger layout:
+3. **Strict Output Schema**: Any changes to the final output must adhere to the 13-column consolidated ledger layout. A firm rule is that new columns must not be mixed with the columns at the beginning, and the beginning columns' schema and order must be maintained exactly:
    - `Year Month` (Blank)
    - `Date` (YYYY-MM-DD)
    - `Transaction Details` (Cleaned merchant)
    - `Amount` (Float, Income is positive, Expense is negative)
    - `Category` (LLM determined based on Categories.csv)
-   - `Categorization Explanation` (Brief explanation 10 words or less from Gemini)
    - `Account` (Source account)
    - `Note` (Blank)
    - `Reporting Category` (Blank)
+   - `Categorization Explanation` (Brief explanation 10 words or less from Gemini)
    - `LLM Categorization Flag` (Brief 3-5 word explanation if difficult to determine)
    - `Suggested Filter` ("Yes" or "No")
    - `Filter Reason` (Context if "Yes")

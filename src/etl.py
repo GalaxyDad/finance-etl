@@ -516,7 +516,7 @@ def format_output(df, mapping):
     
     expected_columns = [
         'Year Month', 'Date', 'Transaction Details', 'Amount', 'Category', 
-        'Categorization Explanation', 'Account', 'Note', 'Reporting Category', 'LLM Categorization Flag', 
+        'Account', 'Note', 'Reporting Category', 'Categorization Explanation', 'LLM Categorization Flag', 
         'Suggested Filter', 'Filter Reason', 'Additional Row Notes'
     ]
     
