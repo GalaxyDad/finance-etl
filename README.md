@@ -13,7 +13,7 @@ This project is a local Python ETL (Extract, Transform, Load) pipeline designed 
    - Uses defensive CSV parsing with multi-format date coalescing (`%Y-%m-%d`, `%m/%d/%Y`, `%Y/%m/%d`) across bank statement parsers and Amazon exports (`Order History.csv`, `Refund Details.csv`) to guarantee format resilience and prevent silent transaction drops.
    - Normalizes merchant names (e.g. stripping Amazon order hashes) to cut down redundant LLM categorization calls by up to 70%.
    - Chunks Gemini API requests into batches of 50 with incremental cache saves to ensure fault tolerance.
-4. **Soft-Filtering**: Automatically establishes a "Personal Items Profile" by identifying past Amazon shipments that were excluded from the historical register. It sorts and caps this context deterministically before leveraging Gemini to recognize and flag similar personal purchases in new transactions, significantly reducing manual review.
+4. **Soft-Filtering**: Automatically identifies and flags personal or non-shared transactions across ALL bank accounts using Gemini. It combines a "Personal Items Profile" (derived from historical Amazon purchases excluded from the register) with custom semantic concepts and keywords from `personal_keywords.txt` (e.g. `"Art supplies"`, `"Steam"`) to set `Suggested Filter = "Yes"`.
 5. **Validates**: Automatically performs strict multi-stage validation checks comparing the raw extracted data against post-expansion data and final formatted output. It verifies that raw vs. post-expansion balances match (within $0.05 to account for itemized tax rounding) and that post-expansion vs. final formatted row counts and balances match to ensure no transactions are dropped or corrupted. Mismatches or dropped transactions are clearly flagged and displayed to the user.
 6. **Deduplicates & Filters**: Preserves legitimate same-day identical transactions (e.g., buying two identical coffees on the same day) using file-scoped occurrence indexing, while using unique `Reference Number` fields where available (e.g. Rogers CC) to safely eliminate duplicate records across overlapping file exports. Additionally, allows precise subset processing using date-range filters.
 7. **Loads**: Joins the LLM categorization back to the main DataFrame, sorts the data chronologically by Date (and alphabetically by Account), and formats it into a strict 12-column output with guaranteed fallback schema defaults for unmapped items (e.g., defaulting missing mapping to "UNCATEGORIZED"). The pipeline also automatically cleans up old processed files, keeping only the most recent runs.
@@ -44,7 +44,7 @@ GEMINI_API_KEY=your_actual_key_here
   - `Refund Details.csv` (Amazon returns export)
   - `personal_keywords.txt` (Optional, auto-generated if missing. List of keywords or semantic concepts, one per line, to soft-filter custom personal items)
 
-## Amazon Data & Reference Files
+## Amazon Data & Personal Filtering
 
 ### Data Update Expectations & Workflow
 The pipeline processes reference files dynamically from `data/reference/`:
@@ -55,7 +55,12 @@ The pipeline processes reference files dynamically from `data/reference/`:
 ### Amazon Reconciliation Process
 1. **Personal Profile Construction**: Reconciles `Order History.csv` shipments against `Mike Transaction Register.csv` within a `[-3, +7]` day window (`bank_date - ship_date`). Any product in `Order History.csv` that was *never* entered into the shared register is tagged as a **Personal Item**. Items are sorted alphabetically and capped to 50 entries to ensure deterministic Gemini context injection across runs.
 2. **Transaction Expansion**: For incoming generic Amazon bank debits/credits (`data/raw/`), matches exact amounts to shipments/refunds within the `[-3, +7]` day window. Matched bank rows are expanded into individual product rows (e.g., `-$15.50 3x Item B`), and all Amazon transactions populate `"Amazon"` (or `"Amazon Refund"`) in the `Note` column to explicitly tag Amazon as the vendor. Furthermore, if an expanded purchase is identified as having been later refunded, both the original purchase row and the refund row will be explicitly flagged for filtering.
-3. **LLM Soft-Filtering**: Enriched product descriptions are categorized by Gemini. If an item matches the Personal Items Profile or semantically relates to any concepts/keywords defined in `personal_keywords.txt` (e.g., adding `"Art supplies"` will automatically soft-filter transactions for art pens or precision erasers even without exact word matches), Gemini sets `Suggested Filter` to `"Yes"` and populates `Filter Reason` accordingly (e.g., `"Art supplies"` or `"Likely Personal Item"`). Whenever `personal_keywords.txt` is edited, the pipeline automatically detects the SHA256 change and invalidates `merchant_cache.json` so all transactions are re-evaluated against the new keywords.
+
+### Custom Keyword & LLM Soft-Filtering Process
+LLM soft-filtering operates globally across **all** bank transactions (Rogers, Simplii, CIBC, Wealthsimple, and expanded Amazon items) during Gemini categorization:
+1. **Global Prompt Context**: Gemini receives both the Amazon-derived **Personal Items Profile** and any user-defined semantic concepts or terms from `personal_keywords.txt`.
+2. **Semantic Matching**: Gemini evaluates every transaction description against these contexts. If an item matches a personal Amazon purchase or semantically relates to any concept listed in `personal_keywords.txt` (e.g., adding `"Art supplies"` will automatically soft-filter transactions for art pens, sketchbooks, or precision erasers across any merchant without requiring exact keyword string matching), Gemini sets `Suggested Filter` to `"Yes"` and populates `Filter Reason` (e.g., `"Art supplies"` or `"Likely Personal Item"`).
+3. **Automatic Cache Invalidation**: Whenever `personal_keywords.txt` is updated, the pipeline automatically detects the SHA256 change and invalidates `merchant_cache.json`, ensuring all transactions are re-evaluated against the updated keywords on the next run.
 
 ### 4. Verification & Execution
 To verify the logic safely without making API calls, run the test suite:
