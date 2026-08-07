@@ -352,6 +352,7 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
         
         Return a JSON object where keys are the exact merchant names provided below and values are objects containing:
         - category (string): Must be one of the Allowed Categories. Prioritize the User Semantic Concepts below to determine this category.
+        - categorization_explanation (string): A brief explanation (10 words or less) of why you chose this category.
         - flag (string): If the category was difficult to determine, provide a brief 3 to 5 word explanation. Otherwise, leave blank "".
         - suggested_filter (string): "Yes" if the transaction appears to be an internal transfer, credit card payment, ATM withdrawal, or declined/pending transaction. ALSO set to "Yes" if the transaction closely matches an item in the Personal Items Profile below or semantically relates to any of the concepts or categories listed in the Personal Filtering Keywords below (e.g. if the keyword is "Art supplies", flag any transaction purchasing art supplies). Otherwise, "No".
         - filter_reason (string): If suggested_filter is "Yes", state why (e.g. "Credit Card Payment", "Likely Personal Item"). Otherwise, blank "".
@@ -413,6 +414,7 @@ def format_output(df, mapping):
     mapping_data = {
         "Transaction Details": [],
         "Category": [],
+        "Categorization Explanation": [],
         "LLM Categorization Flag": [],
         "Suggested Filter": [],
         "Filter Reason": []
@@ -421,6 +423,7 @@ def format_output(df, mapping):
     for merchant, data in mapping.items():
         mapping_data["Transaction Details"].append(merchant)
         mapping_data["Category"].append(data.get("category", ""))
+        mapping_data["Categorization Explanation"].append(data.get("categorization_explanation", ""))
         mapping_data["LLM Categorization Flag"].append(data.get("flag", ""))
         mapping_data["Suggested Filter"].append(data.get("suggested_filter", "No"))
         mapping_data["Filter Reason"].append(data.get("filter_reason", ""))
@@ -429,6 +432,7 @@ def format_output(df, mapping):
         mapping_df = pl.DataFrame({
             "Transaction Details": pl.Series(dtype=pl.Utf8),
             "Category": pl.Series(dtype=pl.Utf8),
+            "Categorization Explanation": pl.Series(dtype=pl.Utf8),
             "LLM Categorization Flag": pl.Series(dtype=pl.Utf8),
             "Suggested Filter": pl.Series(dtype=pl.Utf8),
             "Filter Reason": pl.Series(dtype=pl.Utf8)
@@ -482,7 +486,7 @@ def format_output(df, mapping):
     
     expected_columns = [
         'Year Month', 'Date', 'Transaction Details', 'Amount', 'Category', 
-        'Account', 'Note', 'Reporting Category', 'LLM Categorization Flag', 
+        'Categorization Explanation', 'Account', 'Note', 'Reporting Category', 'LLM Categorization Flag', 
         'Suggested Filter', 'Filter Reason', 'Additional Row Notes'
     ]
     

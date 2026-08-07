@@ -1,3 +1,10 @@
 # Add personal keywords/concepts here, one per line.
 # The Gemini LLM will soft-filter any transactions semantically matching these concepts.
 Art supplies
+Audio Equipment
+Drone Equipment
+Kindle Books
+Non Childrens Books
+Mens Clothing
+Flower Stores
+Anything with the word 'gift' in it

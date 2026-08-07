@@ -9,15 +9,15 @@ def test_pipeline_end_to_end(mock_data_dir, monkeypatch):
     
     def mock_call_gemini(merchants, ref_dir):
         return {
-            'WALMART SUPERCENTER': {'category': 'Food & Dining: Groceries', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
-            'PAYMENT - THANK YOU': {'category': 'Transfer', 'flag': '', 'suggested_filter': 'Yes', 'filter_reason': 'Credit card payment'},
-            'MCDONALDS RESTAURANT': {'category': 'Food & Dining: Fast Food', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
-            'PAYROLL DEPOSIT': {'category': '_Income: Bonus', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
-            'PAYMENT THANK YOU': {'category': 'Transfer', 'flag': '', 'suggested_filter': 'Yes', 'filter_reason': 'Credit card payment'},
-            'COSTCO WHOLESALE': {'category': 'Food & Dining: Groceries', 'flag': 'Unsure about bulk store', 'suggested_filter': 'No', 'filter_reason': ''},
-            'Deposit': {'category': 'Transfer', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
-            'Mcdonalds 23192': {'category': 'Food & Dining: Fast Food', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
-            'Payment': {'category': 'Transfer', 'flag': '', 'suggested_filter': 'Yes', 'filter_reason': 'Internal'}
+            'WALMART SUPERCENTER': {'category': 'Food & Dining: Groceries', 'categorization_explanation': 'Grocery store', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
+            'PAYMENT - THANK YOU': {'category': 'Transfer', 'categorization_explanation': 'Card payment', 'flag': '', 'suggested_filter': 'Yes', 'filter_reason': 'Credit card payment'},
+            'MCDONALDS RESTAURANT': {'category': 'Food & Dining: Fast Food', 'categorization_explanation': 'Fast food chain', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
+            'PAYROLL DEPOSIT': {'category': '_Income: Bonus', 'categorization_explanation': 'Payroll income', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
+            'PAYMENT THANK YOU': {'category': 'Transfer', 'categorization_explanation': 'Card payment', 'flag': '', 'suggested_filter': 'Yes', 'filter_reason': 'Credit card payment'},
+            'COSTCO WHOLESALE': {'category': 'Food & Dining: Groceries', 'categorization_explanation': 'Wholesale club', 'flag': 'Unsure about bulk store', 'suggested_filter': 'No', 'filter_reason': ''},
+            'Deposit': {'category': 'Transfer', 'categorization_explanation': 'Bank deposit', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
+            'Mcdonalds 23192': {'category': 'Food & Dining: Fast Food', 'categorization_explanation': 'Fast food chain', 'flag': '', 'suggested_filter': 'No', 'filter_reason': ''},
+            'Payment': {'category': 'Transfer', 'categorization_explanation': 'Internal payment', 'flag': '', 'suggested_filter': 'Yes', 'filter_reason': 'Internal'}
         }
     
     from src.amazon import AmazonProcessor
@@ -63,6 +63,7 @@ def test_pipeline_end_to_end(mock_data_dir, monkeypatch):
     # Check Flag and Filter
     walmart_out = output_df.filter(pl.col('Transaction Details') == 'WALMART SUPERCENTER')
     assert walmart_out['Category'][0] == 'Food & Dining: Groceries'
+    assert walmart_out['Categorization Explanation'][0] == 'Grocery store'
     assert walmart_out['Suggested Filter'][0] == 'No'
     
     payment_out = output_df.filter(pl.col('Transaction Details') == 'PAYMENT THANK YOU')
@@ -272,7 +273,7 @@ def test_call_gemini_categorization_personal_keywords(mock_data_dir, monkeypatch
     mock_client = MagicMock()
     mock_response = MagicMock()
     # Provide a dummy JSON response so the parser doesn't fail
-    mock_response.text = '{"TEST MERCHANT": {"category": "Transfer", "flag": "", "suggested_filter": "No", "filter_reason": ""}}'
+    mock_response.text = '{"TEST MERCHANT": {"category": "Transfer", "categorization_explanation": "Test explanation", "flag": "", "suggested_filter": "No", "filter_reason": ""}}'
     mock_client.models.generate_content.return_value = mock_response
     
     # Mock genai.Client
@@ -308,7 +309,7 @@ def test_call_gemini_categorization_category_hints(mock_data_dir, monkeypatch):
     
     mock_client = MagicMock()
     mock_response = MagicMock()
-    mock_response.text = '{"TEST MERCHANT": {"category": "Transfer", "flag": "", "suggested_filter": "No", "filter_reason": ""}}'
+    mock_response.text = '{"TEST MERCHANT": {"category": "Transfer", "categorization_explanation": "Test explanation", "flag": "", "suggested_filter": "No", "filter_reason": ""}}'
     mock_client.models.generate_content.return_value = mock_response
     
     mock_genai = MagicMock()

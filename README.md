@@ -16,7 +16,7 @@ This project is a local Python ETL (Extract, Transform, Load) pipeline designed 
 4. **Soft-Filtering**: Automatically identifies and flags personal or non-shared transactions across ALL bank accounts using Gemini. It combines a "Personal Items Profile" (derived from historical Amazon purchases excluded from the register) with custom semantic concepts and keywords from `personal_soft_filter_keywords.txt` (e.g. `"Art supplies"`, `"Steam"`) to set `Suggested Filter = "Yes"`.
 5. **Validates**: Automatically performs strict multi-stage validation checks comparing the raw extracted data against post-expansion data and final formatted output. It verifies that raw vs. post-expansion balances match (within $0.05 to account for itemized tax rounding) and that post-expansion vs. final formatted row counts and balances match to ensure no transactions are dropped or corrupted. Mismatches or dropped transactions are clearly flagged and displayed to the user.
 6. **Deduplicates & Filters**: Preserves legitimate same-day identical transactions (e.g., buying two identical coffees on the same day) using file-scoped occurrence indexing, while using unique `Reference Number` fields where available (e.g. Rogers CC) to safely eliminate duplicate records across overlapping file exports. Additionally, allows precise subset processing using date-range filters.
-7. **Loads**: Joins the LLM categorization back to the main DataFrame, sorts the data chronologically by Date (and alphabetically by Account), and formats it into a strict 12-column output with guaranteed fallback schema defaults for unmapped items (e.g., defaulting missing mapping to "UNCATEGORIZED"). The pipeline also automatically cleans up old processed files, keeping only the most recent runs.
+7. **Loads**: Joins the LLM categorization back to the main DataFrame, sorts the data chronologically by Date (and alphabetically by Account), and formats it into a strict 13-column output with guaranteed fallback schema defaults for unmapped items (e.g., defaulting missing mapping to "UNCATEGORIZED"). The pipeline also automatically cleans up old processed files, keeping only the most recent runs.
 8. **Logs**: Standard logs and error messages are written both to the console and to `pipeline.log` for easy troubleshooting. At the end of every run, a helpful post-run summary report is output to provide an at-a-glance view of the processed data (including row counts and net financial totals by account).
 
 ## Project Structure
@@ -135,7 +135,7 @@ Once the pipeline runs, it outputs a timestamped CSV file in `data/processed/` (
 2. **Review Suggested Filters & Flags**:
    * Filter by `Suggested Filter` = `"Yes"` to quickly identify internal transfers, credit card payments, or **personal Amazon items**.
    * Review `LLM Categorization Flag` for any brief explanations where Gemini was uncertain about a categorization.
-3. **Import into Google Sheet**: Copy and paste the 12-column ledger rows directly into your shared **Jenn Mike Finance Tracker** Google Sheet register.
+3. **Import into Google Sheet**: Copy and paste the 13-column ledger rows directly into your shared **Jenn Mike Finance Tracker** Google Sheet register.
 4. **Update Reference Register (Optional)**: After reviewing and finalizing your transactions in the shared Google Sheet, export/copy the updated register back to `data/reference/Jenn Mike Finance Tracker - Mike Transaction Register.csv` to keep historical LLM context and the Personal Items Profile up to date.
 
 ## Testing
