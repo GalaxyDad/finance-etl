@@ -706,3 +706,33 @@
 2026-08-06 17:14:36,714 - root - INFO - ========================
 2026-08-06 17:14:36,716 - root - INFO - Success! Exported 554 rows to data/processed/consolidated_ledger_20260806_171436_316343b6.csv
 2026-08-06 17:14:36,718 - root - INFO - Cleaned up 1 old output file(s) in data/processed.
+2026-08-07 09:31:42,928 - root - INFO - Processing bank data...
+2026-08-07 09:31:42,978 - src.amazon - INFO - Built personal items profile with 604 items.
+2026-08-07 09:31:43,059 - src.amazon - INFO - Expanded 87 Amazon shipments and 8 refunds into 3 additional rows.
+2026-08-07 09:31:43,061 - root - INFO - [DRY-RUN] Found 286 unique merchants. Skipping Gemini API call and export.
+2026-08-07 09:31:43,061 - root - INFO - [DRY-RUN] Total rows extracted: 554
+2026-08-07 09:31:43,061 - root - INFO - [DRY-RUN]   wealthsimple_activities: 79 rows
+2026-08-07 09:31:43,061 - root - INFO - [DRY-RUN]   rogers_cc: 428 rows
+2026-08-07 09:31:43,061 - root - INFO - [DRY-RUN]   cibc: 5 rows
+2026-08-07 09:31:43,061 - root - INFO - [DRY-RUN]   simplii: 30 rows
+2026-08-07 09:31:43,061 - root - INFO - [DRY-RUN]   wealthsimple_credit: 12 rows
+2026-08-07 09:31:43,062 - root - INFO - [DRY-RUN] Merchant Cache Breakdown:
+2026-08-07 09:31:43,062 - root - INFO - [DRY-RUN]   Raw Unique Merchants: 286
+2026-08-07 09:31:43,062 - root - INFO - [DRY-RUN]   Normalized Unique Merchants: 269
+2026-08-07 09:31:43,062 - root - INFO - [DRY-RUN]   Merchants in Cache: 269
+2026-08-07 09:31:43,062 - root - INFO - [DRY-RUN]   API Calls Needed: 0
+2026-08-07 09:31:58,318 - root - INFO - Processing bank data...
+2026-08-07 09:31:58,367 - src.amazon - INFO - Built personal items profile with 604 items.
+2026-08-07 09:31:58,449 - src.amazon - INFO - Expanded 87 Amazon shipments and 8 refunds into 3 additional rows.
+2026-08-07 09:31:58,450 - root - INFO - [DRY-RUN] Found 286 unique merchants. Skipping Gemini API call and export.
+2026-08-07 09:31:58,450 - root - INFO - [DRY-RUN] Total rows extracted: 554
+2026-08-07 09:31:58,450 - root - INFO - [DRY-RUN]   simplii: 30 rows
+2026-08-07 09:31:58,450 - root - INFO - [DRY-RUN]   wealthsimple_credit: 12 rows
+2026-08-07 09:31:58,450 - root - INFO - [DRY-RUN]   rogers_cc: 428 rows
+2026-08-07 09:31:58,450 - root - INFO - [DRY-RUN]   wealthsimple_activities: 79 rows
+2026-08-07 09:31:58,450 - root - INFO - [DRY-RUN]   cibc: 5 rows
+2026-08-07 09:31:58,452 - root - INFO - [DRY-RUN] Merchant Cache Breakdown:
+2026-08-07 09:31:58,452 - root - INFO - [DRY-RUN]   Raw Unique Merchants: 286
+2026-08-07 09:31:58,452 - root - INFO - [DRY-RUN]   Normalized Unique Merchants: 269
+2026-08-07 09:31:58,452 - root - INFO - [DRY-RUN]   Merchants in Cache: 269
+2026-08-07 09:31:58,452 - root - INFO - [DRY-RUN]   API Calls Needed: 0

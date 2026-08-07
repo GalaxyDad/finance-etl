@@ -1,6 +1,6 @@
 # Finance ETL Project Rules
 
-1. **Test-Driven Development (TDD)**: Always update and run tests in `tests/test_etl.py` before modifying pipeline logic. Ensure mock data correctly simulates the raw data inputs.
+1. **Test-Driven Development (TDD) & Unit Verification**: Always update and run the test suite (e.g. `PYTHONPATH=. pytest tests/`) after any code changes and ensure it runs properly and passes cleanly with the new code before finalizing changes. Ensure mock data correctly simulates the raw data inputs.
 2. **Data Processing Framework**: Always use `polars` for efficient data transformations.
 3. **Strict Output Schema**: Any changes to the final output must adhere to the 12-column consolidated ledger layout:
    - `Year Month` (Blank)
@@ -30,3 +30,5 @@
 12. **Entity Normalization for LLM Caching**: Before checking the cache or sending data to the LLM for categorization, proactively normalize the input (e.g., strip unique Amazon order hashes, store IDs, and extra whitespace). This drastically increases cache hits and cuts down on redundant API calls. Maintain a mapping of the original string to the normalized string so the final dataset retains the original transaction names.
 13. **Python Execution Pathing**: When executing the pipeline (`python src/main.py`) or running the test suite (`pytest tests/`), always prepend `PYTHONPATH=.` to the command from the root directory to ensure the `src` module imports resolve correctly.
 14. **Transaction Reconciliation**: When matching third-party vendor exports (e.g., Amazon orders) to raw bank statement charges, always account for credit card posting delays by implementing a trailing date window (e.g., bank date can be up to 7 days after the vendor ship/refund date) rather than requiring exact date matches.
+15. **End-to-End (E2E) Real Data Testing**: As further testing to ensure system robustness, after unit tests pass, if actual real data is available (e.g., raw bank CSVs in `data/raw/` and reference CSVs in `data/reference/`), run an end-to-end execution of the full pipeline (e.g., `PYTHONPATH=. python src/main.py` or `PYTHONPATH=. python src/main.py --dry-run`). Ensure that the new code works properly with real data and verify that generated output files in `data/processed/` are reasonable, accurate, and structurally intact.
+

@@ -55,7 +55,7 @@ The pipeline processes reference files dynamically from `data/reference/`:
 ### Amazon Reconciliation Process
 1. **Personal Profile Construction**: Reconciles `Order History.csv` shipments against `Mike Transaction Register.csv` within a `[-3, +7]` day window (`bank_date - ship_date`). Any product in `Order History.csv` that was *never* entered into the shared register is tagged as a **Personal Item**. Items are sorted alphabetically and capped to 50 entries to ensure deterministic Gemini context injection across runs.
 2. **Transaction Expansion**: For incoming generic Amazon bank debits/credits (`data/raw/`), matches exact amounts to shipments/refunds within the `[-3, +7]` day window. Matched bank rows are expanded into individual product rows (e.g., `-$15.50 3x Item B`), and all Amazon transactions populate `"Amazon"` (or `"Amazon Refund"`) in the `Note` column to explicitly tag Amazon as the vendor. Furthermore, if an expanded purchase is identified as having been later refunded, both the original purchase row and the refund row will be explicitly flagged for filtering.
-3. **LLM Soft-Filtering**: Enriched product descriptions are categorized by Gemini. If an item matches the Personal Items Profile or semantically relates to any concepts/keywords defined in `personal_keywords.txt` (e.g., adding `"Art supplies"` will automatically soft-filter transactions for art pens or precision erasers even without exact word matches), Gemini sets `Suggested Filter` to `"Yes"` and populates `Filter Reason` accordingly (e.g., `"Art supplies"` or `"Likely Personal Item"`).
+3. **LLM Soft-Filtering**: Enriched product descriptions are categorized by Gemini. If an item matches the Personal Items Profile or semantically relates to any concepts/keywords defined in `personal_keywords.txt` (e.g., adding `"Art supplies"` will automatically soft-filter transactions for art pens or precision erasers even without exact word matches), Gemini sets `Suggested Filter` to `"Yes"` and populates `Filter Reason` accordingly (e.g., `"Art supplies"` or `"Likely Personal Item"`). Whenever `personal_keywords.txt` is edited, the pipeline automatically detects the SHA256 change and invalidates `merchant_cache.json` so all transactions are re-evaluated against the new keywords.
 
 ### 4. Verification & Execution
 To verify the logic safely without making API calls, run the test suite:
@@ -94,4 +94,8 @@ Once the pipeline runs, it outputs a timestamped CSV file in `data/processed/` (
 4. **Update Reference Register (Optional)**: After reviewing and finalizing your transactions in the shared Google Sheet, export/copy the updated register back to `data/reference/Jenn Mike Finance Tracker - Mike Transaction Register.csv` to keep historical LLM context and the Personal Items Profile up to date.
 
 ## Testing
-This project strictly follows Test-Driven Development (TDD). Tests are located in the `tests/` directory (e.g., `tests/test_etl.py`, `tests/test_amazon.py`) and mock the API calls and raw data ingestion.
+This project strictly follows Test-Driven Development (TDD) and multi-tier verification:
+
+1. **Unit Testing Suite**: Tests are located in the `tests/` directory (e.g., `tests/test_etl.py`, `tests/test_amazon.py`). Run `PYTHONPATH=. pytest tests/` after any changes to ensure all unit tests pass cleanly.
+2. **End-to-End (E2E) Real Data Testing**: To ensure robustness in production conditions, after unit tests pass, run an E2E pipeline run with real data (`PYTHONPATH=. python src/main.py` or `--dry-run` if data is present in `data/raw/`). Inspect output ledger files in `data/processed/` to ensure schema structure, row counts, and categorizations are reasonable and correct.
+

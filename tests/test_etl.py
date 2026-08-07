@@ -1,6 +1,6 @@
 import os
 import polars as pl
-from src.etl import process_bank_data, call_gemini_categorization, format_output, validate_pipeline
+from src.etl import process_bank_data, call_gemini_categorization, format_output, validate_pipeline, check_and_update_keywords_hash
 
 def test_pipeline_end_to_end(mock_data_dir, monkeypatch):
     raw_dir = mock_data_dir['raw_dir']
@@ -298,3 +298,26 @@ def test_call_gemini_categorization_personal_keywords(mock_data_dir, monkeypatch
     assert "Personal Filtering Keywords:" in prompt_used
     assert "custom_word_1" in prompt_used
     assert "custom_word_2" in prompt_used
+
+def test_keywords_cache_invalidation(tmp_path):
+    ref_dir = str(tmp_path)
+    cache_file = tmp_path / "merchant_cache.json"
+    cache_file.write_text('{"MERCHANT": {"category": "Groceries"}}')
+    
+    # Run 1: First set of keywords
+    keywords_v1 = ["Art supplies", "Gaming"]
+    invalidated = check_and_update_keywords_hash(ref_dir, keywords_v1)
+    assert invalidated is False
+    assert cache_file.exists()
+    
+    # Run 2: Same keywords -> cache should NOT be invalidated
+    invalidated = check_and_update_keywords_hash(ref_dir, keywords_v1)
+    assert invalidated is False
+    assert cache_file.exists()
+    
+    # Run 3: Changed keywords -> cache should be invalidated (file removed)
+    keywords_v2 = ["Art supplies", "Gaming", "Video games"]
+    invalidated = check_and_update_keywords_hash(ref_dir, keywords_v2)
+    assert invalidated is True
+    assert not cache_file.exists()
+

@@ -7,12 +7,46 @@ import random
 import logging
 import re
 import time
+import hashlib
 from dotenv import load_dotenv
 from src.amazon import AmazonProcessor
 
 load_dotenv()
 
 logger = logging.getLogger(__name__)
+
+def check_and_update_keywords_hash(reference_dir: str, personal_keywords: list[str] = None) -> bool:
+    """
+    Checks if personal keywords have changed since the last run by comparing SHA256 hashes.
+    If changed, invalidates (deletes) the merchant_cache.json file to force recategorization.
+    Returns True if cache was invalidated due to keywords change, False otherwise.
+    """
+    keywords_json = json.dumps(sorted(personal_keywords or []))
+    current_hash = hashlib.sha256(keywords_json.encode('utf-8')).hexdigest()
+    
+    hash_path = os.path.join(reference_dir, '.keywords_hash')
+    cache_path = os.path.join(reference_dir, 'merchant_cache.json')
+    invalidated = False
+    
+    if os.path.exists(hash_path):
+        try:
+            with open(hash_path, 'r') as f:
+                prev_hash = f.read().strip()
+            if prev_hash != current_hash:
+                if os.path.exists(cache_path):
+                    os.remove(cache_path)
+                    logger.info("personal_keywords.txt changed since last run. Invalidated merchant cache.")
+                invalidated = True
+        except Exception as e:
+            logger.warning(f"Error checking keywords hash: {e}")
+    
+    try:
+        with open(hash_path, 'w') as f:
+            f.write(current_hash)
+    except Exception as e:
+        logger.warning(f"Failed to update keywords hash file: {e}")
+        
+    return invalidated
 
 class BankParser:
     file_pattern: str
@@ -244,7 +278,8 @@ def load_merchant_cache(reference_dir: str) -> dict:
 def call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile=None, personal_keywords=None):
     client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
     
-    # 0. Load Cache
+    # 0. Load Cache (check keywords hash for cache invalidation)
+    check_and_update_keywords_hash(reference_dir, personal_keywords)
     cache_path = os.path.join(reference_dir, 'merchant_cache.json')
     merchant_cache = load_merchant_cache(reference_dir)
             

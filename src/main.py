@@ -118,6 +118,7 @@ def main():
         except Exception as e:
             logger.warning(f"Failed to create personal_keywords.txt: {e}")
 
+    logger.info(f"Loaded {len(personal_keywords)} personal filtering keyword(s).")
     logger.info(f"Found {len(unique_merchants)} unique merchants. Calling Gemini for categorization...")
     
     mapping = call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile, personal_keywords)
