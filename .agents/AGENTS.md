@@ -6,7 +6,7 @@
    - `Year Month` (Blank)
    - `Date` (YYYY-MM-DD)
    - `Transaction Details` (Cleaned merchant)
-   - `Amount` (Float, Income is positive, Expense is negative)
+   - `Amount` (Float, Income is negative, Expense is positive)
    - `Category` (LLM determined based on Categories.csv)
    - `Account` (Source account)
    - `Note` (Blank)

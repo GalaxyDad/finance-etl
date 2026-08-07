@@ -514,6 +514,10 @@ def format_output(df, mapping):
         pl.lit("").alias("Additional Row Notes")
     )
     
+    df = df.with_columns(
+        (pl.col("Amount") * -1.0).alias("Amount")
+    )
+    
     expected_columns = [
         'Year Month', 'Date', 'Transaction Details', 'Amount', 'Category', 
         'Account', 'Note', 'Reporting Category', 'Categorization Explanation', 'LLM Categorization Flag', 
@@ -551,11 +555,14 @@ def validate_pipeline(raw_df: pl.DataFrame, post_expansion_df: pl.DataFrame, fin
         messages.append(f"[FLAG] Row count mismatch! Expected {post_count} rows (post-expansion), but got {final_count} rows.")
         is_valid = False
         
-    if abs(post_balance - final_balance) > 0.01:
-        messages.append(f"[FLAG] Balance mismatch! Expected post-expansion balance: {post_balance:.2f}, Final balance: {final_balance:.2f}")
+    if abs(post_balance + final_balance) > 0.01:
+        messages.append(f"[FLAG] Balance mismatch! Expected post-expansion balance (reversed): {-post_balance:.2f}, Final balance: {final_balance:.2f}")
         is_valid = False
         
-    post_compare = post_expansion_df.with_columns(pl.col("Date").dt.strftime("%Y-%m-%d"))
+    post_compare = post_expansion_df.with_columns(
+        pl.col("Date").dt.strftime("%Y-%m-%d"),
+        (pl.col("Amount") * -1.0).alias("Amount")
+    )
     base_cols = ["Date", "Transaction Details", "Amount", "Account"]
     
     try:

@@ -67,10 +67,12 @@ def test_pipeline_end_to_end(mock_data_dir, monkeypatch):
     assert walmart_out['Suggested Filter'][0] == 'No'
     
     payment_out = output_df.filter(pl.col('Transaction Details') == 'PAYMENT THANK YOU')
+    assert payment_out['Amount'][0] == -200.00
     assert payment_out['Suggested Filter'][0] == 'Yes'
     assert payment_out['Filter Reason'][0] == 'Credit card payment'
     
     costco_out = output_df.filter(pl.col('Transaction Details') == 'COSTCO WHOLESALE')
+    assert costco_out['Amount'][0] == 113.60
     assert costco_out['LLM Categorization Flag'][0] == 'Unsure about bulk store'
     
     # Check sorting
@@ -194,6 +196,7 @@ def test_format_output_unmapped_defaults():
     })
     mapping = {}
     out = format_output(df, mapping)
+    assert out["Amount"][0] == 10.0
     assert out["Category"][0] == "UNCATEGORIZED"
     assert out["LLM Categorization Flag"][0] == "LLM Failure"
     assert out["Suggested Filter"][0] == "No"

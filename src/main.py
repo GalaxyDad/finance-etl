@@ -189,8 +189,8 @@ def main():
     min_date = output_df['Date'].min()
     max_date = output_df['Date'].max()
     
-    total_income = output_df.filter(output_df['Amount'] > 0)['Amount'].sum()
-    total_expense = output_df.filter(output_df['Amount'] < 0)['Amount'].sum()
+    total_income = abs(output_df.filter(output_df['Amount'] < 0)['Amount'].sum())
+    total_expense = output_df.filter(output_df['Amount'] > 0)['Amount'].sum()
     
     flagged_merchants = len(output_df.filter(output_df['Suggested Filter'] == 'Yes'))
     
