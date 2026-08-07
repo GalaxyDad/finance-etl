@@ -90,7 +90,7 @@ def main():
     unique_merchants = df['Transaction Details'].unique().to_list()
     
     personal_keywords = _load_text_config(
-        reference_dir, 'personal_keywords.txt',
+        reference_dir, 'personal_soft_filter_keywords.txt',
         [
             "# Add personal keywords or concepts here, one per line.",
             "# The Gemini LLM will soft-filter any transactions semantically matching these concepts (e.g. 'Art supplies').",

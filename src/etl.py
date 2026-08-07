@@ -39,7 +39,7 @@ def check_and_update_keywords_hash(reference_dir: str, personal_keywords: list[s
             if prev_hash != current_hash:
                 if os.path.exists(cache_path):
                     os.remove(cache_path)
-                    logger.info("personal_keywords.txt changed since last run. Invalidated merchant cache.")
+                    logger.info("personal_soft_filter_keywords.txt changed since last run. Invalidated merchant cache.")
                 invalidated = True
         except Exception as e:
             logger.warning(f"Error checking keywords hash: {e}")
