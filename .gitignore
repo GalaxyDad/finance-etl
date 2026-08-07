@@ -23,3 +23,8 @@ data/processed/*
 .DS_Store
 .idea/
 .vscode/
+
+# Logs
+pipeline.log
+*.log
+
