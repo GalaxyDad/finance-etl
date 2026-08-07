@@ -95,7 +95,7 @@ LLM soft-filtering operates globally across **all** bank transactions (Rogers, S
 ### 4. Verification & Execution
 To verify the logic safely without making API calls, run the test suite:
 ```bash
-pytest tests/ -v
+PYTHONPATH=. pytest tests/ -v
 ```
 
 To execute the pipeline safely without making API calls or exporting data (useful to review cache hit rates or merchant extraction):
