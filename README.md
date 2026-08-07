@@ -43,6 +43,7 @@ GEMINI_API_KEY=your_actual_key_here
   - `Order History.csv` (Amazon purchases export)
   - `Refund Details.csv` (Amazon returns export)
   - `personal_keywords.txt` (Optional, auto-generated if missing. List of keywords or semantic concepts, one per line, to soft-filter custom personal items)
+  - `category_hints.txt` (Optional, auto-generated if missing. List of semantic instructions to steer LLM categorization for specific transactions)
 
 ## Amazon Data & Personal Filtering
 
@@ -56,11 +57,17 @@ The pipeline processes reference files dynamically from `data/reference/`:
 1. **Personal Profile Construction**: Reconciles `Order History.csv` shipments against `Mike Transaction Register.csv` within a `[-3, +7]` day window (`bank_date - ship_date`). Any product in `Order History.csv` that was *never* entered into the shared register is tagged as a **Personal Item**. Items are sorted alphabetically and capped to 50 entries to ensure deterministic Gemini context injection across runs.
 2. **Transaction Expansion**: For incoming generic Amazon bank debits/credits (`data/raw/`), matches exact amounts to shipments/refunds within the `[-3, +7]` day window. Matched bank rows are expanded into individual product rows (e.g., `-$15.50 3x Item B`), and all Amazon transactions populate `"Amazon"` (or `"Amazon Refund"`) in the `Note` column to explicitly tag Amazon as the vendor. Furthermore, if an expanded purchase is identified as having been later refunded, both the original purchase row and the refund row will be explicitly flagged for filtering.
 
+### User Semantic Concepts & LLM Categorization Hints
+You can influence the final category assigned to transactions by providing semantic instructions in `category_hints.txt`.
+1. **Global Prompt Context**: Gemini receives your user-defined semantic instructions (e.g., `"For McDonald's related transactions, use the category for fast-food"`).
+2. **Prioritized Matching**: Gemini is instructed to prioritize these concepts when selecting an allowed category. Anything left uncategorized by these hints will go through the normal contextual categorization process.
+3. **Automatic Cache Invalidation**: Any changes to `category_hints.txt` automatically invalidate the merchant cache, ensuring all transactions are re-evaluated against your new hints on the next run.
+
 ### Custom Keyword & LLM Soft-Filtering Process
 LLM soft-filtering operates globally across **all** bank transactions (Rogers, Simplii, CIBC, Wealthsimple, and expanded Amazon items) during Gemini categorization:
 1. **Global Prompt Context**: Gemini receives both the Amazon-derived **Personal Items Profile** and any user-defined semantic concepts or terms from `personal_keywords.txt`.
 2. **Semantic Matching**: Gemini evaluates every transaction description against these contexts. If an item matches a personal Amazon purchase or semantically relates to any concept listed in `personal_keywords.txt` (e.g., adding `"Art supplies"` will automatically soft-filter transactions for art pens, sketchbooks, or precision erasers across any merchant without requiring exact keyword string matching), Gemini sets `Suggested Filter` to `"Yes"` and populates `Filter Reason` (e.g., `"Art supplies"` or `"Likely Personal Item"`).
-3. **Automatic Cache Invalidation**: Whenever `personal_keywords.txt` is updated, the pipeline automatically detects the SHA256 change and invalidates `merchant_cache.json`, ensuring all transactions are re-evaluated against the updated keywords on the next run.
+3. **Automatic Cache Invalidation**: Whenever `personal_keywords.txt` is updated, the pipeline automatically detects the SHA256 change and invalidates `merchant_cache.json`.
 
 ### 4. Verification & Execution
 To verify the logic safely without making API calls, run the test suite:

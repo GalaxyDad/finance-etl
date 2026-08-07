@@ -1,0 +1,6 @@
+# Add semantic category hints here, one per line.
+# The Gemini LLM will prioritize these concepts when choosing a category.
+# Example:
+# Any time there is a McDonald's related transaction then we should use the category that best approximates fast-food
+For McDonald's related transactions, use Food & Dining: Fast Food
+For Starbucks related transactions, use Food & Dining: Fast Food

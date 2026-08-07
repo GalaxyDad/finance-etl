@@ -15,13 +15,17 @@ load_dotenv()
 
 logger = logging.getLogger(__name__)
 
-def check_and_update_keywords_hash(reference_dir: str, personal_keywords: list[str] = None) -> bool:
+def check_and_update_keywords_hash(reference_dir: str, personal_keywords: list[str] = None, category_hints: list[str] = None) -> bool:
     """
-    Checks if personal keywords have changed since the last run by comparing SHA256 hashes.
+    Checks if personal keywords or category hints have changed since the last run by comparing SHA256 hashes.
     If changed, invalidates (deletes) the merchant_cache.json file to force recategorization.
     Returns True if cache was invalidated due to keywords change, False otherwise.
     """
-    keywords_json = json.dumps(sorted(personal_keywords or []))
+    combined_data = {
+        "personal_keywords": sorted(personal_keywords or []),
+        "category_hints": sorted(category_hints or [])
+    }
+    keywords_json = json.dumps(combined_data)
     current_hash = hashlib.sha256(keywords_json.encode('utf-8')).hexdigest()
     
     hash_path = os.path.join(reference_dir, '.keywords_hash')
@@ -275,11 +279,11 @@ def load_merchant_cache(reference_dir: str) -> dict:
     return {}
 
 
-def call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile=None, personal_keywords=None):
+def call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile=None, personal_keywords=None, category_hints=None):
     client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
     
     # 0. Load Cache (check keywords hash for cache invalidation)
-    check_and_update_keywords_hash(reference_dir, personal_keywords)
+    check_and_update_keywords_hash(reference_dir, personal_keywords, category_hints)
     cache_path = os.path.join(reference_dir, 'merchant_cache.json')
     merchant_cache = load_merchant_cache(reference_dir)
             
@@ -347,10 +351,13 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
         {json.dumps(history_context)}
         
         Return a JSON object where keys are the exact merchant names provided below and values are objects containing:
-        - category (string): Must be one of the Allowed Categories.
+        - category (string): Must be one of the Allowed Categories. Prioritize the User Semantic Concepts below to determine this category.
         - flag (string): If the category was difficult to determine, provide a brief 3 to 5 word explanation. Otherwise, leave blank "".
         - suggested_filter (string): "Yes" if the transaction appears to be an internal transfer, credit card payment, ATM withdrawal, or declined/pending transaction. ALSO set to "Yes" if the transaction closely matches an item in the Personal Items Profile below or semantically relates to any of the concepts or categories listed in the Personal Filtering Keywords below (e.g. if the keyword is "Art supplies", flag any transaction purchasing art supplies). Otherwise, "No".
         - filter_reason (string): If suggested_filter is "Yes", state why (e.g. "Credit Card Payment", "Likely Personal Item"). Otherwise, blank "".
+        
+        User Semantic Concepts (Category Hints - PRIORITIZE THESE):
+        {json.dumps(category_hints) if category_hints else "[]"}
         
         Personal Items Profile (Historically excluded personal purchases):
         {json.dumps(personal_items_profile) if personal_items_profile else "[]"}

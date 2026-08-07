@@ -736,3 +736,111 @@
 2026-08-07 09:31:58,452 - root - INFO - [DRY-RUN]   Normalized Unique Merchants: 269
 2026-08-07 09:31:58,452 - root - INFO - [DRY-RUN]   Merchants in Cache: 269
 2026-08-07 09:31:58,452 - root - INFO - [DRY-RUN]   API Calls Needed: 0
+2026-08-07 09:59:34,608 - root - INFO - Processing bank data...
+2026-08-07 09:59:34,657 - src.amazon - INFO - Built personal items profile with 604 items.
+2026-08-07 09:59:34,738 - src.amazon - INFO - Expanded 87 Amazon shipments and 8 refunds into 3 additional rows.
+2026-08-07 09:59:34,739 - root - INFO - [DRY-RUN] Found 286 unique merchants. Skipping Gemini API call and export.
+2026-08-07 09:59:34,739 - root - INFO - [DRY-RUN] Total rows extracted: 554
+2026-08-07 09:59:34,739 - root - INFO - [DRY-RUN]   cibc: 5 rows
+2026-08-07 09:59:34,739 - root - INFO - [DRY-RUN]   wealthsimple_activities: 79 rows
+2026-08-07 09:59:34,739 - root - INFO - [DRY-RUN]   simplii: 30 rows
+2026-08-07 09:59:34,739 - root - INFO - [DRY-RUN]   rogers_cc: 428 rows
+2026-08-07 09:59:34,739 - root - INFO - [DRY-RUN]   wealthsimple_credit: 12 rows
+2026-08-07 09:59:34,741 - root - INFO - [DRY-RUN] Merchant Cache Breakdown:
+2026-08-07 09:59:34,741 - root - INFO - [DRY-RUN]   Raw Unique Merchants: 286
+2026-08-07 09:59:34,741 - root - INFO - [DRY-RUN]   Normalized Unique Merchants: 269
+2026-08-07 09:59:34,741 - root - INFO - [DRY-RUN]   Merchants in Cache: 269
+2026-08-07 09:59:34,741 - root - INFO - [DRY-RUN]   API Calls Needed: 0
+2026-08-07 10:03:45,594 - root - INFO - Processing bank data...
+2026-08-07 10:03:45,643 - src.amazon - INFO - Built personal items profile with 604 items.
+2026-08-07 10:03:45,725 - src.amazon - INFO - Expanded 87 Amazon shipments and 8 refunds into 3 additional rows.
+2026-08-07 10:03:45,726 - root - INFO - Loaded 1 personal filtering keyword(s).
+2026-08-07 10:03:45,726 - root - INFO - category_hints.txt not found. Creating a template.
+2026-08-07 10:03:45,726 - root - INFO - Loaded 0 category hint(s).
+2026-08-07 10:03:45,726 - root - INFO - [DRY-RUN] Found 286 unique merchants. Skipping Gemini API call and export.
+2026-08-07 10:03:45,726 - root - INFO - [DRY-RUN] Total rows extracted: 554
+2026-08-07 10:03:45,726 - root - INFO - [DRY-RUN]   wealthsimple_credit: 12 rows
+2026-08-07 10:03:45,726 - root - INFO - [DRY-RUN]   simplii: 30 rows
+2026-08-07 10:03:45,727 - root - INFO - [DRY-RUN]   cibc: 5 rows
+2026-08-07 10:03:45,727 - root - INFO - [DRY-RUN]   rogers_cc: 428 rows
+2026-08-07 10:03:45,727 - root - INFO - [DRY-RUN]   wealthsimple_activities: 79 rows
+2026-08-07 10:03:45,728 - root - INFO - [DRY-RUN] Merchant Cache Breakdown:
+2026-08-07 10:03:45,728 - root - INFO - [DRY-RUN]   Raw Unique Merchants: 286
+2026-08-07 10:03:45,728 - root - INFO - [DRY-RUN]   Normalized Unique Merchants: 269
+2026-08-07 10:03:45,728 - root - INFO - [DRY-RUN]   Merchants in Cache: 269
+2026-08-07 10:03:45,728 - root - INFO - [DRY-RUN]   API Calls Needed: 0
+2026-08-07 10:03:45,728 - root - INFO - [DRY-RUN] Configuration:
+2026-08-07 10:03:45,728 - root - INFO - [DRY-RUN]   Personal Keywords: 1
+2026-08-07 10:03:45,728 - root - INFO - [DRY-RUN]   Category Hints: 0
+2026-08-07 10:05:05,837 - root - INFO - Processing bank data...
+2026-08-07 10:05:05,888 - src.amazon - INFO - Built personal items profile with 604 items.
+2026-08-07 10:05:05,969 - src.amazon - INFO - Expanded 87 Amazon shipments and 8 refunds into 3 additional rows.
+2026-08-07 10:05:05,970 - root - INFO - Loaded 1 personal filtering keyword(s).
+2026-08-07 10:05:05,971 - root - INFO - Loaded 1 category hint(s).
+2026-08-07 10:05:05,971 - root - INFO - Found 286 unique merchants. Calling Gemini for categorization...
+2026-08-07 10:05:06,016 - src.etl - INFO - All merchants found in cache. Skipping Gemini API call.
+2026-08-07 10:05:06,016 - src.etl - INFO - Cache: 286 hits, 0 new lookups, 286 total merchants
+2026-08-07 10:05:06,018 - root - INFO - Formatting output...
+2026-08-07 10:05:06,020 - root - INFO - Running validation checks...
+2026-08-07 10:05:06,022 - root - INFO - [INFO] Pre-expansion validation: 551 raw rows extracted. Balance: $-2698.31
+2026-08-07 10:05:06,022 - root - INFO - [SUCCESS] Pipeline validation passed! Row counts and balances match.
+2026-08-07 10:05:06,024 - root - INFO - === POST-RUN SUMMARY ===
+2026-08-07 10:05:06,024 - root - INFO - Date Range: 2025-12-18 to 2026-08-01
+2026-08-07 10:05:06,024 - root - INFO - Total Income: $112140.67
+2026-08-07 10:05:06,024 - root - INFO - Total Expenses: $-114838.98
+2026-08-07 10:05:06,024 - root - INFO - Cache Hit Rate: 269/269 merchants cached
+2026-08-07 10:05:06,024 - root - INFO - Flagged Merchants (Suggested Filter='Yes'): 168
+2026-08-07 10:05:06,024 - root - INFO - Row Count by Account:
+2026-08-07 10:05:06,025 - root - INFO -   rogers_cc: 428 rows, Net Total: $506.14
+2026-08-07 10:05:06,025 - root - INFO -   cibc: 5 rows, Net Total: $16.60
+2026-08-07 10:05:06,025 - root - INFO -   simplii: 30 rows, Net Total: $-13267.19
+2026-08-07 10:05:06,025 - root - INFO -   wealthsimple_credit: 12 rows, Net Total: $-1577.00
+2026-08-07 10:05:06,025 - root - INFO -   wealthsimple_activities: 79 rows, Net Total: $11623.14
+2026-08-07 10:05:06,025 - root - INFO - ========================
+2026-08-07 10:05:06,027 - root - INFO - Success! Exported 554 rows to data/processed/consolidated_ledger_20260807_100506_ff706927.csv
+2026-08-07 10:05:06,028 - root - INFO - Cleaned up 1 old output file(s) in data/processed.
+2026-08-07 10:05:14,192 - root - INFO - Processing bank data...
+2026-08-07 10:05:14,236 - src.amazon - INFO - Built personal items profile with 604 items.
+2026-08-07 10:05:14,316 - src.amazon - INFO - Expanded 87 Amazon shipments and 8 refunds into 3 additional rows.
+2026-08-07 10:05:14,317 - root - INFO - Loaded 1 personal filtering keyword(s).
+2026-08-07 10:05:14,317 - root - INFO - Loaded 2 category hint(s).
+2026-08-07 10:05:14,317 - root - INFO - Found 286 unique merchants. Calling Gemini for categorization...
+2026-08-07 10:05:14,346 - src.etl - INFO - personal_keywords.txt changed since last run. Invalidated merchant cache.
+2026-08-07 10:05:14,350 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-07 10:05:37,491 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-08-07 10:05:37,499 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-07 10:06:07,172 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-08-07 10:06:07,180 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-07 10:06:34,186 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-08-07 10:06:34,193 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-07 10:06:36,688 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-08-07 10:06:36,691 - src.etl - WARNING - Error calling Gemini for chunk 150: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}. Retrying in 2s...
+2026-08-07 10:06:38,694 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-07 10:07:09,372 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-08-07 10:07:09,379 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-07 10:07:40,246 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-08-07 10:07:40,253 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-07 10:07:40,794 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-08-07 10:07:40,796 - src.etl - WARNING - Error calling Gemini for chunk 250: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}. Retrying in 2s...
+2026-08-07 10:07:42,801 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-07 10:08:15,676 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-08-07 10:08:15,686 - src.etl - INFO - Cache: 0 hits, 269 new lookups, 286 total merchants
+2026-08-07 10:08:15,686 - root - INFO - Formatting output...
+2026-08-07 10:08:15,694 - root - INFO - Running validation checks...
+2026-08-07 10:08:15,697 - root - INFO - [INFO] Pre-expansion validation: 551 raw rows extracted. Balance: $-2698.31
+2026-08-07 10:08:15,697 - root - INFO - [SUCCESS] Pipeline validation passed! Row counts and balances match.
+2026-08-07 10:08:15,701 - root - INFO - === POST-RUN SUMMARY ===
+2026-08-07 10:08:15,701 - root - INFO - Date Range: 2025-12-18 to 2026-08-01
+2026-08-07 10:08:15,701 - root - INFO - Total Income: $112140.67
+2026-08-07 10:08:15,701 - root - INFO - Total Expenses: $-114838.98
+2026-08-07 10:08:15,701 - root - INFO - Cache Hit Rate: 269/269 merchants cached
+2026-08-07 10:08:15,701 - root - INFO - Flagged Merchants (Suggested Filter='Yes'): 166
+2026-08-07 10:08:15,701 - root - INFO - Row Count by Account:
+2026-08-07 10:08:15,702 - root - INFO -   rogers_cc: 428 rows, Net Total: $506.14
+2026-08-07 10:08:15,702 - root - INFO -   wealthsimple_activities: 79 rows, Net Total: $11623.14
+2026-08-07 10:08:15,702 - root - INFO -   wealthsimple_credit: 12 rows, Net Total: $-1577.00
+2026-08-07 10:08:15,702 - root - INFO -   cibc: 5 rows, Net Total: $16.60
+2026-08-07 10:08:15,702 - root - INFO -   simplii: 30 rows, Net Total: $-13267.19
+2026-08-07 10:08:15,702 - root - INFO - ========================
+2026-08-07 10:08:15,703 - root - INFO - Success! Exported 554 rows to data/processed/consolidated_ledger_20260807_100815_1a8174f7.csv
+2026-08-07 10:08:15,705 - root - INFO - Cleaned up 1 old output file(s) in data/processed.

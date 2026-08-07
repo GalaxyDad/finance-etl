@@ -299,6 +299,40 @@ def test_call_gemini_categorization_personal_keywords(mock_data_dir, monkeypatch
     assert "custom_word_1" in prompt_used
     assert "custom_word_2" in prompt_used
 
+def test_call_gemini_categorization_category_hints(mock_data_dir, monkeypatch):
+    from unittest.mock import MagicMock
+    from src.etl import call_gemini_categorization
+    import os
+    
+    reference_dir = mock_data_dir['reference_dir']
+    
+    mock_client = MagicMock()
+    mock_response = MagicMock()
+    mock_response.text = '{"TEST MERCHANT": {"category": "Transfer", "flag": "", "suggested_filter": "No", "filter_reason": ""}}'
+    mock_client.models.generate_content.return_value = mock_response
+    
+    mock_genai = MagicMock()
+    mock_genai.Client.return_value = mock_client
+    monkeypatch.setattr('src.etl.genai', mock_genai)
+    
+    unique_merchants = ['TEST MERCHANT']
+    category_hints = ['McDonalds -> Fast Food']
+    
+    # Clear cache before running to force API call
+    cache_path = os.path.join(reference_dir, 'merchant_cache.json')
+    if os.path.exists(cache_path):
+        os.remove(cache_path)
+    
+    # Call function
+    call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile=[], personal_keywords=[], category_hints=category_hints)
+    
+    # Extract the prompt used
+    call_args = mock_client.models.generate_content.call_args
+    prompt_used = call_args.kwargs['contents']
+    
+    assert "User Semantic Concepts (Category Hints - PRIORITIZE THESE):" in prompt_used
+    assert "McDonalds -> Fast Food" in prompt_used
+
 def test_keywords_cache_invalidation(tmp_path):
     ref_dir = str(tmp_path)
     cache_file = tmp_path / "merchant_cache.json"
@@ -333,6 +367,27 @@ def test_keywords_cache_invalidation(tmp_path):
     # Run 5: Removing all keywords -> cache should be invalidated
     keywords_v4 = []
     invalidated = check_and_update_keywords_hash(ref_dir, keywords_v4)
+    assert invalidated is True
+    assert not cache_file.exists()
+    
+    # Run 6: Adding category hints (while keywords empty) -> cache should be invalidated
+    cache_file.write_text('{"MERCHANT": {"category": "Groceries"}}')
+    hints_v1 = ["Hint 1"]
+    invalidated = check_and_update_keywords_hash(ref_dir, personal_keywords=[], category_hints=hints_v1)
+    assert invalidated is True
+    assert not cache_file.exists()
+    
+    # Run 7: Changing personal_keywords while holding category_hints constant -> cache invalidated
+    cache_file.write_text('{"MERCHANT": {"category": "Groceries"}}')
+    keywords_v5 = ["New Keyword"]
+    invalidated = check_and_update_keywords_hash(ref_dir, personal_keywords=keywords_v5, category_hints=hints_v1)
+    assert invalidated is True
+    assert not cache_file.exists()
+    
+    # Run 8: Changing category_hints while holding personal_keywords constant -> cache invalidated
+    cache_file.write_text('{"MERCHANT": {"category": "Groceries"}}')
+    hints_v2 = ["Hint 1", "Hint 2"]
+    invalidated = check_and_update_keywords_hash(ref_dir, personal_keywords=keywords_v5, category_hints=hints_v2)
     assert invalidated is True
     assert not cache_file.exists()
 

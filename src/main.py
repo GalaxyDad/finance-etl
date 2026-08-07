@@ -29,6 +29,26 @@ def setup_logger():
     
     return logger
 
+def _load_text_config(reference_dir: str, filename: str, header_lines: list[str], logger: logging.Logger) -> list[str]:
+    """Load a line-per-entry config file, auto-generating a template if missing."""
+    items = []
+    filepath = os.path.join(reference_dir, filename)
+    if os.path.exists(filepath):
+        with open(filepath, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#'):
+                    items.append(line)
+    else:
+        logger.info(f"{filename} not found. Creating a template.")
+        try:
+            with open(filepath, 'w') as f:
+                for h in header_lines:
+                    f.write(h + "\n")
+        except Exception as e:
+            logger.warning(f"Failed to create {filename}: {e}")
+    return items
+
 def main():
     parser = argparse.ArgumentParser(description="Finance ETL Pipeline")
     parser.add_argument("--dry-run", action="store_true", help="Run extraction without calling Gemini or exporting data")
@@ -69,6 +89,30 @@ def main():
         
     unique_merchants = df['Transaction Details'].unique().to_list()
     
+    personal_keywords = _load_text_config(
+        reference_dir, 'personal_keywords.txt',
+        [
+            "# Add personal keywords or concepts here, one per line.",
+            "# The Gemini LLM will soft-filter any transactions semantically matching these concepts (e.g. 'Art supplies').",
+            "# Example:",
+            "# Art supplies"
+        ],
+        logger
+    )
+    logger.info(f"Loaded {len(personal_keywords)} personal filtering keyword(s).")
+
+    category_hints = _load_text_config(
+        reference_dir, 'category_hints.txt',
+        [
+            "# Add semantic category hints here, one per line.",
+            "# The Gemini LLM will prioritize these concepts when choosing a category.",
+            "# Example:",
+            "# Any time there is a McDonald's related transaction then we should use the category that best approximates fast-food"
+        ],
+        logger
+    )
+    logger.info(f"Loaded {len(category_hints)} category hint(s).")
+    
     if args.dry_run:
         logger.info(f"[DRY-RUN] Found {len(unique_merchants)} unique merchants. Skipping Gemini API call and export.")
         logger.info(f"[DRY-RUN] Total rows extracted: {len(df)}")
@@ -90,6 +134,9 @@ def main():
         logger.info(f"[DRY-RUN]   Normalized Unique Merchants: {len(normalized_merchants)}")
         logger.info(f"[DRY-RUN]   Merchants in Cache: {cached_count}")
         logger.info(f"[DRY-RUN]   API Calls Needed: {uncached_count}")
+        logger.info(f"[DRY-RUN] Configuration:")
+        logger.info(f"[DRY-RUN]   Personal Keywords: {len(personal_keywords)}")
+        logger.info(f"[DRY-RUN]   Category Hints: {len(category_hints)}")
         
         return
         
@@ -99,29 +146,9 @@ def main():
             os.remove(cache_path)
             logger.info("Cleared existing merchant cache (--no-cache passed).")
 
-    personal_keywords = []
-    keywords_path = os.path.join(reference_dir, 'personal_keywords.txt')
-    if os.path.exists(keywords_path):
-        with open(keywords_path, 'r') as f:
-            for line in f:
-                line = line.strip()
-                if line and not line.startswith('#'):
-                    personal_keywords.append(line)
-    else:
-        logger.info("personal_keywords.txt not found. Creating a template.")
-        try:
-            with open(keywords_path, 'w') as f:
-                f.write("# Add personal keywords or concepts here, one per line.\n")
-                f.write("# The Gemini LLM will soft-filter any transactions semantically matching these concepts (e.g. 'Art supplies').\n")
-                f.write("# Example:\n")
-                f.write("# Art supplies\n")
-        except Exception as e:
-            logger.warning(f"Failed to create personal_keywords.txt: {e}")
-
-    logger.info(f"Loaded {len(personal_keywords)} personal filtering keyword(s).")
     logger.info(f"Found {len(unique_merchants)} unique merchants. Calling Gemini for categorization...")
     
-    mapping = call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile, personal_keywords)
+    mapping = call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile, personal_keywords, category_hints)
     
     logger.info("Formatting output...")
     output_df = format_output(df, mapping)
