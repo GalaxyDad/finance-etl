@@ -15,9 +15,9 @@ This project is a local Python ETL (Extract, Transform, Load) pipeline designed 
    - Chunks Gemini API requests into batches of 50 with incremental cache saves to ensure fault tolerance.
 4. **Soft-Filtering**: Automatically establishes a "Personal Items Profile" by identifying past Amazon shipments that were excluded from the historical register. It sorts and caps this context deterministically before leveraging Gemini to recognize and flag similar personal purchases in new transactions, significantly reducing manual review.
 5. **Validates**: Automatically performs strict multi-stage validation checks comparing the raw extracted data against post-expansion data and final formatted output. It verifies that raw vs. post-expansion balances match (within $0.05 to account for itemized tax rounding) and that post-expansion vs. final formatted row counts and balances match to ensure no transactions are dropped or corrupted. Mismatches or dropped transactions are clearly flagged and displayed to the user.
-6. **Deduplicates**: Preserves legitimate same-day identical transactions (e.g., buying two identical coffees on the same day) using file-scoped occurrence indexing, while using unique `Reference Number` fields where available (e.g. Rogers CC) to safely eliminate duplicate records across overlapping file exports.
-7. **Loads**: Joins the LLM categorization back to the main DataFrame, sorts the data chronologically by Date (and alphabetically by Account), and formats it into a strict 12-column output with guaranteed fallback schema defaults for unmapped items. The pipeline also automatically cleans up old processed files, keeping only the most recent runs.
-8. **Logs**: Standard logs and error messages are written both to the console and to `pipeline.log` for easy troubleshooting. At the end of every run, a helpful post-run summary report is output to provide an at-a-glance view of the processed data.
+6. **Deduplicates & Filters**: Preserves legitimate same-day identical transactions (e.g., buying two identical coffees on the same day) using file-scoped occurrence indexing, while using unique `Reference Number` fields where available (e.g. Rogers CC) to safely eliminate duplicate records across overlapping file exports. Additionally, allows precise subset processing using date-range filters.
+7. **Loads**: Joins the LLM categorization back to the main DataFrame, sorts the data chronologically by Date (and alphabetically by Account), and formats it into a strict 12-column output with guaranteed fallback schema defaults for unmapped items (e.g., defaulting missing mapping to "UNCATEGORIZED"). The pipeline also automatically cleans up old processed files, keeping only the most recent runs.
+8. **Logs**: Standard logs and error messages are written both to the console and to `pipeline.log` for easy troubleshooting. At the end of every run, a helpful post-run summary report is output to provide an at-a-glance view of the processed data (including row counts and net financial totals by account).
 
 ## How to Use It
 
@@ -73,6 +73,11 @@ To run the pipeline and generate a uniquely timestamped output file in `data/pro
 PYTHONPATH=. python src/main.py
 ```
 
+To filter transactions by a specific date range, use `--date-from` and/or `--date-to` (format `YYYY-MM-DD`):
+```bash
+PYTHONPATH=. python src/main.py --date-from 2026-01-01 --date-to 2026-12-31
+```
+
 By default, the script cleans up old output files and keeps the last 3 runs. To change this, pass `--keep-last N`:
 ```bash
 PYTHONPATH=. python src/main.py --keep-last 5
@@ -81,6 +86,11 @@ PYTHONPATH=. python src/main.py --keep-last 5
 If you need to force a fresh recategorization by skipping the local cache, use:
 ```bash
 PYTHONPATH=. python src/main.py --no-cache
+```
+
+If you want to abort the export and prevent writing to `data/processed/` when pipeline validation checks fail, use:
+```bash
+PYTHONPATH=. python src/main.py --abort-on-validation-failure
 ```
 
 ### 5. Post-Processing & Importing the Output File
