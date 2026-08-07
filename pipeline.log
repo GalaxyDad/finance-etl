@@ -978,3 +978,17 @@
 2026-08-07 10:40:57,739 - root - INFO - [DRY-RUN] Configuration:
 2026-08-07 10:40:57,739 - root - INFO - [DRY-RUN]   Personal Keywords: 8
 2026-08-07 10:40:57,739 - root - INFO - [DRY-RUN]   Category Hints: 2
+2026-08-07 10:42:28,403 - root - INFO - Processing bank data...
+2026-08-07 10:42:28,510 - src.amazon - INFO - Built personal items profile with 604 items.
+2026-08-07 10:42:28,592 - src.amazon - INFO - Expanded 87 Amazon shipments and 8 refunds into 3 additional rows.
+2026-08-07 10:42:28,596 - root - INFO - Loaded 8 personal filtering keyword(s).
+2026-08-07 10:42:28,596 - root - INFO - Loaded 2 category hint(s).
+2026-08-07 10:42:28,596 - root - INFO - Found 286 unique merchants. Calling Gemini for categorization...
+2026-08-07 10:42:28,625 - src.etl - INFO - personal_soft_filter_keywords.txt changed since last run. Invalidated merchant cache.
+2026-08-07 10:42:28,631 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-07 10:42:29,835 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-08-07 10:42:29,836 - src.etl - WARNING - Error calling Gemini for chunk 0: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}. Retrying in 2s...
+2026-08-07 10:42:31,839 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-08-07 10:42:33,229 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-08-07 10:42:33,232 - src.etl - WARNING - Error calling Gemini for chunk 0: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}. Retrying in 4s...
+2026-08-07 10:42:37,238 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
