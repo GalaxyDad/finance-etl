@@ -16,6 +16,8 @@ __pycache__/
 data/raw/*
 !data/raw/.gitkeep
 data/reference/.keywords_hash
+merchant_cache.json
+data/reference/merchant_cache.json
 data/processed/*
 !data/processed/.gitkeep
 
