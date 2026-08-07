@@ -339,6 +339,9 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
         # "thinking_level": "LOW" # SDK throws Unknown field error
     }
     
+    models_to_try = ['gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-1.5-flash']
+    current_model_idx = 0
+
     chunk_size = 50
     for i in range(0, len(uncached_merchants), chunk_size):
         chunk = uncached_merchants[i:i + chunk_size]
@@ -377,32 +380,55 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
         max_retries = 3
         backoff_times = [2, 4, 8]
         
-        for attempt in range(max_retries):
-            try:
-                response = client.models.generate_content(
-                    model='gemini-3.6-flash',
-                    contents=prompt,
-                    config=config
-                )
-                resp_text = response.text.strip()
-                if resp_text.startswith("```"):
-                    resp_text = re.sub(r'^```(?:json)?\s*', '', resp_text)
-                    resp_text = re.sub(r'\s*```$', '', resp_text)
-                new_mappings = json.loads(resp_text)
-                
-                merchant_cache.update(new_mappings)
+        chunk_success = False
+        while current_model_idx < len(models_to_try) and not chunk_success:
+            current_model = models_to_try[current_model_idx]
+            is_429 = False
+            
+            for attempt in range(max_retries):
                 try:
-                    with open(cache_path, 'w') as f:
-                        json.dump(merchant_cache, f, indent=4)
+                    response = client.models.generate_content(
+                        model=current_model,
+                        contents=prompt,
+                        config=config
+                    )
+                    resp_text = response.text.strip()
+                    if resp_text.startswith("```"):
+                        resp_text = re.sub(r'^```(?:json)?\s*', '', resp_text)
+                        resp_text = re.sub(r'\s*```$', '', resp_text)
+                    new_mappings = json.loads(resp_text)
+                    
+                    merchant_cache.update(new_mappings)
+                    try:
+                        with open(cache_path, 'w') as f:
+                            json.dump(merchant_cache, f, indent=4)
+                    except Exception as e:
+                        logger.warning(f"Error writing cache: {e}")
+                    
+                    chunk_success = True
+                    break
                 except Exception as e:
-                    logger.warning(f"Error writing cache: {e}")
-                break
-            except Exception as e:
-                if attempt < max_retries - 1:
-                    logger.warning(f"Error calling Gemini for chunk {i}: {e}. Retrying in {backoff_times[attempt]}s...")
-                    time.sleep(backoff_times[attempt])
+                    if getattr(e, "code", None) == 429 or "429" in str(e) or "ResourceExhausted" in str(e) or "Quota" in str(e):
+                        is_429 = True
+                        logger.warning(f"Rate limited (429) on {current_model} for chunk {i}: {e}.")
+                        break
+                    
+                    if attempt < max_retries - 1:
+                        logger.warning(f"Error calling Gemini for chunk {i} on {current_model}: {e}. Retrying in {backoff_times[attempt]}s...")
+                        time.sleep(backoff_times[attempt])
+                    else:
+                        logger.error(f"Failed calling Gemini for chunk {i} on {current_model} after {max_retries} attempts: {e}")
+            
+            if not chunk_success:
+                if is_429:
+                    if current_model_idx < len(models_to_try) - 1:
+                        logger.info(f"Falling back to {models_to_try[current_model_idx + 1]}...")
+                        current_model_idx += 1
+                    else:
+                        logger.error(f"Exhausted all models for chunk {i} due to rate limits.")
+                        break
                 else:
-                    logger.error(f"Failed calling Gemini for chunk {i} after {max_retries} attempts: {e}")
+                    break
 
     result_mapping = {}
     for m in unique_merchants:
