@@ -15,14 +15,15 @@ load_dotenv()
 
 logger = logging.getLogger(__name__)
 
-def check_and_update_keywords_hash(reference_dir: str, personal_keywords: list[str] = None, category_hints: list[str] = None) -> bool:
+def check_and_update_keywords_hash(reference_dir: str, personal_keywords: list[str] = None, exclusion_keywords: list[str] = None, category_hints: list[str] = None) -> bool:
     """
-    Checks if personal keywords or category hints have changed since the last run by comparing SHA256 hashes.
+    Checks if personal keywords, exclusions, or category hints have changed since the last run by comparing SHA256 hashes.
     If changed, invalidates (deletes) the merchant_cache.json file to force recategorization.
     Returns True if cache was invalidated due to keywords change, False otherwise.
     """
     combined_data = {
         "personal_keywords": sorted(personal_keywords or []),
+        "exclusion_keywords": sorted(exclusion_keywords or []),
         "category_hints": sorted(category_hints or [])
     }
     keywords_json = json.dumps(combined_data)
@@ -279,11 +280,11 @@ def load_merchant_cache(reference_dir: str) -> dict:
     return {}
 
 
-def call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile=None, personal_keywords=None, category_hints=None):
+def call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile=None, personal_keywords=None, exclusion_keywords=None, category_hints=None):
     client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
     
     # 0. Load Cache (check keywords hash for cache invalidation)
-    check_and_update_keywords_hash(reference_dir, personal_keywords, category_hints)
+    check_and_update_keywords_hash(reference_dir, personal_keywords, exclusion_keywords, category_hints)
     cache_path = os.path.join(reference_dir, 'merchant_cache.json')
     merchant_cache = load_merchant_cache(reference_dir)
             
@@ -354,7 +355,7 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
         - category (string): Must be one of the Allowed Categories. Prioritize the User Semantic Concepts below to determine this category.
         - categorization_explanation (string): A brief explanation (10 words or less) of why you chose this category.
         - flag (string): If the category was difficult to determine, provide a brief 3 to 5 word explanation. Otherwise, leave blank "".
-        - suggested_filter (string): "Yes" if the transaction appears to be an internal transfer, credit card payment, ATM withdrawal, or declined/pending transaction. ALSO set to "Yes" if the transaction closely matches an item in the Personal Items Profile below or semantically relates to any of the concepts or categories listed in the Personal Filtering Keywords below (e.g. if the keyword is "Art supplies", flag any transaction purchasing art supplies). Otherwise, "No".
+        - suggested_filter (string): "Yes" if the transaction appears to be an internal transfer, credit card payment, ATM withdrawal, or declined/pending transaction. ALSO set to "Yes" if the transaction closely matches an item in the Personal Items Profile below or semantically relates to any of the concepts or categories listed in the Personal Filtering Keywords below (e.g. if the keyword is "Art supplies", flag any transaction purchasing art supplies). If the transaction semantically relates to any of the Personal Filtering Exclusions, then DO NOT set suggested_filter to "Yes" based on the Personal Items Profile or Personal Filtering Keywords. Otherwise, "No".
         - filter_reason (string): If suggested_filter is "Yes", state why (e.g. "Credit Card Payment", "Likely Personal Item"). Otherwise, blank "".
         
         User Semantic Concepts (Category Hints - PRIORITIZE THESE):
@@ -363,8 +364,11 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
         Personal Items Profile (Historically excluded personal purchases):
         {json.dumps(personal_items_profile) if personal_items_profile else "[]"}
         
-        Personal Filtering Keywords:
+        Personal Filtering Keywords (Soft filter these):
         {json.dumps(personal_keywords) if personal_keywords else "[]"}
+
+        Personal Filtering Exclusions (NEVER soft filter these):
+        {json.dumps(exclusion_keywords) if exclusion_keywords else "[]"}
         
         Merchants to categorize:
         {json.dumps(chunk)}

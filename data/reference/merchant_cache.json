@@ -1531,5 +1531,355 @@
         "flag": "Vague deposit label context",
         "suggested_filter": "Yes",
         "filter_reason": "Bank Deposit"
+    },
+    "REFUND: JENNOV 2.4GHZ/5 GHZ WIFI LIGHT BULB SECURITY CAMERA WIRELESS OUTDOOR - 2K CAMERAS FOR HOME SECURITY OUTSIDE, LIGHT SOCKET INDOOR CAMERA (BLACK, LIGHT BULB CAMERA / 1PK)": {
+        "category": "_Income: Returned Purchase",
+        "categorization_explanation": "Refund for returned home security camera item.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Returned Purchase"
+    },
+    "PIZZA PIZZA LIMITED": {
+        "category": "Food & Dining: Restaurants",
+        "categorization_explanation": "Pizza restaurant chain purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-04-08)": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Outgoing bank transfer transaction.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "THERMOPRO TP511 WATERPROOF DIGITAL CANDY THERMOMETER WITH LONG PROBE INSTANT READ FOOD COOKING MEAT THERMOMETER FOR GRILLING SMOKER BBQ DEEP FRY OIL THERMOMETER": {
+        "category": "Home: Home Goods",
+        "categorization_explanation": "Kitchen cooking thermometer purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "DAIRY QUEEN": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "Fast food and ice cream restaurant.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "THXTOMS KIDS WINTER GLOVES WATERPROOF SKI SNOW GLOVES FOR BOYS & GIRLS COLD WEATHER OUTDOOR SPORTS SNOWBOARD BICYCLE FOR 4-14 YEARS OLD": {
+        "category": "Kids: Kids",
+        "categorization_explanation": "Winter gloves designed for children.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PAYROLL DEPOSIT LENDING LOOP": {
+        "category": "_Income: Paycheck",
+        "categorization_explanation": "Income deposit from employer payroll.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Paycheck / Income Deposit"
+    },
+    "GORILLA MICRO PRECISE SUPER GLUE, FAST-SETTING CYANOACRYLATE, PRECISE APPLICATOR, ANTI-CLOG CAP, CLEAR, 0.19OZ/5G, PACK OF 1": {
+        "category": "Home: Home Improvement",
+        "categorization_explanation": "Super glue adhesive for household repairs.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TIM HORTONS": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "Coffee and fast food chain.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PETRO-CANADA 10533": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "categorization_explanation": "Fuel purchase at gas station.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "THE OVE GLOVE - SUPERIOR HEAT & FLAME HAND PROTECTION - PACK OF 1 OVEN MITT": {
+        "category": "Home: Home Goods",
+        "categorization_explanation": "Heat resistant kitchen oven mitt.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-06-12)": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Outgoing bank account money transfer.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "IKEA.CA ONLINE": {
+        "category": "Home: Furnishings",
+        "categorization_explanation": "Online home furniture and decor purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ARCADIA/TAXEXPRESS": {
+        "category": "Taxes: Taxes",
+        "categorization_explanation": "Tax payment or filing service.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "REFUND: DARUITE PENCIL CASE, 3 PACK PLASTIC CLEAR PENCIL POUCH WITH SNAP LID, EASY TO CARRY, LARGE PEN CASE STACKABLE STORAGE ORGANIZER CONTAINER FOR HOME, OFFICE, CRAFTS, WHITE": {
+        "category": "_Income: Returned Purchase",
+        "categorization_explanation": "Refund for returned pencil case.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Returned Purchase"
+    },
+    "EVOLVEARTIST.COM": {
+        "category": "Entertainment: Arts",
+        "categorization_explanation": "Online art education course.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Art supplies"
+    },
+    "CANADIAN TIRE GAS BAR": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "categorization_explanation": "Gas station fuel purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "IRVING STATION": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "categorization_explanation": "Gas station fuel purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "FOODLAND": {
+        "category": "Food & Dining: Groceries",
+        "categorization_explanation": "Grocery store purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TWEEZER GURU TWEEZER SET - 5-PIECE SLANT TIP AND POINTED TWEEZERS SET - GREAT PRECISION TWEEZERS FOR EYEBROWS, SPLINTER AND INGROWN HAIR REMOVAL (BLACK)": {
+        "category": "Personal Care: Personal Care",
+        "categorization_explanation": "Grooming and personal care tweezers set.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALDS 40168": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "McDonald's fast food purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SWISS CHALET #1215E": {
+        "category": "Food & Dining: Restaurants",
+        "categorization_explanation": "Casual dining restaurant purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "NKA VF7000 FILTER FOR RIDGID SHOP VAC WET, 1-PACK WET FOAM FILTER REPLACEMENT COMPATIBLE WITH RIDGID 5-20 GALLON & HUSKY 6-9 GALLON WET/DRY VACUUMS FOR WET PICKUP ONLY": {
+        "category": "Home: Home Improvement",
+        "categorization_explanation": "Shop vacuum replacement filter.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "JENNOV 2.4GHZ/5 GHZ WIFI LIGHT BULB SECURITY CAMERA WIRELESS OUTDOOR - 2K CAMERAS FOR HOME SECURITY OUTSIDE, LIGHT SOCKET INDOOR CAMERA (BLACK, LIGHT BULB CAMERA / 1PK)": {
+        "category": "Shopping: Electronics & Software",
+        "categorization_explanation": "Outdoor wireless security camera.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "A STONE'S THROW PUB &": {
+        "category": "Food & Dining: Alcohol & Bars",
+        "categorization_explanation": "Pub and bar establishment.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SHOPPERS DRUG MART #14": {
+        "category": "Health & Fitness: Pharmacy",
+        "categorization_explanation": "Pharmacy and drugstore purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "HARDWARE STORE 02131": {
+        "category": "Home: Home Improvement",
+        "categorization_explanation": "Hardware store tools and materials.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "EBAY O*03-14091-33992": {
+        "category": "Shopping: Shopping",
+        "categorization_explanation": "Online marketplace eBay transaction.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SWISS CHALET 1268E": {
+        "category": "Food & Dining: Restaurants",
+        "categorization_explanation": "Casual dining restaurant purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TICKETMASTER CANADA HO": {
+        "category": "Entertainment: Entertainment",
+        "categorization_explanation": "Event ticket purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "DJI OSMO ACTION 4 STANDARD COMBO, 4K/120FPS WATERPROOF ACTION CAMERA WITH A 1/1.3-INCH SENSOR, STUNNING LOW-LIGHT IMAGING,10-BIT & D-LOG M COLOR PERFORMANCE, LONG-LASTING 160 MINS, OUTDOOR CAMERA": {
+        "category": "Shopping: Electronics & Software",
+        "categorization_explanation": "Action camera video recording equipment.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Drone Equipment"
+    },
+    "APPLE.COM/BILL": {
+        "category": "Bills & Utilities: Bills & Utilities",
+        "categorization_explanation": "Digital subscription or service fee.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SP ROM COMMERCIAL": {
+        "category": "Shopping: Shopping",
+        "categorization_explanation": "General commercial retail transaction.",
+        "flag": "Unclear merchant name description",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MISCELLANEOUS PAYMENTS EQUITABLE BANK CHEQUE": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Bank cheque payment transaction.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "BASKIN ROBBINS-": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "Ice cream fast food chain.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "BULK BARN BOWMANV": {
+        "category": "Food & Dining: Groceries",
+        "categorization_explanation": "Bulk food retail store.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MOBIL@ 4242 GAS STN": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "categorization_explanation": "Gas station fuel purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-04-16)": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Outgoing account money transfer.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "VISSERS SOD FARM": {
+        "category": "Home: Lawn & Garden",
+        "categorization_explanation": "Sod and lawn care materials.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-07-30)": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Outgoing account money transfer.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "MCDONALDS 23192": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "McDonald's fast food restaurant.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ADJUSTABLE SWIM BELT FOR ADULTS & TEENS, 4M SWIMMING RESISTANCE BELT WITH ELASTIC BUNGEE, THICKENED & WIDENED POOL ACCESSORY FOR STATIONARY SWIMMING TRAINING WITHOUT COUNTER CURRENT": {
+        "category": "Health & Fitness: Sports",
+        "categorization_explanation": "Swimming training resistance belt.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Likely Personal Item"
+    },
+    "A&W BOWMANVILLE": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "Fast food burger restaurant.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CHARTERED PROFESSIONAL": {
+        "category": "Financial: Financial Advisor",
+        "categorization_explanation": "Professional accounting or advisory services.",
+        "flag": "Broad descriptor merchant name",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-06-27)": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Outgoing account money transfer.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "TRANSFER OUT": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Bank transfer out.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "KOALA LASER TRANSPARENCY FILM, COLOR TRANSPARENT PAPER FOR OHP, CLEAR OVERHEAD PROJECTOR FILM 8.5X11 INCHES FOR LASER JET PRINTER AND COPIER, DOUBLE-SIDED PRINTING PHOTO TRANSPARENT FILM 100 PACKS": {
+        "category": "Shopping: Electronics & Software",
+        "categorization_explanation": "Specialty printer film supplies.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "BUG-A-SALT YELLOW 3.0": {
+        "category": "Home: Home Goods",
+        "categorization_explanation": "Insect control gadget for home.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CASHBACK / REMISES": {
+        "category": "Cash & ATM: Cash & ATM",
+        "categorization_explanation": "Cash withdrawal or cashback.",
+        "flag": "Cashback transaction",
+        "suggested_filter": "Yes",
+        "filter_reason": "ATM / Cashback"
+    },
+    "FIDO MOBILE ******2669": {
+        "category": "Bills & Utilities: Mobile Phone",
+        "categorization_explanation": "Mobile phone service bill.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
     }
 }

@@ -101,6 +101,18 @@ def main():
     )
     logger.info(f"Loaded {len(personal_keywords)} personal filtering keyword(s).")
 
+    exclusion_keywords = _load_text_config(
+        reference_dir, 'personal_soft_filter_exclusions.txt',
+        [
+            "# Add semantic concepts or keywords here, one per line, that should NEVER be soft-filtered.",
+            "# The Gemini LLM will NOT soft-filter transactions semantically matching these concepts, even if they match 'personal_soft_filter_keywords.txt'.",
+            "# Example:",
+            "# Groceries"
+        ],
+        logger
+    )
+    logger.info(f"Loaded {len(exclusion_keywords)} personal filtering exclusion(s).")
+
     category_hints = _load_text_config(
         reference_dir, 'category_hints.txt',
         [
@@ -136,6 +148,7 @@ def main():
         logger.info(f"[DRY-RUN]   API Calls Needed: {uncached_count}")
         logger.info(f"[DRY-RUN] Configuration:")
         logger.info(f"[DRY-RUN]   Personal Keywords: {len(personal_keywords)}")
+        logger.info(f"[DRY-RUN]   Exclusion Keywords: {len(exclusion_keywords)}")
         logger.info(f"[DRY-RUN]   Category Hints: {len(category_hints)}")
         
         return
@@ -148,7 +161,7 @@ def main():
 
     logger.info(f"Found {len(unique_merchants)} unique merchants. Calling Gemini for categorization...")
     
-    mapping = call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile, personal_keywords, category_hints)
+    mapping = call_gemini_categorization(unique_merchants, reference_dir, personal_items_profile, personal_keywords, exclusion_keywords, category_hints)
     
     logger.info("Formatting output...")
     output_df = format_output(df, mapping)
