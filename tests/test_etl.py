@@ -321,3 +321,18 @@ def test_keywords_cache_invalidation(tmp_path):
     assert invalidated is True
     assert not cache_file.exists()
 
+    # Re-create cache for next test
+    cache_file.write_text('{"MERCHANT": {"category": "Groceries"}}')
+    
+    # Run 4: Reordering keywords -> cache should NOT be invalidated (hash should be identical)
+    keywords_v3 = ["Gaming", "Video games", "Art supplies"]
+    invalidated = check_and_update_keywords_hash(ref_dir, keywords_v3)
+    assert invalidated is False
+    assert cache_file.exists()
+
+    # Run 5: Removing all keywords -> cache should be invalidated
+    keywords_v4 = []
+    invalidated = check_and_update_keywords_hash(ref_dir, keywords_v4)
+    assert invalidated is True
+    assert not cache_file.exists()
+

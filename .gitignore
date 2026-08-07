@@ -15,6 +15,7 @@ __pycache__/
 # Data files (ignore raw and processed, but allow reference if tracked)
 data/raw/*
 !data/raw/.gitkeep
+data/reference/.keywords_hash
 data/processed/*
 !data/processed/.gitkeep
 
