@@ -2,3 +2,4 @@
 # The Gemini LLM will NOT soft-filter transactions semantically matching these concepts, even if they match 'personal_soft_filter_keywords.txt'.
 # Example:
 # Groceries
+pool related items
