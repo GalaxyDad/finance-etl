@@ -38,21 +38,19 @@ def mock_data_dir():
             writer.writerow(['2023-10-21', 'COSTCO WHOLESALE', '113.60', '', '5223********3915'])
 
         # Mock WS Activities
-        ws_act_path = os.path.join(raw_dir, 'ws_activities-export-2023.csv')
+        ws_act_path = os.path.join(raw_dir, 'Wallet-2023-10-01-monthly-statement-transactions-WK75MLL.csv')
         with open(ws_act_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['transaction_date', 'settlement_date', 'account_id', 'account_type', 'activity_type', 'activity_sub_type', 'description', 'direction', 'symbol', 'name', 'currency', 'quantity', 'unit_price', 'commission', 'net_cash_amount'])
-            writer.writerow(['2023-10-25', '', 'WK75MLL', 'Chequing', 'MoneyMovement', 'EFT', 'Deposit', '', '', '', 'CAD', '5000', '', '', '5000'])
-            writer.writerow(['As of 2026-08-01 20:15 GMT-04:00', '', '', '', '', '', '', '', '', '', '', '', '', '', ''])
+            writer.writerow(['date', 'transaction', 'description', 'amount', 'balance', 'currency'])
+            writer.writerow(['2023-10-25', 'Deposit', 'Deposit', '5000', '5000', 'CAD'])
 
         # Mock WS Credit Card
-        ws_cc_path = os.path.join(raw_dir, 'ws_credit-card-activities-2023.csv')
+        ws_cc_path = os.path.join(raw_dir, 'Wealthsimple-credit-card-2023-10-01-credit-card-statement-transactions.csv')
         with open(ws_cc_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['transaction_date', 'transaction_type', 'status', 'merchant', 'amount', 'currency', 'notes', 'category'])
-            writer.writerow(['2023-10-26', 'Purchase', 'Completed', 'Mcdonalds 23192', '-12.86', 'CAD', '', 'Restaurants'])
-            writer.writerow(['2023-10-27', 'Payment', 'Completed', '', '200.00', 'CAD', '', 'Uncategorized'])
-            writer.writerow(['As of 2026-08-01 20:15 GMT-04:00', '', '', '', '', '', '', ''])
+            writer.writerow(['transaction_date', 'post_date', 'type', 'details', 'amount', 'currency'])
+            writer.writerow(['2023-10-26', '2023-10-26', 'Purchase', 'Mcdonalds 23192', '-12.86', 'CAD'])
+            writer.writerow(['2023-10-27', '2023-10-27', 'Payment', 'Payment', '200.00', 'CAD'])
 
         # Mock Categories
         categories_path = os.path.join(reference_dir, 'Jenn Mike Finance Tracker - Categories.csv')

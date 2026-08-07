@@ -1,1701 +1,182 @@
 {
-    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-06-09)": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Money transfer outgoing transaction.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
-    },
-    "OHUHU ACRYLIC PAINT MARKERS DUAL TIPS: 24 COLORS BRUSH & BULLET AUTOMATIC INK CONTROL ACRYLIC MARKERS HIGH OPACITY PAINT PENS WATERPROOF FOR ROCK PAINTING 3D PRINTS EGG WOOD DIY CRAFT - WAIMOKU": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Acrylic paint markers for arts and crafts.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Art supplies"
-    },
-    "STAR WARS ACTIONVERSE DARTH VADER 4.5-INCH ACTION FIGURE & ACCESSORIES, REUSABLE ACCESSORY STORAGE RACK, TOYS FOR BOYS & GIRLS AGES 4+": {
-        "category": "Kids: Toys",
-        "categorization_explanation": "Action figure toy for children.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "INVESTMENT WEALTHSIMPLE INVESTMENTS INC. CHEQUE": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Investment or financial account deposit.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
-    },
-    "AIR-SERV A AN01716": {
-        "category": "Auto & Transport: Service & Parts",
-        "categorization_explanation": "Automotive air tire inflation machine.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "AMAZON.CA PRIME MEMBER": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "Amazon Prime membership subscription.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "VIVA DORIA 100% PURE CLOVE BUD ESSENTIAL OIL, UNDILUTED, FOOD GRADE, 30 ML (1 FL OZ)": {
-        "category": "Personal Care: Personal Care",
-        "categorization_explanation": "Essential oil for wellness and personal care.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PAYMENT": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Generic bill or credit card payment.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Credit Card Payment"
-    },
-    "FROSTY JOHN'S PUB AND": {
-        "category": "Food & Dining: Alcohol & Bars",
-        "categorization_explanation": "Pub and bar purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "UMPIE PINK SHIRT DAY 2025 FOR KIDS, ANTI BULLYING PINK SHIRT UNISEX ROUND NECK COTTON BE KIND T-SHIRT (CA/US, ALPHA, LARGE, REGULAR, STYLE A)": {
-        "category": "Shopping: Clothing",
-        "categorization_explanation": "T-shirt clothing item.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "EBAY O*27-14057-44962": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "General marketplace purchase on eBay.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "GRANICELL 2032 BATTERY COMPATIBLE WITH AIRTAG CR2032 LITHIUM 3V COIN BATTERY FOR CHILD SAFETY, SUITABLE FOR KEY FOBS, SMART SENSORS, SCALES, CANDLES AND MORE (CR2032-50)": {
-        "category": "Home: Home Supplies",
-        "categorization_explanation": "Coin cell batteries for household items.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PIKETS TOILET BIDET, DOUBLE NOZZLE (FRONT & REAR WASH), NON-ELECTRIC TOILET BIDET, SELF-CLEANING NOZZLE, ADJUSTABLE WATER PRESSURE (01-WHITE)": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Toilet bidet fixture for home improvement.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "TLF*VAN BELLE FLOWERS": {
-        "category": "Home: Lawn & Garden",
-        "categorization_explanation": "Florist and flower store purchase.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Flower Stores"
-    },
-    "ROGERS ******4174": {
-        "category": "Bills & Utilities: Mobile Phone",
-        "categorization_explanation": "Telecom and mobile phone service provider.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SQ *LEGENDS MUSIC LLC": {
-        "category": "Entertainment: Music",
-        "categorization_explanation": "Music related purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ZENNI OPTICAL INC CAD": {
-        "category": "Health & Fitness: Eyecare",
-        "categorization_explanation": "Prescription eyeglasses and optical goods.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MCDONALD'S Q04": {
-        "category": "Food & Dining: Fast Food",
-        "categorization_explanation": "McDonald's fast food purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-07-14)": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Money transfer outgoing transaction.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
-    },
-    "INTERAC E-TRANSFER RECEIVE JENNIFER GORDON": {
-        "category": "_Income: Reimbursement",
-        "categorization_explanation": "Incoming e-transfer money received.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
-    },
-    "13 PCS SKETCH SPECIFIC SETS ADJUSTABLE DUAL SINGLE HEAD PENCIL EXTENDER HOLDER SANDING CARDBOARD SKETCH RICE PAPER PEN ART TOOL": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Sketching art supplies tool set.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Likely Personal Item"
-    },
-    "TOOTHBRUSH HOLDER,BATHROOM ORGANIZER COUNTERTOP,BATHROOM TRAY CADDY,MULTI-FUNCTIONAL 5 COMPARTMENTS STORAGE ORGANIZER FOR KITCHEN COUNTER/VANITY ORGANIZER/OFFICE DESK,DETACHABLE BOTTOM EASY TO CLEAN": {
-        "category": "Home: Home Goods",
-        "categorization_explanation": "Bathroom organizer and tray storage.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "REFUND: CANNON SPORTS 10 PACK ATHLETIC FINGER TAPE - 0.5 INCH X 45 FEET EACH ROLL - EXTRA STRONG ADHESIVE FOR ROCK CLIMBING, JIU-JITSU, WRESTLING, MARTIAL ARTS, WEIGHT TRAINING, VOLLEYBALL (WHITE, 10 PACK)": {
-        "category": "_Income: Returned Purchase",
-        "categorization_explanation": "Refund for returned athletic tape.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "HILROY STUDIO ART PAPER TRACING PAD, 9\" X 12\", TOP BOUND, 88 PAGES/44 SHEETS PER PAD, WHITE PAPER (41200)": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Art paper tracing pad supplies.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Art supplies"
-    },
-    "REFUND: WESTCOTT ZC-24 ZERO CENTER STAINLESS STEEL METAL RULER WITH NON-SLIP CORK BASE, 24 IN": {
-        "category": "_Income: Returned Purchase",
-        "categorization_explanation": "Refund for returned metal ruler.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-06-08)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Online bill payment transaction.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Credit Card Payment"
-    },
-    "VTOPMART 6 PCS BATHROOM COUNTERTOP ORGANIZER, 1 DIVIDED TRAY WITH 4 QTIP HOLDER JARS AND 1 DRAWERS, RESTROOM CLEAR ORGANIZERS FOR TOOTHBRUSH, COTTON PADS, VANITY ACCESSORIES STORAGE SET": {
-        "category": "Home: Home Goods",
-        "categorization_explanation": "Bathroom organizer and countertop set.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "KWMOBILE CASE COMPATIBLE WITH APPLE AIRPODS 4 - SILICONE COVER COMPATIBLE WITH AIRTAG - STORAGE WITH CARABINER - BLACK": {
-        "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "AirPods protective case accessory.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ROYAL ONTARIO MUSEUM": {
-        "category": "Entertainment: Arts",
-        "categorization_explanation": "Museum tickets and cultural arts entertainment.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "GREAT WOLF LODGE NIAGA": {
-        "category": "Travel: Vacation",
-        "categorization_explanation": "Resort lodge and vacation stay.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PURCHASE INTEREST": {
-        "category": "Fees & Charges: Finance Charge",
-        "categorization_explanation": "Interest charged on purchase balances.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ONTARIO STREET POOLS": {
-        "category": "Health & Fitness: Sports",
-        "categorization_explanation": "Public pool and swimming facility access.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SNUGELL UNSCENTED TRAVEL CPAP MASK WIPES - 12 PACKS 10 SHEETS EACH - 100% SOFT COTTON - SKIN-SAFE WITH ALOE VERA - LINT AND ALCOHOL FREE- PERFECT ON-THE-GO CLEANING & SANITIZING CPAP MASKS AND DEVICES": {
-        "category": "Health & Fitness: Pharmacy",
-        "categorization_explanation": "Medical equipment wipes for CPAP masks.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "10 PACK VF3503 VACUUM BAGS COMPATIBLE WITH RIDGID 5-10 GALLON SHOP VAC BAGS | SIZE B WET/DRY VACUUMS BAGS FILTER BAGS": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Vacuum cleaner filter bags.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Likely Personal Item"
-    },
-    "INTERAC E-TRANSFER SEND JENN GORDON": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Outgoing interac e-transfer payment.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
-    },
-    "REFUND: CONT\u00c9 \u00c0 PARIS SKETCHING & DRAWING PENCILS, SET OF 6, SANGUINE ASSORTED": {
-        "category": "_Income: Returned Purchase",
-        "categorization_explanation": "Refund for returned drawing pencils.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SANDISK 128GB EXTREME MICROSD UHS I CARD FOR 4K VIDEO ON SMARTPHONES, ACTION CAMS & DRONES 190MB/S READ, 90MB/S WRITE SDSQXAA 128G GN6MN, RED/GOLD": {
-        "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "MicroSD memory card for cameras and drones.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Drone Equipment"
-    },
-    "REFUND: MEEDEN TABLE SKETCH BOX EASEL -PORTABLE SOLID BEECH TABLETOP WOOD EASEL DRAWING & SKETCHING BOARD WITH STORAGE DRAWER & PALETTE FOR BEGINNER ARTIST, ART STUDENTS & KIDS, CANVAS UP TO 11\" \u00d7 14\"": {
-        "category": "_Income: Returned Purchase",
-        "categorization_explanation": "Refund for returned table easel.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PETRO-CANADA 04866": {
-        "category": "Auto & Transport: Gas & Fuel",
-        "categorization_explanation": "Gas station purchase at Petro-Canada.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SP PERSONALIZEDPRESC": {
-        "category": "Health & Fitness: Pharmacy",
-        "categorization_explanation": "Prescription pharmacy transaction.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PETRO-CANADA 14308": {
-        "category": "Auto & Transport: Gas & Fuel",
-        "categorization_explanation": "Gas station fuel purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MCDONALDS 5707": {
-        "category": "Food & Dining: Fast Food",
-        "categorization_explanation": "McDonald's fast food restaurant.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "DOLLAR TREE CANADA #40": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "Dollar store retail shopping.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "INTEREST RECEIVED (EXECUTED AT 2026-04-01)": {
-        "category": "_Income: Interest Income",
-        "categorization_explanation": "Interest earned and received in account.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "VEVOR FRENCH EASEL, HOLD CANVAS TO 34\", BEECHWOOD FOLDABLE SKETCHBOX EASEL WITH DRAWER, PALETTE AND STRAP, ANGLE AND HEIGHT ADJUSTABLE, PORTABLE WOODEN ART PAINTING EASEL FOR STUDIO AND FIELD": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Art painting easel for sketching.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Art supplies"
-    },
-    "CONT\u00c9 \u00c0 PARIS SKETCHING & DRAWING PENCILS, SET OF 6, SANGUINE ASSORTED": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Sketching and drawing pencils set.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Art supplies"
-    },
-    "STAEDTLER 2.0MM MECHANICAL PENCIL SILVER SERIES (925 25-20)": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Mechanical pencil for drawing.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Art supplies"
-    },
-    "SPEEDO UNISEX ADULT SWIM BULLET HEAD SNORKEL - ARCTIC GLASS, ONE SIZE": {
+    "CANNON SPORTS 10 PACK ATHLETIC FINGER TAPE - 0.5 INCH X 45 FEET EACH ROLL - EXTRA STRONG ADHESIVE FOR ROCK CLIMBING, JIU-JITSU, WRESTLING, MARTIAL ARTS, WEIGHT TRAINING, VOLLEYBALL (WHITE, 10 PACK)": {
         "category": "Shopping: Sporting Goods",
-        "categorization_explanation": "Swim gear and snorkeling equipment.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "12 X 12\" CLEAR ACRYLIC SHEET PLEXIGLASS (2-PACK) - 1/8\" THICK; USE FOR CRAFT PROJECTS, SIGNS, DIY PROJECTS AND MORE; CUT, SAW OR HAND TOOLS - NO KNIVES": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Acrylic sheets for craft and DIY projects.",
+        "categorization_explanation": "Athletic tape for sports and workout use.",
         "flag": "",
         "suggested_filter": "Yes",
         "filter_reason": "Likely Personal Item"
     },
-    "JUNE GOLD 36 PIECES, 2.0 MM 2B LEAD REFILLS, EXTRA BOLD THICKNESS, BREAK RESISTANT LEAD/GRAPHITE": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Lead refills for drawing and sketching pencils.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Art supplies"
-    },
-    "NAPOLEON INFRARED SIDE BURNER FOR LEX 485 & PRESTIGE 450/500/665, STAINLESS STEEL (S81005)": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "BBQ side burner accessory for home outdoor cooking setup.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MUNICIPALITY OF CLARIN": {
-        "category": "Taxes: Property Tax",
-        "categorization_explanation": "Municipal government payment typically associated with taxes or local fees.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "KOOL-AID WATERMELON LIQUID DRINK MIX, 48 ML BOTTLE (PACK OF 12)": {
-        "category": "Food & Dining: Groceries",
-        "categorization_explanation": "Drink mix consumable item bought in multi-pack.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MASTERSON ARTIST PALETTE SEAL, 12IN X 16IN AIRTIGHT PALETTE CONTAINER, KEEPS WET PAINT FRESH FOR WEEKS, OIL OR ACRYLIC PAINTING PALETTE WITH LID, SEAL, BLUE LID BOX, MADE IN USA": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Painting palette container used for fine art.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Matches Personal Filtering Keyword"
-    },
-    "ARMK CTC BANQUETS": {
-        "category": "Food & Dining: Restaurants",
-        "categorization_explanation": "Banquet hall and catering services.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "GARAGE DOOR KEYPAD WITH 2 PACK GARAGE DOOR OPENER REMOTE, FIT FOR LIFTMASTER/CHAMBERLAIN/CRAFTSMAN GARAGE DOOR OPENER WITH YELLOW/PURPLE/RED/ORANGE/GREEN LEARN BUTTONR SINCE 1993": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Garage door opener hardware replacement part.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-05-27)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Online bill payment transfer.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer / Bill Payment"
-    },
-    "FALLING IN ART MAHL STICK FOR PAINTING, 33 6/7 INCHES IN LENGTH ALUMINUM ROD WITH ARTIFICIAL LEATHER, ARTISTS AND PAINTERS HAND REST TOOL": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Mahl stick tool used for painting.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Matches Personal Filtering Keyword"
-    },
-    "DOLLARAMA": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "Discount variety store purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "HAMMERMILL PRINTER PAPER, LASER PRINT COPY PAPER, 32LB, 8.5 X 11, LETTER, 98 BRIGHT - 1 PACK / 500 SHEETS (104646R)": {
-        "category": "Home: Home Supplies",
-        "categorization_explanation": "Printer paper consumable for home or office.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "OWMANVILLE PROFESSIONA": {
-        "category": "Health & Fitness: Doctor",
-        "categorization_explanation": "Professional health/medical facility located in Bowmanville.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MCDONALD'S # 20796 Q04": {
-        "category": "Food & Dining: Fast Food",
-        "categorization_explanation": "McDonald's fast food restaurant purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "CHIPOTLE": {
-        "category": "Food & Dining: Fast Food",
-        "categorization_explanation": "Fast casual Mexican restaurant.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "OTTLITE CLIP-ON LED EASEL LAMP": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Lamp designed specifically for painting easels.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Matches Personal Filtering Keyword"
-    },
-    "COSTCO GAS W1128": {
-        "category": "Auto & Transport: Gas & Fuel",
-        "categorization_explanation": "Costco gasoline station transaction.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "WIFI WATER TIMER FOR GARDEN HOSE WITH BRASS INLET & OUTLET,SMART HOSE TIMER WITH WIFI HUB, APP & VOICE CONTROL,UP TO 20 WATERING PLANS, 2-ZONE SPRINKLER DRIP IRRIGATION SYSTEM CONTROLLER FOR WATERING": {
-        "category": "Home: Lawn & Garden",
-        "categorization_explanation": "Smart watering system for lawn and garden irrigation.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SQ *OPA'Z GREEK": {
-        "category": "Food & Dining: Restaurants",
-        "categorization_explanation": "Greek restaurant purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PRE-AUTHORIZED DEBIT": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Automated recurring pre-authorized payment.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer / Automatic Payment"
-    },
-    "WMT SUPRCTR": {
-        "category": "Food & Dining: Groceries",
-        "categorization_explanation": "Walmart Supercentre purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "EBAY O*23-14063-27238": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "Online marketplace purchase on eBay.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SQ /AUTOSTAR TX": {
-        "category": "Auto & Transport: Auto & Transport",
-        "categorization_explanation": "Automotive services merchant.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "AIRUNTECH WATERPROOF PHONE POUCH,DOUBLE SEAL PHONE CASE FOR IPHONE 17 16 15 14 13 12 PRO MAX,FLOATING BAG FOR POOL SWIMMING CANOE KAYAK BOATING PADDLE BOARD, BEACH CAMPING ESSENTIALS ACCESSORIES": {
-        "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "Waterproof phone pouch accessory.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Likely Personal Item"
-    },
-    "SHALL 6-PIECE LOCKING PLIERS, VICE GRIPS PLIERS SET, 5\",7\" & 10\" CURVED JAW, 6-1/2\" & 9-1/2 LONG NOSE LOCKING PLIERS, 6\" LOCKING C-CLAMP, TWO-COLOR TPR HANDLE, ROLL UP POUCH INCLUDED": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Hand tool pliers set for repairs and construction.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ULTRAMAR": {
-        "category": "Auto & Transport: Gas & Fuel",
-        "categorization_explanation": "Gas station purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "TOMBOW MONO ZERO ERASER, ROUND 2.3 MM, 1-PACK": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Precision eraser used for drawing and art.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Matches Personal Filtering Keyword"
-    },
-    "PITA PIT": {
-        "category": "Food & Dining: Fast Food",
-        "categorization_explanation": "Fast food pita restaurant.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "DARUITE PENCIL CASE, 3 PACK PLASTIC CLEAR PENCIL POUCH WITH SNAP LID, EASY TO CARRY, LARGE PEN CASE STACKABLE STORAGE ORGANIZER CONTAINER FOR HOME, OFFICE, CRAFTS, WHITE": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "Plastic storage containers for pens and office items.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "INTERNET BILL PAYMENT MASTERCARD ROGERS BANK": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Online payment towards credit card bill.",
+    "ONLINE BILL PAYMENT FOR ROGERS BANK-MASTERCARD, ACCOUNT \u2219\u2219\u2219\u22190634 (EXECUTED AT 2026-07-23)": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Bill payment towards credit card account.",
         "flag": "",
         "suggested_filter": "Yes",
         "filter_reason": "Credit Card Payment"
     },
-    "SP ECOBEE-CA": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Smart thermostat and home automation products.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "TALK OF THE TOWN": {
-        "category": "Food & Dining: Restaurants",
-        "categorization_explanation": "Local dining establishment.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "2 PCS 6\"/12\" CLEAR ACRYLIC RULER ZERO-CENTERING RULER WITH INCHES & METRIC MEASURING TOOL 12\" AND 6\" INCH STRAIGHT EDGE RULERS FOR SCRAPBOOKING CARD-MAKING STUDENT SCHOOL OFFICE HOME TOOL": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "Acrylic measuring tools.",
+    "SNUGELL UNSCENTED CPAP MASK WIPES - 110 COUNT (3-PACK) - 100% SOFT COTTON - LINT & ALCOHOL FREE - SKIN-SAFE FORMULA WITH ALOE VERA - EASY-TO-OPEN CANISTER - FOR CLEANING CPAP MASKS, TUBES, AND DEVICES": {
+        "category": "Health & Fitness: Pharmacy",
+        "categorization_explanation": "CPAP medical wipes for equipment cleaning.",
         "flag": "",
         "suggested_filter": "Yes",
         "filter_reason": "Likely Personal Item"
     },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-04-29)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Executed online bill payment.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer / Bill Payment"
-    },
-    "DICKEY'S BARBEQUE PIT": {
-        "category": "Food & Dining: Restaurants",
-        "categorization_explanation": "Barbecue restaurant chain.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "KOH-I-NOOR MECHANICAL HARDTMUTH LEAD HOLDER WITH 5.6MM X 120MM LEAD, BLACK WITH CLIP, 1 EACH (5347PN1005KK)": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Art drawing lead holder tool.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Matches Personal Filtering Keyword"
-    },
-    "SQ *BREATHE WELL CPAP": {
-        "category": "Health & Fitness: Health & Fitness",
-        "categorization_explanation": "Medical CPAP sleep equipment provider.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MNR-FISH AND WILDLIFE": {
-        "category": "Shopping: Sporting Goods",
-        "categorization_explanation": "Fishing and wildlife permits/licensing.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PETRO-CANADA 35073": {
-        "category": "Auto & Transport: Gas & Fuel",
-        "categorization_explanation": "Petro-Canada gas station transaction.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MONTE CARLO INN MARKHA": {
-        "category": "Travel: Hotel",
-        "categorization_explanation": "Hotel stay booking.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "INTEREST": {
+    "INTEREST REVERSAL": {
         "category": "_Income: Interest Income",
-        "categorization_explanation": "Bank interest earned income.",
+        "categorization_explanation": "Reversal of interest charge or income.",
         "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer / Adjustment"
     },
-    "GORILLA GLUE EPOXY, DRIES CLEAR, GAP FILLING, INDOOR & OUTDOOR, WATER RESISTANT, 5 MINUTE SET, DRIES CLEAR TRANSPARENT, 0.85OZ/25ML, (PACK OF 1) 4200602": {
+    "HARDWARE STORE 02131": {
         "category": "Home: Home Improvement",
-        "categorization_explanation": "Adhesive epoxy product for repair and home improvement.",
+        "categorization_explanation": "Purchase made at a hardware store.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
     },
-    "BRITA ELITE REPLACEMENT FILTER, REDUCES 30+ CONTAMINANTS WHILE KEEPING HEALTHY MINERALS, WQA CERTIFIED TO REDUCE LEAD, MICROPLASTICS, CHROMIUM AND CHLORINE, LASTS 6 MONTHS, 2 COUNT": {
+    "THE OVE GLOVE - SUPERIOR HEAT & FLAME HAND PROTECTION - PACK OF 1 OVEN MITT": {
         "category": "Home: Home Supplies",
-        "categorization_explanation": "Water pitcher replacement filters.",
+        "categorization_explanation": "Oven mitt heat protection tool for home.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
     },
-    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-04-06)": {
+    "MATRIX MEGA SLEEK SHAMPOO, FOR FRIZZY AND UNRULY HAIR, CONTROLS FRIZZ & FLYAWAYS, SMOOTHS HAIR WITH SHEA BUTTER, VEGAN": {
+        "category": "Personal Care: General Hygiene",
+        "categorization_explanation": "Hair shampoo personal care product.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ONLINE BILL PAYMENT FOR ROGERS BANK-MASTERCARD, ACCOUNT \u2219\u2219\u2219\u22190634 (EXECUTED AT 2026-04-22)": {
         "category": "Financial: Financial",
-        "categorization_explanation": "Outbound fund transfer.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
-    },
-    "EFT CREDIT EQUITABLE BANK": {
-        "category": "_Income: Reimbursement",
-        "categorization_explanation": "Incoming bank electronic transfer credit.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
-    },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-07-23)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Executed online bill payment.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer / Bill Payment"
-    },
-    "CIRCLE K": {
-        "category": "Auto & Transport: Gas & Fuel",
-        "categorization_explanation": "Convenience store and gas station purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "CROWN MAINTENANCE INC": {
-        "category": "Home: Home Services",
-        "categorization_explanation": "Home repair and maintenance contractor.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "UTILITY BILL PAYMENT ENBRIDGE CHEQUE": {
-        "category": "Bills & Utilities: Utilities",
-        "categorization_explanation": "Enbridge natural gas utility bill payment.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer / Bill Payment"
-    },
-    "STAPLES 429": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "Office supply store purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "UDEMY: ONLINE COURSES": {
-        "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "Digital course and online learning platform purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "VOIP.MS": {
-        "category": "Bills & Utilities: Home Phone",
-        "categorization_explanation": "VoIP internet phone service provider.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "AMAZON BASICS CLASSIC 8-INCH CHEF KNIFE WITH THREE RIVETS": {
-        "category": "Home: Home Supplies",
-        "categorization_explanation": "Kitchen knife purchase classified as home supplies.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "EFT CREDIT MANULIFE": {
-        "category": "_Income: Reimbursement",
-        "categorization_explanation": "Incoming electronic transfer reimbursement from insurance company.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Reimbursement / Income"
-    },
-    "CREDIT CARD PAYMENT": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Payment made toward a credit card balance.",
+        "categorization_explanation": "Credit card bill payment transaction.",
         "flag": "",
         "suggested_filter": "Yes",
         "filter_reason": "Credit Card Payment"
     },
-    "EBAY O*20-14037-34102": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "General marketplace purchase on eBay.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MEEDEN TABLE SKETCH BOX EASEL -PORTABLE SOLID BEECH TABLETOP WOOD EASEL DRAWING & SKETCHING BOARD WITH STORAGE DRAWER & PALETTE FOR BEGINNER ARTIST, ART STUDENTS & KIDS, CANVAS UP TO 11\" \u00d7 14\"": {
-        "category": "Entertainment: Arts",
-        "categorization_explanation": "Tabletop sketch box easel for art and drawing.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Art supplies"
-    },
-    "SPEEDBALL PH COATE ARTIST WILLOW CHARCOAL ASSORTED LENGTHS 30 STICKS, BLACK": {
-        "category": "Entertainment: Arts",
-        "categorization_explanation": "Artist charcoal sticks used for drawing and sketching.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Art supplies"
-    },
-    "DIRECT DEPOSIT RECEIVED": {
-        "category": "_Income: Paycheck",
-        "categorization_explanation": "Direct deposit income payment received.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Paycheck / Income"
-    },
-    "METRO 453": {
-        "category": "Food & Dining: Groceries",
-        "categorization_explanation": "Metro supermarket grocery store purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-05-14)": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Outgoing fund transfer executed from account.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
-    },
-    "SWISS CHALET": {
-        "category": "Food & Dining: Restaurants",
-        "categorization_explanation": "Restaurant transaction at Swiss Chalet.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PIZZAIOLO": {
-        "category": "Food & Dining: Restaurants",
-        "categorization_explanation": "Pizzeria restaurant purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-03-25)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Online payment towards utility or service bill.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Bill Payment"
-    },
-    "CANADIAN TIRE": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Retail store specializing in home improvement and auto items.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MCDONALD'S": {
+    "BURGER KING": {
         "category": "Food & Dining: Fast Food",
         "categorization_explanation": "Fast food restaurant purchase.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
     },
-    "MANULIFE FINANCIAL": {
-        "category": "Financial: Life Insurance",
-        "categorization_explanation": "Financial services and insurance provider payment.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "2X ANKLE STRAPS FOR DUMBBELL AND CABLE MACHINE, MONKEY FOOT DUMBBELL ATTACHMENT STRAPS FOR GYM TRAINER AND ANKLE STRAPS FOR WEIGHT LIFTING, LEG EXTENSIONS FOR WOMEN AND MEN": {
-        "category": "Shopping: Sporting Goods",
-        "categorization_explanation": "Gym equipment and weightlifting ankle straps.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "CLOSEMATE MENS PERFORMANCE CUSHION ATHLETIC QUARTER SOCKS MINI CREW 6 PAIRS COTTON COMFY AND BREATHABLE FOR RUNNING SPORTS SOCKS(2BLACK 2WHITE 2GREY, SIZE L)": {
-        "category": "Shopping: Clothing",
-        "categorization_explanation": "Men's athletic socks purchase.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Mens Clothing"
-    },
-    "SWISS CHALET 1139E": {
-        "category": "Food & Dining: Restaurants",
-        "categorization_explanation": "Swiss Chalet restaurant location payment.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-07-18)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Executed online payment for bill.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Bill Payment"
-    },
-    "TAUNTON TACOS": {
-        "category": "Food & Dining: Restaurants",
-        "categorization_explanation": "Taco restaurant purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "GOOGLE *GOOGLE ONE": {
-        "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "Google cloud storage software subscription.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "BELL CANADA (OB)": {
-        "category": "Bills & Utilities: Mobile Phone",
-        "categorization_explanation": "Telecommunication provider bill payment.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PERRI'S SOCKS - GUNS N ROSES LINER SOCKS, OFFICIALLY LICENSED ROCK BAND FLAT SOCKS,CUSHIONED FOOTSIES FOR MEN AND WOMEN, PREMIUM INVISIBLE SOCKS, WHITE, 1 PAIR - GRA401-100-L": {
-        "category": "Shopping: Clothing",
-        "categorization_explanation": "Licensed band socks item.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Mens Clothing"
-    },
-    "SPEND": {
-        "category": "Misc Expenses: Misc Expenses",
-        "categorization_explanation": "Ambiguous expense transaction.",
-        "flag": "Vague transaction descriptor name",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MICHAELS": {
-        "category": "Entertainment: Arts",
-        "categorization_explanation": "Arts and crafts store retailer.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Art supplies"
-    },
-    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-05-29)": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Outgoing transfer of funds.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
-    },
-    "REFERRAL BONUS (2026-03-10)": {
-        "category": "_Income: Bonus",
-        "categorization_explanation": "Referral incentive bonus income deposit.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Bonus Income"
-    },
-    "GIVEAWAY RECEIVED": {
-        "category": "_Income: Reimbursement",
-        "categorization_explanation": "Inflow credit from giveaway reward.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Income"
-    },
-    "DERWENT PASTEL PENCIL SHARPENER": {
-        "category": "Entertainment: Arts",
-        "categorization_explanation": "Art pencil sharpener for drawing supplies.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Art supplies"
-    },
-    "BURGER KING": {
-        "category": "Food & Dining: Fast Food",
-        "categorization_explanation": "Fast food burger restaurant.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ENERCARE HOME SERVICES": {
-        "category": "Bills & Utilities: Utilities",
-        "categorization_explanation": "Home water heater and HVAC utility provider.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "UBER CANADA/UBEREATS": {
-        "category": "Food & Dining: Fast Food",
-        "categorization_explanation": "Food delivery service transaction.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ABOVEGROUND ENTERPRISE": {
-        "category": "Entertainment: Entertainment",
-        "categorization_explanation": "Enterprise categorized under general entertainment.",
-        "flag": "Unclear merchant business category",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SP NORTHERN FITNESS": {
-        "category": "Health & Fitness: Gym",
-        "categorization_explanation": "Fitness center gym transaction.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "BOWMANVILLE GUARDIAN P": {
-        "category": "Health & Fitness: Pharmacy",
-        "categorization_explanation": "Guardian Pharmacy retail store location.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "14117689 CANADA INC.": {
-        "category": "Misc Expenses: Misc Expenses",
-        "categorization_explanation": "Numbered Canadian corporation transaction.",
-        "flag": "Generic corporate merchant name",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "STAEDTLER LUMOGRAPH CORRECTABLE, DRY ERASE PEN WITH CAP ERASER, FINE TIP, IDEAL FOR TRANSPARENT SHEETS AND NOTEPADS, 4 PACK, 305F WP4-1": {
-        "category": "Entertainment: Arts",
-        "categorization_explanation": "Dry erase pens and drawing supplies.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Art supplies"
-    },
-    "BOWMANVILLE FOOT & ORT": {
-        "category": "Health & Fitness: Doctor",
-        "categorization_explanation": "Foot care and orthotics medical clinic.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PAYROLL DEPOSIT COMPUGEN INC.": {
-        "category": "_Income: Paycheck",
-        "categorization_explanation": "Employment payroll direct deposit.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Paycheck"
-    },
-    "STYLUS PENS FOR TOUCH SCREENS, 5 PACK STYLUS PEN FOR IPAD IPHONE ANDROID CHROMEBOOK TABLETS AND MORE CAPACITIVE TOUCHSCREEN DEVICES HIGH SENSITIVITY & PRECISION NO SCRATCHES RUBBER TIPS STYLIST": {
-        "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "Electronic accessory touch screen stylus pens.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "KOOL-AID WATERMELON LIQUID DRINK MIX, 12 CT CASE": {
-        "category": "Food & Dining: Groceries",
-        "categorization_explanation": "Packaged drink mix grocery product.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PAYMENT THANK YOU/PAIEMEN T MERCI": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Credit card balance payment confirmation.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Credit Card Payment"
-    },
-    "CAMERA DESK MOUNT WEBCAM STAND WITH OVERHEAD ARTICULATING MAGIC BOOM ARM 1/4\" BALL HEAD FOR DSLR TRIPOD, ADJUSTABLE LIGHT STAND, TABLETOP C CLAMP FOR RING LIGHT PHOTO VIDEO SHOOTING LIVE STREAMING": {
-        "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "Webcam stand and camera desk mount equipment.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "GOBITELI SHOE HORN,14.5\"-37\" RETRACTABLE LONG HANDLE ALUMINUM SHOE HORN FOR MEN,WOMEN,KIDS, SENIORS(BLACK)": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "Retractable shoe horn general purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-05-11)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Online payment for utility bill.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Bill Payment"
-    },
-    "INTEREST RECEIVED (EXECUTED AT 2026-08-01)": {
-        "category": "_Income: Interest Income",
-        "categorization_explanation": "Interest earnings credited to bank account.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Interest Income"
-    },
-    "MORTGAGE RMG MORTGAGE CORPORATION": {
-        "category": "Home: Mortgage & Rent",
-        "categorization_explanation": "Mortgage payment to RMG Mortgage.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "YUHENGCT 6 PACK BRICK CLIPS HANGER HOOKS, MOUNT ON WITHOUT DRILLING, ADJUSTABLE STAINLESS STEEL WALL CLIPS FOR HANGING OUTDOOR PICTURES,NO NEED TO DRILL NAILS OR SCREWS, BLACK": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Hardware wall clips for home mounting.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "U.S. SOLID THUMB SPICA SPLINT- THUMB BRACE FOR ARTHRITIS OR SOFT TISSUE INJURIES, LIGHTWEIGHT AND BREATHABLE, STABILIZING AND NOT RESTRICTIVE, FITS BOTH HANDS, A PRODUCT (LARGE/XL)": {
-        "category": "Health & Fitness: Health & Fitness",
-        "categorization_explanation": "Medical thumb splint support brace.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "INTERAC E-TRANSFER\u00ae OUT": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Outgoing electronic funds transfer.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
-    },
-    "LEARNING RESOURCES CANADIAN CURRENCY-X-CHANGE, PRETEND PLAY MONEY FOR KIDS, DEVELOPS SORTING AND MONEY SKILLS, 211 PIECES, AGES 5+": {
-        "category": "Kids: Toys",
-        "categorization_explanation": "Pretend play money toy designed for kids.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "OUTDOOR ADVENTURE KIT FOR KIDS -16 PCS BINOCULARS,COMPASS,FLASHLIGHT,MAGNIFYING GLASS KIDS,BUTTERFLY KIT,HANDHELD MICROSCOPE,GOOD BIRTHDAY FOR KIDS AGES 4-12": {
-        "category": "Kids: Toys",
-        "categorization_explanation": "Outdoor exploration toy kit for children.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-06-23)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Executed online payment towards bills.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer / Bill Payment"
-    },
-    "PETRO-CANADA 12575": {
-        "category": "Auto & Transport: Gas & Fuel",
-        "categorization_explanation": "Gasoline fuel station purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SNUGELL UNSCENTED CPAP MASK WIPES - 110 COUNT (3-PACK) - 100% SOFT COTTON - LINT & ALCOHOL FREE - SKIN-SAFE FORMULA WITH ALOE VERA - EASY-TO-OPEN CANISTER - FOR CLEANING CPAP MASKS, TUBES, AND DEVICES": {
-        "category": "Health & Fitness: Pharmacy",
-        "categorization_explanation": "Cleaning wipes for medical CPAP equipment.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "CANNON SPORTS 10 PACK ATHLETIC FINGER TAPE - 0.5 INCH X 45 FEET EACH ROLL - EXTRA STRONG ADHESIVE FOR ROCK CLIMBING, JIU-JITSU, WRESTLING, MARTIAL ARTS, WEIGHT TRAINING, VOLLEYBALL (WHITE, 10 PACK)": {
-        "category": "Shopping: Sporting Goods",
-        "categorization_explanation": "Athletic tape for sports and training.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "THE HOME DEPOT BOWMANVILLE, ON": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Hardware and home improvement store transaction.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "COSTCO WHOLESALE W1128": {
-        "category": "Food & Dining: Groceries",
-        "categorization_explanation": "Grocery store purchase at Costco wholesale.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "INTEREST RECEIVED (EXECUTED AT 2026-05-01)": {
-        "category": "_Income: Interest Income",
-        "categorization_explanation": "Interest earnings credited to account.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Interest Income"
-    },
-    "BOWMANVILLE PHARMACY": {
-        "category": "Health & Fitness: Pharmacy",
-        "categorization_explanation": "Pharmacy goods and health supplies.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-05-16)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Online payment for regular utility bill.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer / Bill Payment"
-    },
-    "AJ APPLIANCE REPAIR": {
-        "category": "Home: Home Services",
-        "categorization_explanation": "Repair services for home appliances.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "THE HOME DEPOT": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Home improvement retail store purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
     "BIOGUARD SMART SHIELD (946 ML) LIQUID SOLAR COVER AND POOL WATER CONSERVER (SKU 4819)": {
         "category": "Home: Home Supplies",
-        "categorization_explanation": "Maintenance product for home swimming pool.",
+        "categorization_explanation": "Liquid solar cover chemical for pool maintenance.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
     },
-    "DOLLARAMA # 739": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "General merchandise purchase at Dollarama.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "INTEREST RECEIVED (EXECUTED AT 2026-07-01)": {
-        "category": "_Income: Interest Income",
-        "categorization_explanation": "Interest earned on bank balance.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Interest Income"
-    },
-    "SWISSCHALET #1206E": {
-        "category": "Food & Dining: Restaurants",
-        "categorization_explanation": "Dining out at Swiss Chalet restaurant.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SELF ADHESIVE BANDAGE WRAP 12 PACK 2\" X 5 YARD ELASTIC VET WRAP COHESIVE BANDAGE NON WOVEN BREATHABLE BANDAGE FOR WRIST ANKLE SPRAINS SWELLING(BLACK-12PACK)": {
-        "category": "Health & Fitness: Pharmacy",
-        "categorization_explanation": "First aid elastic cohesive bandages.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ST. CHRISTOPHER'S HOTE": {
-        "category": "Travel: Hotel",
-        "categorization_explanation": "Hotel stay and accommodation.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MIKE'S NF OSHAWA 7532": {
-        "category": "Food & Dining: Groceries",
-        "categorization_explanation": "Grocery store purchase at No Frills.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SPORT BAND COMPATIBLE WITH APPLE WATCH 42MM 44MM 45MM 46MM 49MM 38MM 40MM 41MM WOMEN MEN, BREATHABLE SOFT SILICONE REPLACEMENT STRAP FOR IWATCH SE3/2/1 SERIES 11 10 9 8 7 6 5 4 3 ULTRA 3/2/1": {
-        "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "Electronic accessory band for smartwatch.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "INTEREST REVERSAL": {
-        "category": "_Income: Interest Income",
-        "categorization_explanation": "Reversal of previously credited interest.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Interest Reversal"
-    },
-    "ASTROAI TIRE INFLATOR PORTABLE AIR COMPRESSOR (UP TO 150 PSI) TIRE PUMP FOR CAR 12V DC DIGITAL AIR PUMP WITH 12 LEDS SUPER BRIGHT LIGHT FOR BICYCLE, MOTORCYCLE, AUTOMOTIVE CAR ACCESSORIES": {
-        "category": "Auto & Transport: Service & Parts",
-        "categorization_explanation": "Automotive tool for tire maintenance.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MGS-BUSINESS NAME REG/": {
-        "category": "Fees & Charges: Service Fee",
-        "categorization_explanation": "Government fee for business registration.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "RING SOLO PLAN": {
-        "category": "Home: Home Services",
-        "categorization_explanation": "Home security subscription service.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PETRO-CANADA 30592": {
-        "category": "Auto & Transport: Gas & Fuel",
-        "categorization_explanation": "Petro-Canada gas station transaction.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SEPHORA.CA": {
-        "category": "Personal Care: Personal Care",
-        "categorization_explanation": "Beauty products and personal care.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "AOSU 2K SECURITY CAMERA WIRELESS OUTDOOR, SOLAR POWERED SECURITY CAMERA WITH SPOTLIGHT, SIREN, MOTION DETECTION, FULL COLOR NIGHT VISION, 2-WAY AUDIO, IP66, COMPATIBLE WITH ALEXA, 2.4GHZ WIFI (1PACK)": {
-        "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "Wireless security camera hardware purchase.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Likely Personal Item"
-    },
-    "FINGER SPLINT KITS 9 PCS OVAL FINGER SPLINTS & 3 PACK FINGER SLEEVES FOR TRIGGER, MALLET, ARTHRITIS STRAIGHTENING FINGER BRACE SUPPORT FOR THUMB/MIDDLE/RING/INDEX/PINKY (SIZE 3-11)": {
-        "category": "Health & Fitness: Pharmacy",
-        "categorization_explanation": "Medical support splint for finger injuries.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "DAM FOODS LIMITED": {
-        "category": "Food & Dining: Groceries",
-        "categorization_explanation": "Food product retail market purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PAYMENT THANK YOU": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Credit card or loan payment confirmation.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Credit Card Payment"
-    },
-    "WOODS 151 18/2-GAUGE SPT-2 CLAMP LAMP WITH 8.5-INCH REFLECTOR, 150-WATT, 6-FOOT CORD": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Clamp lamp fixture hardware.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "AMAZON BASICS PAINTERS TAPE, 3.6CM X 55M, 4 ROLLS, BLUE": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Blue painters tape for home painting.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-07-15)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Executed online bill payment.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer / Bill Payment"
-    },
-    "PACIFIC ARC 2MM LEAD HOLDER AND LEAD SHARPENER, BLACK DRAFTING PENCIL FOR ARTIST DRAWING, DRAFTING, AND SKETCHING": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Drafting pencil and sharpener for art.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Matches Personal Filtering Keyword"
-    },
-    "MARK'S STORE": {
-        "category": "Shopping: Clothing",
-        "categorization_explanation": "Apparel and clothing purchase at Mark's.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Matches Personal Filtering Keyword"
-    },
-    "ZIPPER PULLS - 10 PCS REPLACEMENT, TAB FOR BACKPACKS, BOOTS, SUITCASE, CLOTHES (SILVER, BLACK)": {
-        "category": "Home: Home Supplies",
-        "categorization_explanation": "Replacement zipper pull tabs for repair.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-04-07)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Online payment executed for bill.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer / Bill Payment"
-    },
-    "KINDLE SVCS": {
-        "category": "Shopping: Books",
-        "categorization_explanation": "Digital e-books through Kindle service.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Matches Personal Filtering Keyword"
-    },
-    "FABER-CASTELL ERASERS - DRAWING ART KNEADED ERASERS, LARGE SIZE GREY - 4 PACK": {
-        "category": "Shopping: Hobbies",
-        "categorization_explanation": "Kneaded erasers for drawing and art.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Matches Personal Filtering Keyword"
-    },
-    "MINDBEACON HEALTH INC.": {
-        "category": "Health & Fitness: Doctor",
-        "categorization_explanation": "Therapy and mental health care service.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "NALGENE SUSTAIN TRITAN BPA-FREE WATER BOTTLE MADE WITH MATERIAL DERIVED FROM 50% PLASTIC WASTE, 16 OZ, NARROW MOUTH, CORNFLOWER BLUE": {
-        "category": "Shopping: Sporting Goods",
-        "categorization_explanation": "Reusable sports hydration water bottle.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "LOBLAWS": {
-        "category": "Food & Dining: Groceries",
-        "categorization_explanation": "Supermarket grocery purchase at Loblaws.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "REFUND: AIRUNTECH WATERPROOF PHONE POUCH,DOUBLE SEAL PHONE CASE FOR IPHONE 17 16 15 14 13 12 PRO MAX,FLOATING BAG FOR POOL SWIMMING CANOE KAYAK BOATING PADDLE BOARD, BEACH CAMPING ESSENTIALS ACCESSORIES": {
-        "category": "_Income: Returned Purchase",
-        "categorization_explanation": "Refund credit for returned purchase.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Likely Personal Item"
-    },
-    "CROCS UNISEX-ADULT BAYA TWO-STRAP SLIDE SANDALS, COBBLESTONE, 11 MEN/13 WOMEN": {
-        "category": "Shopping: Clothing",
-        "categorization_explanation": "Sandals footwear purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-07-06)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Online payment towards utility bills.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer / Bill Payment"
-    },
-    "WESTCOTT ZC-24 ZERO CENTER STAINLESS STEEL METAL RULER WITH NON-SLIP CORK BASE, 24 IN": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "Stainless steel measurement ruler.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MATRIX MEGA SLEEK SHAMPOO, FOR FRIZZY AND UNRULY HAIR, CONTROLS FRIZZ & FLYAWAYS, SMOOTHS HAIR WITH SHEA BUTTER, VEGAN": {
-        "category": "Personal Care: Hair",
-        "categorization_explanation": "Hair care shampoo product.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "WWW.CANADIANTIRE.CA": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Canadian Tire online retail store.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "100PCS STICKY HANDS PARTY FAVORS FOR KIDS 4-8 8-12 BIRTHDAY SUPPLIES VALENTINE GOODIE BAG STUFFERS CLASSROOM TREASURE BOX CARNIVAL PRIZES BULK TREAT TRINKETS PINATA STUFF MINI STRETCHY TOYS": {
-        "category": "Kids: Toys",
-        "categorization_explanation": "Bulk sticky hands toys for kids.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Likely Personal Item"
-    },
-    "UPAIN 48PCS SILICONE EAR PLUGS REUSABLE MOLDABLE NOISE CANCELING EAR PLUGS FOR SLEEPING, SWIMMING, CONCERTS AND TRAVELING": {
-        "category": "Personal Care: Personal Care",
-        "categorization_explanation": "Ear plugs for sleeping and noise canceling.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "INTERAC E-TRANSFER\u00ae RECEIVED": {
+    "INTERAC E-TRANSFER RECEIVE JENNIFER GORDON": {
         "category": "_Income: Reimbursement",
-        "categorization_explanation": "Money received via Interac e-Transfer.",
+        "categorization_explanation": "Incoming Interac e-transfer payment received.",
         "flag": "",
         "suggested_filter": "Yes",
         "filter_reason": "Internal Transfer"
     },
     "SANDISK 128GB HIGH ENDURANCE VIDEO MICROSDXC CARD WITH ADAPTER FOR DASH CAM- C10, U3,V30,4K UHD,MICRO SD CARD-SDSQQNR-128G-GN6IA": {
         "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "MicroSD memory card purchase.",
+        "categorization_explanation": "Memory card for dash cam electronics.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
     },
-    "COSTCO WHOLESALE W1324 ST. JOHN'S, NL": {
-        "category": "Food & Dining: Groceries",
-        "categorization_explanation": "Groceries purchased at Costco wholesale.",
+    "ONTARIO STREET POOLS": {
+        "category": "Home: Home Improvement",
+        "categorization_explanation": "Pool maintenance and installation service provider.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
     },
-    "FRESHCO": {
-        "category": "Food & Dining: Groceries",
-        "categorization_explanation": "Grocery store purchase at FreshCo.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "AKRO-MILS 10126 26-DRAWER PLASTIC DRAWER STORAGE CABINET FOR GARAGE ORGANIZATION, BUILDING BRICKS STORAGE, TEACHER TOOLBOX, MAKEUP ORGANIZER, AND MORE, 20-INCH W X 6-INCH D X 10-INCH H, RED": {
-        "category": "Home: Home Supplies",
-        "categorization_explanation": "Storage cabinet for garage or home organization.",
+    "CROCS UNISEX-ADULT BAYA TWO-STRAP SLIDE SANDALS, COBBLESTONE, 11 MEN/13 WOMEN": {
+        "category": "Shopping: Clothing",
+        "categorization_explanation": "Footwear sandals clothing item.",
         "flag": "",
         "suggested_filter": "Yes",
         "filter_reason": "Likely Personal Item"
-    },
-    "NEEWER BASICS MAGNETIC COLD SHOE MOUNT ADAPTER COMPATIBLE WITH DJI OSMO ACTION 3 4 5 PRO NANO 360 ACTION CAMS, QUICK RELEASE WITH 1/4\" SCREW HOLE FOR CAMERA HOT SHOE MINI TRIPOD SELFIE STICK, AC037": {
-        "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "Camera mount adapter accessory.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-06-13)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Online payment for bills and utilities.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Bill Payment"
     },
     "KIKERIKE SELF ADHESIVE FOAM TAPE WEATHERSTRIP 1/2IN X 1/4IN X 16.5FT HIGH DENSITY FOAM INSULATION STRIPS SEAL WEATHER STRIPPING WITH STRONG ADHESIVE FOR DOOR AND WINDOW SOUND ISOLATION SOUNDPROOFING": {
         "category": "Home: Home Improvement",
-        "categorization_explanation": "Weatherstripping insulation tape for door and window home improvement.",
+        "categorization_explanation": "Foam weatherstripping insulation for doors and windows.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
     },
-    "CRAVE IT'S FRIDAY": {
-        "category": "Food & Dining: Restaurants",
-        "categorization_explanation": "Restaurant food purchase based on historical mapping.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "AS2M (1053121), LONG POINT SHARPENER, SHARPENS IN 2 STEPS; 2 SPARE BLADES INCLUDES. WITH LEAD POINTERS FOR 2 MM AND 3.2 MM. BLUE ONLY": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "Long point pencil sharpener item.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Likely Personal Item"
-    },
-    "REFUND: ANKLE STRAPS FOR DUMBBELL AND CABLE MACHINE, MONKEY FOOT DUMBBELL ATTACHMENT STRAPS FOR GYM TRAINER AND ANKLE STRAPS FOR WEIGHT LIFTING, LEG EXTENSIONS FOR WOMEN AND MEN": {
-        "category": "_Income: Returned Purchase",
-        "categorization_explanation": "Refund received for a returned item.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Returned Purchase"
-    },
-    "REFERRAL BONUS (2026-04-10)": {
-        "category": "_Income: Bonus",
-        "categorization_explanation": "Bonus income received from a referral.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Bonus Income"
-    },
-    "ONLINE BILL PAYMENT (EXECUTED AT 2026-04-21)": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Payment executed for online utility bills.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Bill Payment"
-    },
-    "INTEREST RECEIVED (EXECUTED AT 2026-06-01)": {
-        "category": "_Income: Interest Income",
-        "categorization_explanation": "Interest income credited to bank account.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Interest Income"
-    },
-    "ATM FEE REIMBURSEMENT": {
-        "category": "_Income: Reimbursement",
-        "categorization_explanation": "Reimbursement received for an ATM fee.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Reimbursement"
-    },
-    "A30 EXPRESS": {
-        "category": "Auto & Transport: Tolls",
-        "categorization_explanation": "Toll charge for express highway travel.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "UMPIE PINK SHIRT DAY 2025 FOR KIDS, ANTI BULLYING PINK SHIRT UNISEX ROUND NECK COTTON BE KIND T-SHIRT (CA/US, ALPHA, SMALL, REGULAR, STYLE A)": {
-        "category": "Shopping: Clothing",
-        "categorization_explanation": "Cotton t-shirt apparel for kids.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "DEPOSIT": {
-        "category": "_Income: Reimbursement",
-        "categorization_explanation": "General deposit income transaction.",
-        "flag": "Vague deposit label context",
-        "suggested_filter": "Yes",
-        "filter_reason": "Bank Deposit"
-    },
-    "REFUND: JENNOV 2.4GHZ/5 GHZ WIFI LIGHT BULB SECURITY CAMERA WIRELESS OUTDOOR - 2K CAMERAS FOR HOME SECURITY OUTSIDE, LIGHT SOCKET INDOOR CAMERA (BLACK, LIGHT BULB CAMERA / 1PK)": {
-        "category": "_Income: Returned Purchase",
-        "categorization_explanation": "Refund for returned home security camera item.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Returned Purchase"
-    },
-    "PIZZA PIZZA LIMITED": {
-        "category": "Food & Dining: Restaurants",
-        "categorization_explanation": "Pizza restaurant chain purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-04-08)": {
+    "TRANSFER OUT": {
         "category": "Financial: Financial",
-        "categorization_explanation": "Outgoing bank transfer transaction.",
+        "categorization_explanation": "Outgoing account transfer of funds.",
         "flag": "",
         "suggested_filter": "Yes",
         "filter_reason": "Internal Transfer"
     },
-    "THERMOPRO TP511 WATERPROOF DIGITAL CANDY THERMOMETER WITH LONG PROBE INSTANT READ FOOD COOKING MEAT THERMOMETER FOR GRILLING SMOKER BBQ DEEP FRY OIL THERMOMETER": {
-        "category": "Home: Home Goods",
-        "categorization_explanation": "Kitchen cooking thermometer purchase.",
+    "FALLING IN ART MAHL STICK FOR PAINTING, 33 6/7 INCHES IN LENGTH ALUMINUM ROD WITH ARTIFICIAL LEATHER, ARTISTS AND PAINTERS HAND REST TOOL": {
+        "category": "Shopping: Hobbies",
+        "categorization_explanation": "Artist mahl stick painting tool.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Likely Personal Item"
+    },
+    "ZIPPER PULLS - 10 PCS REPLACEMENT, TAB FOR BACKPACKS, BOOTS, SUITCASE, CLOTHES (SILVER, BLACK)": {
+        "category": "Home: Home Supplies",
+        "categorization_explanation": "Replacement zipper tabs for general repairs.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "GOOGLE *GOOGLE ONE": {
+        "category": "Bills & Utilities: Internet",
+        "categorization_explanation": "Google cloud storage subscription service.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
     },
     "DAIRY QUEEN": {
         "category": "Food & Dining: Fast Food",
-        "categorization_explanation": "Fast food and ice cream restaurant.",
+        "categorization_explanation": "Fast food chain transaction.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
     },
-    "THXTOMS KIDS WINTER GLOVES WATERPROOF SKI SNOW GLOVES FOR BOYS & GIRLS COLD WEATHER OUTDOOR SPORTS SNOWBOARD BICYCLE FOR 4-14 YEARS OLD": {
-        "category": "Kids: Kids",
-        "categorization_explanation": "Winter gloves designed for children.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PAYROLL DEPOSIT LENDING LOOP": {
-        "category": "_Income: Paycheck",
-        "categorization_explanation": "Income deposit from employer payroll.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Paycheck / Income Deposit"
-    },
-    "GORILLA MICRO PRECISE SUPER GLUE, FAST-SETTING CYANOACRYLATE, PRECISE APPLICATOR, ANTI-CLOG CAP, CLEAR, 0.19OZ/5G, PACK OF 1": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Super glue adhesive for household repairs.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "TIM HORTONS": {
-        "category": "Food & Dining: Fast Food",
-        "categorization_explanation": "Coffee and fast food chain.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "PETRO-CANADA 10533": {
-        "category": "Auto & Transport: Gas & Fuel",
-        "categorization_explanation": "Fuel purchase at gas station.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "THE OVE GLOVE - SUPERIOR HEAT & FLAME HAND PROTECTION - PACK OF 1 OVEN MITT": {
-        "category": "Home: Home Goods",
-        "categorization_explanation": "Heat resistant kitchen oven mitt.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-06-12)": {
+    "INTERNET BILL PAYMENT MASTERCARD ROGERS BANK": {
         "category": "Financial: Financial",
-        "categorization_explanation": "Outgoing bank account money transfer.",
+        "categorization_explanation": "Online credit card payment.",
         "flag": "",
         "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
+        "filter_reason": "Credit Card Payment"
     },
-    "IKEA.CA ONLINE": {
-        "category": "Home: Furnishings",
-        "categorization_explanation": "Online home furniture and decor purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ARCADIA/TAXEXPRESS": {
-        "category": "Taxes: Taxes",
-        "categorization_explanation": "Tax payment or filing service.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "REFUND: DARUITE PENCIL CASE, 3 PACK PLASTIC CLEAR PENCIL POUCH WITH SNAP LID, EASY TO CARRY, LARGE PEN CASE STACKABLE STORAGE ORGANIZER CONTAINER FOR HOME, OFFICE, CRAFTS, WHITE": {
-        "category": "_Income: Returned Purchase",
-        "categorization_explanation": "Refund for returned pencil case.",
+    "ZENNI OPTICAL INC CAD": {
+        "category": "Health & Fitness: Eyecare",
+        "categorization_explanation": "Prescription eyewear and optical supplies.",
         "flag": "",
         "suggested_filter": "Yes",
-        "filter_reason": "Returned Purchase"
+        "filter_reason": "Likely Personal Item"
     },
-    "EVOLVEARTIST.COM": {
-        "category": "Entertainment: Arts",
-        "categorization_explanation": "Online art education course.",
+    "ONLINE BILL PAYMENT FOR ROGERS BANK-MASTERCARD, ACCOUNT \u2219\u2219\u2219\u22190634 (EXECUTED AT 2026-06-23)": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Online credit card payment.",
         "flag": "",
         "suggested_filter": "Yes",
-        "filter_reason": "Art supplies"
+        "filter_reason": "Credit Card Payment"
     },
-    "CANADIAN TIRE GAS BAR": {
-        "category": "Auto & Transport: Gas & Fuel",
-        "categorization_explanation": "Gas station fuel purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "IRVING STATION": {
-        "category": "Auto & Transport: Gas & Fuel",
-        "categorization_explanation": "Gas station fuel purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "FOODLAND": {
+    "MIKE'S NF OSHAWA 7532": {
         "category": "Food & Dining: Groceries",
-        "categorization_explanation": "Grocery store purchase.",
+        "categorization_explanation": "Grocery purchase at No Frills.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
     },
-    "TWEEZER GURU TWEEZER SET - 5-PIECE SLANT TIP AND POINTED TWEEZERS SET - GREAT PRECISION TWEEZERS FOR EYEBROWS, SPLINTER AND INGROWN HAIR REMOVAL (BLACK)": {
-        "category": "Personal Care: Personal Care",
-        "categorization_explanation": "Grooming and personal care tweezers set.",
+    "CLOSEMATE MENS PERFORMANCE CUSHION ATHLETIC QUARTER SOCKS MINI CREW 6 PAIRS COTTON COMFY AND BREATHABLE FOR RUNNING SPORTS SOCKS(2BLACK 2WHITE 2GREY, SIZE L)": {
+        "category": "Shopping: Clothing",
+        "categorization_explanation": "Men's athletic socks apparel purchase.",
         "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
+        "suggested_filter": "Yes",
+        "filter_reason": "Likely Personal Item"
     },
-    "MCDONALDS 40168": {
+    "PITA PIT": {
         "category": "Food & Dining: Fast Food",
-        "categorization_explanation": "McDonald's fast food purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SWISS CHALET #1215E": {
-        "category": "Food & Dining: Restaurants",
-        "categorization_explanation": "Casual dining restaurant purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "NKA VF7000 FILTER FOR RIDGID SHOP VAC WET, 1-PACK WET FOAM FILTER REPLACEMENT COMPATIBLE WITH RIDGID 5-20 GALLON & HUSKY 6-9 GALLON WET/DRY VACUUMS FOR WET PICKUP ONLY": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Shop vacuum replacement filter.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "JENNOV 2.4GHZ/5 GHZ WIFI LIGHT BULB SECURITY CAMERA WIRELESS OUTDOOR - 2K CAMERAS FOR HOME SECURITY OUTSIDE, LIGHT SOCKET INDOOR CAMERA (BLACK, LIGHT BULB CAMERA / 1PK)": {
-        "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "Outdoor wireless security camera.",
+        "categorization_explanation": "Fast food restaurant purchase.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
@@ -1707,179 +188,165 @@
         "suggested_filter": "No",
         "filter_reason": ""
     },
-    "SHOPPERS DRUG MART #14": {
-        "category": "Health & Fitness: Pharmacy",
-        "categorization_explanation": "Pharmacy and drugstore purchase.",
+    "ENERCARE HOME SERVICES": {
+        "category": "Home: Home Services",
+        "categorization_explanation": "Home heating, cooling, and utility services.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
     },
-    "HARDWARE STORE 02131": {
-        "category": "Home: Home Improvement",
-        "categorization_explanation": "Hardware store tools and materials.",
+    "UDEMY: ONLINE COURSES": {
+        "category": "Shopping: Hobbies",
+        "categorization_explanation": "Online education and learning courses.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
     },
-    "EBAY O*03-14091-33992": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "Online marketplace eBay transaction.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SWISS CHALET 1268E": {
-        "category": "Food & Dining: Restaurants",
-        "categorization_explanation": "Casual dining restaurant purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "TICKETMASTER CANADA HO": {
-        "category": "Entertainment: Entertainment",
-        "categorization_explanation": "Event ticket purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "DJI OSMO ACTION 4 STANDARD COMBO, 4K/120FPS WATERPROOF ACTION CAMERA WITH A 1/1.3-INCH SENSOR, STUNNING LOW-LIGHT IMAGING,10-BIT & D-LOG M COLOR PERFORMANCE, LONG-LASTING 160 MINS, OUTDOOR CAMERA": {
-        "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "Action camera video recording equipment.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Drone Equipment"
-    },
-    "APPLE.COM/BILL": {
-        "category": "Bills & Utilities: Bills & Utilities",
-        "categorization_explanation": "Digital subscription or service fee.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "SP ROM COMMERCIAL": {
-        "category": "Shopping: Shopping",
-        "categorization_explanation": "General commercial retail transaction.",
-        "flag": "Unclear merchant name description",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MISCELLANEOUS PAYMENTS EQUITABLE BANK CHEQUE": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Bank cheque payment transaction.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
-    },
-    "BASKIN ROBBINS-": {
-        "category": "Food & Dining: Fast Food",
-        "categorization_explanation": "Ice cream fast food chain.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "BULK BARN BOWMANV": {
-        "category": "Food & Dining: Groceries",
-        "categorization_explanation": "Bulk food retail store.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MOBIL@ 4242 GAS STN": {
-        "category": "Auto & Transport: Gas & Fuel",
-        "categorization_explanation": "Gas station fuel purchase.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-04-16)": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Outgoing account money transfer.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
-    },
-    "VISSERS SOD FARM": {
-        "category": "Home: Lawn & Garden",
-        "categorization_explanation": "Sod and lawn care materials.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-07-30)": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Outgoing account money transfer.",
-        "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
-    },
-    "MCDONALDS 23192": {
-        "category": "Food & Dining: Fast Food",
-        "categorization_explanation": "McDonald's fast food restaurant.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "ADJUSTABLE SWIM BELT FOR ADULTS & TEENS, 4M SWIMMING RESISTANCE BELT WITH ELASTIC BUNGEE, THICKENED & WIDENED POOL ACCESSORY FOR STATIONARY SWIMMING TRAINING WITHOUT COUNTER CURRENT": {
-        "category": "Health & Fitness: Sports",
-        "categorization_explanation": "Swimming training resistance belt.",
+    "TOMBOW MONO ZERO ERASER, ROUND 2.3 MM, 1-PACK": {
+        "category": "Shopping: Hobbies",
+        "categorization_explanation": "Precision drafting and art eraser.",
         "flag": "",
         "suggested_filter": "Yes",
         "filter_reason": "Likely Personal Item"
     },
-    "A&W BOWMANVILLE": {
-        "category": "Food & Dining: Fast Food",
-        "categorization_explanation": "Fast food burger restaurant.",
-        "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "CHARTERED PROFESSIONAL": {
-        "category": "Financial: Financial Advisor",
-        "categorization_explanation": "Professional accounting or advisory services.",
-        "flag": "Broad descriptor merchant name",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "MONEY TRANSFER OUT OF THE ACCOUNT (EXECUTED AT 2026-06-27)": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Outgoing account money transfer.",
+    "EFT CREDIT EQUITABLE BANK": {
+        "category": "_Income: Reimbursement",
+        "categorization_explanation": "Electronic bank credit transfer.",
         "flag": "",
         "suggested_filter": "Yes",
         "filter_reason": "Internal Transfer"
     },
-    "TRANSFER OUT": {
-        "category": "Financial: Financial",
-        "categorization_explanation": "Bank transfer out.",
+    "14117689 CANADA INC.": {
+        "category": "Misc Expenses: Misc Expenses",
+        "categorization_explanation": "Corporate entity payment with unclear details.",
+        "flag": "Merchant identity is ambiguous",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ROYAL ONTARIO MUSEUM": {
+        "category": "Entertainment: Arts",
+        "categorization_explanation": "Museum admissions and cultural exhibit.",
         "flag": "",
-        "suggested_filter": "Yes",
-        "filter_reason": "Internal Transfer"
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TOOTHBRUSH HOLDER,BATHROOM ORGANIZER COUNTERTOP,BATHROOM TRAY CADDY,MULTI-FUNCTIONAL 5 COMPARTMENTS STORAGE ORGANIZER FOR KITCHEN COUNTER/VANITY ORGANIZER/OFFICE DESK,DETACHABLE BOTTOM EASY TO CLEAN": {
+        "category": "Home: Home Supplies",
+        "categorization_explanation": "Countertop bathroom caddy organizer.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
     },
     "KOALA LASER TRANSPARENCY FILM, COLOR TRANSPARENT PAPER FOR OHP, CLEAR OVERHEAD PROJECTOR FILM 8.5X11 INCHES FOR LASER JET PRINTER AND COPIER, DOUBLE-SIDED PRINTING PHOTO TRANSPARENT FILM 100 PACKS": {
-        "category": "Shopping: Electronics & Software",
-        "categorization_explanation": "Specialty printer film supplies.",
+        "category": "Home: Home Supplies",
+        "categorization_explanation": "Laser printer transparency film paper.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
     },
-    "BUG-A-SALT YELLOW 3.0": {
-        "category": "Home: Home Goods",
-        "categorization_explanation": "Insect control gadget for home.",
+    "2 PCS 6\"/12\" CLEAR ACRYLIC RULER ZERO-CENTERING RULER WITH INCHES & METRIC MEASURING TOOL 12\" AND 6\" INCH STRAIGHT EDGE RULERS FOR SCRAPBOOKING CARD-MAKING STUDENT SCHOOL OFFICE HOME TOOL": {
+        "category": "Shopping: Hobbies",
+        "categorization_explanation": "Clear acrylic rulers for crafting.",
         "flag": "",
-        "suggested_filter": "No",
-        "filter_reason": ""
-    },
-    "CASHBACK / REMISES": {
-        "category": "Cash & ATM: Cash & ATM",
-        "categorization_explanation": "Cash withdrawal or cashback.",
-        "flag": "Cashback transaction",
         "suggested_filter": "Yes",
-        "filter_reason": "ATM / Cashback"
+        "filter_reason": "Likely Personal Item"
     },
-    "FIDO MOBILE ******2669": {
-        "category": "Bills & Utilities: Mobile Phone",
-        "categorization_explanation": "Mobile phone service bill.",
+    "SHALL 6-PIECE LOCKING PLIERS, VICE GRIPS PLIERS SET, 5\",7\" & 10\" CURVED JAW, 6-1/2\" & 9-1/2 LONG NOSE LOCKING PLIERS, 6\" LOCKING C-CLAMP, TWO-COLOR TPR HANDLE, ROLL UP POUCH INCLUDED": {
+        "category": "Home: Home Improvement",
+        "categorization_explanation": "Locking pliers hardware tool set.",
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
+    },
+    "TRANSFER OUT TO RRSP": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Internal transfer to retirement savings.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "MNR-FISH AND WILDLIFE": {
+        "category": "Shopping: Hobbies",
+        "categorization_explanation": "Outdoor fishing and wildlife licensing.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "EFT CREDIT MANULIFE": {
+        "category": "_Income: Reimbursement",
+        "categorization_explanation": "Electronic insurance credit payment.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "PAYROLL DEPOSIT COMPUGEN INC.": {
+        "category": "_Income: Paycheck",
+        "categorization_explanation": "Direct deposit salary payment.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Payroll Deposit"
+    },
+    "CIRCLE K": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "categorization_explanation": "Convenience store and gas station.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALD'S": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "Fast food restaurant transaction.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "LEARNING RESOURCES CANADIAN CURRENCY-X-CHANGE, PRETEND PLAY MONEY FOR KIDS, DEVELOPS SORTING AND MONEY SKILLS, 211 PIECES, AGES 5+": {
+        "category": "Kids: Toys",
+        "categorization_explanation": "Pretend currency play toy for children.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "STAR WARS ACTIONVERSE DARTH VADER 4.5-INCH ACTION FIGURE & ACCESSORIES, REUSABLE ACCESSORY STORAGE RACK, TOYS FOR BOYS & GIRLS AGES 4+": {
+        "category": "Kids: Toys",
+        "categorization_explanation": "Action figure toy for children.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "UMPIE PINK SHIRT DAY 2025 FOR KIDS, ANTI BULLYING PINK SHIRT UNISEX ROUND NECK COTTON BE KIND T-SHIRT (CA/US, ALPHA, SMALL, REGULAR, STYLE A)": {
+        "category": "Kids: Kids",
+        "categorization_explanation": "Children's awareness t-shirt purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMAZON BASICS CLASSIC 8-INCH CHEF KNIFE WITH THREE RIVETS": {
+        "category": "Home: Home Supplies",
+        "categorization_explanation": "Kitchen chef knife culinary tool.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "THE HOME DEPOT BOWMANVILLE, ON": {
+        "category": "Home: Home Improvement",
+        "categorization_explanation": "Home improvement retailer purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PIKETS TOILET BIDET, DOUBLE NOZZLE (FRONT & REAR WASH), NON-ELECTRIC TOILET BIDET, SELF-CLEANING NOZZLE, ADJUSTABLE WATER PRESSURE (01-WHITE)": {
+        "category": "Home: Home Improvement",
+        "categorization_explanation": "Bathroom toilet bidet fixture.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "REFUND: AIRUNTECH WATERPROOF PHONE POUCH,DOUBLE SEAL PHONE CASE FOR IPHONE 17 16 15 14 13 12 PRO MAX,FLOATING BAG FOR POOL SWIMMING CANOE KAYAK BOATING PADDLE BOARD, BEACH CAMPING ESSENTIALS ACCESSORIES": {
+        "category": "_Income: Returned Purchase",
+        "categorization_explanation": "Refund transaction for returned merchandise.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Refund Transaction"
     }
 }
