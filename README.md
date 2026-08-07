@@ -61,6 +61,7 @@ GEMINI_API_KEY=your_actual_key_here
 
 ### 3. Provide Data
 - Drop your raw bank statement CSVs into `data/raw/`. Supported banks are: Rogers, Simplii, CIBC, and Wealthsimple (`Wallet*.csv` and `Wealthsimple-credit-card*.csv`).
+  - *Note for Wealthsimple*: If you need to know where to get the input CSV files for Wealthsimple, use the Wealthsimple chat agent to ask *"How to bulk download your monthly statements"*.
 - Ensure reference CSV files are placed in `data/reference/`:
   - `Jenn Mike Finance Tracker - Categories.csv` (Allowed category taxonomy)
   - `Jenn Mike Finance Tracker - Mike Transaction Register.csv` (Historical shared expense register)
