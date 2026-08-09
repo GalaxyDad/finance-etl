@@ -41,6 +41,7 @@ finance-etl/
 │   └── amazon.py                         # Amazon shipment/refund reconciliation and item expansion engine
 ├── tests/                                # Pytest test suite (unit tests and integration mocks)
 ├── requirements.txt                      # Python dependencies (polars, google-genai, pytest, etc.)
+├── DATA_DICTIONARY.md                    # Evergreen data dictionary detailing input/output file schemas
 └── README.md                             # Project documentation
 ```
 
