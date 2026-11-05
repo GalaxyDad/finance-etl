@@ -12,6 +12,7 @@ This project is a local Python ETL (Extract, Transform, Load) pipeline designed 
   - [4. Verification & Execution](#4-verification--execution)
   - [5. Post-Processing & Importing the Output File](#5-post-processing--importing-the-output-file)
 - [Amazon Data & Personal Filtering](#amazon-data--personal-filtering)
+  - [How to Request Amazon Data (Amazon.ca)](#how-to-request-amazon-data-amazonca)
   - [Data Update Expectations & Workflow](#data-update-expectations--workflow)
   - [Amazon Reconciliation Process](#amazon-reconciliation-process)
   - [User Semantic Concepts & LLM Categorization Hints](#user-semantic-concepts--llm-categorization-hints)
@@ -137,9 +138,29 @@ Once the pipeline runs, it outputs a timestamped CSV file in `data/processed/` (
 
 ## Amazon Data & Personal Filtering
 
+### How to Request Amazon Data (Amazon.ca)
+Amazon phased out its instant order history generator for retail customers, so raw itemized order and refund data must be requested through Amazon's Privacy / Data Request portal:
+
+1. **Submit Request on Amazon.ca**:
+   - Log into [Amazon.ca](https://www.amazon.ca) on a desktop web browser.
+   - Go to **Accounts & Lists** (top right) → **Your Account**.
+   - Under the **Data and Privacy** section, click **Request your information** (or navigate directly to [amazon.ca/privacy/data-request](https://www.amazon.ca/privacy/data-request)).
+   - In the category selection dropdown, select **Your Orders** and click **Submit Request**.
+2. **Confirm the Security Email**:
+   - Amazon will immediately send an automated confirmation email to verify your request.
+   - **Crucial Step**: You must open this email and click the confirmation link/button. If you skip this step, Amazon will cancel the request.
+3. **Download the Data Archive**:
+   - When the export is prepared (typically within a few hours to 24 hours), Amazon will send an email with a secure download link.
+   - Click the link to download the `.zip` archive.
+4. **Extract and Place Reference Files**:
+   - Unzip the downloaded file. Inside the `Retail.OrderHistory.1` (or `Your Orders`) folder, locate:
+     - `Order History.csv` (contains shipments, item names, prices, quantities, and carrier tracking)
+     - `Refund Details.csv` (contains refunded order numbers, refund dates, and amounts)
+   - Copy or overwrite these two files into `data/reference/`.
+
 ### Data Update Expectations & Workflow
 The pipeline processes reference files dynamically from `data/reference/`:
-* **Fresh Amazon Exports**: To expand new bank charges into itemized product descriptions, export fresh data from your Amazon account (*Accounts & Lists -> Request Your Information -> Orders*) and place/overwrite `Order History.csv` and `Refund Details.csv` in `data/reference/`.
+* **Fresh Amazon Exports**: To expand new bank charges into itemized product descriptions, follow the request steps above whenever you want to reconcile recent purchases and place/overwrite `Order History.csv` and `Refund Details.csv` in `data/reference/`.
 * **Fallback Behavior**: If you do not update the Amazon export files, the pipeline will not crash or fail. Any new Amazon bank charges will simply fail to match a shipment and will **safely remain generic** (e.g., `"AMZN Mktp CA"`), falling back to standard LLM categorization without line-item expansion.
 * **Updating Historical Register**: Periodically updating `Jenn Mike Finance Tracker - Mike Transaction Register.csv` allows the system to continuously learn. As new shared expenses are approved, the "Personal Items Profile" automatically updates to recognize personal vs. shared items more accurately.
 

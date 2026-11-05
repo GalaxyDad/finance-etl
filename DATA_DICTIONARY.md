@@ -68,6 +68,7 @@ These files provide taxonomy, historical context, and rules for LLM categorizati
 
 ### 2.3 Amazon Orders (`Order History.csv`)
 * **Format**: CSV
+* **Source**: Downloaded via Amazon.ca's "Request your information" data export (under "Your Orders"). See `README.md` for the step-by-step export process.
 * **Description**: Export of Amazon order history used for line-item expansion.
 * **Key Columns**: 
   * `Order ID`: Amazon order identifier.
@@ -79,6 +80,7 @@ These files provide taxonomy, historical context, and rules for LLM categorizati
 
 ### 2.4 Amazon Refunds (`Refund Details.csv`)
 * **Format**: CSV
+* **Source**: Downloaded via Amazon.ca's "Request your information" data export (under "Your Orders"). See `README.md` for the step-by-step export process.
 * **Description**: Export of Amazon returns/refunds.
 * **Key Columns**:
   * `Order ID`: Amazon order identifier.
