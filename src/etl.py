@@ -388,6 +388,7 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
         while current_model_idx < len(models_to_try) and not chunk_success:
             current_model = models_to_try[current_model_idx]
             is_429 = False
+            last_error = None
             
             for attempt in range(max_retries):
                 try:
@@ -400,7 +401,25 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
                     if resp_text.startswith("```"):
                         resp_text = re.sub(r'^```(?:json)?\s*', '', resp_text)
                         resp_text = re.sub(r'\s*```$', '', resp_text)
-                    new_mappings = json.loads(resp_text)
+                    parsed = json.loads(resp_text)
+                    new_mappings = {}
+                    if isinstance(parsed, dict):
+                        if "merchants" in parsed and isinstance(parsed["merchants"], dict):
+                            new_mappings = parsed["merchants"]
+                        elif "merchants" in parsed and isinstance(parsed["merchants"], list):
+                            for item in parsed["merchants"]:
+                                if isinstance(item, dict):
+                                    m_name = item.get("merchant") or item.get("merchant_name") or item.get("name")
+                                    if m_name:
+                                        new_mappings[m_name] = item
+                        else:
+                            new_mappings = parsed
+                    elif isinstance(parsed, list):
+                        for item in parsed:
+                            if isinstance(item, dict):
+                                m_name = item.get("merchant") or item.get("merchant_name") or item.get("name")
+                                if m_name:
+                                    new_mappings[m_name] = item
                     
                     merchant_cache.update(new_mappings)
                     try:
@@ -412,6 +431,7 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
                     chunk_success = True
                     break
                 except Exception as e:
+                    last_error = e
                     if getattr(e, "code", None) == 429 or "429" in str(e) or "ResourceExhausted" in str(e) or "Quota" in str(e):
                         is_429 = True
                         logger.warning(f"Rate limited (429) on {current_model} for chunk {i}: {e}.")
@@ -424,14 +444,12 @@ def call_gemini_categorization(unique_merchants, reference_dir, personal_items_p
                         logger.error(f"Failed calling Gemini for chunk {i} on {current_model} after {max_retries} attempts: {e}")
             
             if not chunk_success:
-                if is_429:
-                    if current_model_idx < len(models_to_try) - 1:
-                        logger.info(f"Falling back to {models_to_try[current_model_idx + 1]}...")
-                        current_model_idx += 1
-                    else:
-                        logger.error(f"Exhausted all models for chunk {i} due to rate limits.")
-                        break
+                if current_model_idx < len(models_to_try) - 1:
+                    reason = "rate limits (429)" if is_429 else f"failures/high demand on {current_model} ({last_error})"
+                    logger.warning(f"Falling back to {models_to_try[current_model_idx + 1]} for chunk {i} due to {reason}...")
+                    current_model_idx += 1
                 else:
+                    logger.error(f"Exhausted all fallback models for chunk {i}. Last error: {last_error}")
                     break
 
     result_mapping = {}

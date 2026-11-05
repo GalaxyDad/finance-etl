@@ -478,3 +478,108 @@ def test_keywords_cache_invalidation(tmp_path):
     assert invalidated is True
     assert not cache_file.exists()
 
+
+def test_call_gemini_fallback_on_503_service_unavailable(mock_data_dir, monkeypatch):
+    from unittest.mock import MagicMock
+    from src.etl import call_gemini_categorization
+    import os
+
+    monkeypatch.setattr('time.sleep', lambda s: None)
+    reference_dir = mock_data_dir['reference_dir']
+
+    mock_client = MagicMock()
+    mock_success_response = MagicMock()
+    mock_success_response.text = '{"TEST_503": {"category": "Food & Dining: Groceries", "categorization_explanation": "Grocery store", "flag": "", "suggested_filter": "No", "filter_reason": ""}}'
+
+    class UnavailableError(Exception):
+        code = 503
+
+    models_called = []
+    def side_effect(model, contents, config):
+        models_called.append(model)
+        if model == 'gemini-3.6-flash':
+            raise UnavailableError("503 UNAVAILABLE: Model experiencing high demand")
+        return mock_success_response
+
+    mock_client.models.generate_content.side_effect = side_effect
+    mock_genai = MagicMock()
+    mock_genai.Client.return_value = mock_client
+    monkeypatch.setattr('src.etl.genai', mock_genai)
+
+    cache_path = os.path.join(reference_dir, 'merchant_cache.json')
+    if os.path.exists(cache_path):
+        os.remove(cache_path)
+
+    result = call_gemini_categorization(['TEST_503'], reference_dir)
+    assert 'TEST_503' in result
+    assert result['TEST_503']['category'] == 'Food & Dining: Groceries'
+    # gemini-3.6-flash should have been tried 3 times before falling back to gemini-3.5-flash
+    assert models_called.count('gemini-3.6-flash') == 3
+    assert 'gemini-3.5-flash' in models_called
+
+
+def test_call_gemini_fallback_on_429_rate_limit(mock_data_dir, monkeypatch):
+    from unittest.mock import MagicMock
+    from src.etl import call_gemini_categorization
+    import os
+
+    monkeypatch.setattr('time.sleep', lambda s: None)
+    reference_dir = mock_data_dir['reference_dir']
+
+    mock_client = MagicMock()
+    mock_success_response = MagicMock()
+    mock_success_response.text = '{"TEST_429": {"category": "Food & Dining: Groceries", "categorization_explanation": "Grocery store", "flag": "", "suggested_filter": "No", "filter_reason": ""}}'
+
+    class QuotaError(Exception):
+        code = 429
+
+    models_called = []
+    def side_effect(model, contents, config):
+        models_called.append(model)
+        if model == 'gemini-3.6-flash':
+            raise QuotaError("429 ResourceExhausted: Quota exceeded")
+        return mock_success_response
+
+    mock_client.models.generate_content.side_effect = side_effect
+    mock_genai = MagicMock()
+    mock_genai.Client.return_value = mock_client
+    monkeypatch.setattr('src.etl.genai', mock_genai)
+
+    cache_path = os.path.join(reference_dir, 'merchant_cache.json')
+    if os.path.exists(cache_path):
+        os.remove(cache_path)
+
+    result = call_gemini_categorization(['TEST_429'], reference_dir)
+    assert 'TEST_429' in result
+    assert result['TEST_429']['category'] == 'Food & Dining: Groceries'
+    # gemini-3.6-flash should only be attempted once on 429 before immediately falling back
+    assert models_called.count('gemini-3.6-flash') == 1
+    assert 'gemini-3.5-flash' in models_called
+
+
+def test_call_gemini_defensive_json_parsing_list_format(mock_data_dir, monkeypatch):
+    from unittest.mock import MagicMock
+    from src.etl import call_gemini_categorization
+    import os
+
+    reference_dir = mock_data_dir['reference_dir']
+    mock_client = MagicMock()
+    mock_response = MagicMock()
+    # Simulate Gemini returning an array of objects instead of an object map
+    mock_response.text = '[{"merchant": "TEST_ARRAY_ITEM", "category": "Shopping: Shopping", "categorization_explanation": "Array format", "flag": "", "suggested_filter": "No", "filter_reason": ""}]'
+    mock_client.models.generate_content.return_value = mock_response
+
+    mock_genai = MagicMock()
+    mock_genai.Client.return_value = mock_client
+    monkeypatch.setattr('src.etl.genai', mock_genai)
+
+    cache_path = os.path.join(reference_dir, 'merchant_cache.json')
+    if os.path.exists(cache_path):
+        os.remove(cache_path)
+
+    result = call_gemini_categorization(['TEST_ARRAY_ITEM'], reference_dir)
+    assert 'TEST_ARRAY_ITEM' in result
+    assert result['TEST_ARRAY_ITEM']['category'] == 'Shopping: Shopping'
+
+
+

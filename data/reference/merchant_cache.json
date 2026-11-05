@@ -2238,5 +2238,180 @@
         "flag": "",
         "suggested_filter": "No",
         "filter_reason": ""
+    },
+    "ANKER USB-A TO USB-C CABLE, DURABLE PREMIUM NYLON CORD | 480 MBPS, FOR IPHONE 17 SERIES, GALAXY S10+, BEATS FIT PRO, AND MORE (5-PACK, 6 FT, NOT COMPATIBLE WITH POWER DELIVERY)": {
+        "category": "Shopping: Electronics & Software",
+        "categorization_explanation": "Electronics and charging cable purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "XP-PEN DECO 01 V3 DRAWING TABLET, 10X6.25 INCH, 16384 LEVELS PRESSURE": {
+        "category": "Shopping: Electronics & Software",
+        "categorization_explanation": "Digital art drawing tablet equipment.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Art supplies"
+    },
+    "PEPTO BISMOL EXTRA CAPLETS | 5 SYMPTOM STOMACH RELIEF | EXTRA STRENGTH | 24 CAPLETS | FOR NAUSEA, HEARTBURN, INDIGESTION, UPSET STOMACH & DIARRHEA RELIEF": {
+        "category": "Health & Fitness: Pharmacy",
+        "categorization_explanation": "Over the counter stomach relief medicine.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Health related item"
+    },
+    "KALIYADI POLARIZED SUNGLASSES MEN, LIGHTWEIGHT MENS SUNGLASSES POLARIZED UV PROTECTION DRIVING FISHING GOLF (ICE BLUE/GREEN/RED)": {
+        "category": "Shopping: Clothing",
+        "categorization_explanation": "Men's polarized sunglasses accessory.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Mens Clothing"
+    },
+    "LEVOIT SMART AIR PURIFIERS FOR BEDROOM, CORE 200S-P": {
+        "category": "Home: Home Goods",
+        "categorization_explanation": "Household air purifier appliance.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TRAVEL JOHN RESEALABLE DISPOSABLE URINAL BAGS (TJ1N) - 6 PACK": {
+        "category": "Health & Fitness: Pharmacy",
+        "categorization_explanation": "Personal health and hygiene supply.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Health related item"
+    },
+    "REFUND: LEVOIT AIR PURIFIERS LARGE ROOM BEDROOM HOME UP TO 1073 FT\u00b2, CORE 300-P": {
+        "category": "_Income: Returned Purchase",
+        "categorization_explanation": "Refund credit for returned air purifier.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MASTERING COMPOSITION TECHNIQUES & PRINCIPLES TO DRAMATICALLY IMPROVE YOUR PAINTING": {
+        "category": "Shopping: Books",
+        "categorization_explanation": "Art instruction book purchase.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Art supplies"
+    },
+    "NAPOLEON STAINLESS STEEL SMOKER BOX 67013 ADD SMOKY FLAVOR TO BBQ, EASILY TURN GAS GRILL INTO SMOKER, ADD WOOD CHIPS OR CHUNKS TO SMOKE FOOD ON BARBECUE": {
+        "category": "Home: Home Goods",
+        "categorization_explanation": "Barbecue grill accessory for smoking food.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SPIGEN ULTRA HYBRID MAG FIT CASE FOR IPHONE 17 CASE, CAMERA PROTECTION, COMPATIBLE WITH MAGSAFE, DROP PROTECTION, ANTI-YELLOWING, TRANSLUCENT PHONE CASE FOR IPHONE 17 6.3 INCH - CLEAR WHITE": {
+        "category": "Shopping: Electronics & Software",
+        "categorization_explanation": "Cell phone protective case accessory.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "GLAD PRESS'N SEAL WRAP, 70 SQUARE FOOT ROLL": {
+        "category": "Home: Home Supplies",
+        "categorization_explanation": "Kitchen wrap household supply.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "COSTCO GAS W1128 OSHAWA, ON": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "categorization_explanation": "Fuel purchase at gas station.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ANKER USB-C CHARGER (NANO 65W II), 3-PORT FOLDABLE WALL ADAPTER | FAST CHARGING FOR IPHONE 17 / 16 SERIES, MACBOOK PRO / AIR, IPAD PRO, GALAXY S20, DELL XPS 13, NOTE20, STEAM DECK, AND MORE": {
+        "category": "Shopping: Electronics & Software",
+        "categorization_explanation": "USB charging wall adapter.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "BROKIG MENS ZIP ANKLE TRACK PANTS JOGGING WORKOUT SWEATPANTS(2 PACK,XXL)": {
+        "category": "Shopping: Clothing",
+        "categorization_explanation": "Men's workout pants apparel.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Mens Clothing"
+    },
+    "LEVOIT AIR PURIFIERS FOR LARGE ROOM HOME WITH WASHABLE FILTER, VITAL100S-P": {
+        "category": "Home: Home Goods",
+        "categorization_explanation": "Home air purification appliance.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "LEVOIT AIR PURIFIERS LARGE ROOM BEDROOM HOME UP TO 1073 FT\u00b2, CORE 300-P": {
+        "category": "Home: Home Goods",
+        "categorization_explanation": "Air purifier for bedroom use.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "COSTCO WHOLESALE W1128 OSHAWA, ON": {
+        "category": "Food & Dining: Groceries",
+        "categorization_explanation": "Wholesale store grocery purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "APPLE.COM/CA TORONTO, ON": {
+        "category": "Shopping: Electronics & Software",
+        "categorization_explanation": "Purchase from Apple store.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "9PCS COUNTERSINK DRILL BIT SET ADJUSTABLE DEPTH STOP COLLAR FOR WOODWORKING": {
+        "category": "Home: Home Improvement",
+        "categorization_explanation": "Drill bit set for woodworking.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Likely Personal Item"
+    },
+    "DIONO CONNECT3 R 2-IN-1 HIGH BACK BOOSTER, SLIM FIT 3-ACROSS IN MANY MID-SIZED SEDANS AND SUVS, FOR CHILDREN FROM 40-120 LBS., LIGHTWEIGHT WITH CUPHOLDER, BLACK STORM": {
+        "category": "Kids: Baby Supplies",
+        "categorization_explanation": "Child car seat booster.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "QANCEKOO 4 PCS STAINLESS STEEL SPRING LOADED TOGGLE LATCHES WITH SCREWS, SMALL CATCH CLAMP CLIP SILVER TENSION CLASP FOR TOOLBOX CASE DRAWER CABINET CLOSURE LATCH LOCK (73 MM)": {
+        "category": "Home: Home Improvement",
+        "categorization_explanation": "Hardware latches for home repair.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ANKER USB-C TO USB-C CABLE, 100W TYPE-C FAST CHARGING | 480 MBPS, DURABLE DOUBLE-BRAIDED CORD, FOR IPHONE 17 / 16 SERIES, MACBOOK PRO 2020, PIXEL, AND MORE (10 FT, 2-PACK, BLACK)": {
+        "category": "Shopping: Electronics & Software",
+        "categorization_explanation": "USB-C charging cables.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCCORMICK GOURMET, PREMIUM QUALITY, DRY SAUCE MIX, ALFREDO, 30G, CASE PACK 12 COUNT": {
+        "category": "Food & Dining: Groceries",
+        "categorization_explanation": "Packaged food sauce mix.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "LEVOIT SMART AIR PURIFIERS WITH ALEXA FOR LARGE ROOM, CORE 300S-P": {
+        "category": "Home: Home Goods",
+        "categorization_explanation": "Smart home air purifier.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "REFUND: LEVOIT SMART AIR PURIFIERS WITH ALEXA FOR LARGE ROOM, CORE 300S-P": {
+        "category": "_Income: Returned Purchase",
+        "categorization_explanation": "Refund credit for returned air purifier.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
     }
 }
