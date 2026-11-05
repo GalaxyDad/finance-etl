@@ -20,7 +20,7 @@ This project is a local Python ETL (Extract, Transform, Load) pipeline designed 
 - [Testing](#testing)
 
 ## What It Does
-1. **Extracts**: Reads raw bank transaction CSVs (Rogers CC, Simplii, and CIBC) from `data/raw/` and detailed Amazon exports (`Order History.csv`, `Refund Details.csv`) from `data/reference/`.
+1. **Extracts**: Reads raw bank transaction CSVs (Rogers CC, Simplii, CIBC, and Wealthsimple) from `data/raw/` and detailed Amazon exports (`Order History.csv`, `Refund Details.csv`) from `data/reference/`.
 2. **Transforms**: 
    - Normalizes dates to the strict `YYYY-MM-DD` format.
    - Standardizes amounts (Expenses as positive floats, Income as negative floats in final output file).
@@ -79,8 +79,8 @@ GEMINI_API_KEY=your_actual_key_here
 ```
 
 ### 3. Provide Data
-- Drop your raw bank statement CSVs into `data/raw/`. Supported banks are: Rogers, Simplii, CIBC, and Wealthsimple (`Wallet*.csv` and `Wealthsimple-credit-card*.csv`).
-  - *Note for Wealthsimple*: If you need to know where to get the input CSV files for Wealthsimple, use the Wealthsimple chat agent to ask *"How to bulk download your monthly statements"*.
+- Drop your raw bank statement CSVs into `data/raw/`. Supported banks are: Rogers, Simplii, CIBC, and Wealthsimple (`chequing-activities*.csv` and `credit-card-activities*.csv`).
+  - *Note for Wealthsimple* (**Custom activity statement CSV**): Log in to your [Wealthsimple](https://my.wealthsimple.com/app/login) profile, then go to **Profile > Documents > Generate document > Custom activity statement**. Choose the time period and account, then select **Download CSV**. [Resource](https://help.wealthsimple.com/hc/en-ca/articles/35654428540571-Request-a-custom-statement).
 - Ensure reference CSV files are placed in `data/reference/`:
   - `Jenn Mike Finance Tracker - Categories.csv` (Allowed category taxonomy)
   - `Jenn Mike Finance Tracker - Mike Transaction Register.csv` (Historical shared expense register)

@@ -141,31 +141,7 @@ class CIBCParser(BankParser):
         return df.select(["Date", "Transaction Details", "Amount", "Account", "Reference Number"])
 
 class WSActivitiesParser(BankParser):
-    file_pattern = 'Wallet*.csv'
-    
-    def parse(self, filepath: str) -> pl.DataFrame:
-        df = pl.read_csv(filepath, null_values=[""], infer_schema_length=0)
-        df = df.rename({col: col.strip() for col in df.columns})
-        df = df.filter(
-            ~pl.col('date').str.starts_with("As of") &
-            pl.col('date').str.contains(r"^\d{4}-\d{2}-\d{2}|\d{1,2}/\d{1,2}/\d{4}")
-        )
-        df = df.with_columns(
-            pl.coalesce([
-                pl.col('date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
-                pl.col('date').str.strptime(pl.Date, "%m/%d/%Y", strict=False),
-                pl.col('date').str.strptime(pl.Date, "%Y/%m/%d", strict=False)
-            ]).alias('date'),
-            pl.lit('wealthsimple_activities').alias('Account'),
-            pl.col('amount').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).alias('Amount'),
-            pl.lit(None, dtype=pl.Utf8).alias('Reference Number')
-        )
-        df = df.drop_nulls(subset=['date'])
-        df = df.rename({"description": "Transaction Details", "date": "Date"})
-        return df.select(["Date", "Transaction Details", "Amount", "Account", "Reference Number"])
-
-class WSCreditParser(BankParser):
-    file_pattern = 'Wealthsimple-credit-card*.csv'
+    file_pattern = 'chequing-activities*.csv'
     
     def parse(self, filepath: str) -> pl.DataFrame:
         df = pl.read_csv(filepath, null_values=[""], infer_schema_length=0)
@@ -179,14 +155,42 @@ class WSCreditParser(BankParser):
                 pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
                 pl.col('transaction_date').str.strptime(pl.Date, "%m/%d/%Y", strict=False),
                 pl.col('transaction_date').str.strptime(pl.Date, "%Y/%m/%d", strict=False)
-            ]).alias('transaction_date'),
-            pl.lit('wealthsimple_credit').alias('Account'),
-            pl.when(pl.col('details').is_null() | (pl.col('details') == "")).then(pl.col('type')).otherwise(pl.col('details')).alias('Transaction Details'),
+            ]).alias('Date'),
+            pl.lit('wealthsimple_activities').alias('Account'),
+            pl.when(pl.col('payee').is_not_null() & (pl.col('payee') != ""))
+            .then(pl.col('payee'))
+            .when(pl.col('transaction_sub_type').is_not_null() & (pl.col('transaction_sub_type') != ""))
+            .then(pl.col('transaction_type') + pl.lit(" - ") + pl.col('transaction_sub_type'))
+            .otherwise(pl.col('transaction_type'))
+            .alias('Transaction Details'),
             pl.col('amount').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).alias('Amount'),
             pl.lit(None, dtype=pl.Utf8).alias('Reference Number')
         )
-        df = df.drop_nulls(subset=['transaction_date'])
-        df = df.rename({"transaction_date": "Date"})
+        df = df.drop_nulls(subset=['Date'])
+        return df.select(["Date", "Transaction Details", "Amount", "Account", "Reference Number"])
+
+class WSCreditParser(BankParser):
+    file_pattern = 'credit-card-activities*.csv'
+    
+    def parse(self, filepath: str) -> pl.DataFrame:
+        df = pl.read_csv(filepath, null_values=[""], infer_schema_length=0)
+        df = df.rename({col: col.strip() for col in df.columns})
+        df = df.filter(
+            ~pl.col('transaction_date').str.starts_with("As of") &
+            pl.col('transaction_date').str.contains(r"^\d{4}-\d{2}-\d{2}|\d{1,2}/\d{1,2}/\d{4}")
+        )
+        df = df.with_columns(
+            pl.coalesce([
+                pl.col('transaction_date').str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+                pl.col('transaction_date').str.strptime(pl.Date, "%m/%d/%Y", strict=False),
+                pl.col('transaction_date').str.strptime(pl.Date, "%Y/%m/%d", strict=False)
+            ]).alias('Date'),
+            pl.lit('wealthsimple_credit').alias('Account'),
+            pl.when(pl.col('merchant').is_null() | (pl.col('merchant') == "")).then(pl.col('transaction_type')).otherwise(pl.col('merchant')).alias('Transaction Details'),
+            pl.col('amount').str.replace_all(r'[\$,]', '').cast(pl.Float64, strict=False).alias('Amount'),
+            pl.lit(None, dtype=pl.Utf8).alias('Reference Number')
+        )
+        df = df.drop_nulls(subset=['Date'])
         return df.select(["Date", "Transaction Details", "Amount", "Account", "Reference Number"])
 
 BANK_PARSERS = [

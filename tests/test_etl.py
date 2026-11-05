@@ -186,6 +186,52 @@ def test_bank_parsers_date_format_resilience(tmp_path):
     assert cibc_df["Date"][0] == datetime.date(2023, 10, 7)
 
 
+def test_wealthsimple_custom_activity_parsers(tmp_path):
+    import datetime
+    from src.etl import WSActivitiesParser, WSCreditParser
+
+    chequing_file = tmp_path / "chequing-activities-2026-11-05.csv"
+    chequing_file.write_text(
+        "transaction_date,transaction_time,account_number,account_type,transaction_type,transaction_sub_type,status,payee,payee_email,amount,currency,notes\n"
+        "2026-07-01,00:00:00,44916765,Chequing,Interest,,Completed,,,19.53,CAD,\n"
+        "2026-07-02,22:46:33,44916765,Chequing,Withdrawal,Aft,Completed,RMG MTG,,-1185.70,CAD,\n"
+        "2026-07-13,21:29:24,44916765,Chequing,Internal Transfer,Source,Completed,,,-725.00,CAD,\n"
+    )
+    ws_act_df = WSActivitiesParser().parse(str(chequing_file))
+    assert len(ws_act_df) == 3
+    assert ws_act_df["Date"].to_list() == [
+        datetime.date(2026, 7, 1),
+        datetime.date(2026, 7, 2),
+        datetime.date(2026, 7, 13),
+    ]
+    assert ws_act_df["Transaction Details"].to_list() == [
+        "Interest",
+        "RMG MTG",
+        "Internal Transfer - Source",
+    ]
+    assert ws_act_df["Amount"].to_list() == [19.53, -1185.70, -725.00]
+    assert ws_act_df["Account"].to_list() == ["wealthsimple_activities"] * 3
+
+    cc_file = tmp_path / "credit-card-activities-2026-11-05.csv"
+    cc_file.write_text(
+        "transaction_date,transaction_type,status,merchant,amount,currency,notes,category\n"
+        "2026-10-31,Purchase,Completed,Amazon.Ca*X13Yo4Do3,-12.48,CAD,,Other shopping\n"
+        "2026-10-27,Payment,Completed,,851.70,CAD,,Uncategorized\n"
+    )
+    ws_cc_df = WSCreditParser().parse(str(cc_file))
+    assert len(ws_cc_df) == 2
+    assert ws_cc_df["Date"].to_list() == [
+        datetime.date(2026, 10, 31),
+        datetime.date(2026, 10, 27),
+    ]
+    assert ws_cc_df["Transaction Details"].to_list() == [
+        "Amazon.Ca*X13Yo4Do3",
+        "Payment",
+    ]
+    assert ws_cc_df["Amount"].to_list() == [-12.48, 851.70]
+    assert ws_cc_df["Account"].to_list() == ["wealthsimple_credit"] * 2
+
+
 def test_format_output_unmapped_defaults():
     import datetime
     df = pl.DataFrame({

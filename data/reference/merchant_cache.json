@@ -1818,5 +1818,425 @@
         "flag": "",
         "suggested_filter": "Yes",
         "filter_reason": "Likely Personal Item / Art Supplies"
+    },
+    "ISABELLA STEWART GARDN": {
+        "category": "Entertainment: Arts",
+        "categorization_explanation": "Isabella Stewart Gardner is an art museum.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TARGET T-2295": {
+        "category": "Shopping: Shopping",
+        "categorization_explanation": "Target is a general retail department store.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PETRO-CANADA 10486": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "categorization_explanation": "Petro-Canada is a gas station and fuel retailer.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "JENN GORDON": {
+        "category": "Misc Expenses: Misc Expenses",
+        "categorization_explanation": "Personal payee name without clear merchant context.",
+        "flag": "Unclear merchant category",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SHOPPERS DRUG MART #06": {
+        "category": "Shopping: Shopping",
+        "categorization_explanation": "Matches historical mapping for Shoppers Drug Mart as shopping.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "EARTH CARE CLEANERS": {
+        "category": "Personal Care: Laundry",
+        "categorization_explanation": "Cleaners provide dry cleaning and laundry services.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "EBAY O*13-15015-14255": {
+        "category": "Shopping: Shopping",
+        "categorization_explanation": "eBay is an online retail marketplace.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALDS F14595": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "McDonald's mapped to Fast Food per user hints.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMAZON.CA": {
+        "category": "Shopping: Shopping",
+        "categorization_explanation": "Amazon is an online shopping platform.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PAYMENT": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Generic payment transaction.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "EXXON NYST": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "categorization_explanation": "Gas station purchase for fuel.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CHIPOTLE 3332": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "Fast casual Mexican restaurant.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "REIMBURSEMENT - CASHBACK": {
+        "category": "_Income: Reimbursement",
+        "categorization_explanation": "Cashback reimbursement deposit.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Reimbursement"
+    },
+    "INTERNAL TRANSFER - SOURCE": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Internal bank account transfer.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "SPEND - PREPAID": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Prepaid card transaction or load.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "WOODLAND ESTATE RESORT": {
+        "category": "Travel: Hotel",
+        "categorization_explanation": "Resort and lodging accommodation.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALD'S F30189": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "Fast food chain per user rule.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "AMZN MKTP CA": {
+        "category": "Shopping: Shopping",
+        "categorization_explanation": "Amazon marketplace online purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "FIVE GUYS MA 0461 QSR": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "Fast food burger restaurant.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MBTA-550055187144": {
+        "category": "Auto & Transport: Public Transportation",
+        "categorization_explanation": "Public transit authority payment.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "GOOGLE": {
+        "category": "Entertainment: Entertainment",
+        "categorization_explanation": "Digital services/subscriptions from Google.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "GYUMONO JAPANESE BBQ & SU": {
+        "category": "Food & Dining: Restaurants",
+        "categorization_explanation": "Japanese barbecue restaurant dining.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "CREDIT CARD PAYMENT": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Credit card bill payment.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "ENBRIDGE GAS": {
+        "category": "Bills & Utilities: Utilities",
+        "categorization_explanation": "Natural gas utility provider.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ESSO CIRCLE K": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "categorization_explanation": "Gas station and convenience store.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "APIC/TCOL TAX CERT": {
+        "category": "Taxes: Taxes",
+        "categorization_explanation": "Tax certificate processing fee.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALD'S F15140": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "Fast food chain per user rule.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "FLYING SQUIRREL WHITBY": {
+        "category": "Entertainment: Amusement",
+        "categorization_explanation": "Indoor trampoline park and entertainment venue.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "OLIVE GARDEN ZK 0021659": {
+        "category": "Food & Dining: Restaurants",
+        "categorization_explanation": "Sit-down restaurant dining.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MANULIFE": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Financial services and insurance company.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MICHAELS CANADA": {
+        "category": "Shopping: Hobbies",
+        "categorization_explanation": "Arts and crafts supply store.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Art supplies"
+    },
+    "ROSEMARY AND CO": {
+        "category": "Shopping: Hobbies",
+        "categorization_explanation": "Artist brushes and art supplies seller.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Art supplies"
+    },
+    "BYRNE DAIRY 43": {
+        "category": "Food & Dining: Groceries",
+        "categorization_explanation": "Dairy and convenience grocery store.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TOM FEDDEMA": {
+        "category": "Home: Home Services",
+        "categorization_explanation": "Contractor or service professional payment.",
+        "flag": "ambiguous personal transaction",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "TARGET T-2258": {
+        "category": "Shopping: Shopping",
+        "categorization_explanation": "Retail department store purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "EXXON VERC ENTERPRISES": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "categorization_explanation": "Exxon gas station fuel purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "FOOD* JUICY BIRDS - BO": {
+        "category": "Food & Dining: Restaurants",
+        "categorization_explanation": "Restaurant food order.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "DEPOSIT - CHEQUE": {
+        "category": "_Income: Paycheck",
+        "categorization_explanation": "Cheque deposit transaction.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "COMPUGEN INC.": {
+        "category": "_Income: Paycheck",
+        "categorization_explanation": "Payroll deposit from employer.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "WAL-MART SUPERCENTER": {
+        "category": "Shopping: Shopping",
+        "categorization_explanation": "General retail supercenter store.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MTO TSD SO BOWMANVILLE": {
+        "category": "Auto & Transport: Registration",
+        "categorization_explanation": "Ministry of Transportation vehicle registration.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "LIFELABS #DV": {
+        "category": "Health & Fitness: Doctor",
+        "categorization_explanation": "Medical laboratory diagnostics center.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Health related"
+    },
+    "RMG MTG": {
+        "category": "Home: Mortgage & Rent",
+        "categorization_explanation": "RMG Mortgages payment.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "ROGERS MASTERCARD": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Credit card account payment.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "CANADIAN TIRE GAS BAR BOW": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "categorization_explanation": "Canadian Tire gas station fuel.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "WAL-MART": {
+        "category": "Shopping: Shopping",
+        "categorization_explanation": "Retail store general purchase.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PETRO-CANADA 35073": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "categorization_explanation": "Petro-Canada gas station fuel.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "JENNIFER GORDON": {
+        "category": "Kids: Babysitter & Daycare",
+        "categorization_explanation": "Individual payment for childcare service.",
+        "flag": "ambiguous personal name",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "GULF OIL 92038867": {
+        "category": "Auto & Transport: Gas & Fuel",
+        "categorization_explanation": "Gulf Oil gas station fuel.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALDS 7403": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "Fast food chain per user rule.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MCDONALD'S F737": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "Fast food chain per user rule.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "PROMOTION - INCENTIVE BONUS": {
+        "category": "_Income: Bonus",
+        "categorization_explanation": "Incentive bonus deposit income.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Internal Transfer"
+    },
+    "MCDONALDS 4982": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "Fast food chain per user rule.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "MFA BOSTON": {
+        "category": "Entertainment: Arts",
+        "categorization_explanation": "Museum of Fine Arts entry ticket.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "COSTCO CIBC MASTERCARD": {
+        "category": "Financial: Financial",
+        "categorization_explanation": "Credit card account payment.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "Credit Card Payment"
+    },
+    "CHIPOTLE 2667": {
+        "category": "Food & Dining: Fast Food",
+        "categorization_explanation": "Fast casual Mexican restaurant.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "REIMBURSEMENT - ATM": {
+        "category": "Cash & ATM: Cash & ATM",
+        "categorization_explanation": "ATM fee reimbursement or withdrawal.",
+        "flag": "",
+        "suggested_filter": "Yes",
+        "filter_reason": "ATM withdrawal"
+    },
+    "SQ /AUTOSTAR TX": {
+        "category": "Auto & Transport: Service & Parts",
+        "categorization_explanation": "Auto service and parts vendor.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "OWMANVILLE PROFESSIONAL B": {
+        "category": "Auto & Transport: Parking",
+        "categorization_explanation": "Parking at professional building per context.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
+    },
+    "SQ ECOLOGY CENT": {
+        "category": "Gifts & Donations: Charity",
+        "categorization_explanation": "Ecology Center organization purchase/donation.",
+        "flag": "",
+        "suggested_filter": "No",
+        "filter_reason": ""
     }
 }

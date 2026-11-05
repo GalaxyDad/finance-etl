@@ -38,19 +38,19 @@ def mock_data_dir():
             writer.writerow(['2023-10-21', 'COSTCO WHOLESALE', '113.60', '', '5223********3915'])
 
         # Mock WS Activities
-        ws_act_path = os.path.join(raw_dir, 'Wallet-2023-10-01-monthly-statement-transactions-WK75MLL.csv')
+        ws_act_path = os.path.join(raw_dir, 'chequing-activities-2023-10-01.csv')
         with open(ws_act_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['date', 'transaction', 'description', 'amount', 'balance', 'currency'])
-            writer.writerow(['2023-10-25', 'Deposit', 'Deposit', '5000', '5000', 'CAD'])
+            writer.writerow(['transaction_date', 'transaction_time', 'account_number', 'account_type', 'transaction_type', 'transaction_sub_type', 'status', 'payee', 'payee_email', 'amount', 'currency', 'notes'])
+            writer.writerow(['2023-10-25', '09:00:00', '44916765', 'Chequing', 'Deposit', '', 'Completed', '', '', '5000.00', 'CAD', ''])
 
         # Mock WS Credit Card
-        ws_cc_path = os.path.join(raw_dir, 'Wealthsimple-credit-card-2023-10-01-credit-card-statement-transactions.csv')
+        ws_cc_path = os.path.join(raw_dir, 'credit-card-activities-2023-10-01.csv')
         with open(ws_cc_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['transaction_date', 'post_date', 'type', 'details', 'amount', 'currency'])
-            writer.writerow(['2023-10-26', '2023-10-26', 'Purchase', 'Mcdonalds 23192', '-12.86', 'CAD'])
-            writer.writerow(['2023-10-27', '2023-10-27', 'Payment', 'Payment', '200.00', 'CAD'])
+            writer.writerow(['transaction_date', 'transaction_type', 'status', 'merchant', 'amount', 'currency', 'notes', 'category'])
+            writer.writerow(['2023-10-26', 'Purchase', 'Completed', 'Mcdonalds 23192', '-12.86', 'CAD', '', 'Restaurants'])
+            writer.writerow(['2023-10-27', 'Payment', 'Completed', '', '200.00', 'CAD', '', 'Uncategorized'])
 
         # Mock Categories
         categories_path = os.path.join(reference_dir, 'Jenn Mike Finance Tracker - Categories.csv')

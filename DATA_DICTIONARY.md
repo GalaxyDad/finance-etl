@@ -34,19 +34,22 @@ These are the raw bank statements parsed by the ETL.
   * `Column 4` -> `Credit`: Amount deposited.
   * `Column 5` -> `Card`: Masked card number.
 
-### 1.4 Wealthsimple Activities (`Wallet*.csv`)
-* **Format**: CSV
+### 1.4 Wealthsimple Activities (`chequing-activities*.csv`)
+* **Format**: CSV (Custom activity statement export from Wealthsimple)
 * **Key Columns**:
-  * `date`: Date of transaction.
-  * `description`: Description of transaction.
-  * `amount`: Transaction amount.
+  * `transaction_date`: Date of transaction (YYYY-MM-DD, MM/DD/YYYY, or YYYY/MM/DD).
+  * `transaction_type`: Activity type (e.g., `Deposit`, `Withdrawal`, `Interest`, `Internal Transfer`, `Credit Card Payment`, `Spend`, `Reimbursement`, `Promotion`).
+  * `transaction_sub_type`: Activity sub-type (e.g., `Aft`, `Bill Pay`, `E Transfer`, `Source`, `Prepaid`, `Atm`, `Cashback`, `Cheque`, `Incentive Bonus`).
+  * `payee`: Counterparty / merchant name (used as `Transaction Details` when present; otherwise falls back to `transaction_type - transaction_sub_type` or `transaction_type`).
+  * `amount`: Transaction amount (negative for withdrawals/spend, positive for deposits/interest/reimbursements).
 
-### 1.5 Wealthsimple Credit (`Wealthsimple-credit-card*.csv`)
-* **Format**: CSV
+### 1.5 Wealthsimple Credit (`credit-card-activities*.csv`)
+* **Format**: CSV (Custom activity statement export from Wealthsimple)
 * **Key Columns**:
-  * `transaction_date`: Date of transaction.
-  * `details` or `type`: Description of transaction.
-  * `amount`: Transaction amount.
+  * `transaction_date`: Date of transaction (YYYY-MM-DD, MM/DD/YYYY, or YYYY/MM/DD).
+  * `transaction_type`: Type of transaction (e.g., `Purchase`, `Payment`, `Refund`).
+  * `merchant`: Merchant name (used as `Transaction Details` when present; otherwise falls back to `transaction_type`).
+  * `amount`: Transaction amount (negative for purchases, positive for payments/refunds).
 
 ## 2. Reference Data (`data/reference/`)
 
